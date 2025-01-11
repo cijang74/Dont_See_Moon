@@ -14,6 +14,7 @@ Material:
   m_ValidKeywords: []
   m_InvalidKeywords:
   - _MATERIAL_AFFECTS_ALBEDO
+  - _MATERIAL_AFFECTS_NORMAL
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 1
   m_DoubleSidedGI: 0
@@ -52,10 +53,10 @@ Material:
     m_Floats:
     - _AffectAlbedo: 1
     - _AffectMetal: 0
-    - _AffectNormal: 0
+    - _AffectNormal: 1
     - _AffectSmoothness: 0
     - _DecalColorMask0: 15
-    - _DecalColorMask1: 0
+    - _DecalColorMask1: 15
     - _DecalColorMask2: 0
     - _DecalColorMask3: 0
     - _DecalMeshBiasType: 0
@@ -89,7 +90,7 @@ MonoBehaviour:
   hdPluginSubTargetMaterialVersions:
     m_Keys: []
     m_Values: 
---- !u!114 &4625110242663691409
+--- !u!114 &3560390798289388868
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
