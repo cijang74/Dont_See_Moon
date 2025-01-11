@@ -66,7 +66,7 @@ ModelImporter:
     keepQuads: 0
     weldVertices: 0
     preserveHierarchy: 0
-    indexFormat: 2
+    indexFormat : 2
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
@@ -100,11 +100,4 @@ ModelImporter:
   additionalBone: 0
   userData: 
   assetBundleName: 
-  assetBundleVariant: 
-AssetOrigin:
-  serializedVersion: 1
-  productId: 263560
-  packageName: Will's Room Environment, Dormitory Room Environment
-  packageVersion: 1.0
-  assetPath: Assets/LeartesStudios/Wills Room/Art/Meshes/SM_LightSwitch.fbx
-  uploadId: 608612
+  assetBundleVariant:
