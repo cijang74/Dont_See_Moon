@@ -1,11 +1,11 @@
 using UnityEngine;
 
-public class TestScirpt : MonoBehaviour
+public class CurtainEvent : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        Debug.Log("test");
+        
     }
 
     // Update is called once per frame
