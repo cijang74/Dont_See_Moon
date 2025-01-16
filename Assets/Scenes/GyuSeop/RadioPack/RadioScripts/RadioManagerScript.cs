@@ -24,6 +24,7 @@ public class RadioManagerScript : MonoBehaviour
         public float targetFrequency; // 목표 주파수
         public float frequencyRange;  // 주파수 범위 (±값)
         public AudioSource audioSource; // 재생할 사운드
+        public int playedCount; //해당 오디오가 송출된 횟수
     }
 
     public FrequencySound[] frequencySounds; // 목표 주파수와 사운드 배열

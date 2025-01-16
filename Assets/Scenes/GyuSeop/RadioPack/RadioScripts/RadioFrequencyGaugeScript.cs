@@ -16,7 +16,7 @@ public class RadioFrequencyGaugeScript : MonoBehaviour
     {
         CalculateNeedleBounds();
         minX = -0.5f;
-        maxX = 0.5f;
+        maxX = 0.5f; //CalculateNeedleBounds() 개같이 안돼서 그냥 수치 꼬라박음, 나중에 게이지 크기 바뀌면 바꿔야 할수도, 근데 느낌상 안바꿔도 될듯
         RadioManagerScript.Instance.radioFrequency=RadioManagerScript.Instance.minFrequency;
         frequencyDisplay.text = $"{RadioManagerScript.Instance.radioFrequency:F2} MHz"; //주파수 표시창 초기화화
         UpdateNeedlePosition(); // 초기 바늘 위치 설정

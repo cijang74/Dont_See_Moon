@@ -1,10 +1,12 @@
 using UnityEngine;
+using TMPro;
 
 public class RadioSwitchScript : MonoBehaviour
 {
+    public TMP_Text frequencyDisplayColor; // 주파수 텍스트
     void Start()
     {
-
+        frequencyDisplayColor.color=new Color32(60,60,60,255);
     }
 
     void Update()
@@ -24,11 +26,15 @@ public class RadioSwitchScript : MonoBehaviour
             {
                 tempFrequencySound.audioSource.volume = 0;
             }
+
+            frequencyDisplayColor.color=new Color32(50,50,50,255);
         }
         else //전원 off -> on
         {
             RadioManagerScript.Instance.radioNoise.Play();
             RadioManagerScript.Instance.isactivated=true;
+
+            frequencyDisplayColor.color=new Color32(255,255,255,255);
         }
     }
 
@@ -53,6 +59,6 @@ public class RadioSwitchScript : MonoBehaviour
     private void OnMouseExit()
     {
         // 마우스가 버튼에서 떠날 때 색상 복구
-        //GetComponent<SpriteRenderer>().color = Color.white;
+        //GetComponent<SpriteRenderer>().color = Color.white; frequencyDisplay
     }
 }

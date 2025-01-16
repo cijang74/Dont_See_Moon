@@ -1,6 +1,8 @@
 using UnityEngine;
 using TMPro;
 
+//#####3D로 갈아타서 이제 이 스크립트 이제 안씀 ㅅㄱ####
+
 public class DragToRotate : MonoBehaviour
 {
     private Vector2 startMousePosition;

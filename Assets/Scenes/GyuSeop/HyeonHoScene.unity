@@ -3504,6 +3504,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a71b0f38bcfc8374285fa614684a34e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  frequencyDisplayColor: {fileID: 7961861015302128787}
 --- !u!4 &5185369941570316640
 Transform:
   m_ObjectHideFlags: 0
@@ -3633,7 +3634,7 @@ GameObject:
   - component: {fileID: 8032807311044624328}
   - component: {fileID: 8822850331930587666}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: Cube Radio Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
