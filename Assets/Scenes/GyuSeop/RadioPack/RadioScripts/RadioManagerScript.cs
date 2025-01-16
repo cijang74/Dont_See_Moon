@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class RadioManagerScript : MonoBehaviour
@@ -28,7 +29,9 @@ public class RadioManagerScript : MonoBehaviour
     public FrequencySound[] frequencySounds; // 목표 주파수와 사운드 배열
     public AudioSource radioNoise; //기본 라디오 노이즈
 
-    FrequencySound[] frequencySoundsQueue; //실제 재생하는 라디오 사운드
+    public List<FrequencySound> playFrequencySoundsList; //실제 재생하는 라디오 사운드 리스트, 라디오 방송 추가, 삭제를 위해 리스트로 관리
+
+    public int tempDayCount=0; //라디오 방송 관리 위한 임시 게임 진행 일자 변수
     
     void Awake() 
     {

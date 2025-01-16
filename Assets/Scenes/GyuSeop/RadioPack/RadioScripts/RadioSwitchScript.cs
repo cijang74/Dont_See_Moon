@@ -20,7 +20,7 @@ public class RadioSwitchScript : MonoBehaviour
         {
             RadioManagerScript.Instance.radioNoise.Pause();
             RadioManagerScript.Instance.isactivated=false;
-            foreach (var tempFrequencySound in RadioManagerScript.Instance.frequencySounds) //라디오가 꺼져도 사운드는 계속 흐르는 경우
+            foreach (var tempFrequencySound in RadioManagerScript.Instance.playFrequencySoundsList) //라디오가 꺼져도 사운드는 계속 흐르는 경우
             {
                 tempFrequencySound.audioSource.volume = 0;
             }
