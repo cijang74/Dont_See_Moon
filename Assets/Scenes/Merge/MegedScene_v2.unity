@@ -238,8 +238,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   outlineMode: 0
-  outlineColor: {r: 1, g: 0.53792745, b: 0, a: 0}
-  outlineWidth: 10
+  outlineColor: {r: 1, g: 1, b: 1, a: 1}
+  outlineWidth: 2
   precomputeOutline: 0
   bakeKeys: []
   bakeValues: []
@@ -635,6 +635,39 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1030977256, guid: abc00000000017114112050480585892, type: 3}
   m_PrefabInstance: {fileID: 309832382}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &316438466
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 316438467}
+  m_Layer: 0
+  m_Name: Ceiliing_Lamp
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &316438467
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 316438466}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 13.46, y: 10.4, z: 14.59}
+  m_LocalScale: {x: 4, y: 4, z: 4}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 611948183}
+  - {fileID: 700707819}
+  m_Father: {fileID: 642679761}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &337260469
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -873,7 +906,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   outlineMode: 0
   outlineColor: {r: 1, g: 1, b: 1, a: 1}
-  outlineWidth: 10
+  outlineWidth: 2
   precomputeOutline: 0
   bakeKeys: []
   bakeValues: []
@@ -1193,7 +1226,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   outlineMode: 0
   outlineColor: {r: 1, g: 1, b: 1, a: 1}
-  outlineWidth: 10
+  outlineWidth: 2
   precomputeOutline: 0
   bakeKeys: []
   bakeValues: []
@@ -1219,6 +1252,11 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: ba1a162cc5f0e4e04b6003af0c5ffd63, type: 3}
+--- !u!4 &611948183 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1030975039, guid: abc00000000016058799795545596203, type: 3}
+  m_PrefabInstance: {fileID: 2116950503}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &642679760
 GameObject:
   m_ObjectHideFlags: 0
@@ -1256,6 +1294,7 @@ Transform:
   - {fileID: 1889721525}
   - {fileID: 1852181393}
   - {fileID: 1645648346}
+  - {fileID: 316438467}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &648638358
@@ -1367,11 +1406,11 @@ Transform:
   m_GameObject: {fileID: 700707818}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 13.46, y: 9.615, z: 14.59}
-  m_LocalScale: {x: 4, y: 4, z: 4}
+  m_LocalPosition: {x: 0, y: -0.19625, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 316438467}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &700707820
 MonoBehaviour:
@@ -1929,7 +1968,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   outlineMode: 0
   outlineColor: {r: 1, g: 1, b: 1, a: 1}
-  outlineWidth: 10
+  outlineWidth: 2
   precomputeOutline: 0
   bakeKeys: []
   bakeValues: []
@@ -3796,7 +3835,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   outlineMode: 0
   outlineColor: {r: 1, g: 1, b: 1, a: 1}
-  outlineWidth: 10
+  outlineWidth: 2
   precomputeOutline: 0
   bakeKeys: []
   bakeValues: []
@@ -3918,7 +3957,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 316438467}
     m_Modifications:
     - target: {fileID: 1030975038, guid: abc00000000016058799795545596203, type: 3}
       propertyPath: m_Name
@@ -3930,27 +3969,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1030975039, guid: abc00000000016058799795545596203, type: 3}
       propertyPath: m_LocalScale.x
-      value: 4
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1030975039, guid: abc00000000016058799795545596203, type: 3}
       propertyPath: m_LocalScale.y
-      value: 4
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1030975039, guid: abc00000000016058799795545596203, type: 3}
       propertyPath: m_LocalScale.z
-      value: 4
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1030975039, guid: abc00000000016058799795545596203, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 13.46
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1030975039, guid: abc00000000016058799795545596203, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 10.4
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1030975039, guid: abc00000000016058799795545596203, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 14.59
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1030975039, guid: abc00000000016058799795545596203, type: 3}
       propertyPath: m_LocalRotation.w
@@ -3958,15 +3997,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1030975039, guid: abc00000000016058799795545596203, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 1030975039, guid: abc00000000016058799795545596203, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 1030975039, guid: abc00000000016058799795545596203, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 1030975039, guid: abc00000000016058799795545596203, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -4016,5 +4055,3 @@ SceneRoots:
   - {fileID: 759296221}
   - {fileID: 2078556252}
   - {fileID: 642679761}
-  - {fileID: 2116950503}
-  - {fileID: 700707819}
