@@ -34,7 +34,7 @@ public class RadioManagerScript : MonoBehaviour
 
     public List<FrequencySound> playFrequencySoundsList; //실제 재생하는 라디오 사운드 리스트, 라디오 방송 추가, 삭제를 위해 리스트로 관리
 
-    public bool playTrigger; //현재 재생 가능 오디오 구분 트리거
+    public int tempDayCount=0; //라디오 방송 관리 위한 임시 게임 진행 일자 변수
     
     void Awake() 
     {
