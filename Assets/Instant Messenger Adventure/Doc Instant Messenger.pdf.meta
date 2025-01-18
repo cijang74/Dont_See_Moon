@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: 289e0d2946571374ca3b9e2b9561e674
+labels:
+- Teste
+timeCreated: 1538696667
+licenseType: Store
+DefaultImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 130120
+  packageName: Instant Messenger Adventure (Text Adventure)
+  packageVersion: 1.1
+  assetPath: Assets/Instant Messenger Adventure/Doc Instant Messenger.pdf
+  uploadId: 286988
