@@ -21,6 +21,9 @@ public class BedEvent:MonoBehaviour
 
     // 카메라가 암전 중인지 확인
     private bool isFading = false;
+
+    //날짜
+    private int day = 1;
     
     void Start()
     {
@@ -40,6 +43,7 @@ public class BedEvent:MonoBehaviour
             isFading = true;
             StartCoroutine(Fade(startAlpha, endAlpha, fadeTime, sleepTime));
             Debug.Log("잠을 자는 중입니다.");
+            day++;
         }
         else
         {
@@ -91,6 +95,10 @@ public class BedEvent:MonoBehaviour
     public bool GetIsFading()
     {
         return isFading;
+    }
+    public int GetDay()
+    {
+        return day;
     }
 }
 
