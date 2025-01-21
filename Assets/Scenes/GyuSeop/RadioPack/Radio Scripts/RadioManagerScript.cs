@@ -23,16 +23,16 @@ public class RadioManagerScript : MonoBehaviour
     [Header("현재 라디오 주파수")]
     public float radioFrequency = 0f;
 
-    public bool isDragging = false;
+    public bool isDragging = false; //라디오 휠이 드래그 중인지지
 
     public float ratioChangeSpeed = 1f; //주파수 변화 속도
 
-    public string csvFilePath = "Radio Audio Resources/Radio Sound Table";
+    public string csvFilePath = "Radio Audio Resources/Radio Sound Table"; //라디오 오디이 CSV 파일 경로로
 
-    public List<FrequencySound> frequencySounds; // 목표 주파수와 사운드 리스트
+    public List<FrequencySound> frequencySounds; // 라디오 오디오 전체 리스트
     public AudioSource radioNoise; //기본 라디오 노이즈
 
-    public List<FrequencySound> playFrequencySoundsList; //실제 재생하는 라디오 사운드 리스트, 라디오 방송 추가, 삭제를 위해 리스트로 관리
+    public List<FrequencySound> playFrequencySoundsList; //실제 재생하는 라디오 오디오오 리스트, 라디오 방송 추가, 삭제를 위해 리스트로 관리
 
     public int tempDayCount=0; //라디오 방송 관리 위한 임시 게임 진행 일자 변수
     

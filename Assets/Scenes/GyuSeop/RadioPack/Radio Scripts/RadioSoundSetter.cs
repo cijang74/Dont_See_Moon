@@ -3,18 +3,12 @@ using UnityEngine;
 
 public class RadioSoundSetter : MonoBehaviour
 {
-    void Start()
+    void Awake()
     {
-        LoadFrequencyData();
+        //LoadFrequencyData();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    void LoadFrequencyData()
+    /*void LoadFrequencyData()
     {
         
         RadioManagerScript.Instance.frequencySounds = new List<FrequencySound>();
@@ -43,7 +37,7 @@ public class RadioSoundSetter : MonoBehaviour
             GameObject soundObject = new GameObject($"AudioSource_{i}");
             sound.audioSource = soundObject.AddComponent<AudioSource>();
             sound.audioSource.clip = Resources.Load<AudioClip>(columns[2]);
-            sound.audioSource.playOnAwake = true; 
+            sound.audioSource.playOnAwake = false; //초기 설정 초기화
             sound.audioSource.loop = true;
 
             if (sound.audioSource.clip == null)
@@ -54,5 +48,5 @@ public class RadioSoundSetter : MonoBehaviour
 
             RadioManagerScript.Instance.frequencySounds.Add(sound);
         }
-    }
+    }*/
 }

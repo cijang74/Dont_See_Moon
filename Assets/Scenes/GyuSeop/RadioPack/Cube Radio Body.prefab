@@ -751,7 +751,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3446046586246540248}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.04376627, y: -0.1154182, z: 0.005090421, w: 0.99233925}
+  m_LocalRotation: {x: 0.04376895, y: -0.11541447, z: 0.005090566, w: 0.9923396}
   m_LocalPosition: {x: 10.79, y: 2.311, z: 6.757}
   m_LocalScale: {x: 1.089435, y: 0.5447175, z: 0.4539312}
   m_ConstrainProportionsScale: 0
@@ -1138,6 +1138,7 @@ GameObject:
   - component: {fileID: 6606817703983114067}
   - component: {fileID: 3374606139968557721}
   - component: {fileID: 9172295526052166890}
+  - component: {fileID: 5343241540881649647}
   m_Layer: 0
   m_Name: Radio Manager
   m_TagString: Untagged
@@ -1178,19 +1179,8 @@ MonoBehaviour:
   radioFrequency: 0
   isDragging: 0
   ratioChangeSpeed: 3
-  frequencySounds:
-  - targetFrequency: 90
-    frequencyRange: 1
-    audioSource: {fileID: 5017087360274801349}
-    playedCount: 0
-  - targetFrequency: 95
-    frequencyRange: 2
-    audioSource: {fileID: 1702718168383479145}
-    playedCount: 0
-  - targetFrequency: 103
-    frequencyRange: 3
-    audioSource: {fileID: 106686161908726210}
-    playedCount: 0
+  csvFilePath: Radio Audio Resources/Radio Sound Table
+  frequencySounds: []
   radioNoise: {fileID: 8222297074798094613}
   playFrequencySoundsList: []
   tempDayCount: 0
@@ -1204,6 +1194,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 277ea716001f11e45aa99627e7a97da2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &5343241540881649647
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6012050031446685250}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5327989213dbec40bf04c6ca1552da7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &8123368793839399265

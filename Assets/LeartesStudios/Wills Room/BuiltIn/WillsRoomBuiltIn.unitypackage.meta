@@ -1,19 +1,10 @@
 fileFormatVersion: 2
-<<<<<<< Updated upstream
-<<<<<<<< Updated upstream:Assets/_Heathen Engineering.meta
-guid: 441f9826d20be96409884c1075f38a4e
-folderAsset: yes
-========
-guid: 73b56a098c7f58842a7416b85590d14e
->>>>>>>> Stashed changes:Assets/Scenes/GyuSeop/KinBbaiScene.unity.meta
-=======
 <<<<<<<< HEAD:Assets/LeartesStudios/Wills Room/BuiltIn/WillsRoomBuiltIn.unitypackage.meta
 guid: 1fac64b574de6c54c9cb504083a08c6b
 ========
 guid: 441f9826d20be96409884c1075f38a4e
 folderAsset: yes
 >>>>>>>> ac73ea2d33f73b2096f8e71a98e9862447eb7659:Assets/_Heathen Engineering.meta
->>>>>>> Stashed changes
 DefaultImporter:
   externalObjects: {}
   userData: 

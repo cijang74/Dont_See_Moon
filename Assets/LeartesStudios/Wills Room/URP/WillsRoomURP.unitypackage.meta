@@ -1,19 +1,10 @@
 fileFormatVersion: 2
-<<<<<<< Updated upstream
-<<<<<<<< Updated upstream:Assets/_Heathen Engineering/Assets.meta
-guid: 67bb46dfd509932429fc985052104b72
-========
-guid: 08bc3a7cd3a665746ac6b1660651d1c3
->>>>>>>> Stashed changes:Assets/_Heathen Engineering/Assets/Common.meta
-folderAsset: yes
-=======
 <<<<<<<< HEAD:Assets/LeartesStudios/Wills Room/URP/WillsRoomURP.unitypackage.meta
 guid: 5f6c4b8ec5ea06a43a8ba311d70eb849
 ========
 guid: 67bb46dfd509932429fc985052104b72
 folderAsset: yes
 >>>>>>>> ac73ea2d33f73b2096f8e71a98e9862447eb7659:Assets/_Heathen Engineering/Assets.meta
->>>>>>> Stashed changes
 DefaultImporter:
   externalObjects: {}
   userData: 

@@ -1,11 +1,13 @@
 using UnityEngine;
+using System.Collections.Generic;
 
 public class RadioSoundManagerScript : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        SelectTodayFrequency();
+        LoadFrequencyData();
+        SelectTodayFrequency(); //날짜 바뀌거나 재생 라디오 오디오 변경 시 호출 필요
 
         foreach (var frequencySound in RadioManagerScript.Instance.playFrequencySoundsList)
         {
@@ -48,31 +50,65 @@ public class RadioSoundManagerScript : MonoBehaviour
         }
     }
 
-    private void SelectTodayFrequency() //플레이 일차에 따라서서 재생될 라디오 주파수 종류 결정
+    private void SelectTodayFrequency() //조건에 따라서 재생될 라디오 오디오 종류 결정
     {
         RadioManagerScript.Instance.playFrequencySoundsList.Clear(); //빈 리스트로 초기화
-/*
-        switch(RadioManagerScript.Instance.tempDayCount) //일차수에 따라서 리스트 내용물 갈아버리기기
+
+        if(RadioManagerScript.Instance.tempDayCount == 1)
         {
-            case 0:
-                RadioManagerScript.Instance.playFrequencySoundsList.Add(RadioManagerScript.Instance.frequencySounds[0]);
-                break;
-            case 1:
-                RadioManagerScript.Instance.playFrequencySoundsList.Add(RadioManagerScript.Instance.frequencySounds[0]);
-                RadioManagerScript.Instance.playFrequencySoundsList.Add(RadioManagerScript.Instance.frequencySounds[1]);
-                break;
-            case 2:
-                RadioManagerScript.Instance.playFrequencySoundsList.Add(RadioManagerScript.Instance.frequencySounds[0]);
-                RadioManagerScript.Instance.playFrequencySoundsList.Add(RadioManagerScript.Instance.frequencySounds[1]);
-                RadioManagerScript.Instance.playFrequencySoundsList.Add(RadioManagerScript.Instance.frequencySounds[2]);
-                break;
-        }*/
+            RadioManagerScript.Instance.frequencySounds[1].playTrigger = true;
+        }
+        else if(RadioManagerScript.Instance.tempDayCount == 2)
+        {
+            RadioManagerScript.Instance.frequencySounds[0].playTrigger = false;
+            RadioManagerScript.Instance.frequencySounds[2].playTrigger = true;
+        }
         
-        RadioManagerScript.Instance.playFrequencySoundsList = RadioManagerScript.Instance.frequencySounds.FindAll(sound => sound.playTrigger);
+        RadioManagerScript.Instance.playFrequencySoundsList = RadioManagerScript.Instance.frequencySounds.FindAll(sound => sound.playTrigger); //재생 상태 TRUE인 모든 라디오 오디오를 재생 리스트에 추가
         
     }
     //현재 버그 발생하는 경우
     //현재 재생 중인 오디오가 있는 상황에서 날짜가 넘어가면 리스트를 비워버리면서 더이상 이전 리스트에 있던 오디오의 불륨 커트롤이 안되는 문제
 
-    
+    void LoadFrequencyData()
+    {
+        
+        RadioManagerScript.Instance.frequencySounds = new List<FrequencySound>();
+        TextAsset csvFile = Resources.Load<TextAsset>(RadioManagerScript.Instance.csvFilePath);
+
+        if (csvFile == null)
+        {
+            Debug.LogError("CSV file not found at: " + RadioManagerScript.Instance.csvFilePath);
+            return;
+        }
+
+        string[] rows = csvFile.text.Split('\n'); // 행 단위로 나누기
+        for (int i = 1; i < rows.Length; i++) // 첫 줄은 헤더이므로 제외
+        {
+            if (string.IsNullOrWhiteSpace(rows[i])) continue; // 빈 줄은 스킵
+
+            string[] columns = rows[i].Split(',');
+            FrequencySound sound = new FrequencySound
+            {
+                targetFrequency = float.Parse(columns[0]),
+                frequencyRange = float.Parse(columns[1]),
+                playTrigger = bool.Parse(columns[3])
+            };
+
+            // AudioSource 생성 및 AudioClip 할당
+            GameObject soundObject = new GameObject($"AudioSource_{i}");
+            sound.audioSource = soundObject.AddComponent<AudioSource>();
+            sound.audioSource.clip = Resources.Load<AudioClip>(columns[2]);
+            sound.audioSource.playOnAwake = false; //초기 설정 초기화
+            sound.audioSource.loop = true;
+
+            if (sound.audioSource.clip == null)
+            {
+                Debug.LogError($"AudioClip not found at path: {columns[2]}");
+                continue;
+            }
+
+            RadioManagerScript.Instance.frequencySounds.Add(sound);
+        }
+    }
 }

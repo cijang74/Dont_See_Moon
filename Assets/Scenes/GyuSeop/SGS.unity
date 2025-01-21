@@ -286,6 +286,10 @@ PrefabInstance:
       value: Radio Audio Resources/Radio Sound Table
       objectReference: {fileID: 0}
     - target: {fileID: 3374606139968557721, guid: 4e3f918fde9ac554ab3adeac061607d7, type: 3}
+      propertyPath: tempDayCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3374606139968557721, guid: 4e3f918fde9ac554ab3adeac061607d7, type: 3}
       propertyPath: frequencySounds.Array.size
       value: 0
       objectReference: {fileID: 0}
