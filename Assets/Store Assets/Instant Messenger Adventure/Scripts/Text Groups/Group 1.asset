@@ -4,7 +4,8 @@
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -12,13 +13,13 @@ MonoBehaviour:
   m_Name: Group 1
   m_EditorClassIdentifier: 
   texts:
-  - text: Hi
+  - text: "\uC548\uB155"
     waitTime: 1
     typingTime: 1
-  - text: How you doing?
+  - text: "\uB108 \uAD1C\uCC2E\uB2C8?"
     waitTime: 0.5
     typingTime: 2
-  - text: Hey..u there?
+  - text: "\uB300\uB2F5\uC880 \uD574 \uBD10.."
     waitTime: 4
     typingTime: 2
   answers:
