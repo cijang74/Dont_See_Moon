@@ -3,7 +3,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class BedEvent:MonoBehaviour
+public class WindowEvent : MonoBehaviour
 {
     [SerializeField] private Image fadeImage;
 
@@ -15,9 +15,6 @@ public class BedEvent:MonoBehaviour
 
     //암전 되는 시간
     private float fadeTime = 1.6f;
-
-    //암전 되어있는 시간
-    private float sleepTime = 3f;
 
     // 카메라가 암전 중인지 확인
     private bool isFading = false;
@@ -38,7 +35,7 @@ public class BedEvent:MonoBehaviour
         if (!isFading)
         {
             isFading = true;
-            StartCoroutine(Fade(startAlpha, endAlpha, fadeTime, sleepTime));
+            StartCoroutine(Fade(startAlpha, endAlpha, fadeTime));
             Debug.Log("잠을 자는 중입니다.");
         }
         else
@@ -47,7 +44,7 @@ public class BedEvent:MonoBehaviour
         }
     }
 
-    private IEnumerator Fade(float start, float end, float fade, float sleep)
+    private IEnumerator Fade(float start, float end, float fade)
     {
         //화면 검어지는 함수
         float elapsed = 0f;
@@ -64,24 +61,8 @@ public class BedEvent:MonoBehaviour
             yield return null;
         }
 
-        //검어진 상태로 기다리는 시간
-        yield return new WaitForSeconds(sleep);
-
-        //화면 다시 밝아지는 함수
-        elapsed = 0f;
-        while(elapsed < fade)
-        {
-            elapsed += Time.deltaTime;
-            float t = elapsed / fade;
-
-            color.a = Mathf.Lerp(end, start, t);
-            fadeImage.color = color;
-
-            yield return null;
-        }
-
-        //밝기를 원상태로 복구(정확하지 않은 수치일 수 있어서)
-        color.a = start;
+        //밝기를 원하는 수치로 정확하게 설정(정확하지 않은 수치일 수 있어서)
+        color.a = end;
         fadeImage.color = color;
 
         //전환 완료
@@ -93,4 +74,5 @@ public class BedEvent:MonoBehaviour
         return isFading;
     }
 }
+
 
