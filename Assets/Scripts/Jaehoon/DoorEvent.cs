@@ -1,7 +1,12 @@
+using System;
+using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class DoorEvent : MonoBehaviour
 {
+    [SerializeField] private Image fadeImage;
+
     // 이동할 카메라의 Transform (드래그 앤 드롭으로 할당)
     [SerializeField] private Transform cameraTransform;
 
@@ -89,9 +94,33 @@ public class DoorEvent : MonoBehaviour
         if (Vector3.Distance(cameraTransform.position, destination) < 0.01f)
         {
             cameraTransform.position = destination; // 정확한 위치로 고정
-            stateFlag = false; // 이동 상태 종료
             currentSpeed = initialSpeed; // 속도 초기화
             Debug.Log($"카메라 이동이 완료되었습니다: {destination}");
+            StartCoroutine(Fade(0f, 0.99f, 0.5f));
+
+            //여기서 문 밖으로 씬 전환환
         }
+    }
+
+    private IEnumerator Fade(float startAlpha, float endAlpha, float fadeTime)
+    {
+        //화면 검어지는 함수
+        float elapsed = 0f;
+        Color color = fadeImage.color;
+
+        while(elapsed < fadeTime)
+        {
+            elapsed += Time.deltaTime;
+            float t = elapsed / fadeTime;
+
+            color.a = Mathf.Lerp(startAlpha, endAlpha, t);
+            fadeImage.color = color;
+
+            yield return null;
+        }
+
+        //밝기를 정확한 수치로 조정(정확하지 않은 수치일 수 있어서)
+        color.a = endAlpha;
+        fadeImage.color = color;
     }
 }
