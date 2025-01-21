@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: f97fcb0b26be7d543a5b1837076f6a5e
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 130120
+  packageName: Instant Messenger Adventure (Text Adventure)
+  packageVersion: 1.1
+  assetPath: Assets/Instant Messenger Adventure/Scripts/TextsController.cs
+  uploadId: 286988
