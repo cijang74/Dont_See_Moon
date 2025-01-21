@@ -2096,6 +2096,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4d0ecd52470aed44b70fe156fc9256c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fadeImage: {fileID: 36538507}
   cameraTransform: {fileID: 1948810794}
   targetCameraPosition: {x: 13.5, y: 5.13, z: 27.57}
   initialSpeed: 10
