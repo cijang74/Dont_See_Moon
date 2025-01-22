@@ -1,39 +1,77 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ComputerUI : MonoBehaviour
 {
-    public GameObject messengerPrefab; // Messenger Prefab 오브젝트
-    public GameObject messengerCanvas; // Messenger Canvas 오브젝트 직접 참조
+    [SerializeField] private GameObject answerButtonObject;
+    [SerializeField] private GameObject messegerHomeCanvas;
+    [SerializeField] private GameObject messengerCanvas; // Messenger Canvas 오브젝트 직접 참조
+    [SerializeField] private Button ToggleButton;
 
-    public void ActivateMessengerUI()
+    private void Update() 
+    {
+        if(!answerButtonObject.activeSelf) // 답변이 비활성화 상태라면 토글버튼 비활성화
+        {
+            if(TextsController.instance?.GetIsEnd() == true)
+            {
+                ToggleButton.interactable = true;
+            }
+
+            else
+            {
+                ToggleButton.interactable = false;
+            }
+        }
+
+        else if(answerButtonObject.activeSelf)
+        {
+            ToggleButton.interactable = true;
+        }
+    }
+
+    public void ActivateMessengerHomeUI()
     {
         Debug.Log("버튼 눌림");
 
-        if (messengerPrefab == null || messengerCanvas == null)
+        if (messegerHomeCanvas == null)
         {
             Debug.LogError("Messenger Prefab 또는 Messenger Canvas가 Inspector에서 설정되지 않았습니다.");
             return;
         }
 
         // Messenger Prefab 활성화
-        if (!messengerPrefab.activeSelf)
+        if (!messegerHomeCanvas.activeSelf)
         {
-            messengerPrefab.SetActive(true);
+            messegerHomeCanvas.SetActive(true);
         }
-
-        // Messenger Canvas 활성화
-        messengerCanvas.SetActive(true);
     }
 
-    public void ToggleMessengerPrefab()
+    public void ActivateMessengerUI()
     {
-        if (messengerPrefab == null)
+        Debug.Log("버튼 눌림");
+
+        if (messengerCanvas == null)
+        {
+            Debug.LogError("Messenger Prefab 또는 Messenger Canvas가 Inspector에서 설정되지 않았습니다.");
+            return;
+        }
+
+        if (!messengerCanvas.activeSelf)
+        {
+            messegerHomeCanvas.SetActive(!messegerHomeCanvas.activeSelf); // 홈 UI 비활성화
+            messengerCanvas.SetActive(true); // 메신저 UI 활성화
+        }
+    }
+
+    public void ToggleMessengerCanvas()
+    {
+        if (messengerCanvas == null)
         {
             Debug.LogError("Inspector에서 Messenger Prefab이 할당되지 않았습니다.");
             return;
         }
 
-        // Messenger Prefab 활성화/비활성화 토글
-        messengerPrefab.SetActive(!messengerPrefab.activeSelf);
+        messegerHomeCanvas.SetActive(false);
+        messengerCanvas.SetActive(false);
     }
 }
