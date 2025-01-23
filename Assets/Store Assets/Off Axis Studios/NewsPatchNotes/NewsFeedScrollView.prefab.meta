@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 04c6dd0d1d30772409f20d531d99626b
+timeCreated: 1454850220
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 55547
+  packageName: News & Patch Notes Feed
+  packageVersion: 2.0
+  assetPath: Assets/Off Axis Studios/NewsPatchNotes/NewsFeedScrollView.prefab
+  uploadId: 483137

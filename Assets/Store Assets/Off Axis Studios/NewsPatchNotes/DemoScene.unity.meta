@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 82343f7f28758954a893918cd65138b9
+timeCreated: 1435265980
+licenseType: Store
+DefaultImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 55547
+  packageName: News & Patch Notes Feed
+  packageVersion: 2.0
+  assetPath: Assets/Off Axis Studios/NewsPatchNotes/DemoScene.unity
+  uploadId: 483137

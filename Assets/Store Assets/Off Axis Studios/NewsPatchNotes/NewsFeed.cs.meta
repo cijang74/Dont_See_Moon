@@ -1,0 +1,19 @@
+fileFormatVersion: 2
+guid: 39f040fef8b8fe0468c0c5cc5a75876a
+timeCreated: 1454808891
+licenseType: Store
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 55547
+  packageName: News & Patch Notes Feed
+  packageVersion: 2.0
+  assetPath: Assets/Off Axis Studios/NewsPatchNotes/NewsFeed.cs
+  uploadId: 483137
