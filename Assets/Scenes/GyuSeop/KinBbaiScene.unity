@@ -2245,11 +2245,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4d0ecd52470aed44b70fe156fc9256c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cameraTransform: {fileID: 1948810794}
-  targetCameraPosition: {x: 13.5, y: 5.13, z: 27.57}
-  initialSpeed: 10
-  maxSpeed: 20
-  acceleration: 2
 --- !u!114 &1082001129
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5973,7 +5968,7 @@ MonoBehaviour:
   frequencySounds: []
   radioNoise: {fileID: 7801716607841481273}
   playFrequencySoundsList: []
-  tempDayCount: 0
+  tempDayCount: 2
 --- !u!82 &7801716607841481273
 AudioSource:
   m_ObjectHideFlags: 0
