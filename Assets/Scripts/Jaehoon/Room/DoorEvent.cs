@@ -1,12 +1,11 @@
 using System;
 using System.Collections;
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class DoorEvent : MonoBehaviour
 {
-    [SerializeField] private Image fadeImage;
+    private FadeSystem fadeScript;
 
     // 이동할 카메라의 Transform (드래그 앤 드롭으로 할당)
     [SerializeField] private Transform cameraTransform;
@@ -49,6 +48,8 @@ public class DoorEvent : MonoBehaviour
 
         // 초기 속도 설정
         currentSpeed = initialSpeed;
+
+        fadeScript = GameObject.Find("EventSystem").GetComponent<FadeSystem>();
     }
 
     void Update()
@@ -122,7 +123,7 @@ public class DoorEvent : MonoBehaviour
     private IEnumerator Fade(float startAlpha, float endAlpha, float fadeTime, bool state)
     {
         //화면 암전시키기기
-        StartCoroutine(FadeIn(startAlpha, endAlpha, fadeTime));
+        StartCoroutine(fadeScript.FadeIn(startAlpha, endAlpha, fadeTime));
         
         yield return new WaitForSeconds(fadeTime);
 
@@ -136,28 +137,7 @@ public class DoorEvent : MonoBehaviour
         }
 
         //화면 다시 밝게 만들기
-        StartCoroutine(FadeIn(endAlpha, startAlpha, fadeTime));
-    }
-
-    private IEnumerator FadeIn(float startAlpha, float endAlpha, float fadeTime)
-    {
-        float elapsed = 0f;
-        Color color = fadeImage.color;
-
-        while(elapsed < fadeTime)
-        {
-            elapsed += Time.deltaTime;
-            float t = elapsed / fadeTime;
-
-            color.a = Mathf.Lerp(startAlpha, endAlpha, t);
-            fadeImage.color = color;
-
-            yield return null;
-        }
-
-        //밝기를 정확한 수치로 조정(정확하지 않은 수치일 수 있어서)
-        color.a = endAlpha;
-        fadeImage.color = color;
+        StartCoroutine(fadeScript.FadeIn(endAlpha, startAlpha, fadeTime));
     }
 
     private void ChangeScene(string scene)

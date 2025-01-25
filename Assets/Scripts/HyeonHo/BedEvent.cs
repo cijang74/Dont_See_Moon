@@ -1,11 +1,10 @@
 using System;
 using System.Collections;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class BedEvent:MonoBehaviour
 {
-    [SerializeField] private Image fadeImage;
+    private FadeSystem fadeScript;
 
     //처음 투명도
     private float startAlpha = 0f;
@@ -27,6 +26,7 @@ public class BedEvent:MonoBehaviour
     
     void Start()
     {
+        fadeScript = GameObject.Find("EventSystem").GetComponent<FadeSystem>();
         
     }
 
@@ -52,20 +52,7 @@ public class BedEvent:MonoBehaviour
 
     private IEnumerator Fade(float start, float end, float fade, float sleep)
     {
-        //화면 검어지는 함수
-        float elapsed = 0f;
-        Color color = fadeImage.color;
-
-        while(elapsed < fade)
-        {
-            elapsed += Time.deltaTime;
-            float t = elapsed / fade;
-
-            color.a = Mathf.Lerp(start, end, t);
-            fadeImage.color = color;
-
-            yield return null;
-        }
+        StartCoroutine(fadeScript.FadeIn(start, end, fade));
 
         //검어진 상태로 기다리는 시간
         yield return new WaitForSeconds(sleep);
@@ -73,22 +60,7 @@ public class BedEvent:MonoBehaviour
         day++;
         Debug.Log("Day : " + day);
 
-        //화면 다시 밝아지는 함수
-        elapsed = 0f;
-        while(elapsed < fade)
-        {
-            elapsed += Time.deltaTime;
-            float t = elapsed / fade;
-
-            color.a = Mathf.Lerp(end, start, t);
-            fadeImage.color = color;
-
-            yield return null;
-        }
-
-        //밝기를 원상태로 복구(정확하지 않은 수치일 수 있어서)
-        color.a = start;
-        fadeImage.color = color;
+        StartCoroutine(fadeScript.FadeIn(end, start, fade));
 
         //전환 완료
         isFading = false;
