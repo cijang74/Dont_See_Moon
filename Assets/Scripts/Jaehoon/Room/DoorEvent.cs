@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class DoorEvent : MonoBehaviour
 {
@@ -34,6 +35,10 @@ public class DoorEvent : MonoBehaviour
     // 카메라가 돌아오는 중인지 확인
     private bool isReturning = false;
 
+    //이동 중인지 돌아오는 중인지 확인하기 위함
+    private bool moving = true;
+    private bool returning = false;
+
     void Start()
     {
         // 초기 위치 저장
@@ -51,20 +56,19 @@ public class DoorEvent : MonoBehaviour
         // 카메라가 이동 중일 경우
         if (isMoving)
         {
-            MoveCamera(targetCameraPosition, ref isMoving);
+            MoveCamera(targetCameraPosition, ref isMoving, moving);
         }
 
         // 카메라가 초기 위치로 돌아가는 경우
         if (isReturning)
         {
-            MoveCamera(initialCameraPosition, ref isReturning);
+            MoveCamera(initialCameraPosition, ref isReturning, returning);
         }
 
         // ESC 키를 눌렀을 때 초기 위치로 돌아가기 시작
         if (Input.GetKeyDown(KeyCode.Escape) && !isMoving)
         {
-            isReturning = true;
-            Debug.Log("카메라가 초기 위치로 돌아갑니다.");
+            StartCoroutine(ReturnCamera());
         }
     }
 
@@ -82,7 +86,7 @@ public class DoorEvent : MonoBehaviour
         }
     }
 
-    private void MoveCamera(Vector3 destination, ref bool stateFlag)
+    private void MoveCamera(Vector3 destination, ref bool stateFlag, bool state)
     {
         // 속도를 점진적으로 증가 (최대 속도를 넘지 않도록 제한)
         currentSpeed = Mathf.Min(currentSpeed + acceleration * Time.deltaTime, maxSpeed);
@@ -96,15 +100,47 @@ public class DoorEvent : MonoBehaviour
             cameraTransform.position = destination; // 정확한 위치로 고정
             currentSpeed = initialSpeed; // 속도 초기화
             Debug.Log($"카메라 이동이 완료되었습니다: {destination}");
-            StartCoroutine(Fade(0f, 0.99f, 0.5f));
-
-            //여기서 문 밖으로 씬 전환환
+            stateFlag = false;
+            
+            if(state)
+            {
+                StartCoroutine(Fade(0f, 0.99f, 0.5f, moving));
+            }
         }
     }
 
-    private IEnumerator Fade(float startAlpha, float endAlpha, float fadeTime)
+    private IEnumerator ReturnCamera()
     {
-        //화면 검어지는 함수
+        StartCoroutine(Fade(0f, 0.99f, 0.5f, returning));
+
+        yield return new WaitForSeconds(0.5f);
+
+        isReturning = true;
+        Debug.Log("카메라가 초기 위치로 돌아갑니다.");
+    }
+
+    private IEnumerator Fade(float startAlpha, float endAlpha, float fadeTime, bool state)
+    {
+        //화면 암전시키기기
+        StartCoroutine(FadeIn(startAlpha, endAlpha, fadeTime));
+        
+        yield return new WaitForSeconds(fadeTime);
+
+        if(state)
+        {
+            ChangeScene("outDoor");
+        }
+        else
+        {
+            ChangeScene("inDoor");
+        }
+
+        //화면 다시 밝게 만들기
+        StartCoroutine(FadeIn(endAlpha, startAlpha, fadeTime));
+    }
+
+    private IEnumerator FadeIn(float startAlpha, float endAlpha, float fadeTime)
+    {
         float elapsed = 0f;
         Color color = fadeImage.color;
 
@@ -122,5 +158,17 @@ public class DoorEvent : MonoBehaviour
         //밝기를 정확한 수치로 조정(정확하지 않은 수치일 수 있어서)
         color.a = endAlpha;
         fadeImage.color = color;
+    }
+
+    private void ChangeScene(string scene)
+    {
+        if(scene == "outDoor"){
+            //씬을 기존 씬 위에 덧붙여서 로드
+            SceneManager.LoadScene("OutDoorScene", LoadSceneMode.Additive);
+        }
+        else if(scene == "inDoor"){
+            //덧붙힌 씬 닫기
+            SceneManager.UnloadSceneAsync("OutDoorScene");
+        }
     }
 }

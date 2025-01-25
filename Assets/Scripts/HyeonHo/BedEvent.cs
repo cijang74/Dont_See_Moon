@@ -43,7 +43,6 @@ public class BedEvent:MonoBehaviour
             isFading = true;
             StartCoroutine(Fade(startAlpha, endAlpha, fadeTime, sleepTime));
             Debug.Log("잠을 자는 중입니다.");
-            day++;
         }
         else
         {
@@ -70,6 +69,9 @@ public class BedEvent:MonoBehaviour
 
         //검어진 상태로 기다리는 시간
         yield return new WaitForSeconds(sleep);
+
+        day++;
+        Debug.Log("Day : " + day);
 
         //화면 다시 밝아지는 함수
         elapsed = 0f;

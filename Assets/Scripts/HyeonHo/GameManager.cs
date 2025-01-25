@@ -13,7 +13,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         day = GetDate();
-        Debug.Log(day);
+        Debug.Log("Day : " + day);
     }
     
     void Update()
