@@ -31,7 +31,7 @@ public class ComputerUI : MonoBehaviour
 
     public void ActivateMessengerHomeUI()
     {
-        Debug.Log("버튼 눌림");
+        //Debug.Log("버튼 눌림");
 
         if (messegerHomeCanvas == null)
         {

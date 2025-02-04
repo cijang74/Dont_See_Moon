@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.Networking;
+using System.IO;
 
 namespace OffAxisStudios
 {
@@ -12,7 +13,8 @@ namespace OffAxisStudios
         string myText; // 뉴스 데이터를 저장할 변수
 
         public UnityEngine.UI.Text newsFeed; // 뉴스 피드 텍스트를 표시할 UI 요소
-        public string myNewsURL; // 뉴스를 가져올 URL
+        // public string myNewsURL; // 뉴스를 가져올 URL
+        public TextAsset myNewsText;
         public string noNewsText; // 뉴스가 없을 때 표시할 기본 텍스트
 
         void Start()
@@ -22,18 +24,40 @@ namespace OffAxisStudios
 
         private IEnumerator GetNews()
         {
-            // UnityWebRequest를 사용하여 URL에서 데이터 요청
-            var feed = new UnityWebRequest(myNewsURL);
-            feed.downloadHandler = new DownloadHandlerBuffer(); // 데이터 버퍼 초기화
-            yield return feed.SendWebRequest(); // 요청을 보내고 응답을 대기
+            // // UnityWebRequest를 사용하여 URL에서 데이터 요청
+            // var feed = new UnityWebRequest(myNewsURL);
+            // feed.downloadHandler = new DownloadHandlerBuffer(); // 데이터 버퍼 초기화
+            // yield return feed.SendWebRequest(); // 요청을 보내고 응답을 대기
 
-            myText = feed.downloadHandler.text; // 응답 데이터를 텍스트로 저장
-            newsFeed.text = myText; // UI 텍스트에 응답 데이터 표시
+            // myText = feed.downloadHandler.text; // 응답 데이터를 텍스트로 저장
+            // newsFeed.text = myText; // UI 텍스트에 응답 데이터 표시
+
+            myText = myNewsText.text;
+            newsFeed.text = myText;
+            yield return null;
 
             if (string.IsNullOrEmpty(newsFeed.text)) // 응답 데이터가 비었는지 확인
             {
                 newsFeed.text = noNewsText; // 비어 있다면 기본 텍스트 표시
             }
+        }
+
+        string ReadTxt(string filePath)
+        {
+            FileInfo fileInfo = new FileInfo(filePath);
+            string value = "";
+
+            if (fileInfo.Exists)
+            {
+                StreamReader reader = new StreamReader(filePath);
+                value = reader.ReadToEnd();
+                reader.Close();           
+            }
+
+            else
+                value = "파일이 없습니다.";
+
+            return value;
         }
     }
 }
