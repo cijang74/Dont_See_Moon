@@ -3,10 +3,8 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class DoorEvent : MonoBehaviour
+public class RefrigeratorEvent : MonoBehaviour
 {
-    private FadeSystem fadeScript;
-
     // 이동할 카메라의 Transform (드래그 앤 드롭으로 할당)
     [SerializeField] private Transform cameraTransform;
 
@@ -34,11 +32,11 @@ public class DoorEvent : MonoBehaviour
     // 카메라가 돌아오는 중인지 확인
     private bool isReturning = false;
 
-    //이동 중인지 돌아오는 중인지 확인하기 위함
-    private bool moving = true;
-    private bool returning = false;
-
     private bool isZooming = false;
+
+
+
+    private Animator animator;
 
     void Start()
     {
@@ -51,7 +49,9 @@ public class DoorEvent : MonoBehaviour
         // 초기 속도 설정
         currentSpeed = initialSpeed;
 
-        fadeScript = GameObject.Find("EventSystem").GetComponent<FadeSystem>();
+
+        //부모의 Animator 가져오기
+        animator = transform.parent.GetComponent<Animator>();
     }
 
     void Update()
@@ -59,19 +59,21 @@ public class DoorEvent : MonoBehaviour
         // 카메라가 이동 중일 경우
         if (isMoving)
         {
-            MoveCamera(targetCameraPosition, ref isMoving, moving);
+            MoveCamera(targetCameraPosition, ref isMoving);
         }
 
         // 카메라가 초기 위치로 돌아가는 경우
         if (isReturning)
         {
-            MoveCamera(initialCameraPosition, ref isReturning, returning);
+            MoveCamera(initialCameraPosition, ref isReturning);
         }
 
         // ESC 키를 눌렀을 때 초기 위치로 돌아가기 시작
         if (Input.GetKeyDown(KeyCode.Escape) && !isMoving && isZooming)
         {
-            StartCoroutine(ReturnCamera());
+            animator.SetBool("isOpening", false);
+            animator.SetBool("isClosing", true);
+            ReturnCamera();
         }
     }
 
@@ -82,6 +84,8 @@ public class DoorEvent : MonoBehaviour
         {
             isMoving = true;
             Debug.Log("카메라 이동을 시작합니다.");
+            animator.SetBool("isClosing", false);
+            animator.SetBool("isOpening", true);
         }
         else
         {
@@ -89,7 +93,7 @@ public class DoorEvent : MonoBehaviour
         }
     }
 
-    private void MoveCamera(Vector3 destination, ref bool stateFlag, bool state)
+    private void MoveCamera(Vector3 destination, ref bool stateFlag)
     {
         // 속도를 점진적으로 증가 (최대 속도를 넘지 않도록 제한)
         currentSpeed = Mathf.Min(currentSpeed + acceleration * Time.deltaTime, maxSpeed);
@@ -104,45 +108,13 @@ public class DoorEvent : MonoBehaviour
             currentSpeed = initialSpeed; // 속도 초기화
             Debug.Log($"카메라 이동이 완료되었습니다: {destination}");
             stateFlag = false;
-            
-            if(state)
-            {
-                StartCoroutine(Fade(0f, 0.99f, 0.5f, moving));
-            }
+            isZooming = true;
         }
     }
 
-    private IEnumerator ReturnCamera()
+    private void ReturnCamera()
     {
-        StartCoroutine(Fade(0f, 0.99f, 0.5f, returning));
-
-        yield return new WaitForSeconds(0.5f);
-
         isReturning = true;
-        isZooming = false;
-        Debug.Log("카메라가 초기 위치로 돌아갑니다.");
-    }
-
-    private IEnumerator Fade(float startAlpha, float endAlpha, float fadeTime, bool state)
-    {
-        //화면 암전시키기기
-        StartCoroutine(fadeScript.FadeIn(startAlpha, endAlpha, fadeTime));
-        
-        yield return new WaitForSeconds(fadeTime);
-
-        if(state)
-        {
-            ChangeScene("outDoor");
-        }
-        else
-        {
-            ChangeScene("inDoor");
-        }
-
-        //화면 다시 밝게 만들기
-        StartCoroutine(fadeScript.FadeIn(endAlpha, startAlpha, fadeTime));
-
-        isZooming = true;
     }
 
     private void ChangeScene(string scene)
