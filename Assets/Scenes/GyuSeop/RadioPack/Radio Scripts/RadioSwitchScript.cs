@@ -35,6 +35,7 @@ public class RadioSwitchScript : MonoBehaviour
             RadioManagerScript.Instance.isactivated=true;
 
             frequencyDisplayColor.color=new Color32(255,255,255,255);
+            ScenarioManager.Instance.DayChanger(); //시나리오 노드 매니저 테스트용 코드, 작동하면 날짜 하나 올라감
         }
     }
 
