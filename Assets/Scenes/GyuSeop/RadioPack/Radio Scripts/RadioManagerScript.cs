@@ -8,6 +8,13 @@ using UnityEngine;
         public float frequencyRange;  // 주파수 범위 (±값)
         public AudioSource audioSource; // 재생할 사운드
         public bool playTrigger; //재생 가능한 오디오인지 확인용
+        public bool isPlayedEnough = false; //충분히 플레이어가 재생하여 정보를 얻을 정도의 시간이 흘렀는지
+        public float playedTime = 0f;
+        public float playedEnoughTime;
+        public void PlayTimeChecker()
+        {
+            playedTime += Time.deltaTime;
+        }
     }
 
 public class RadioManagerScript : MonoBehaviour
@@ -35,6 +42,8 @@ public class RadioManagerScript : MonoBehaviour
     public List<FrequencySound> playFrequencySoundsList; //실제 재생하는 라디오 오디오오 리스트, 라디오 방송 추가, 삭제를 위해 리스트로 관리
 
     public int tempDayCount=0; //라디오 방송 관리 위한 임시 게임 진행 일자 변수
+
+    public bool updateRadio = false; //라디오 업데이트문 실행 여부
     
     void Awake() 
     {

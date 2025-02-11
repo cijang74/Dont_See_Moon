@@ -1,4 +1,4 @@
-﻿targetFrequency,frequencyRange,audioSourcePath,playTrigger
-91,1,Radio Audio Resources/Radio Sound 1,TRUE
-94,2,Radio Audio Resources/Radio Sound 2,FALSE
-100,3,Radio Audio Resources/Radio Sound 3,FALSE
+﻿targetFrequency,frequencyRange,audioSourcePath,playTrigger,playedEnoughTime
+91,1,Radio Audio Resources/Radio Sound 1,TRUE,5
+94,2,Radio Audio Resources/Radio Sound 2,FALSE,5
+100,3,Radio Audio Resources/Radio Sound 3,FALSE,5

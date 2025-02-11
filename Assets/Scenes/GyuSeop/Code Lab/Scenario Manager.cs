@@ -15,7 +15,7 @@ public class ScenarioManager : MonoBehaviour
     public bool eventC = false;
     public bool eventD = false; //특정 매체나 방문자 등등 여러 이벤트들 실행되는지 판별 변수, 해당 변수가 참이 되어야 해당 이벤트 실행
 
-    public List<GameObject> eventList = new List<GameObject>(); //여기에 특정 이벤트가 일어났는지 판별하는 스크립트 붙은 오브젝트들 넣기, 위에서 말한 주석에서 전자 방법 쓰려면 여기다가 각 정보 매체들 오브젝트 여기다 집어넣고 참조하면 될듯? 필요없으면 삭제 가능
+    public List<GameObject> eventList = new List<GameObject>(); //여기에 특정 이벤트가 일어났는지 판별하는 스크립트 붙은 오브젝트들 넣기, 필요없으면 삭제 가능
     public float ScenarioNodeOccurrenceProbabilityWeight; //시나리오 노드 발생 확률 가중치
 
     void Awake() 
@@ -73,18 +73,30 @@ public class ScenarioManager : MonoBehaviour
 
     public void DayChanger() //돌리면 하루 올라가면서 노드 정리
     {
+        RadioManagerScript.Instance.updateRadio = false; //라디오 업데이트 잠그기
         playedDay++;
         NextDayScenarioNodeSetter();
+        eventList[0].GetComponent<RadioSoundManagerScript>().SelectTodayFrequency();
+        RadioManagerScript.Instance.updateRadio = true; //다시 풀기
     }
 
     public void NextDayScenarioNodeSetter() //날짜 바꾸면서 노드 정리하는 메서드, ***날짜 바꾼 다음에 실행하시오, 아니면 지연일 하루씩 땡겨짐***
     {
+        ScenarioNodeEndFlagChecker(); //각 노드 종료 플래그 조건 달성 여부 체크
         ScenarioNodeInserter(); //연계 시나리오 노드 있으면 리스트에 넣기
         progressingNodeList.RemoveAll(node => node.nodeEndFlag); //nodeEndFlag 가 참인 모든 노드 삭제
 
         foreach(var temp in progressingNodeList) //진행되는 노드를 모두 순회하며 시나리오 노드 실행 여부 판별
         {
             Scenarioprogresser(temp); //날짜가 바뀐 직후 노드들 순회하며 실행 가챠 시작, true되면 해당 날짜부터 실행 시작
+        }
+    }
+
+    public void ScenarioNodeEndFlagChecker()
+    {
+        foreach(var temp in progressingNodeList) //진행되는 노드를 모두 순회하며 시나리오 노드 실행 여부 판별
+        {
+            temp.FlagChecker();
         }
     }
 
@@ -97,12 +109,14 @@ public class ScenarioManager : MonoBehaviour
             if(temp.nodeEndFlag) //종료 예정인 노드들의 다음 노드 임시 리스트에 삽입
             {
                 //tempProgressingNodeList.Add(temp.NodeEjector());
-                if(temp.NodeEjector() is ScenarioNode tempNextNode) //NodeEjector()에서 null이 아니라 노드가 반환되면면 tempNextNode에 저장 후 add() 실행, gpt가 알려준 문법
-                    tempProgressingNodeList.Add(tempNextNode);
+                //if(temp.NodeEjector() is ScenarioNode tempNextNode) //NodeEjector()에서 null이 아니라 노드가 반환되면면 tempNextNode에 저장 후 add() 실행, gpt가 알려준 문법
+                //    tempProgressingNodeList.Add(tempNextNode);
+
+                temp.NodeInjector(ref tempProgressingNodeList);
             }
         }
 
-        progressingNodeList.AddRange(tempProgressingNodeList); //새로 추가되는 노드들 실행 리스트에 합치기, 순회 중 노드를 리스트에 넣으면 오버플로우 터져서 이렇게 함, 터지는지는 직접 해봐서 앎 ㅇㅇ
+        progressingNodeList.AddRange(tempProgressingNodeList); //새로 추가되는 노드들 실행 리스트에 합치기, 순회 중 노드를 리스트에 바로 넣으면 오버플로우 터져서 이렇게 함, 터지는지는 직접 해봐서 앎 ㅇㅇ
     }
 
     void Scenarioprogresser(ScenarioNode node) //노드 실행 가챠 돌리는 메서드
@@ -141,7 +155,7 @@ public class ScenarioManager : MonoBehaviour
 //#####################################################################
 //              *****이 아래로는 시나리오 노드 클래스****
 //#####################################################################
-//노드 ID, 실행 지연일, 실행 확률, 클리어 조건 판별, 해당 노드에서 따로 수행할 기능을 넣으면 알아서 돌아가는 *칭구칭긔*
+//노드 ID, 실행 지연일, 실행 확률, 클리어 조건 판별, 해당 노드에서 따로 수행할 기능을 넣으면 알아서 돌아가는 칭구칭긔
 //클래스 덩치가 너무 크다. 다이어트 할 수 있는 쌈@뽕한 방법이 없을까
 
 
@@ -202,85 +216,18 @@ public class ScenarioNode //시나리오 노드 기본 클래스
         return nextScenarioNode; //발사!
     }
 
+    public virtual void NodeInjector(ref List<ScenarioNode> tempNode) //임시 노드 리스트에 다음 노드 추가하기기
+    {
+        if(nextScenarioNode != null)
+        {
+            nextScenarioNode.MinNodeStartDateSetter(); //다음 노드 minNodeStartDate 값 오늘로 갱신
+            tempNode.Add(nextScenarioNode);
+        }
+    }
+
     public void MinNodeStartDateSetter() //리스트에 삽입 직전 minNodeStartDate 날짜 데이터 갱신, 이전 노드에서 실행시킨다
     {
         minNodeStartDate = ScenarioManager.Instance.playedDay + nodeOccurenceDate;
     }
 
-}
-
-
-//#####################################################################
-//             *****각 시나리오 노드 구현 코드 뭉치들****
-//#####################################################################
-
-
-public class ScenarioNode_1 : ScenarioNode //1번 시나리오 노드
-{
-    public ScenarioNode_1(int nodeID, int nodeOccurenceDate, float occurenceProbability) : base(nodeID, nodeOccurenceDate, occurenceProbability)
-    {
-        this.nextScenarioNode = new ScenarioNode_2(1, 5, 0.3f); //2번 시나리오 노드 id 1, 5일 공백, 30%확률로 실행
-    }
-
-    public override void RunScenarioNode()
-    {
-        Debug.Log("1번 시나리오 노드 실행 중중중");
-        if(!nodeEndFlag)
-            FlagChecker();
-    }
-
-    public override void FlagChecker() //시나리오 노드 조건 달성 판별
-    {
-        if(ScenarioManager.Instance.eventA) //eventA가 만족되면 1번 시나리오 노드 종료 조건 달성
-        {
-            nodeEndFlag = true;
-        }
-        
-    }
-}
-
-public class ScenarioNode_2 : ScenarioNode //2번 시나리오 노드
-{
-    public ScenarioNode_2(int nodeID, int nodeOccurenceDate, float occurenceProbability) : base(nodeID, nodeOccurenceDate, occurenceProbability)
-    {
-        this.nextScenarioNode = new ScenarioNode_3(2, 2, 0.1f); //3번 시나리오 노드 id 2, 2일 공백, 10%확률로 실행
-    }
-
-    public override void RunScenarioNode()
-    {
-        Debug.Log("2번 시나리오 노드 실행 중중중");
-        if(!nodeEndFlag)
-            FlagChecker();
-    }
-
-    public override void FlagChecker() //시나리오 노드 조건 달성 판별
-    {
-        if(ScenarioManager.Instance.eventB && ScenarioManager.Instance.eventC) //eventB, C 가 만족되면 1번 시나리오 노드 종료 조건 달성
-        {
-            nodeEndFlag = true;
-        }
-    }
-}
-
-public class ScenarioNode_3 : ScenarioNode //3번 시나리오 노드
-{
-    public ScenarioNode_3(int nodeID, int nodeOccurenceDate, float occurenceProbability) : base(nodeID, nodeOccurenceDate, occurenceProbability)
-    {
-        this.nextScenarioNode = null;
-    }
-
-    public override void RunScenarioNode()
-    {
-        Debug.Log("3번 시나리오 노드 실행 중중중");
-        if(!nodeEndFlag)
-            FlagChecker();
-    }
-
-    public override void FlagChecker() //시나리오 노드 조건 달성 판별
-    {
-        if(ScenarioManager.Instance.eventB && ScenarioManager.Instance.eventD) //eventB, D 가 만족되면 1번 시나리오 노드 종료 조건 달성
-        {
-            nodeEndFlag = true;
-        }
-    }
 }

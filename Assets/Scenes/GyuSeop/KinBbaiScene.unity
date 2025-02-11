@@ -2641,7 +2641,9 @@ MonoBehaviour:
   eventB: 0
   eventC: 0
   eventD: 0
-  eventList: []
+  eventList:
+  - {fileID: 4597195382957907363}
+  ScenarioNodeOccurrenceProbabilityWeight: 0
   playedDay: 0
 --- !u!4 &1274221015
 Transform:
@@ -6023,6 +6025,7 @@ MonoBehaviour:
   radioNoise: {fileID: 7801716607841481273}
   playFrequencySoundsList: []
   tempDayCount: 2
+  updateRadio: 0
 --- !u!82 &7801716607841481273
 AudioSource:
   m_ObjectHideFlags: 0
