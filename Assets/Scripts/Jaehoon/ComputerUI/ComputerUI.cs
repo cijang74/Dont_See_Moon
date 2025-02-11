@@ -3,75 +3,143 @@ using UnityEngine.UI;
 
 public class ComputerUI : MonoBehaviour
 {
-    [SerializeField] private GameObject answerButtonObject;
+    [SerializeField] private GameObject answerButtonObject_M;
+    [SerializeField] private GameObject answerButtonObject_F;
+    [SerializeField] private GameObject answerButtonObject_B;
+    [SerializeField] private GameObject answerButtonObject_F1;
+    [SerializeField] private GameObject answerButtonObject_F2;
+    [SerializeField] private GameObject answerButtonObject_F3;
+
     [SerializeField] private GameObject messegerHomeCanvas;
-    [SerializeField] private GameObject messengerCanvas; // Messenger Canvas 오브젝트 직접 참조
-    [SerializeField] private Button ToggleButton;
+
+    [SerializeField] private GameObject messengerCanvas_Mother;
+    [SerializeField] private GameObject messengerCanvas_Father;
+    [SerializeField] private GameObject messengerCanvas_Brother;
+    [SerializeField] private GameObject messengerCanvas_Friend1;
+    [SerializeField] private GameObject messengerCanvas_Friend2;
+    [SerializeField] private GameObject messengerCanvas_Friend3;
+
+    [SerializeField] private Button ToggleButton_M;
+    [SerializeField] private Button ToggleButton_F;
+    [SerializeField] private Button ToggleButton_B;
+    [SerializeField] private Button ToggleButton_F1;
+    [SerializeField] private Button ToggleButton_F2;
+    [SerializeField] private Button ToggleButton_F3;
 
     private void Update() 
     {
-        if(!answerButtonObject.activeSelf) // 답변이 비활성화 상태라면 토글버튼 비활성화
-        {
-            if(TextsController.instance?.GetIsEnd() == true)
-            {
-                ToggleButton.interactable = true;
-            }
+        CheckButtonState(answerButtonObject_M, ToggleButton_M);
+        CheckButtonState(answerButtonObject_F, ToggleButton_F);
+        CheckButtonState(answerButtonObject_B, ToggleButton_B);
+        CheckButtonState(answerButtonObject_F1, ToggleButton_F1);
+        CheckButtonState(answerButtonObject_F2, ToggleButton_F2);
+        CheckButtonState(answerButtonObject_F3, ToggleButton_F3);
+    }
 
-            else
-            {
-                ToggleButton.interactable = false;
-            }
+    private void CheckButtonState(GameObject answerButton, Button toggleButton)
+    {
+        if (answerButton == null || toggleButton == null) return;
+
+        if (!answerButton.activeSelf)
+        {
+            toggleButton.interactable = TextsController.instance?.GetIsEnd() == true;
         }
-
-        else if(answerButtonObject.activeSelf)
+        else
         {
-            ToggleButton.interactable = true;
+            toggleButton.interactable = true;
         }
     }
 
     public void ActivateMessengerHomeUI()
     {
-        //Debug.Log("버튼 눌림");
-
         if (messegerHomeCanvas == null)
         {
             Debug.LogError("Messenger Prefab 또는 Messenger Canvas가 Inspector에서 설정되지 않았습니다.");
             return;
         }
 
-        // Messenger Prefab 활성화
         if (!messegerHomeCanvas.activeSelf)
         {
             messegerHomeCanvas.SetActive(true);
         }
     }
 
-    public void ActivateMessengerUI()
+    public void ActivateMessengerUI_Mother()
     {
-        Debug.Log("버튼 눌림");
+        ActivateMessengerUI(messengerCanvas_Mother);
+    }
 
+    public void ActivateMessengerUI_Father()
+    {
+        ActivateMessengerUI(messengerCanvas_Father);
+    }
+
+    public void ActivateMessengerUI_Brother()
+    {
+        ActivateMessengerUI(messengerCanvas_Brother);
+    }
+
+    public void ActivateMessengerUI_Friend1()
+    {
+        ActivateMessengerUI(messengerCanvas_Friend1);
+    }
+
+    public void ActivateMessengerUI_Friend2()
+    {
+        ActivateMessengerUI(messengerCanvas_Friend2);
+    }
+
+    public void ActivateMessengerUI_Friend3()
+    {
+        ActivateMessengerUI(messengerCanvas_Friend3);
+    }
+
+    private void ActivateMessengerUI(GameObject messengerCanvas)
+    {
         if (messengerCanvas == null)
         {
-            Debug.LogError("Messenger Prefab 또는 Messenger Canvas가 Inspector에서 설정되지 않았습니다.");
+            Debug.LogError("Messenger Canvas가 할당되지 않았거나 삭제되었습니다.");
             return;
         }
 
         if (!messengerCanvas.activeSelf)
         {
-            messegerHomeCanvas.SetActive(!messegerHomeCanvas.activeSelf); // 홈 UI 비활성화
-            messengerCanvas.SetActive(true); // 메신저 UI 활성화
+            if (messegerHomeCanvas != null)
+            {
+                messegerHomeCanvas.SetActive(false);
+            }
+            messengerCanvas.SetActive(true);
         }
     }
 
     public void ToggleMessengerCanvas()
     {
-        if (messengerCanvas == null)
+        if (messegerHomeCanvas != null)
         {
-            Debug.LogError("Inspector에서 Messenger Prefab이 할당되지 않았습니다.");
-            return;
+            messegerHomeCanvas.SetActive(false);
         }
 
-        messegerHomeCanvas.SetActive(false);
-        messengerCanvas.SetActive(false);
+        ToggleCanvas(messengerCanvas_Mother);
+        ToggleCanvas(messengerCanvas_Father);
+        ToggleCanvas(messengerCanvas_Brother);
+        ToggleCanvas(messengerCanvas_Friend1);
+        ToggleCanvas(messengerCanvas_Friend2);
+        ToggleCanvas(messengerCanvas_Friend3);
+    }
+
+    private void ToggleCanvas(GameObject messengerCanvas)
+    {
+        if (messengerCanvas != null)
+        {
+            Canvas canvasComponent = messengerCanvas.GetComponent<Canvas>();
+            if (canvasComponent != null)
+            {
+                canvasComponent.enabled = false;
+            }
+            else
+            {
+                messengerCanvas.SetActive(false);
+            }
+        }
     }
 }

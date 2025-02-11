@@ -1,14 +1,9 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class MessegerUI : Singleton<MessegerUI>
+public class MessegerUI : MonoBehaviour
 {
     private string selectAnswerText;
-
-    protected override void Awake() 
-    {
-        base.Awake();
-    }
 
     public void CheckButtonEvent()
     {
