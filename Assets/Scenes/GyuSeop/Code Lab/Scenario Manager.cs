@@ -8,15 +8,21 @@ using UnityEditor;
 public class ScenarioManager : MonoBehaviour
 {
     private static ScenarioManager instance = null;
-
-    //임시로 만든 bool 변수들, 나중엔 각 정보 매체 스크립트 안에 있는 변수 참조하거나 이 스크립트에 변수 만들고 이걸 각 정보 매체에서 컨트롤 하게 하던지 해야함, 이 스크립트를 싱글톤으로 일단 해놔서 후자 방법이 더 쉬울지도 모르겠다
-    public bool eventA = false;
-    public bool eventB = false;
-    public bool eventC = false;
-    public bool eventD = false; //특정 매체나 방문자 등등 여러 이벤트들 실행되는지 판별 변수, 해당 변수가 참이 되어야 해당 이벤트 실행
+    public static ScenarioManager Instance //싱글톤 생성용
+    {
+        get
+        {
+            if(instance == null)
+                throw new System.Exception("ScenarioManager instance is not initialized"); //GPT가 예외로 던지랬음
+            return instance;
+        }
+    }
 
     public List<GameObject> eventList = new List<GameObject>(); //여기에 특정 이벤트가 일어났는지 판별하는 스크립트 붙은 오브젝트들 넣기, 필요없으면 삭제 가능
-    public float ScenarioNodeOccurrenceProbabilityWeight; //시나리오 노드 발생 확률 가중치
+    public float ScenarioNodeOccurrenceProbabilityWeight = 0.2f; //시나리오 노드 발생 확률 가중치, 노드 실행 실패 시 확률 20퍼센트포인트씩 증가
+    public int playedDay=0; //진행일차 변수, 다른 매니저 스크립트 안에 있으면 그거 참조하도록 바꾸길 바람
+
+    public List<ScenarioNode> progressingNodeList = new List<ScenarioNode>(); //진행되는 시나리오 노드는 이 리스트에 저장됩니다
 
     void Awake() 
     {
@@ -31,41 +37,24 @@ public class ScenarioManager : MonoBehaviour
         }
     }
 
-    public static ScenarioManager Instance //싱글톤 생성용
-    {
-        get
-        {
-            if(instance == null)
-                return null;
-            return instance;
-        }
-    }
-
-
-
-    public int playedDay=0; //진행일차 변수, 다른 매니저 스크립트 안에 있으면 그거 참조하도록 바꾸길 바람
-
-    public List<ScenarioNode> progressingNodeList = new List<ScenarioNode>(); //진행되는 시나리오 노드는 이 리스트에 저장됩니다
+    
 
     void Start()
     {
-        ScenarioNodeOccurrenceProbabilityWeight = 0.2f; //노드 실행 실패 시 확률 20퍼센트포인트씩 증가
-
-        progressingNodeList.Add(new ScenarioNode_1(0, 0, 1f)); //1번 시나리오 노드를 루트 노드로 시작, 테스트용으로 박아놓음, 아마 실구현 할 때는 다른 메서드에 초기 시나리오 노드 삽입 코드 구현해서 실행시키면 될듯(랜덤 돌려서 1일차에 켜지는 노드 다양화)
-
         foreach(var temp in progressingNodeList) //진행되는 노드를 모두 순회하며 연산, 테스트용
         {
             Scenarioprogresser(temp); //날짜가 바뀐 직후 노드들 순회하며 실행 가챠 시작
         }
     }
-
     
     void Update()
     {
-        foreach(var temp in progressingNodeList) //진행되는 노드를 모두 순회하며 연산, 노드의 메서드 업데이트
+        for(int i = 0; i < progressingNodeList.Count; i++)
         {
-            if(temp.nodeStartFlag)
-                temp.RunScenarioNode(); //노드 내 메서드 실행
+            if(progressingNodeList[i].nodeStartFlag)
+            {
+                progressingNodeList[i].RunScenarioNode();
+            }
         }
     }
 
@@ -73,12 +62,21 @@ public class ScenarioManager : MonoBehaviour
 
     public void DayChanger() //돌리면 하루 올라가면서 노드 정리
     {
-        RadioManagerScript.Instance.updateRadio = false; //라디오 업데이트 잠그기
+        if(playedDay == 1)
+            progressingNodeList.Add(new ScenarioNode_1(0, 0, 1f)); //노드 집어넣기 임시용
+
+        RadioManagerScript.Instance.updateRadio = false; //라디오 업데이트 잠그기, 혹시 모르는 버그 방지용
         playedDay++;
         NextDayScenarioNodeSetter();
         eventList[0].GetComponent<RadioSoundManagerScript>().SelectTodayFrequency();
-        RadioManagerScript.Instance.updateRadio = true; //다시 풀기
-    }
+
+        for(int i = 0; i < progressingNodeList.Count; i++)
+        {
+            progressingNodeList[i].OnceRunScenarioNode(); //날짜 변경마다 1회 실행 메서드
+        }
+
+        RadioManagerScript.Instance.updateRadio = true; //라디오 업데이트 잠금 다시 풀기
+    } //playedDay++ -> NextDayScenarioNodeSetter() -> ScenarioNodeEndFlagChecker() -> ScenarioNodeInserter() -> Scenarioprogresser() ->  IsScenarioOccurence() -> firstOnceRunScenarioNode()(노드마다 최초 1회 실행) -> OnceRunScenarioNode()(노드마다 날짜변경 시 1회 실행)
 
     public void NextDayScenarioNodeSetter() //날짜 바꾸면서 노드 정리하는 메서드, ***날짜 바꾼 다음에 실행하시오, 아니면 지연일 하루씩 땡겨짐***
     {
@@ -108,10 +106,6 @@ public class ScenarioManager : MonoBehaviour
         {
             if(temp.nodeEndFlag) //종료 예정인 노드들의 다음 노드 임시 리스트에 삽입
             {
-                //tempProgressingNodeList.Add(temp.NodeEjector());
-                //if(temp.NodeEjector() is ScenarioNode tempNextNode) //NodeEjector()에서 null이 아니라 노드가 반환되면면 tempNextNode에 저장 후 add() 실행, gpt가 알려준 문법
-                //    tempProgressingNodeList.Add(tempNextNode);
-
                 temp.NodeInjector(ref tempProgressingNodeList);
             }
         }
@@ -127,9 +121,8 @@ public class ScenarioManager : MonoBehaviour
             if(IsScenarioOccurence(node.minNodeStartDate, ref node.occurenceProbability))
             {
                 node.nodeStartFlag = true;
-            }
-            else
-                return; //노드 진행 안되면 스킵
+                node.firstOnceRunScenarioNode(); //촤초 1회 실행 메서드 실행
+            } //실행 안되면 스킵
         }       
     }
 
@@ -149,6 +142,7 @@ public class ScenarioManager : MonoBehaviour
         }
         return false;
     }
+
 }
 
 
@@ -171,7 +165,6 @@ public class ScenarioNode //시나리오 노드 기본 클래스
     public ScenarioNode nextScenarioNode; //연계될 다음 노드, 만약 조건에 따라 복수의 노드 중 하나가 선택된다면 오버라이딩하면서 더 추가하시오
     public int nextScenarioNodeOccurenceDate; //다음 진행 노드 최소 발생 일자
     public float nextScenarioNodeOccurenceProbability; //다음 진행 노드 발생 확률
-    
 
     public ScenarioNode(int nodeID, int nodeOccurenceDate, float occurenceProbability)
     {
@@ -194,27 +187,13 @@ public class ScenarioNode //시나리오 노드 기본 클래스
         this.nextScenarioNode = nextScenarioNode; //만약 다음 시나리오 노드가 인자로 제공되면 해당 노드로 다음 시나리오 노드 교체
     }
 
+    public virtual void firstOnceRunScenarioNode() {} //노드 진행 시 최초 1회만 실행
+    
+    public virtual void RunScenarioNode() {} //노드 진행용으로 쓰면 됨니다, 업데이트문에서 계속 실행시켜줌, 활성화된 노드가 너무 많으면 성능이 어떻게 될진 나도 모르겠다, 아마 여러 노드에서 같은 변수 참조해서 상태 판별할 때 실행 순서 꼬여서 잣될거 같긴 한데 어떻게든 되겠지
 
-    public virtual void RunScenarioNode() //노드 진행용으로 쓰면 됨니다, 업데이트문에서 계속 실행시켜줌, 활성화된 노드가 너무 많으면 성능이 어떻게 될진 나도 모르겠다, 아마 여러 노드에서 같은 변수 참조해서 상태 판별할 때 실행 순서 꼬여서 잣될거 같긴 한데 어떻게든 되겠지
-    {
+    public virtual void OnceRunScenarioNode() {} //날이 바뀔 때마다 한번만 실행
 
-    }
-
-    public virtual void FlagChecker() // 특정 트리거 상태(플레이어가 특정 매체를 봤거나 겪었는지) 판별하는 메서드, 근데 구현해보니 RunScenarioNode()에 합쳐도 될 것 같긴 한데 특정 상황에서만 판별할 일이 있을 수 도 있으니 일단 빼놈
-    {
-
-    }
-
-    public ScenarioNode NodeEjector() //다음 노드 return으로 발사하기
-    {
-        if(nextScenarioNode == null)
-        {
-            return null; //없으면 null값 발사, gpt가 참조형은 리스트에서 add()해도 그냥 넘어간다고 했으니 ㄱㅊ
-        }
-        nextScenarioNode.MinNodeStartDateSetter(); //다음 노드 minNodeStartDate 값 오늘로 갱신
-
-        return nextScenarioNode; //발사!
-    }
+    public virtual void FlagChecker() {} // 특정 트리거 상태(플레이어가 특정 매체를 봤거나 겪었는지) 판별하는 메서드, 근데 구현해보니 RunScenarioNode()에 합쳐도 될 것 같긴 한데 특정 상황에서만 판별할 일이 있을 수 도 있으니 일단 빼놈
 
     public virtual void NodeInjector(ref List<ScenarioNode> tempNode) //임시 노드 리스트에 다음 노드 추가하기기
     {

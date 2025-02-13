@@ -23,7 +23,7 @@ public class CursorObjectDetection : MonoBehaviour
             // 객체를 가리키고 있는 경우, 객체 이름을 콘솔에 출력합니다.
             if (hit.collider.gameObject == this.gameObject)
             {
-                Debug.Log("커서가 이 객체를 가리키고 있습니다: " + hit.collider.gameObject.name);
+                //Debug.Log("커서가 이 객체를 가리키고 있습니다: " + hit.collider.gameObject.name);
                 outline.OutlineColor = onOutlineColor;
             }
         }
@@ -31,7 +31,7 @@ public class CursorObjectDetection : MonoBehaviour
         else
         {
             // 객체를 가리키고 있지 않은 경우 메시지를 출력합니다.
-            Debug.Log("커서가 객체를 가리키고 있지 않습니다.");
+            //Debug.Log("커서가 객체를 가리키고 있지 않습니다.");
             outline.OutlineColor = offOutlineColor;
         }
     }

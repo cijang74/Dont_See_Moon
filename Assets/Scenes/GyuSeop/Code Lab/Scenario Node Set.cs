@@ -17,6 +17,11 @@ public class ScenarioNode_1 : ScenarioNode //1번 시나리오 노드
         this.nextScenarioNode = new ScenarioNode_2(1, 5, 0.3f); //2번 시나리오 노드 id 1, 5일 공백, 30%확률로 실행
     }
 
+    public override void firstOnceRunScenarioNode()
+    {
+        RadioManagerScript.Instance.frequencySounds[1].playTrigger = true;
+    }
+
     public override void RunScenarioNode()
     {
         Debug.Log("1번 시나리오 노드 실행 중");
@@ -24,9 +29,11 @@ public class ScenarioNode_1 : ScenarioNode //1번 시나리오 노드
 
     public override void FlagChecker() //시나리오 노드 조건 달성 판별
     {
-        if(ScenarioManager.Instance.eventA) //eventA가 만족되면 1번 시나리오 노드 종료 조건 달성
+        if(RadioManagerScript.Instance.frequencySounds[1].isPlayedEnough) //eventA가 만족되면 1번 시나리오 노드 종료 조건 달성
         {
-            
+            Debug.Log("1번 시나리오 노드 종료 조건 달성");
+            nodeEndFlag = true;
+            RadioManagerScript.Instance.frequencySounds[1].Init();
         }
         
     }
@@ -42,6 +49,12 @@ public class ScenarioNode_2 : ScenarioNode //2번 시나리오 노드
 
     }
 
+    public override void firstOnceRunScenarioNode()
+    {
+        RadioManagerScript.Instance.frequencySounds[0].playTrigger = true;
+        RadioManagerScript.Instance.frequencySounds[2].playTrigger = true;
+    }
+
     public override void RunScenarioNode()
     {
         Debug.Log("2번 시나리오 노드 실행 중");
@@ -49,9 +62,11 @@ public class ScenarioNode_2 : ScenarioNode //2번 시나리오 노드
 
     public override void FlagChecker() //시나리오 노드 조건 달성 판별
     {
-        if(ScenarioManager.Instance.eventB && ScenarioManager.Instance.eventC) //eventB, C 가 만족되면 1번 시나리오 노드 종료 조건 달성
+        if(RadioManagerScript.Instance.frequencySounds[0].isPlayedEnough && RadioManagerScript.Instance.frequencySounds[2].isPlayedEnough) //eventB, C 가 만족되면 1번 시나리오 노드 종료 조건 달성
         {
             nodeEndFlag = true;
+            RadioManagerScript.Instance.frequencySounds[0].Init();
+            RadioManagerScript.Instance.frequencySounds[2].Init();
         }
     }
 
@@ -74,6 +89,11 @@ public class ScenarioNode_3 : ScenarioNode //3번 시나리오 노드
         this.nextScenarioNode = null;
     }
 
+    public override void firstOnceRunScenarioNode()
+    {
+        RadioManagerScript.Instance.frequencySounds[0].playTrigger = true;
+    }
+
     public override void RunScenarioNode()
     {
         Debug.Log("3번 시나리오 노드 실행 중");
@@ -81,9 +101,10 @@ public class ScenarioNode_3 : ScenarioNode //3번 시나리오 노드
 
     public override void FlagChecker() //시나리오 노드 조건 달성 판별
     {
-        if(ScenarioManager.Instance.eventB && ScenarioManager.Instance.eventD) //eventB, D 가 만족되면 1번 시나리오 노드 종료 조건 달성
+        if(RadioManagerScript.Instance.frequencySounds[0].isPlayedEnough) //eventB, D 가 만족되면 1번 시나리오 노드 종료 조건 달성
         {
             nodeEndFlag = true;
+            RadioManagerScript.Instance.frequencySounds[0].Init();
         }
     }
 }
@@ -95,6 +116,11 @@ public class ScenarioNode_4 : ScenarioNode //4번 시나리오 노드
         this.nextScenarioNode = null;
     }
 
+    public override void firstOnceRunScenarioNode()
+    {
+        RadioManagerScript.Instance.frequencySounds[1].playTrigger = true;
+    }
+
     public override void RunScenarioNode()
     {
         Debug.Log("4번 시나리오 노드 실행 중");
@@ -102,9 +128,10 @@ public class ScenarioNode_4 : ScenarioNode //4번 시나리오 노드
 
     public override void FlagChecker() //시나리오 노드 조건 달성 판별
     {
-        if(ScenarioManager.Instance.eventB && ScenarioManager.Instance.eventD) //eventB, D 가 만족되면 1번 시나리오 노드 종료 조건 달성
+        if(RadioManagerScript.Instance.frequencySounds[1].isPlayedEnough) //eventB, D 가 만족되면 1번 시나리오 노드 종료 조건 달성
         {
             nodeEndFlag = true;
+            RadioManagerScript.Instance.frequencySounds[1].Init();
         }
     }
 }

@@ -15,6 +15,13 @@ using UnityEngine;
         {
             playedTime += Time.deltaTime;
         }
+
+        public void Init() //오디오를 만약 두번 이상 재사용을 해서 불러오려면 이거 한번씩 돌려주세요
+        {
+            playTrigger  = false;
+            isPlayedEnough = false;
+            playedTime = 0f;
+        }
     }
 
 public class RadioManagerScript : MonoBehaviour
@@ -71,14 +78,8 @@ public class RadioManagerScript : MonoBehaviour
     void Start()
     {
         isactivated = false;
-        /*
-        foreach(var tempFrequencySound in frequencySounds)
-        {
-            tempFrequencySound.audioSource.volume=0;
-        }*/
     }
 
-    // Update is called once per frame
     void Update()
     {
         

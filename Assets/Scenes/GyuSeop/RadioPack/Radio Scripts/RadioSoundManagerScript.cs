@@ -3,36 +3,26 @@ using System.Collections.Generic;
 
 public class RadioSoundManagerScript : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         LoadFrequencyData();
         SelectTodayFrequency(); //날짜 바뀌거나 재생 라디오 오디오 변경 시 호출 필요
-
-        foreach (var frequencySound in RadioManagerScript.Instance.playFrequencySoundsList)
-        {
-            frequencySound.audioSource.Play();
-            frequencySound.audioSource.volume = 0f;
-        }
     }
 
-    // Update is called once per frame
     void Update()
     {
         if(RadioManagerScript.Instance.updateRadio)
-        //SelectTodayFrequency(); //일단 계속 없데이트, 추후 다음날로 진행 시에만 작동 필요
             UpdateSoundVolumes();
     }
-
-
 
     private void UpdateSoundVolumes() //이건 게임에서 하루가 계속 진행 중일 때 update에서 계속 돌려야 할 메서드
     {
         if(RadioManagerScript.Instance.isactivated) //라디오 켜지면 주파수에 따라 음량 조절 시작
         {
-            foreach (var frequencySound in RadioManagerScript.Instance.playFrequencySoundsList)
-            {   
-                // 현재 주파수와 목표 주파수 간의 거리 계산
+            for(int i = 0; i < RadioManagerScript.Instance.playFrequencySoundsList.Count; i++)
+            {
+                FrequencySound frequencySound = RadioManagerScript.Instance.playFrequencySoundsList[i];
+
                 float distance = Mathf.Abs(RadioManagerScript.Instance.radioFrequency - frequencySound.targetFrequency);
 
                 // 거리에 따라 볼륨 계산 (거리 0일 때 1, 범위 초과 시 0)
@@ -55,10 +45,6 @@ public class RadioSoundManagerScript : MonoBehaviour
                 }
             }
         }
-        else
-        {
-            
-        }
     }
 
 /*
@@ -68,19 +54,21 @@ daychanger 돌아가면서 할 일 : 오디오 플레이되면 시간 체크해�
 
     public void SelectTodayFrequency() //조건에 따라서 재생될 라디오 오디오 종류 결정. 이건 하루가 지난 후 날짜가 바뀐 후후 돌려야 할 메서드
     {
-        RadioManagerScript.Instance.playFrequencySoundsList.Clear(); //재생되는 오디오 리스트 빈 리스트로 초기화
+        foreach (var frequencySound in RadioManagerScript.Instance.playFrequencySoundsList)
+        {
+            frequencySound.audioSource.Pause();
+            frequencySound.audioSource.volume = 0f;
+        }
 
-        if(RadioManagerScript.Instance.tempDayCount == 1)
-        {
-            RadioManagerScript.Instance.frequencySounds[1].playTrigger = true;
-        }
-        else if(RadioManagerScript.Instance.tempDayCount == 2)
-        {
-            RadioManagerScript.Instance.frequencySounds[0].playTrigger = false;
-            RadioManagerScript.Instance.frequencySounds[2].playTrigger = true;
-        }
+        RadioManagerScript.Instance.playFrequencySoundsList.Clear(); //재생되는 오디오 리스트 빈 리스트로 초기화
         
         RadioManagerScript.Instance.playFrequencySoundsList = RadioManagerScript.Instance.frequencySounds.FindAll(sound => sound.playTrigger); //재생 상태 TRUE인 모든 라디오 오디오를 재생 리스트에 추가
+
+        foreach (var frequencySound in RadioManagerScript.Instance.playFrequencySoundsList)
+        {
+            frequencySound.audioSource.Play();
+            frequencySound.audioSource.volume = 0f;
+        }
     }
     //현재 버그 발생하는 경우
     //현재 재생 중인 오디오가 있는 상황에서 날짜가 넘어가면 리스트를 비워버리면서 더이상 이전 리스트에 있던 오디오의 불륨 커트롤이 안되는 문제
