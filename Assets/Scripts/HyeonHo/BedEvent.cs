@@ -1,10 +1,13 @@
 using System;
 using System.Collections;
+using UnityEditor.Timeline.Actions;
 using UnityEngine;
 
 public class BedEvent:MonoBehaviour
 {
     private FadeSystem fadeScript;
+
+    private HungerSystem hungerScript;
 
     //처음 투명도
     private float startAlpha = 0f;
@@ -23,11 +26,14 @@ public class BedEvent:MonoBehaviour
 
     //날짜
     private int day = 1;
+
+    //자고 일어나서 다시 자는데까지 걸린 시간
+    private float sleepToSleepTime = 0f;
     
-    void Start()
+    void Awake()
     {
         fadeScript = GameObject.Find("EventSystem").GetComponent<FadeSystem>();
-        
+        hungerScript = GameObject.Find("EventSystem").GetComponent<HungerSystem>();
     }
 
     void Update()
@@ -41,6 +47,7 @@ public class BedEvent:MonoBehaviour
         if (!isFading)
         {
             isFading = true;
+            CancelInvoke("Timer");
             StartCoroutine(Fade(startAlpha, endAlpha, fadeTime, sleepTime));
             Debug.Log("잠을 자는 중입니다.");
         }
@@ -64,6 +71,20 @@ public class BedEvent:MonoBehaviour
 
         //전환 완료
         isFading = false;
+        
+        InitForNewDay();
+    }
+
+    private void InitForNewDay()
+    {
+        hungerScript.DecreaseHungerAfterSleep(sleepToSleepTime);
+        sleepToSleepTime = 0f;
+        InvokeRepeating("Timer", 0f, 1f);
+    }
+
+    private void Timer()
+    {
+        sleepToSleepTime += 1f;
     }
 
     public bool GetIsFading()
