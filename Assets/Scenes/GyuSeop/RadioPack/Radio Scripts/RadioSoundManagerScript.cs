@@ -28,12 +28,18 @@ public class RadioSoundManagerScript : MonoBehaviour
                 // 거리에 따라 볼륨 계산 (거리 0일 때 1, 범위 초과 시 0)
                 if (distance <= frequencySound.frequencyRange)
                 {
+                    if(!frequencySound.audioSource.isPlaying)
+                    {
+                        frequencySound.audioSource.Play();
+                    }
+
                     frequencySound.audioSource.volume = 1 - (distance / frequencySound.frequencyRange); //오디오 사운드 볼륨 높이기
                     RadioManagerScript.Instance.radioNoise.volume = 1 - frequencySound.audioSource.volume; //노이지 볼륨 줄이기
                 }
                 else
                 {
                     frequencySound.audioSource.volume = 0; // 범위를 벗어나면 볼륨 0
+                    frequencySound.audioSource.Pause();
                 }
 
                 if(frequencySound.audioSource.volume != 0) //볼륨이 켜져 있으면 플레이 시간 적립, ***만약 일정 볼륨 이상으로 커져야 카운트하려면 범위값으로 조건문 만들기
@@ -63,12 +69,13 @@ daychanger 돌아가면서 할 일 : 오디오 플레이되면 시간 체크해�
         RadioManagerScript.Instance.playFrequencySoundsList.Clear(); //재생되는 오디오 리스트 빈 리스트로 초기화
         
         RadioManagerScript.Instance.playFrequencySoundsList = RadioManagerScript.Instance.frequencySounds.FindAll(sound => sound.playTrigger); //재생 상태 TRUE인 모든 라디오 오디오를 재생 리스트에 추가
-
+    /*
         foreach (var frequencySound in RadioManagerScript.Instance.playFrequencySoundsList)
         {
             frequencySound.audioSource.Play();
             frequencySound.audioSource.volume = 0f;
         }
+    */
     }
     //현재 버그 발생하는 경우
     //현재 재생 중인 오디오가 있는 상황에서 날짜가 넘어가면 리스트를 비워버리면서 더이상 이전 리스트에 있던 오디오의 불륨 커트롤이 안되는 문제

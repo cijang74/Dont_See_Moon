@@ -193,8 +193,7 @@ public class ScenarioNode //시나리오 노드 기본 클래스
 
     public virtual void OnceRunScenarioNode() {} //날이 바뀔 때마다 한번만 실행
 
-    public virtual void FlagChecker() {} // 특정 트리거 상태(플레이어가 특정 매체를 봤거나 겪었는지) 판별하는 메서드, 근데 구현해보니 RunScenarioNode()에 합쳐도 될 것 같긴 한데 특정 상황에서만 판별할 일이 있을 수 도 있으니 일단 빼놈
-
+    public virtual void FlagChecker() {} // 특정 트리거 상태(플레이어가 특정 매체를 봤거나 겪었는지) 판별하는 메서드
     public virtual void NodeInjector(ref List<ScenarioNode> tempNode) //임시 노드 리스트에 다음 노드 추가하기기
     {
         if(nextScenarioNode != null)
