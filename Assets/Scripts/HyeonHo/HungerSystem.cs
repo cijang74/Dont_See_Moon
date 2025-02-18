@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -73,6 +74,21 @@ public class HungerSystem : MonoBehaviour
         //0이하 방지
         currentHunger = Mathf.Max(currentHunger, 0f);
 
+        UpdateHunger();
+    }
+
+    public void IncreaseHungerAfterEat(float IncreaseValue)
+    {
+        currentHunger += IncreaseValue;
+
+        //허기 최대치 이상 방지
+        currentHunger = Mathf.Min(currentHunger, maxHunger);
+
+        UpdateHunger();
+    }
+
+    private void UpdateHunger()
+    {
         hungerSlider.value = currentHunger;
     }
 }

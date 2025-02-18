@@ -40,6 +40,11 @@ public class DoorEvent : MonoBehaviour
 
     private bool isZooming = false;
 
+    void Awake()
+    {
+        fadeScript = GameObject.Find("EventSystem").GetComponent<FadeSystem>();
+    }
+
     void Start()
     {
         // 초기 위치 저장
@@ -51,7 +56,6 @@ public class DoorEvent : MonoBehaviour
         // 초기 속도 설정
         currentSpeed = initialSpeed;
 
-        fadeScript = GameObject.Find("EventSystem").GetComponent<FadeSystem>();
     }
 
     void Update()

@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -32,6 +33,7 @@ public class RefrigeratorEvent : MonoBehaviour
     // 카메라가 돌아오는 중인지 확인
     private bool isReturning = false;
 
+    //지금 냉장고를 확대 중인지 확인
     private bool isZooming = false;
 
 
@@ -86,6 +88,7 @@ public class RefrigeratorEvent : MonoBehaviour
             Debug.Log("카메라 이동을 시작합니다.");
             animator.SetBool("isClosing", false);
             animator.SetBool("isOpening", true);
+            GetComponent<BoxCollider>().enabled = false;
         }
         else
         {
@@ -108,7 +111,15 @@ public class RefrigeratorEvent : MonoBehaviour
             currentSpeed = initialSpeed; // 속도 초기화
             Debug.Log($"카메라 이동이 완료되었습니다: {destination}");
             stateFlag = false;
-            isZooming = true;
+            if(!isZooming)
+            {
+                isZooming = true;
+            }
+            else
+            {
+                isZooming = false;
+                GetComponent<BoxCollider>().enabled = true;
+            }
         }
     }
 
@@ -116,16 +127,9 @@ public class RefrigeratorEvent : MonoBehaviour
     {
         isReturning = true;
     }
-
-    private void ChangeScene(string scene)
+    
+    public bool CheckIsZooming()
     {
-        if(scene == "outDoor"){
-            //씬을 기존 씬 위에 덧붙여서 로드
-            SceneManager.LoadScene("OutDoorScene", LoadSceneMode.Additive);
-        }
-        else if(scene == "inDoor"){
-            //덧붙힌 씬 닫기
-            SceneManager.UnloadSceneAsync("OutDoorScene");
-        }
+        return isZooming;
     }
 }

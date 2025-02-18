@@ -41,7 +41,7 @@ public class BedEvent:MonoBehaviour
 
     }
 
-    void OnMouseDown()
+    void OnMouseUp()
     {
         // 객체가 클릭되었을 때 화면 암전
         if (!isFading)
