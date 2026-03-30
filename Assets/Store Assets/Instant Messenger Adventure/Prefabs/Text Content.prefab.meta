@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: ea7e15f14dc06234587a14aa638a3a87
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 100100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 130120
+  packageName: Instant Messenger Adventure (Text Adventure)
+  packageVersion: 1.1
+  assetPath: Assets/Instant Messenger Adventure/Prefabs/Text Content.prefab
+  uploadId: 286988

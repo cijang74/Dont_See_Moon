@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: c5477fad03b999b46a3e4e7f4b4556cf
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 11400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 130120
+  packageName: Instant Messenger Adventure (Text Adventure)
+  packageVersion: 1.1
+  assetPath: Assets/Instant Messenger Adventure/Scripts/Text Groups/Group 2.asset
+  uploadId: 286988
