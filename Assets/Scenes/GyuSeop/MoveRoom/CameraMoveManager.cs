@@ -10,11 +10,11 @@ public class CameraMoveManager : MonoBehaviour
     public float fadeDuration = 0.4f;
 
     private CinemachineCamera currentActiveCam;
+    private CinemachineCamera previousActiveCam; 
     private bool isTransitioning = false;
 
     void Start()
     {
-        // 씬 시작 시 가장 높은 우선순위를 가진 카메라를 현재 카메라로 설정
         currentActiveCam = FindFirstActiveCamera();
         if (fadeImage != null) fadeImage.color = new Color(0, 0, 0, 0);
     }
@@ -27,6 +27,11 @@ public class CameraMoveManager : MonoBehaviour
         {
             HandleClick();
         }
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            HandleEscape();
+        }
     }
 
     void HandleClick()
@@ -34,31 +39,51 @@ public class CameraMoveManager : MonoBehaviour
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         if (Physics.Raycast(ray, out RaycastHit hit))
         {
-            // 클릭한 오브젝트에서 CameraNode 컴포넌트를 찾음
             CameraNode node = hit.transform.GetComponent<CameraNode>();
 
-            // 노드가 존재하고, 그 노드에 설정된 카메라가 현재 카메라와 다를 때만 실행
             if (node != null && node.targetCamera != null && node.targetCamera != currentActiveCam)
             {
-                StartCoroutine(SwitchCamera(node.targetCamera));
+                // 클릭해서 이동할 때는 일반 전환(isGoBack = false)
+                StartCoroutine(SwitchCamera(node.targetCamera, false));
             }
         }
     }
 
-    IEnumerator SwitchCamera(CinemachineCamera newCam)
+    void HandleEscape()
+    {
+        if (previousActiveCam != null && previousActiveCam != currentActiveCam)
+        {
+            // ESC로 돌아갈 때는 뒤로 가기 전환(isGoBack = true)
+            StartCoroutine(SwitchCamera(previousActiveCam, true));
+        }
+    }
+
+    // isGoBack 매개변수를 추가하여 클릭 이동과 ESC 복귀를 구분합니다.
+    IEnumerator SwitchCamera(CinemachineCamera newCam, bool isGoBack)
     {
         isTransitioning = true;
 
         // 1. 페이드 아웃
         yield return StartCoroutine(Fade(0, 1));
 
-        // 2. 우선순위 교체 (현재 카메라는 낮게, 새 카메라는 높게)
+        // 2. 이전 카메라 기록 처리
+        if (!isGoBack)
+        {
+            // 클릭해서 새 카메라로 갈 때는 현재 카메라를 이전 카메라로 기억
+            previousActiveCam = currentActiveCam;
+        }
+        else
+        {
+            // ESC로 돌아갈 때는 더 이상 돌아갈 곳이 없도록 기록을 초기화
+            previousActiveCam = null;
+        }
+
+        // 우선순위 교체
         if (currentActiveCam != null) currentActiveCam.Priority = 5;
         
         newCam.Priority = 10;
-        currentActiveCam = newCam;
+        currentActiveCam = newCam; 
 
-        // 시네머신 브레인이 전환될 시간을 짧게 대기
         yield return new WaitForSeconds(0.1f);
 
         // 3. 페이드 인

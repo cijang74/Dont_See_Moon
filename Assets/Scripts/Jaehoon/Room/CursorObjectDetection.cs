@@ -8,6 +8,31 @@ public class CursorObjectDetection : MonoBehaviour
 
     private void Awake() 
     {
+        outline = GetComponent<Outline>();
+        outline.OutlineColor = offOutlineColor;
+    }
+
+    // 마우스 커서가 이 콜라이더 위에 올라왔을 때 자동으로 한 번 실행
+    void OnMouseEnter()
+    {
+        outline.OutlineColor = onOutlineColor;
+    }
+
+    // 마우스 커서가 이 콜라이더를 벗어나거나, 다른 콜라이더에 가려졌을 때 자동으로 한 번 실행
+    void OnMouseExit()
+    {
+        outline.OutlineColor = offOutlineColor;
+    }
+}
+/*
+public class CursorObjectDetection : MonoBehaviour
+{
+    Outline outline;
+    Color onOutlineColor = new Color(1f, 0.5379274f, 0f, 1f);
+    Color offOutlineColor = new Color(1f, 0.5379274f, 0f, 0f);
+
+    private void Awake() 
+    {
         outline = gameObject.GetComponent<Outline>();
     }
 
@@ -36,3 +61,4 @@ public class CursorObjectDetection : MonoBehaviour
         }
     }
 }
+*/
