@@ -5,25 +5,46 @@ using Unity.Cinemachine;
 
 public class CameraMoveManager : MonoBehaviour
 {
-    [Header("페이드 설정")]
+    [Header("페이드 세부 설정")]
     public Image fadeImage;
-    public float fadeDuration = 0.4f;
+    [Tooltip("화면이 완전히 어두워질 때까지 걸리는 시간 (초)")]
+    public float fadeOutDuration = 0.4f;
+    [Tooltip("화면이 완전히 어두워진 채로 유지되는 시간 (초)")]
+    public float holdDuration = 0.5f;
+    [Tooltip("화면이 다시 원래대로 밝아질 때까지 걸리는 시간 (초)")]
+    public float fadeInDuration = 0.4f;
     
     [Header("사운드 연동")]
     public BGMCrossfadeManager bgmManager; 
 
+    [Header("전환 효과음 설정 (글로벌 마스터 스위치)")]
+    [Tooltip("체크를 해제하면 모든 오브젝트 전환 시 효과음이 전면 차단됩니다.")]
+    public bool playTransitionSFX = true;
+    [Tooltip("기본 문 닫히는 효과음")]
+    public AudioClip defaultCloseSFX;
+    [Tooltip("기본 문 열리는 효과음")]
+    public AudioClip defaultOpenSFX;
+
     private CinemachineCamera currentActiveCam;
     private CinemachineCamera previousActiveCam; 
-    
-    // 이전 장소에서 재생 중이던 BGM을 기억할 변수 추가
     private AudioClip previousBgmClip; 
     
+    // --- [신규 추가] 이전 노드의 효과음 설정을 기억할 백업 변수들 ---
+    private bool previousUseSFX = true;
+    private AudioClip previousCloseSFX;
+    private AudioClip previousOpenSFX;
+    
+    private AudioSource sfxSource;
     private bool isTransitioning = false;
 
     void Start()
     {
         currentActiveCam = FindFirstActiveCamera();
         if (fadeImage != null) fadeImage.color = new Color(0, 0, 0, 0);
+
+        sfxSource = gameObject.AddComponent<AudioSource>();
+        sfxSource.playOnAwake = false;
+        sfxSource.loop = false;
     }
 
     void Update()
@@ -50,8 +71,7 @@ public class CameraMoveManager : MonoBehaviour
 
             if (node != null && node.targetCamera != null && node.targetCamera != currentActiveCam)
             {
-                // 클릭해서 전진할 때는 노드에 설정된 새 BGM을 넘겨줍니다.
-                StartCoroutine(SwitchCamera(node.targetCamera, node.newBgmClip, false));
+                StartCoroutine(SwitchCamera(node.targetCamera, node.newBgmClip, node.customCloseSFX, node.customOpenSFX, node.useTransitionSFX, false));
             }
         }
     }
@@ -60,54 +80,79 @@ public class CameraMoveManager : MonoBehaviour
     {
         if (previousActiveCam != null && previousActiveCam != currentActiveCam)
         {
-            // ★ ESC로 돌아갈 때는 저장해두었던 '이전 BGM 클립'을 매개변수로 직접 넘겨줍니다.
-            StartCoroutine(SwitchCamera(previousActiveCam, previousBgmClip, true));
+            // ★ [핵심 수정] ESC로 돌아갈 때, 백업해 두었던 이전 노드의 효과음 설정을 그대로 매개변수로 전달합니다.
+            StartCoroutine(SwitchCamera(previousActiveCam, previousBgmClip, previousCloseSFX, previousOpenSFX, previousUseSFX, true));
         }
     }
 
-    IEnumerator SwitchCamera(CinemachineCamera newCam, AudioClip newBgm, bool isGoBack)
+    IEnumerator SwitchCamera(CinemachineCamera newCam, AudioClip newBgm, AudioClip closeSFX, AudioClip openSFX, bool nodeUseSFX, bool isGoBack)
     {
         isTransitioning = true;
 
-        // 1. 페이드 아웃 (화면이 완전히 검은색이 될 때까지 대기)
-        yield return StartCoroutine(Fade(0, 1));
+        // 글로벌 스위치와 현재 적용할 노드의 스위치가 모두 켜져 있어야 효과음이 재생됨
+        bool shouldPlaySFX = playTransitionSFX && nodeUseSFX;
 
-        // 2. [핵심] 암전 상태에서 기록 저장 및 BGM 교체 처리
-        if (!isGoBack)
+        // 1. 페이드 아웃 시작 시점에 '열리는 소리(openSFX)' 재생
+        if (shouldPlaySFX)
         {
-            // 클릭해서 새 장소로 이동하기 직전, '현재 카메라'와 '현재 재생 중인 BGM'을 이전 기록으로 백업
-            previousActiveCam = currentActiveCam;
-            previousBgmClip = bgmManager != null ? bgmManager.bgmClip : null;
+            AudioClip clipToPlay = openSFX != null ? openSFX : defaultOpenSFX;
+            if (clipToPlay != null) sfxSource.PlayOneShot(clipToPlay);
         }
 
-        // BGM 변경 적용 (새 장소의 BGM이거나, ESC 복귀 시 이전 장소의 BGM)
+        // 페이드 아웃 진행
+        yield return StartCoroutine(Fade(0, 1, fadeOutDuration));
+
+        // 2. 암전 상태 데이터 처리
+        if (!isGoBack)
+        {
+            // 전진할 때: 현재 카메라와 BGM 백업
+            previousActiveCam = currentActiveCam;
+            previousBgmClip = bgmManager != null ? bgmManager.bgmClip : null;
+
+            // ★ [핵심 수정] 전진할 때 클릭했던 노드의 효과음 설정값들도 함께 백업 변수에 저장
+            previousUseSFX = nodeUseSFX;
+            previousCloseSFX = closeSFX;
+            previousOpenSFX = openSFX;
+        }
+
+        // BGM 변경 적용
         if (bgmManager != null && newBgm != null)
         {
             bgmManager.ChangeBGM(newBgm);
         }
 
         if (isGoBack)
-        {
-            // 복귀 완료 후에는 더 이상 돌아갈 곳이 없도록 기록 초기화
+            {
+            // 복귀 완료 후에는 다음 복귀를 위해 모든 백업 데이터 초기화
             previousActiveCam = null;
             previousBgmClip = null;
+            previousUseSFX = true;
+            previousCloseSFX = null;
+            previousOpenSFX = null;
         }
 
-        // 3. 카메라 우선순위 교체
+        // 카메라 우선순위 교체
         if (currentActiveCam != null) currentActiveCam.Priority = 5;
-        
         newCam.Priority = 10;
         currentActiveCam = newCam; 
 
-        yield return new WaitForSeconds(0.1f);
+        // 암전 유지 시간
+        yield return new WaitForSeconds(holdDuration);
 
-        // 4. 페이드 인 (새로운 혹은 복원된 BGM이 화면과 함께 밝아짐)
-        yield return StartCoroutine(Fade(1, 0));
+        // 3. 암전이 끝나고 페이드 인이 시작되는 시점에 '닫히는 소리(closeSFX)' 재생
+        if (shouldPlaySFX)
+        {
+            AudioClip clipToPlay = closeSFX != null ? closeSFX : defaultCloseSFX;
+            if (clipToPlay != null) sfxSource.PlayOneShot(clipToPlay);
+        }
+
+        // 페이드 인 진행 (화면이 밝아짐)
+        yield return StartCoroutine(Fade(1, 0, fadeInDuration));
 
         isTransitioning = false;
     }
 
-    IEnumerator Fade(float start, float end)
+    IEnumerator Fade(float start, float end, float duration)
     {
         float elapsed = 0;
         Color c = fadeImage.color;
@@ -115,10 +160,10 @@ public class CameraMoveManager : MonoBehaviour
         float startVolumeMult = 1f - start; 
         float endVolumeMult = 1f - end;
 
-        while (elapsed < fadeDuration)
+        while (elapsed < duration)
         {
             elapsed += Time.deltaTime;
-            float t = elapsed / fadeDuration;
+            float t = elapsed / duration;
 
             c.a = Mathf.Lerp(start, end, t);
             fadeImage.color = c;
