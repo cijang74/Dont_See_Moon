@@ -402,7 +402,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetCamera: {fileID: 853985951}
-  newBgmClip: {fileID: 0}
   useTransitionSFX: 1
   customCloseSFX: {fileID: 0}
   customOpenSFX: {fileID: 0}
@@ -758,7 +757,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetCamera: {fileID: 1802394315}
-  newBgmClip: {fileID: 0}
   useTransitionSFX: 1
   customCloseSFX: {fileID: 0}
   customOpenSFX: {fileID: 0}
@@ -925,6 +923,7 @@ GameObject:
   m_Component:
   - component: {fileID: 64819600}
   - component: {fileID: 64819601}
+  - component: {fileID: 64819602}
   m_Layer: 0
   m_Name: Camera Residential Hallway
   m_TagString: Untagged
@@ -990,6 +989,20 @@ MonoBehaviour:
       BarrelClipping: 0.25
       Anamorphism: 0
   BlendHint: 0
+--- !u!114 &64819602
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 64819599}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13b0d8db016ad6840bc26cdd04c15552, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hierarchyLevel: 1
+  bgmClip: {fileID: 8300000, guid: 360c0fbe5ee981d428a1157879e0b0d1, type: 3}
 --- !u!1 &71996431
 GameObject:
   m_ObjectHideFlags: 0
@@ -1874,7 +1887,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetCamera: {fileID: 1802394315}
-  newBgmClip: {fileID: 0}
   useTransitionSFX: 1
   customCloseSFX: {fileID: 0}
   customOpenSFX: {fileID: 0}
@@ -2866,8 +2878,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36cfe3e3995b18f428367d07570ddf3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetCamera: {fileID: 64819601}
-  newBgmClip: {fileID: 0}
+  targetCamera: {fileID: 1928601337}
   useTransitionSFX: 1
   customCloseSFX: {fileID: 0}
   customOpenSFX: {fileID: 0}
@@ -4184,6 +4195,7 @@ GameObject:
   m_Component:
   - component: {fileID: 392872512}
   - component: {fileID: 392872513}
+  - component: {fileID: 392872514}
   m_Layer: 0
   m_Name: Camera Facility Hallway
   m_TagString: Untagged
@@ -4249,6 +4261,20 @@ MonoBehaviour:
       BarrelClipping: 0.25
       Anamorphism: 0
   BlendHint: 0
+--- !u!114 &392872514
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 392872511}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13b0d8db016ad6840bc26cdd04c15552, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hierarchyLevel: 1
+  bgmClip: {fileID: 8300000, guid: 360c0fbe5ee981d428a1157879e0b0d1, type: 3}
 --- !u!4 &402676336 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1030975039, guid: abc00000000016058799795545596203, type: 3}
@@ -6283,6 +6309,7 @@ GameObject:
   m_Component:
   - component: {fileID: 596399041}
   - component: {fileID: 596399042}
+  - component: {fileID: 596399043}
   m_Layer: 0
   m_Name: Camera Entrance
   m_TagString: Untagged
@@ -6348,6 +6375,20 @@ MonoBehaviour:
       BarrelClipping: 0.25
       Anamorphism: 0
   BlendHint: 0
+--- !u!114 &596399043
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 596399040}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13b0d8db016ad6840bc26cdd04c15552, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hierarchyLevel: 1
+  bgmClip: {fileID: 8300000, guid: 311a0302bd4e1694a889e1ca69994b86, type: 3}
 --- !u!1001 &601364571
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7172,7 +7213,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetCamera: {fileID: 1237113306}
-  newBgmClip: {fileID: 0}
   useTransitionSFX: 1
   customCloseSFX: {fileID: 0}
   customOpenSFX: {fileID: 0}
@@ -7361,7 +7401,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetCamera: {fileID: 1928601337}
-  newBgmClip: {fileID: 0}
   useTransitionSFX: 0
   customCloseSFX: {fileID: 0}
   customOpenSFX: {fileID: 0}
@@ -7700,6 +7739,7 @@ GameObject:
   m_Component:
   - component: {fileID: 705341249}
   - component: {fileID: 705341250}
+  - component: {fileID: 705341251}
   m_Layer: 0
   m_Name: Camera Main Hall
   m_TagString: Untagged
@@ -7765,6 +7805,20 @@ MonoBehaviour:
       BarrelClipping: 0.25
       Anamorphism: 0
   BlendHint: 0
+--- !u!114 &705341251
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 705341248}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13b0d8db016ad6840bc26cdd04c15552, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hierarchyLevel: 0
+  bgmClip: {fileID: 8300000, guid: 360c0fbe5ee981d428a1157879e0b0d1, type: 3}
 --- !u!4 &711240593 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1030974465, guid: abc00000000014683952831125757277, type: 3}
@@ -7793,7 +7847,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetCamera: {fileID: 2072862078}
-  newBgmClip: {fileID: 0}
   useTransitionSFX: 1
   customCloseSFX: {fileID: 0}
   customOpenSFX: {fileID: 0}
@@ -9169,6 +9222,7 @@ GameObject:
   m_Component:
   - component: {fileID: 853985950}
   - component: {fileID: 853985951}
+  - component: {fileID: 853985952}
   m_Layer: 0
   m_Name: Camera D
   m_TagString: Untagged
@@ -9234,6 +9288,20 @@ MonoBehaviour:
       BarrelClipping: 0.25
       Anamorphism: 0
   BlendHint: 0
+--- !u!114 &853985952
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 853985949}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13b0d8db016ad6840bc26cdd04c15552, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hierarchyLevel: 3
+  bgmClip: {fileID: 8300000, guid: 360c0fbe5ee981d428a1157879e0b0d1, type: 3}
 --- !u!4 &855453347 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1030974579, guid: abc00000000012929135877014774517, type: 3}
@@ -10870,6 +10938,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1036044821}
   - component: {fileID: 1036044822}
+  - component: {fileID: 1036044823}
   m_Layer: 0
   m_Name: Camera F
   m_TagString: Untagged
@@ -10935,6 +11004,20 @@ MonoBehaviour:
       BarrelClipping: 0.25
       Anamorphism: 0
   BlendHint: 0
+--- !u!114 &1036044823
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1036044820}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13b0d8db016ad6840bc26cdd04c15552, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hierarchyLevel: 3
+  bgmClip: {fileID: 8300000, guid: 360c0fbe5ee981d428a1157879e0b0d1, type: 3}
 --- !u!1001 &1045334696
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11902,7 +11985,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetCamera: {fileID: 596399042}
-  newBgmClip: {fileID: 8300000, guid: 5b4062f1e6fe3604e99a81233de0162f, type: 3}
   useTransitionSFX: 1
   customCloseSFX: {fileID: 0}
   customOpenSFX: {fileID: 0}
@@ -12096,7 +12178,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetCamera: {fileID: 1802394315}
-  newBgmClip: {fileID: 0}
   useTransitionSFX: 1
   customCloseSFX: {fileID: 0}
   customOpenSFX: {fileID: 0}
@@ -12395,7 +12476,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetCamera: {fileID: 1328262781}
-  newBgmClip: {fileID: 0}
   useTransitionSFX: 1
   customCloseSFX: {fileID: 0}
   customOpenSFX: {fileID: 0}
@@ -12514,7 +12594,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetCamera: {fileID: 392872513}
-  newBgmClip: {fileID: 0}
   useTransitionSFX: 1
   customCloseSFX: {fileID: 0}
   customOpenSFX: {fileID: 0}
@@ -12686,6 +12765,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1237113305}
   - component: {fileID: 1237113306}
+  - component: {fileID: 1237113307}
   m_Layer: 0
   m_Name: Camera E
   m_TagString: Untagged
@@ -12751,6 +12831,20 @@ MonoBehaviour:
       BarrelClipping: 0.25
       Anamorphism: 0
   BlendHint: 0
+--- !u!114 &1237113307
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1237113304}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13b0d8db016ad6840bc26cdd04c15552, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hierarchyLevel: 3
+  bgmClip: {fileID: 8300000, guid: 360c0fbe5ee981d428a1157879e0b0d1, type: 3}
 --- !u!1 &1241846469
 GameObject:
   m_ObjectHideFlags: 0
@@ -14248,8 +14342,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36cfe3e3995b18f428367d07570ddf3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetCamera: {fileID: 64819601}
-  newBgmClip: {fileID: 0}
+  targetCamera: {fileID: 1928601337}
   useTransitionSFX: 1
   customCloseSFX: {fileID: 0}
   customOpenSFX: {fileID: 0}
@@ -14644,7 +14737,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetCamera: {fileID: 705341250}
-  newBgmClip: {fileID: 0}
   useTransitionSFX: 1
   customCloseSFX: {fileID: 0}
   customOpenSFX: {fileID: 0}
@@ -14912,6 +15004,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1328262780}
   - component: {fileID: 1328262781}
+  - component: {fileID: 1328262782}
   m_Layer: 0
   m_Name: Camera B
   m_TagString: Untagged
@@ -14977,6 +15070,20 @@ MonoBehaviour:
       BarrelClipping: 0.25
       Anamorphism: 0
   BlendHint: 0
+--- !u!114 &1328262782
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1328262779}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13b0d8db016ad6840bc26cdd04c15552, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hierarchyLevel: 3
+  bgmClip: {fileID: 8300000, guid: 360c0fbe5ee981d428a1157879e0b0d1, type: 3}
 --- !u!1001 &1330315596
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15438,8 +15545,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36cfe3e3995b18f428367d07570ddf3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetCamera: {fileID: 64819601}
-  newBgmClip: {fileID: 0}
+  targetCamera: {fileID: 1928601337}
   useTransitionSFX: 1
   customCloseSFX: {fileID: 0}
   customOpenSFX: {fileID: 0}
@@ -15605,7 +15711,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetCamera: {fileID: 64819601}
-  newBgmClip: {fileID: 0}
   useTransitionSFX: 1
   customCloseSFX: {fileID: 0}
   customOpenSFX: {fileID: 0}
@@ -16535,7 +16640,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetCamera: {fileID: 64819601}
-  newBgmClip: {fileID: 0}
   useTransitionSFX: 1
   customCloseSFX: {fileID: 0}
   customOpenSFX: {fileID: 0}
@@ -17201,7 +17305,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetCamera: {fileID: 64819601}
-  newBgmClip: {fileID: 0}
   useTransitionSFX: 1
   customCloseSFX: {fileID: 0}
   customOpenSFX: {fileID: 0}
@@ -19364,7 +19467,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetCamera: {fileID: 1036044822}
-  newBgmClip: {fileID: 0}
   useTransitionSFX: 1
   customCloseSFX: {fileID: 0}
   customOpenSFX: {fileID: 0}
@@ -20676,6 +20778,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1802394314}
   - component: {fileID: 1802394315}
+  - component: {fileID: 1802394316}
   m_Layer: 0
   m_Name: Camera A
   m_TagString: Untagged
@@ -20741,6 +20844,20 @@ MonoBehaviour:
       BarrelClipping: 0.25
       Anamorphism: 0
   BlendHint: 0
+--- !u!114 &1802394316
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1802394313}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13b0d8db016ad6840bc26cdd04c15552, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hierarchyLevel: 3
+  bgmClip: {fileID: 8300000, guid: 360c0fbe5ee981d428a1157879e0b0d1, type: 3}
 --- !u!4 &1802913009 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1030974579, guid: abc00000000012929135877014774517, type: 3}
@@ -21120,6 +21237,93 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: abc00000000012929135877014774517, type: 3}
+--- !u!1 &1838916494
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1838916496}
+  - component: {fileID: 1838916495}
+  m_Layer: 0
+  m_Name: "\uC81C\uC784\uC2A4"
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!212 &1838916495
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1838916494}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 21300000, guid: efdf9ad44a974434dbeab7798b61c5f4, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 15.36, y: 27.521679}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
+--- !u!4 &1838916496
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1838916494}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0.25407484, z: -0, w: 0.9671846}
+  m_LocalPosition: {x: -14.09889, y: 1.044, z: 3.085}
+  m_LocalScale: {x: 0.07943726, y: 0.07943726, z: 0.07943726}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -29.438, z: 0}
 --- !u!1 &1842579564 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1030974698, guid: abc00000000002207643421380915773, type: 3}
@@ -21143,7 +21347,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetCamera: {fileID: 705341250}
-  newBgmClip: {fileID: 0}
   useTransitionSFX: 1
   customCloseSFX: {fileID: 0}
   customOpenSFX: {fileID: 0}
@@ -21807,7 +22010,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetCamera: {fileID: 1802394315}
-  newBgmClip: {fileID: 0}
   useTransitionSFX: 1
   customCloseSFX: {fileID: 0}
   customOpenSFX: {fileID: 0}
@@ -22392,6 +22594,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1928601336}
   - component: {fileID: 1928601337}
+  - component: {fileID: 1928601338}
   m_Layer: 0
   m_Name: Camera Residential Hallway Corner
   m_TagString: Untagged
@@ -22457,6 +22660,20 @@ MonoBehaviour:
       BarrelClipping: 0.25
       Anamorphism: 0
   BlendHint: 0
+--- !u!114 &1928601338
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1928601335}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13b0d8db016ad6840bc26cdd04c15552, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hierarchyLevel: 2
+  bgmClip: {fileID: 8300000, guid: 360c0fbe5ee981d428a1157879e0b0d1, type: 3}
 --- !u!1001 &1928814005
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22933,7 +23150,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetCamera: {fileID: 64819601}
-  newBgmClip: {fileID: 0}
   useTransitionSFX: 1
   customCloseSFX: {fileID: 0}
   customOpenSFX: {fileID: 0}
@@ -23292,7 +23508,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetCamera: {fileID: 64819601}
-  newBgmClip: {fileID: 0}
   useTransitionSFX: 1
   customCloseSFX: {fileID: 0}
   customOpenSFX: {fileID: 0}
@@ -23509,7 +23724,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetCamera: {fileID: 1802394315}
-  newBgmClip: {fileID: 0}
   useTransitionSFX: 1
   customCloseSFX: {fileID: 0}
   customOpenSFX: {fileID: 0}
@@ -23811,6 +24025,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2072862077}
   - component: {fileID: 2072862078}
+  - component: {fileID: 2072862079}
   m_Layer: 0
   m_Name: Camera C
   m_TagString: Untagged
@@ -23876,6 +24091,20 @@ MonoBehaviour:
       BarrelClipping: 0.25
       Anamorphism: 0
   BlendHint: 0
+--- !u!114 &2072862079
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2072862076}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13b0d8db016ad6840bc26cdd04c15552, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hierarchyLevel: 3
+  bgmClip: {fileID: 8300000, guid: 360c0fbe5ee981d428a1157879e0b0d1, type: 3}
 --- !u!1001 &2079102394
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -24527,3 +24756,4 @@ SceneRoots:
   - {fileID: 984110391}
   - {fileID: 1013638106}
   - {fileID: 833124013}
+  - {fileID: 1838916496}
