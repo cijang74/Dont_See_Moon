@@ -38,6 +38,9 @@ public class CameraMoveManager : MonoBehaviour
     public AudioClip defaultCloseSFX;
     public AudioClip defaultOpenSFX;
 
+    // ★ [수정됨] IsActive가 static이므로 인스펙터 연결용 변수는 삭제했습니다.
+    // public SmartphoneUI smartphoneUI; 
+
     private CinemachineCamera currentActiveCam;
     private int currentHierarchyLevel = 0; 
     private List<CameraHistoryData> cameraHistory = new List<CameraHistoryData>();
@@ -65,6 +68,9 @@ public class CameraMoveManager : MonoBehaviour
     void Update()
     {
         if (isTransitioning) return;
+
+        // ★ [수정됨] static 변수이므로 클래스 이름(SmartphoneUI)으로 직접 접근합니다.
+        if (SmartphoneUI.IsActive) return;
 
         if (Input.GetMouseButtonDown(0))
         {
