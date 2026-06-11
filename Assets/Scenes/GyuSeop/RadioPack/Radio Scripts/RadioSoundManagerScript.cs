@@ -50,6 +50,10 @@ public class RadioSoundManagerScript : MonoBehaviour
                     frequencySound.isPlayedEnough = true;
                 }
             }
+            if(RadioManagerScript.Instance.playFrequencySoundsList.Count == 0) //재생되는 라디오 오디오가 하나도 없으면 노이즈 볼륨 1로 유지
+            {
+                RadioManagerScript.Instance.radioNoise.volume = 1f;
+            }
         }
     }
 
