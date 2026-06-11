@@ -79,6 +79,9 @@ public class Outline : MonoBehaviour {
   private Material outlineFillMaterial;
 
   private bool needsUpdate;
+  
+  // ★ [추가점] 스마트폰 UI 상태 변화를 감지하기 위한 변수
+  private bool wasUIActive;
 
   void Awake() {
 
@@ -130,6 +133,12 @@ public class Outline : MonoBehaviour {
   }
 
   void Update() {
+    // ★ [추가점] 스마트폰 UI 상태가 이전 프레임과 달라졌는지 체크하여 업데이트 트리거
+    if (SmartphoneUI.IsActive != wasUIActive) {
+      wasUIActive = SmartphoneUI.IsActive;
+      needsUpdate = true;
+    }
+
     if (needsUpdate) {
       needsUpdate = false;
 
@@ -271,40 +280,43 @@ public class Outline : MonoBehaviour {
 
   void UpdateMaterialProperties() {
 
+    // ★ [수정됨] 스마트폰 UI가 켜져있으면 투명(Color.clear)하게, 굵기를 0으로 덮어씌웁니다.
+    Color currentOutlineColor = SmartphoneUI.IsActive ? Color.clear : outlineColor;
+    float currentOutlineWidth = SmartphoneUI.IsActive ? 0f : outlineWidth;
+
     // Apply properties according to mode
-    outlineFillMaterial.SetColor("_OutlineColor", outlineColor);
+    outlineFillMaterial.SetColor("_OutlineColor", currentOutlineColor);
 
     switch (outlineMode) {
       case Mode.OutlineAll:
         outlineMaskMaterial.SetFloat("_ZTest", (float)UnityEngine.Rendering.CompareFunction.Always);
         outlineFillMaterial.SetFloat("_ZTest", (float)UnityEngine.Rendering.CompareFunction.Always);
-        outlineFillMaterial.SetFloat("_OutlineWidth", outlineWidth);
+        outlineFillMaterial.SetFloat("_OutlineWidth", currentOutlineWidth);
         break;
 
       case Mode.OutlineVisible:
         outlineMaskMaterial.SetFloat("_ZTest", (float)UnityEngine.Rendering.CompareFunction.Always);
         outlineFillMaterial.SetFloat("_ZTest", (float)UnityEngine.Rendering.CompareFunction.LessEqual);
-        outlineFillMaterial.SetFloat("_OutlineWidth", outlineWidth);
+        outlineFillMaterial.SetFloat("_OutlineWidth", currentOutlineWidth);
         break;
 
       case Mode.OutlineHidden:
         outlineMaskMaterial.SetFloat("_ZTest", (float)UnityEngine.Rendering.CompareFunction.Always);
         outlineFillMaterial.SetFloat("_ZTest", (float)UnityEngine.Rendering.CompareFunction.Greater);
-        outlineFillMaterial.SetFloat("_OutlineWidth", outlineWidth);
+        outlineFillMaterial.SetFloat("_OutlineWidth", currentOutlineWidth);
         break;
 
       case Mode.OutlineAndSilhouette:
         outlineMaskMaterial.SetFloat("_ZTest", (float)UnityEngine.Rendering.CompareFunction.LessEqual);
         outlineFillMaterial.SetFloat("_ZTest", (float)UnityEngine.Rendering.CompareFunction.Always);
-        outlineFillMaterial.SetFloat("_OutlineWidth", outlineWidth);
+        outlineFillMaterial.SetFloat("_OutlineWidth", currentOutlineWidth);
         break;
 
       case Mode.SilhouetteOnly:
         outlineMaskMaterial.SetFloat("_ZTest", (float)UnityEngine.Rendering.CompareFunction.LessEqual);
         outlineFillMaterial.SetFloat("_ZTest", (float)UnityEngine.Rendering.CompareFunction.Greater);
-        outlineFillMaterial.SetFloat("_OutlineWidth", 0f);
+        outlineFillMaterial.SetFloat("_OutlineWidth", 0f); // SilhouetteOnly는 항상 0으로 유지
         break;
     }
   }
 }
- 
