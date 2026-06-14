@@ -6,7 +6,6 @@ using Unity.Cinemachine;
 
 public class CameraMoveManager : MonoBehaviour
 {
-    // [변경점] BGM과 계층 정보는 카메라 자체가 들고 있으므로, 히스토리에는 전환 효과음 정보만 저장합니다.
     [System.Serializable]
     public class CameraHistoryData
     {
@@ -14,13 +13,15 @@ public class CameraMoveManager : MonoBehaviour
         public bool useSFX;
         public AudioClip closeSFX;
         public AudioClip openSFX;
+        public bool wasSmooth;
 
-        public CameraHistoryData(CinemachineCamera camera, bool useSFX, AudioClip closeSFX, AudioClip openSFX)
+        public CameraHistoryData(CinemachineCamera camera, bool useSFX, AudioClip closeSFX, AudioClip openSFX, bool wasSmooth)
         {
             this.camera = camera;
             this.useSFX = useSFX;
             this.closeSFX = closeSFX;
             this.openSFX = openSFX;
+            this.wasSmooth = wasSmooth;
         }
     }
 
@@ -29,6 +30,10 @@ public class CameraMoveManager : MonoBehaviour
     public float fadeOutDuration = 0.4f;
     public float holdDuration = 0.5f;
     public float fadeInDuration = 0.4f;
+
+    [Header("스무스 이동 설정")]
+    [Tooltip("부드럽게 이동할 때 걸리는 시간")]
+    public float smoothBlendDuration = 2f; 
     
     [Header("사운드 연동")]
     public BGMCrossfadeManager bgmManager; 
@@ -38,10 +43,8 @@ public class CameraMoveManager : MonoBehaviour
     public AudioClip defaultCloseSFX;
     public AudioClip defaultOpenSFX;
 
-    // ★ [수정됨] IsActive가 static이므로 인스펙터 연결용 변수는 삭제했습니다.
-    // public SmartphoneUI smartphoneUI; 
-
     private CinemachineCamera currentActiveCam;
+    private CinemachineBrain mainBrain; 
     private int currentHierarchyLevel = 0; 
     private List<CameraHistoryData> cameraHistory = new List<CameraHistoryData>();
     private AudioSource sfxSource;
@@ -49,9 +52,13 @@ public class CameraMoveManager : MonoBehaviour
 
     void Start()
     {
+        if (Camera.main != null)
+        {
+            mainBrain = Camera.main.GetComponent<CinemachineBrain>();
+        }
+
         currentActiveCam = FindFirstActiveCamera();
         
-        // 시작 카메라의 계층 정보 초기화 (CameraSettings가 없으면 0으로 간주)
         if (currentActiveCam != null)
         {
             CameraSettings camSettings = currentActiveCam.GetComponent<CameraSettings>();
@@ -69,8 +76,10 @@ public class CameraMoveManager : MonoBehaviour
     {
         if (isTransitioning) return;
 
-        // ★ [수정됨] static 변수이므로 클래스 이름(SmartphoneUI)으로 직접 접근합니다.
         if (SmartphoneUI.IsActive) return;
+
+        // ★ [추가됨] 날짜 전환 연출 중일 때 카메라 이동 입력을 막습니다.
+        if (DayTransitionManager.IsTransitioning) return;
 
         if (Input.GetMouseButtonDown(0))
         {
@@ -92,12 +101,11 @@ public class CameraMoveManager : MonoBehaviour
 
             if (node != null && node.targetCamera != null && node.targetCamera != currentActiveCam)
             {
-                // ★ 노드가 아닌, '이동할 타겟 카메라'에서 정보(BGM, 계층)를 가져옵니다.
                 CameraSettings camSettings = node.targetCamera.GetComponent<CameraSettings>();
                 int targetTier = camSettings != null ? camSettings.hierarchyLevel : 0;
                 AudioClip targetBgm = camSettings != null ? camSettings.bgmClip : null;
 
-                StartCoroutine(SwitchCamera(node.targetCamera, targetBgm, node.customCloseSFX, node.customOpenSFX, node.useTransitionSFX, targetTier, false));
+                StartCoroutine(SwitchCamera(node.targetCamera, targetBgm, node.customCloseSFX, node.customOpenSFX, node.useTransitionSFX, targetTier, false, node.isSmoothTransition));
             }
         }
     }
@@ -111,27 +119,30 @@ public class CameraMoveManager : MonoBehaviour
             
             cameraHistory.RemoveAt(lastIndex);
 
-            // ★ 복귀할 때도 '복귀 대상 카메라'에서 정보(BGM, 계층)를 가져옵니다.
             CameraSettings camSettings = lastState.camera.GetComponent<CameraSettings>();
             int targetTier = camSettings != null ? camSettings.hierarchyLevel : 0;
             AudioClip targetBgm = camSettings != null ? camSettings.bgmClip : null;
 
-            StartCoroutine(SwitchCamera(lastState.camera, targetBgm, lastState.closeSFX, lastState.openSFX, lastState.useSFX, targetTier, true));
+            StartCoroutine(SwitchCamera(lastState.camera, targetBgm, lastState.closeSFX, lastState.openSFX, lastState.useSFX, targetTier, true, lastState.wasSmooth));
         }
     }
 
-    IEnumerator SwitchCamera(CinemachineCamera newCam, AudioClip newBgm, AudioClip closeSFX, AudioClip openSFX, bool nodeUseSFX, int targetHierarchyLevel, bool isGoBack)
+    IEnumerator SwitchCamera(CinemachineCamera newCam, AudioClip newBgm, AudioClip closeSFX, AudioClip openSFX, bool nodeUseSFX, int targetHierarchyLevel, bool isGoBack, bool isSmooth)
     {
         isTransitioning = true;
         bool shouldPlaySFX = playTransitionSFX && nodeUseSFX;
 
+        // ★ [수정됨] 커스텀 오디오가 비어있으면 디폴트 오디오를 재생하도록 설정
         if (shouldPlaySFX)
         {
             AudioClip clipToPlay = openSFX != null ? openSFX : defaultOpenSFX;
             if (clipToPlay != null) sfxSource.PlayOneShot(clipToPlay);
         }
 
-        yield return StartCoroutine(Fade(0, 1, fadeOutDuration));
+        if (!isSmooth)
+        {
+            yield return StartCoroutine(Fade(0, 1, fadeOutDuration));
+        }
 
         if (!isGoBack)
         {
@@ -139,11 +150,10 @@ public class CameraMoveManager : MonoBehaviour
 
             if (targetHierarchyLevel > currentHierarchyLevel)
             {
-                cameraHistory.Add(new CameraHistoryData(currentActiveCam, nodeUseSFX, closeSFX, openSFX));
+                cameraHistory.Add(new CameraHistoryData(currentActiveCam, nodeUseSFX, closeSFX, openSFX, isSmooth));
             }
             else
             {
-                // ★ 히스토리 내의 카메라들을 순회하며, 해당 카메라의 CameraSettings를 직접 검사하여 하위 계층 기록을 삭제합니다.
                 cameraHistory.RemoveAll(h => {
                     CameraSettings settings = h.camera.GetComponent<CameraSettings>();
                     int hLevel = settings != null ? settings.hierarchyLevel : 0;
@@ -157,21 +167,47 @@ public class CameraMoveManager : MonoBehaviour
             bgmManager.ChangeBGM(newBgm);
         }
 
+        if (mainBrain != null)
+        {
+            if (isSmooth)
+            {
+                mainBrain.DefaultBlend = new CinemachineBlendDefinition(CinemachineBlendDefinition.Styles.EaseOut, smoothBlendDuration);
+            }
+            else
+            {
+                mainBrain.DefaultBlend = new CinemachineBlendDefinition(CinemachineBlendDefinition.Styles.Cut, 0f);
+            }
+        }
+
         if (currentActiveCam != null) currentActiveCam.Priority = 5;
         newCam.Priority = 10;
         currentActiveCam = newCam; 
 
         currentHierarchyLevel = targetHierarchyLevel;
 
-        yield return new WaitForSeconds(holdDuration);
-
-        if (shouldPlaySFX)
+        if (isSmooth)
         {
-            AudioClip clipToPlay = closeSFX != null ? closeSFX : defaultCloseSFX;
-            if (clipToPlay != null) sfxSource.PlayOneShot(clipToPlay);
-        }
+            yield return new WaitForSeconds(smoothBlendDuration);
 
-        yield return StartCoroutine(Fade(1, 0, fadeInDuration));
+            // ★ [추가됨] 스무스 이동이 완전히 끝난 시점에도 종료 효과음이 나도록 처리
+            if (shouldPlaySFX)
+            {
+                AudioClip clipToPlay = closeSFX != null ? closeSFX : defaultCloseSFX;
+                if (clipToPlay != null) sfxSource.PlayOneShot(clipToPlay);
+            }
+        }
+        else
+        {
+            yield return new WaitForSeconds(holdDuration);
+            
+            if (shouldPlaySFX)
+            {
+                AudioClip clipToPlay = closeSFX != null ? closeSFX : defaultCloseSFX;
+                if (clipToPlay != null) sfxSource.PlayOneShot(clipToPlay);
+            }
+
+            yield return StartCoroutine(Fade(1, 0, fadeInDuration));
+        }
 
         isTransitioning = false;
     }
@@ -215,5 +251,22 @@ public class CameraMoveManager : MonoBehaviour
             }
         }
         return highest;
+    }
+
+    // ★ [신규 추가] 날짜가 넘어가면서 강제로 씬의 시작 시점을 바꾸고 히스토리를 비우는 함수
+    public void ForceSetCameraAndClearHistory(CinemachineCamera newCam)
+    {
+        if (newCam == null) return;
+
+        // 기존 카메라 끄기
+        if (currentActiveCam != null) currentActiveCam.Priority = 5;
+        
+        // 새 카메라(다음 날짜의 시작 시점) 켜기
+        newCam.Priority = 10;
+        currentActiveCam = newCam;
+
+        // 방문 기록 및 계층 레벨 완전 초기화
+        cameraHistory.Clear();
+        currentHierarchyLevel = 0; 
     }
 }

@@ -15,4 +15,7 @@ public class CameraNode : MonoBehaviour
     public AudioClip customCloseSFX;
     [Tooltip("비워두면 내비게이션 매니저의 기본 열림 소리가 재생됩니다.")]
     public AudioClip customOpenSFX;
+
+    [Header("이동 방식 설정")]
+    public bool isSmoothTransition = false;
 }
