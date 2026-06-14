@@ -93,7 +93,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 112000000, guid: 7bfd1d56f289f134dbb58cf35dc5f90a, type: 2}
+  m_LightingDataAsset: {fileID: 0}
   m_LightingSettings: {fileID: 0}
 --- !u!196 &4
 NavMeshSettings:
@@ -405,6 +405,7 @@ MonoBehaviour:
   useTransitionSFX: 1
   customCloseSFX: {fileID: 0}
   customOpenSFX: {fileID: 0}
+  isSmoothTransition: 0
 --- !u!114 &34185457
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -610,7 +611,7 @@ Light:
   m_Type: 2
   m_Color: {r: 0.9292453, g: 0.93312496, b: 1, a: 1}
   m_Intensity: 18
-  m_Range: 10
+  m_Range: 8.66
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -760,6 +761,7 @@ MonoBehaviour:
   useTransitionSFX: 1
   customCloseSFX: {fileID: 0}
   customOpenSFX: {fileID: 0}
+  isSmoothTransition: 0
 --- !u!114 &56588289
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1729,7 +1731,7 @@ Light:
   m_Type: 2
   m_Color: {r: 0.9292453, g: 0.93312496, b: 1, a: 1}
   m_Intensity: 17.4
-  m_Range: 10
+  m_Range: 8.66
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -2490,6 +2492,7 @@ MonoBehaviour:
   useTransitionSFX: 1
   customCloseSFX: {fileID: 0}
   customOpenSFX: {fileID: 0}
+  isSmoothTransition: 0
 --- !u!114 &180002085
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2678,7 +2681,7 @@ Light:
   m_Type: 2
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 17.73
-  m_Range: 10
+  m_Range: 8.66
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -3707,6 +3710,7 @@ MonoBehaviour:
   useTransitionSFX: 1
   customCloseSFX: {fileID: 0}
   customOpenSFX: {fileID: 0}
+  isSmoothTransition: 0
 --- !u!114 &259443041
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3903,6 +3907,96 @@ Transform:
   - {fileID: 2089420086}
   m_Father: {fileID: 1769588541}
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
+--- !u!1 &269198066
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 269198069}
+  - component: {fileID: 269198067}
+  - component: {fileID: 269198068}
+  m_Layer: 0
+  m_Name: Camera nicole
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &269198067
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 269198066}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9dfa5b682dcd46bda6128250e975f58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Priority:
+    Enabled: 1
+    m_Value: 0
+  OutputChannel: 1
+  StandbyUpdate: 2
+  m_StreamingVersion: 20241001
+  m_LegacyPriority: 0
+  Target:
+    TrackingTarget: {fileID: 0}
+    LookAtTarget: {fileID: 0}
+    CustomLookAtTarget: 0
+  Lens:
+    FieldOfView: 26.8
+    OrthographicSize: 5
+    NearClipPlane: 0.3
+    FarClipPlane: 1000
+    Dutch: 0
+    ModeOverride: 0
+    PhysicalProperties:
+      GateFit: 2
+      SensorSize: {x: 21.946, y: 16.002}
+      LensShift: {x: 0, y: 0}
+      FocusDistance: 10
+      Iso: 200
+      ShutterSpeed: 0.005
+      Aperture: 16
+      BladeCount: 5
+      Curvature: {x: 2, y: 11}
+      BarrelClipping: 0.25
+      Anamorphism: 0
+  BlendHint: 0
+--- !u!114 &269198068
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 269198066}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13b0d8db016ad6840bc26cdd04c15552, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hierarchyLevel: 4
+  bgmClip: {fileID: 8300000, guid: 360c0fbe5ee981d428a1157879e0b0d1, type: 3}
+--- !u!4 &269198069
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 269198066}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: 0.9981443, z: -0, w: 0.060892783}
+  m_LocalPosition: {x: -14.257, y: 1.27, z: 4.17}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1251276891}
+  m_LocalEulerAnglesHint: {x: 0, y: 173.018, z: 0}
 --- !u!1001 &277215565
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4542,7 +4636,7 @@ Light:
   m_Type: 2
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 17.73
-  m_Range: 10
+  m_Range: 8.66
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -4828,7 +4922,7 @@ Light:
   m_Type: 2
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 17.73
-  m_Range: 10
+  m_Range: 8.66
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -5523,7 +5617,7 @@ Light:
   m_Type: 2
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 17.73
-  m_Range: 10
+  m_Range: 8.66
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -7960,7 +8054,7 @@ Light:
   m_Type: 2
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 17.73
-  m_Range: 10
+  m_Range: 8.66
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -8823,7 +8917,7 @@ Light:
   m_Type: 2
   m_Color: {r: 0.9292453, g: 0.93312496, b: 1, a: 1}
   m_Intensity: 12
-  m_Range: 10
+  m_Range: 8.66
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -9098,6 +9192,7 @@ MonoBehaviour:
   fadeOutDuration: 0.2
   holdDuration: 0.7
   fadeInDuration: 0.2
+  smoothBlendDuration: 1.2
   bgmManager: {fileID: 704488239}
   playTransitionSFX: 1
   defaultCloseSFX: {fileID: 8300000, guid: 0acd0edc3dc81714284b11c351ff41e2, type: 3}
@@ -9539,6 +9634,7 @@ MonoBehaviour:
   useTransitionSFX: 1
   customCloseSFX: {fileID: 0}
   customOpenSFX: {fileID: 0}
+  isSmoothTransition: 0
 --- !u!114 &670064991
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9727,6 +9823,7 @@ MonoBehaviour:
   useTransitionSFX: 0
   customCloseSFX: {fileID: 0}
   customOpenSFX: {fileID: 0}
+  isSmoothTransition: 0
 --- !u!4 &685102912 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1030974465, guid: abc00000000014683952831125757277, type: 3}
@@ -10009,7 +10106,7 @@ Light:
   m_Type: 2
   m_Color: {r: 0.9292453, g: 0.93312496, b: 1, a: 1}
   m_Intensity: 17.4
-  m_Range: 10
+  m_Range: 8.66
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -10297,6 +10394,7 @@ MonoBehaviour:
   useTransitionSFX: 1
   customCloseSFX: {fileID: 0}
   customOpenSFX: {fileID: 0}
+  isSmoothTransition: 0
 --- !u!114 &725895210
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11004,7 +11102,7 @@ Light:
   m_Type: 2
   m_Color: {r: 0.9292453, g: 0.93312496, b: 1, a: 1}
   m_Intensity: 18
-  m_Range: 10
+  m_Range: 8.66
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -12336,7 +12434,7 @@ Light:
   m_Type: 2
   m_Color: {r: 0.9292453, g: 0.93312496, b: 1, a: 1}
   m_Intensity: 18
-  m_Range: 10
+  m_Range: 8.66
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -14097,6 +14195,7 @@ GameObject:
   - component: {fileID: 1029167300}
   - component: {fileID: 1029167299}
   - component: {fileID: 1029167298}
+  - component: {fileID: 1029167301}
   m_Layer: 0
   m_Name: "\uB2C8\uCF5C\uB77C\uC2A4"
   m_TagString: Untagged
@@ -14195,6 +14294,23 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+--- !u!114 &1029167301
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1029167297}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36cfe3e3995b18f428367d07570ddf3a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetCamera: {fileID: 269198067}
+  useTransitionSFX: 0
+  customCloseSFX: {fileID: 0}
+  customOpenSFX: {fileID: 0}
+  isSmoothTransition: 1
 --- !u!1001 &1035391482
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14287,6 +14403,7 @@ MonoBehaviour:
   useTransitionSFX: 1
   customCloseSFX: {fileID: 0}
   customOpenSFX: {fileID: 0}
+  isSmoothTransition: 0
 --- !u!114 &1035391486
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15506,6 +15623,7 @@ MonoBehaviour:
   useTransitionSFX: 1
   customCloseSFX: {fileID: 0}
   customOpenSFX: {fileID: 0}
+  isSmoothTransition: 0
 --- !u!114 &1122185468
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15887,6 +16005,7 @@ MonoBehaviour:
   useTransitionSFX: 1
   customCloseSFX: {fileID: 0}
   customOpenSFX: {fileID: 0}
+  isSmoothTransition: 0
 --- !u!114 &1137697255
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16167,6 +16286,7 @@ MonoBehaviour:
   useTransitionSFX: 1
   customCloseSFX: {fileID: 0}
   customOpenSFX: {fileID: 0}
+  isSmoothTransition: 0
 --- !u!114 &1174630121
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16465,6 +16585,7 @@ MonoBehaviour:
   useTransitionSFX: 1
   customCloseSFX: {fileID: 0}
   customOpenSFX: {fileID: 0}
+  isSmoothTransition: 0
 --- !u!114 &1198902053
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16583,6 +16704,7 @@ MonoBehaviour:
   useTransitionSFX: 1
   customCloseSFX: {fileID: 0}
   customOpenSFX: {fileID: 0}
+  isSmoothTransition: 0
 --- !u!114 &1208897208
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17094,6 +17216,7 @@ Transform:
   - {fileID: 1928601336}
   - {fileID: 392872512}
   - {fileID: 1802394314}
+  - {fileID: 269198069}
   - {fileID: 1328262780}
   - {fileID: 2072862077}
   - {fileID: 853985950}
@@ -17862,7 +17985,7 @@ Light:
   m_Type: 2
   m_Color: {r: 0.9292453, g: 0.93312496, b: 1, a: 1}
   m_Intensity: 18
-  m_Range: 10
+  m_Range: 8.66
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -18253,7 +18376,7 @@ Light:
   m_Type: 2
   m_Color: {r: 0.9292453, g: 0.93312496, b: 1, a: 1}
   m_Intensity: 14.28
-  m_Range: 10
+  m_Range: 8.66
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -18398,6 +18521,7 @@ MonoBehaviour:
   useTransitionSFX: 1
   customCloseSFX: {fileID: 0}
   customOpenSFX: {fileID: 0}
+  isSmoothTransition: 0
 --- !u!114 &1303841982
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18563,7 +18687,7 @@ Light:
   m_Type: 2
   m_Color: {r: 0.9292453, g: 0.93312496, b: 1, a: 1}
   m_Intensity: 14.28
-  m_Range: 10
+  m_Range: 8.66
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -18854,6 +18978,7 @@ MonoBehaviour:
   useTransitionSFX: 1
   customCloseSFX: {fileID: 0}
   customOpenSFX: {fileID: 0}
+  isSmoothTransition: 0
 --- !u!114 &1310707874
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19050,7 +19175,7 @@ Light:
   m_Type: 2
   m_Color: {r: 0.9292453, g: 0.93312496, b: 1, a: 1}
   m_Intensity: 3
-  m_Range: 10
+  m_Range: 8.66
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -19663,6 +19788,7 @@ MonoBehaviour:
   useTransitionSFX: 1
   customCloseSFX: {fileID: 0}
   customOpenSFX: {fileID: 0}
+  isSmoothTransition: 0
 --- !u!114 &1352480369
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20022,6 +20148,7 @@ MonoBehaviour:
   useTransitionSFX: 1
   customCloseSFX: {fileID: 0}
   customOpenSFX: {fileID: 0}
+  isSmoothTransition: 0
 --- !u!114 &1379192843
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21141,6 +21268,7 @@ MonoBehaviour:
   useTransitionSFX: 1
   customCloseSFX: {fileID: 0}
   customOpenSFX: {fileID: 0}
+  isSmoothTransition: 0
 --- !u!114 &1461400162
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21334,7 +21462,7 @@ Light:
   m_Type: 2
   m_Color: {r: 0.9292453, g: 0.93312496, b: 1, a: 1}
   m_Intensity: 3
-  m_Range: 10
+  m_Range: 8.66
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -21868,6 +21996,7 @@ MonoBehaviour:
   useTransitionSFX: 1
   customCloseSFX: {fileID: 0}
   customOpenSFX: {fileID: 0}
+  isSmoothTransition: 0
 --- !u!114 &1498136443
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24709,6 +24838,7 @@ MonoBehaviour:
   useTransitionSFX: 1
   customCloseSFX: {fileID: 0}
   customOpenSFX: {fileID: 0}
+  isSmoothTransition: 0
 --- !u!114 &1666675484
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26084,6 +26214,7 @@ MonoBehaviour:
   useTransitionSFX: 1
   customCloseSFX: {fileID: 0}
   customOpenSFX: {fileID: 0}
+  isSmoothTransition: 0
 --- !u!114 &1749229001
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27187,6 +27318,7 @@ MonoBehaviour:
   useTransitionSFX: 1
   customCloseSFX: {fileID: 0}
   customOpenSFX: {fileID: 0}
+  isSmoothTransition: 0
 --- !u!114 &1842579567
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27309,6 +27441,7 @@ MonoBehaviour:
   useTransitionSFX: 1
   customCloseSFX: {fileID: 0}
   customOpenSFX: {fileID: 0}
+  isSmoothTransition: 0
 --- !u!114 &1842688314
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27757,6 +27890,64 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1030974579, guid: abc00000000012929135877014774517, type: 3}
   m_PrefabInstance: {fileID: 1738976961}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1870982531
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1870982533}
+  - component: {fileID: 1870982532}
+  m_Layer: 0
+  m_Name: Day Transition Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1870982532
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1870982531}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5cad5f01fa52e0d4481ec2b67d0adf74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fadeImage: {fileID: 489101154}
+  dayText: {fileID: 1997415239}
+  camManager: {fileID: 637437362}
+  bgmManager: {fileID: 704488239}
+  currentDay: 1
+  nextDayStartCamera: {fileID: 1802394315}
+  nextDayBGM: {fileID: 8300000, guid: 360c0fbe5ee981d428a1157879e0b0d1, type: 3}
+  fadeOutToBlackDuration: 1.2
+  textFadeInDuration: 1.5
+  holdFirstDayTime: 1
+  delayBetweenDays: 0.8
+  holdSecondDayTime: 1.5
+  textFadeOutDuration: 0.8
+  fadeInToSceneDuration: 1.2
+--- !u!4 &1870982533
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1870982531}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -14.83789, y: -2.0498557, z: -13.409962}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1872834818
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -28034,6 +28225,7 @@ MonoBehaviour:
   useTransitionSFX: 1
   customCloseSFX: {fileID: 0}
   customOpenSFX: {fileID: 0}
+  isSmoothTransition: 0
 --- !u!114 &1876968918
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28535,7 +28727,7 @@ Light:
   m_Type: 2
   m_Color: {r: 0.9292453, g: 0.93312496, b: 1, a: 1}
   m_Intensity: 18
-  m_Range: 10
+  m_Range: 8.66
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -29370,7 +29562,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_VertexColorAlwaysGammaSpace: 0
-  m_AdditionalShaderChannelsFlag: 0
+  m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
@@ -29388,6 +29580,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 489101153}
+  - {fileID: 1997415241}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -29446,6 +29639,7 @@ MonoBehaviour:
   useTransitionSFX: 1
   customCloseSFX: {fileID: 0}
   customOpenSFX: {fileID: 0}
+  isSmoothTransition: 0
 --- !u!1001 &1963730652
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -29651,6 +29845,142 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1030974465, guid: abc00000000014683952831125757277, type: 3}
   m_PrefabInstance: {fileID: 1990447253}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1997415238
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1997415241}
+  - component: {fileID: 1997415240}
+  - component: {fileID: 1997415239}
+  m_Layer: 5
+  m_Name: Day Text
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1997415239
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1997415238}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: New Text
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 85
+  m_fontSizeBase: 85
+  m_fontWeight: 400
+  m_enableAutoSizing: 0
+  m_fontSizeMin: 18
+  m_fontSizeMax: 72
+  m_fontStyle: 1
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 512
+  m_textAlignment: 65535
+  m_characterSpacing: 0
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_TextWrappingMode: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 0
+  m_ActiveFontFeatures: 6e72656b
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_EmojiFallbackSupport: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_hasFontAssetChanged: 0
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!222 &1997415240
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1997415238}
+  m_CullTransparentMesh: 1
+--- !u!224 &1997415241
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1997415238}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1959309445}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 695, y: 174}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &1999536365
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -29994,6 +30324,7 @@ MonoBehaviour:
   useTransitionSFX: 1
   customCloseSFX: {fileID: 0}
   customOpenSFX: {fileID: 0}
+  isSmoothTransition: 0
 --- !u!114 &2024672588
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30276,6 +30607,7 @@ MonoBehaviour:
   useTransitionSFX: 1
   customCloseSFX: {fileID: 0}
   customOpenSFX: {fileID: 0}
+  isSmoothTransition: 0
 --- !u!114 &2040356813
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30992,7 +31324,7 @@ Light:
   m_Type: 2
   m_Color: {r: 0.9292453, g: 0.93312496, b: 1, a: 1}
   m_Intensity: 18
-  m_Range: 10
+  m_Range: 8.66
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -31626,6 +31958,7 @@ SceneRoots:
   - {fileID: 1319108895}
   - {fileID: 637437363}
   - {fileID: 704488240}
+  - {fileID: 1870982533}
   - {fileID: 964212995}
   - {fileID: 1789666382}
   - {fileID: 984110391}
