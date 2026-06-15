@@ -54,10 +54,15 @@ public class RoomRuntime
 }
 
 // CSV(TextAsset) → ChatRoom 데이터로 변환
+// 구분자는 쉼표가 아니라 파이프(|) 입니다. 대화 텍스트에 쉼표가 들어가도 충돌하지 않습니다.
 public static class ChatCsvLoader
 {
-    // Rooms.csv : RoomId,DisplayName,StartNodeId
-    // Chats.csv : RoomId,NodeId,Type,NextNodeId,Text   (Text는 항상 마지막 칸)
+    // 구분자 — 대화 텍스트에 절대 쓰지 않을 문자
+    private const char Delimiter = '|';
+    private static readonly string DelimiterStr = Delimiter.ToString();
+
+    // Rooms : RoomId|DisplayName|StartNodeId
+    // Chats : RoomId|NodeId|Type|NextNodeId|Text   (Text는 항상 마지막 칸)
     public static Dictionary<string, ChatRoom> Load(TextAsset roomsCsv, TextAsset chatsCsv)
     {
         var rooms = new Dictionary<string, ChatRoom>();
@@ -68,7 +73,7 @@ public static class ChatCsvLoader
         }
 
         // 1) 방 목록
-        var roomRows = ParseCsv(roomsCsv.text);
+        var roomRows = ParseLines(roomsCsv.text);
         for (int r = 1; r < roomRows.Count; r++) // 0행은 헤더
         {
             var row = roomRows[r];
@@ -83,7 +88,7 @@ public static class ChatCsvLoader
         }
 
         // 2) 대화 노드
-        var chatRows = ParseCsv(chatsCsv.text);
+        var chatRows = ParseLines(chatsCsv.text);
         for (int r = 1; r < chatRows.Count; r++)
         {
             var row = chatRows[r];
@@ -101,7 +106,7 @@ public static class ChatCsvLoader
 
             string type = row[2].Trim().ToLowerInvariant();
             string nextNodeId = row[3].Trim();
-            // 5번째 칸부터 끝까지를 모두 Text로 합침 → 콤마가 들어가도 안전
+            // 5번째 칸부터 끝까지를 모두 Text로 합침 (혹시 텍스트에 | 가 있어도 복원)
             string text = JoinFrom(row, 4);
 
             if (type == "msg" || type == "message")
@@ -120,49 +125,19 @@ public static class ChatCsvLoader
     static string JoinFrom(string[] arr, int start)
     {
         if (arr.Length <= start) return "";
-        return string.Join(",", arr, start, arr.Length - start);
+        return string.Join(DelimiterStr, arr, start, arr.Length - start);
     }
 
-    // 따옴표로 감싼 필드도 지원하는 CSV 파서 (따옴표를 안 써도 Text가 마지막 칸이라 안전)
-    static List<string[]> ParseCsv(string text)
+    // 줄 단위로 나눈 뒤 각 줄을 구분자로 분리 (따옴표 처리 불필요 — 구분자가 텍스트에 안 나옴)
+    static List<string[]> ParseLines(string text)
     {
         var rows = new List<string[]>();
-        var fields = new List<string>();
-        var sb = new System.Text.StringBuilder();
-        bool inQuotes = false;
-
         text = text.Replace("\r\n", "\n").Replace("\r", "\n");
 
-        for (int i = 0; i < text.Length; i++)
+        foreach (var line in text.Split('\n'))
         {
-            char c = text[i];
-
-            if (inQuotes)
-            {
-                if (c == '"')
-                {
-                    if (i + 1 < text.Length && text[i + 1] == '"') { sb.Append('"'); i++; }
-                    else inQuotes = false;
-                }
-                else sb.Append(c);
-            }
-            else
-            {
-                if (c == '"') inQuotes = true;
-                else if (c == ',') { fields.Add(sb.ToString()); sb.Clear(); }
-                else if (c == '\n')
-                {
-                    fields.Add(sb.ToString()); sb.Clear();
-                    rows.Add(fields.ToArray()); fields = new List<string>();
-                }
-                else sb.Append(c);
-            }
-        }
-
-        if (sb.Length > 0 || fields.Count > 0)
-        {
-            fields.Add(sb.ToString());
-            rows.Add(fields.ToArray());
+            if (string.IsNullOrWhiteSpace(line)) continue; // 빈 줄 무시
+            rows.Add(line.Split(Delimiter));
         }
         return rows;
     }
