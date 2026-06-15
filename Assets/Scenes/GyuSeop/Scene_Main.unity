@@ -28413,6 +28413,28 @@ MonoBehaviour:
   holdSecondDayTime: 1.5
   textFadeOutDuration: 0.8
   fadeInToSceneDuration: 1.2
+  dailyEvents:
+  - onDayStartEvent:
+      m_PersistentCalls:
+        m_Calls: []
+  - onDayStartEvent:
+      m_PersistentCalls:
+        m_Calls: []
+  - onDayStartEvent:
+      m_PersistentCalls:
+        m_Calls: []
+  - onDayStartEvent:
+      m_PersistentCalls:
+        m_Calls: []
+  - onDayStartEvent:
+      m_PersistentCalls:
+        m_Calls: []
+  - onDayStartEvent:
+      m_PersistentCalls:
+        m_Calls: []
+  - onDayStartEvent:
+      m_PersistentCalls:
+        m_Calls: []
 --- !u!4 &1870982533
 Transform:
   m_ObjectHideFlags: 0
