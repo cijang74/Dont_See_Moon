@@ -35,7 +35,7 @@ public class RadioSwitchScript : MonoBehaviour
             RadioManagerScript.Instance.isactivated=true;
 
             frequencyDisplayColor.color=new Color32(255,255,255,255);
-            ScenarioManager.Instance.DayChanger(); //시나리오 노드 매니저 테스트용 코드, 작동하면 날짜 하나 올라가면서 시나리오 노드들 갱신함
+            // ScenarioManager.Instance.DayChanger(); // 기존 시나리오 매니저 코드는 더이상 사용하지 않으므로 주석/삭제 처리
         }
     }
 
@@ -61,5 +61,21 @@ public class RadioSwitchScript : MonoBehaviour
     {
         // 마우스가 버튼에서 떠날 때 색상 복구
         //GetComponent<SpriteRenderer>().color = Color.white; frequencyDisplay
+    }
+
+    public void TurnOffRadio()
+    {
+        if (RadioManagerScript.Instance.isactivated)
+        {
+            RadioManagerScript.Instance.radioNoise.Pause();
+            RadioManagerScript.Instance.isactivated = false;
+            foreach (var tempFrequencySound in RadioManagerScript.Instance.playFrequencySoundsList)
+            {
+                tempFrequencySound.audioSource.volume = 0;
+            }
+
+            frequencyDisplayColor.color = new Color32(50, 50, 50, 255);
+            Debug.Log("Radio turned off automatically.");
+        }
     }
 }
