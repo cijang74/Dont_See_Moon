@@ -126,4 +126,55 @@ daychanger 돌아가면서 할 일 : 오디오 플레이되면 시간 체크해�
             RadioManagerScript.Instance.frequencySounds.Add(sound);
         }
     }
+
+    /// <summary>
+    /// 특정 인덱스의 라디오 오디오만 재생 상태(playTrigger)로 활성화하고 나머지는 끕니다.
+    /// 인스펙터의 UnityEvent에서 매개변수(int)와 함께 호출하기 편하도록 만든 메서드입니다.
+    /// </summary>
+    public void SetActiveRadioSoundByIndex(int soundIndexToPlay)
+    {
+        if (RadioManagerScript.Instance == null || RadioManagerScript.Instance.frequencySounds == null) return;
+
+        for (int i = 0; i < RadioManagerScript.Instance.frequencySounds.Count; i++)
+        {
+            RadioManagerScript.Instance.frequencySounds[i].playTrigger = (i == soundIndexToPlay);
+        }
+        
+        SelectTodayFrequency();
+        Debug.Log($"[RadioSoundManager] 라디오 사운드 인덱스 {soundIndexToPlay}번이 재생 대기 상태가 되었습니다.");
+    }
+
+    /// <summary>
+    /// 특정 날짜에 배정된 오디오가 없을 경우 모든 라디오 오디오 재생을 중지합니다.
+    /// </summary>
+    public void ClearAllRadioSounds()
+    {
+        if (RadioManagerScript.Instance == null || RadioManagerScript.Instance.frequencySounds == null) return;
+
+        for (int i = 0; i < RadioManagerScript.Instance.frequencySounds.Count; i++)
+        {
+            RadioManagerScript.Instance.frequencySounds[i].playTrigger = false;
+        }
+        
+        SelectTodayFrequency();
+        Debug.Log($"[RadioSoundManager] 할당된 라디오 사운드가 없어 재생이 중지되었습니다.");
+    }
+
+    /// <summary>
+    /// 기존 재생 중인 라디오 오디오들을 끄지 않고, 특정 인덱스의 오디오만 추가로 켭니다.
+    /// 한 날짜에 여러 개의 방송을 겹쳐서 송출하고 싶을 때 사용합니다.
+    /// 주의: 어제 틀어둔 방송을 끄고 여러 개를 켜고 싶다면, 
+    /// 반드시 UnityEvent에서 ClearAllRadioSounds()를 제일 먼저 호출한 후 사용해야 합니다.
+    /// </summary>
+    public void AddActiveRadioSoundByIndex(int soundIndexToPlay)
+    {
+        if (RadioManagerScript.Instance == null || RadioManagerScript.Instance.frequencySounds == null) return;
+        
+        if (soundIndexToPlay >= 0 && soundIndexToPlay < RadioManagerScript.Instance.frequencySounds.Count)
+        {
+            RadioManagerScript.Instance.frequencySounds[soundIndexToPlay].playTrigger = true;
+            SelectTodayFrequency();
+            Debug.Log($"[RadioSoundManager] 라디오 사운드 인덱스 {soundIndexToPlay}번이 기존 방송에 추가로 켜졌습니다.");
+        }
+    }
 }
