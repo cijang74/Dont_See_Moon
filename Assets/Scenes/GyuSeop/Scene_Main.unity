@@ -6842,6 +6842,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: abc00000000012929135877014774517, type: 3}
+--- !u!114 &471150003 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8584604947906779085, guid: be5c95f430c5e2c439cc6e92523cb866, type: 3}
+  m_PrefabInstance: {fileID: 1586557287}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 277ea716001f11e45aa99627e7a97da2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &479226021
 GameObject:
   m_ObjectHideFlags: 0
@@ -23967,7 +23978,6 @@ Transform:
   - {fileID: 704488240}
   - {fileID: 1870982533}
   - {fileID: 1319108895}
-  - {fileID: 2027770834}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1591940613
@@ -28416,16 +28426,64 @@ MonoBehaviour:
   dailyEvents:
   - onDayStartEvent:
       m_PersistentCalls:
-        m_Calls: []
+        m_Calls:
+        - m_Target: {fileID: 471150003}
+          m_TargetAssemblyTypeName: RadioSoundManagerScript, Assembly-CSharp
+          m_MethodName: SetActiveRadioSoundByIndex
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
   - onDayStartEvent:
       m_PersistentCalls:
-        m_Calls: []
+        m_Calls:
+        - m_Target: {fileID: 471150003}
+          m_TargetAssemblyTypeName: RadioSoundManagerScript, Assembly-CSharp
+          m_MethodName: SetActiveRadioSoundByIndex
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 1
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
   - onDayStartEvent:
       m_PersistentCalls:
-        m_Calls: []
+        m_Calls:
+        - m_Target: {fileID: 471150003}
+          m_TargetAssemblyTypeName: RadioSoundManagerScript, Assembly-CSharp
+          m_MethodName: SetActiveRadioSoundByIndex
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 2
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
   - onDayStartEvent:
       m_PersistentCalls:
-        m_Calls: []
+        m_Calls:
+        - m_Target: {fileID: 471150003}
+          m_TargetAssemblyTypeName: RadioSoundManagerScript, Assembly-CSharp
+          m_MethodName: ClearAllRadioSounds
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
   - onDayStartEvent:
       m_PersistentCalls:
         m_Calls: []
@@ -30885,51 +30943,6 @@ MonoBehaviour:
   customCloseSFX: {fileID: 0}
   customOpenSFX: {fileID: 0}
   isSmoothTransition: 1
---- !u!1 &2027770833
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2027770834}
-  - component: {fileID: 2027770835}
-  m_Layer: 0
-  m_Name: DayEventManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2027770834
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2027770833}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1588326275}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2027770835
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2027770833}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5ef8bcc53926e704d819f1700a95e964, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dayTransitionManager: {fileID: 0}
 --- !u!1 &2032618902
 GameObject:
   m_ObjectHideFlags: 0
