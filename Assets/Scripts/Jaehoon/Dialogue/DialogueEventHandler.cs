@@ -33,15 +33,27 @@ public class DialogueEventHandler : MonoBehaviour
 
     [SerializeField] GameObject blackPanel;
     [SerializeField] GameObject dialoguePanel; //대화 UI 전체 오브젝트
+    [SerializeField] GameObject dialogueCanvas; //대화 UI 전체 오브젝트
     [SerializeField] GameObject choicePanel;
     [SerializeField] GameObject choiceButton;
+
+    [SerializeField] Image backgroundImage;
 
     [SerializeField] CharacterPortraitPanels characterPortraitPanels;
     [SerializeField] GameObject characterPortrait;
     [SerializeField] GameObject objectArrow; // 대사 출력이 끝났을 때 깜빡거리는 오브젝트 (ArrowBlink 스크립트가 붙어있을 곳)
 
     Dictionary<string, GameObject> characterPortaitDict = new Dictionary<string, GameObject>();
-    // List<Image> chatacterPortraitImages = new List<Image>();
+
+    [SerializeField] GameObject votePanel; // 투표 UI 전체 패널
+    [SerializeField] Transform voteButtonGroup; // 버튼들이 자식으로 생성될 부모 (Vertical Layout Group 등이 붙은 곳)
+    [SerializeField] GameObject voteButtonPrefab; // 인스펙터에서 넣을 버튼 프리팹
+
+    // 외부에서 현재 투표 중인지 확인할 수 있는 플래그
+    public bool isVoting = false; 
+
+    // 투표 대상 캐릭터 이름들
+    private string[] voteCandidates = { "James", "Nicholas", "Ella", "Sophia" };
 
     // 씬 처음 로드할 때 호출할 UI 세팅 메서드
     public void UISetup()
@@ -83,7 +95,7 @@ public class DialogueEventHandler : MonoBehaviour
         // 딕셔너리에 이미 해당 캐릭터가 존재하면 기존 것 삭제
         if (characterPortaitDict.ContainsKey(speakerName))
         {
-            DeleteCharacterObjects(speakerName); 
+            StartCoroutine(DeleteCharacterObjects(speakerName)); 
         }
 
         Transform parentPanel = null;
@@ -119,7 +131,7 @@ public class DialogueEventHandler : MonoBehaviour
         {
             Image characterImage = newCharacterPortrait.GetComponent<Image>();
             characterImage.sprite = loadedSprite;
-            StartCoroutine(FadeInUI(characterImage));
+            StartCoroutine(FadeUI(characterImage, 0, 1));
         }
 
         else
@@ -129,51 +141,16 @@ public class DialogueEventHandler : MonoBehaviour
 
         // 딕셔너리 등록
         characterPortaitDict.Add(speakerName, newCharacterPortrait);
-
-        // GameObject newCharacterPortrait;
-
-        // switch (speakerPosition)
-		// {
-		// 	case ENUM_PortraitPositionType.LEFT:
-		// 		newCharacterPortrait = Instantiate(characterPortrait, characterPortraitPanels.LeftCharacterPortraitPanel.transform);
-
-        //         // 해당 부분에서 newCharacterPortrait.GetComponent<Image>().sprite로 접근하여 
-        //         // 이미지를 $"Assets/5. Images/Characters/Full Illustration/{speakerName}/{speakerName}.png"파일로 교체
-
-        //         newCharacterPortrait.transform.localPosition = Vector3.zero;
-        //         newCharacterPortrait.transform.localScale = Vector3.one;
-        //         newCharacterPortrait.transform.localRotation = Quaternion.identity;
-
-        //         characterPortaitDict.Add(speakerName, newCharacterPortrait);
-		// 		break;
-			
-		// 	case ENUM_PortraitPositionType.MIDDLE:
-		// 		newCharacterPortrait = Instantiate(characterPortrait, characterPortraitPanels.MiddleCharacterPortraitPanel.transform);
-
-        //         newCharacterPortrait.transform.localPosition = Vector3.zero;
-        //         newCharacterPortrait.transform.localScale = Vector3.one;
-        //         newCharacterPortrait.transform.localRotation = Quaternion.identity;
-
-        //         characterPortaitDict.Add(speakerName, newCharacterPortrait);
-		// 		break;
-			
-		// 	case ENUM_PortraitPositionType.RIGHT:
-		// 		newCharacterPortrait = Instantiate(characterPortrait, characterPortraitPanels.RightCharacterPortraitPanel.transform);
-
-        //         newCharacterPortrait.transform.localPosition = Vector3.zero;
-        //         newCharacterPortrait.transform.localScale = Vector3.one;
-        //         newCharacterPortrait.transform.localRotation = Quaternion.identity;
-
-        //         characterPortaitDict.Add(speakerName, newCharacterPortrait);
-		// 		break;
-		// }
     }
 
-    void DeleteCharacterObjects(string speakerName)
+    IEnumerator DeleteCharacterObjects(string speakerName)
     {
         // 딕셔너리에 실제로 값이 존재하는것을 확인하면
         if (characterPortaitDict.TryGetValue(speakerName, out GameObject portraitObj))
         {
+            // 사라지는 코루틴 실행 뒤
+            yield return StartCoroutine(FadeUI(characterPortaitDict[speakerName].GetComponent<Image>(), 1, 0));
+
             // speakerName을 키값으로 가진 오브젝트 삭제
             Destroy(characterPortaitDict[speakerName]);
 
@@ -195,17 +172,14 @@ public class DialogueEventHandler : MonoBehaviour
 		{
 			case ENUM_PortraitPositionType.LEFT:
                 targetPanel = characterPortraitPanels.LeftCharacterPortraitPanel;
-				// characterPortraitPanels.LeftCharacterPortraitPanel.color = visible ? Color.white : Color.gray;
 				break;
 			
 			case ENUM_PortraitPositionType.MIDDLE:
                 targetPanel = characterPortraitPanels.MiddleCharacterPortraitPanel;
-				// characterPortraitPanels.MiddleCharacterPortraitPanel.color = visible ? Color.white : Color.gray;
 				break;
 			
 			case ENUM_PortraitPositionType.RIGHT:
                 targetPanel = characterPortraitPanels.RightCharacterPortraitPanel;
-				// characterPortraitPanels.RightCharacterPortraitPanel.color = visible ? Color.white : Color.gray;
 				break;
 		}
 
@@ -228,6 +202,63 @@ public class DialogueEventHandler : MonoBehaviour
             }
         }
 	}
+
+    // 대화 이벤트 리스트에 Vote가 있는지 검사
+    public bool CheckVoteEvent(List<DialogueEvent> events)
+    {
+        foreach (DialogueEvent eventData in events)
+        {
+            if (eventData.eventType == ENUM_EventType.Vote)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    // 동적으로 버튼을 생성하고 띄워주는 메서드
+    public void ShowVoteUI(Action<string> onVoteButtonClicked)
+    {
+        isVoting = true;
+        blackPanel.SetActive(true); // 배경 어둡게
+        votePanel.SetActive(true);  // 투표 창 활성화
+
+        // 1. 기존에 생성되어 있던 버튼 찌꺼기들 깔끔하게 청소
+        foreach (Transform child in voteButtonGroup)
+        {
+            Destroy(child.gameObject);
+        }
+
+        // 2. 캐릭터 수만큼 투표 버튼 동적 생성
+        foreach (string candidate in voteCandidates)
+        {
+            // 부모 밑에 프리팹 인스턴싱
+            GameObject newButton = Instantiate(voteButtonPrefab, voteButtonGroup);
+            
+            // UI 스케일/위치 꼬임 방지용 초기화
+            newButton.transform.localPosition = Vector3.zero;
+            newButton.transform.localScale = Vector3.one;
+            newButton.transform.localRotation = Quaternion.identity;
+
+            // 버튼 텍스트를 캐릭터 이름으로 변경
+            newButton.GetComponentInChildren<TextMeshProUGUI>().text = candidate;
+
+            // 💡 코드로 OnClick 이벤트 연결
+            newButton.GetComponent<Button>().onClick.AddListener(() =>
+            {
+                // DialogueSystem에서 넘겨준 처리 함수 실행 (누구에게 투표했는지 문자열 전달)
+                onVoteButtonClicked?.Invoke(candidate);
+            });
+        }
+    }
+
+    // 투표가 끝났을 때 UI를 닫기 위한 메서드
+    public void HideVoteUI()
+    {
+        isVoting = false;
+        blackPanel.SetActive(false);
+        votePanel.SetActive(false);
+    }
 
     public void SetActiveArrow(bool visible)
     {
@@ -276,7 +307,8 @@ public class DialogueEventHandler : MonoBehaviour
                 characterPortraitPanels.RightCharacterPortraitPanel.gameObject.SetActive(false);
                 
                 dialoguePanel.SetActive(false);
-                uIFade.FadeToBlack();
+                dialogueCanvas.SetActive(false);
+                // uIFade.FadeToBlack();
 
                 return true; // 끝났다고 알려줌
             }
@@ -284,7 +316,7 @@ public class DialogueEventHandler : MonoBehaviour
         return false;
     }
 
-    // 대화 중 event를 확인하여 event를 실행시키는 메서드
+    // 대화 중 event를 확인하여 event를 실행시키는 메서드 (해당 메서드 내 이벤트들은 대화 타이핑이 시작하자마자 실행되는 이벤트들임.)
     public void CheckAndRunEvent(List<DialogueEvent> events)
     {
         foreach(DialogueEvent eventData in events)
@@ -307,7 +339,34 @@ public class DialogueEventHandler : MonoBehaviour
                     SetActiveObjects(ENUM_PortraitPositionType.RIGHT, true);
 					AppearCharacterObjects(ENUM_PortraitPositionType.RIGHT, eventData.target);
 					break;
+
+                case ENUM_EventType.Out:
+                    StartCoroutine(DeleteCharacterObjects(eventData.target));
+                    break;
+
+                case ENUM_EventType.BackGroundChange:
+                    ChangeBackGroundImage(eventData.target);
+                    break;
             }
+        }
+    }
+
+    void ChangeBackGroundImage(string backgroundName)
+    {
+        // 이미지 교체
+        string imagePath = $"BackGroundImages/{backgroundName}";
+        Sprite loadedSprite = Resources.Load<Sprite>(imagePath);
+
+        // 이미지 잘 찾았으면 Image 컴포넌트 접근하여 스프라이트 교체
+        if (loadedSprite != null)
+        {
+            backgroundImage.sprite = loadedSprite;
+            StartCoroutine(FadeUI(backgroundImage, 0, 1));
+        }
+
+        else
+        {
+            Debug.LogWarning($"초상화 이미지를 찾을 수 없습니다. 경로: Resources/{imagePath}");
         }
     }
 
@@ -346,10 +405,8 @@ public class DialogueEventHandler : MonoBehaviour
     {
         bool isExistChoice = false;
         
-        // 최적화하려면 choices[0]만 확인하면 되고, 안정성을 높이려면 foreach로 다 돌아보는게 나음
         foreach(Choice choice in choices)
         {
-            // 선택지 배열 중 하나라도 작성되어있는것이 있으면
             if(choice.text != "")
             {
                 if(!isExistChoice)
@@ -360,26 +417,35 @@ public class DialogueEventHandler : MonoBehaviour
 
                 if(isExistChoice)
                 {
-                    // 선택 버튼 활성화
                     choicePanel.SetActive(true);
 
-                    // choicePanel의 자식으로 choiceButton 인스턴싱
+                    // 버튼 인스턴싱 및 초기화
                     GameObject newButton = Instantiate(choiceButton, choicePanel.transform);
-                    
-                    // 혹시 모를 UI 변형 방지용 초기화
-                    newButton.transform.localPosition = Vector3.zero; // 위치를 부모의 정중앙(0,0,0)으로
-                    newButton.transform.localScale = Vector3.one; // 크기를 원래 프리팹 비율(1,1,1)로
-                    newButton.transform.localRotation = Quaternion.identity; // 회전값 초기화
+                    newButton.transform.localPosition = Vector3.zero;
+                    newButton.transform.localScale = Vector3.one; 
+                    newButton.transform.localRotation = Quaternion.identity; 
 
-                    newButton.GetComponentInChildren<TextMeshProUGUI>().text = choice.text;
-                    newButton.GetComponent<Button>().onClick.AddListener(() =>
+                    TextMeshProUGUI buttonText = newButton.GetComponentInChildren<TextMeshProUGUI>();
+                    buttonText.text = choice.text;
+
+                    Button btnComponent = newButton.GetComponent<Button>();
+
+                    // 💡 [핵심 검사 로직] 요구 증거가 None이 아닌데, EvidenceManager에 그 증거가 없다면?
+                    if (choice.requiredEvidence != InteractionObjectType.None && !EvidenceManager.Instance.HasEvidence(choice.requiredEvidence))
                     {
-                        // 선택지 효과 (호감도 변수값 증감 등)
-                        OnClickRunChoiceEffect(choice.effects);
-
-                        // 콜백 함수로 받은, 다음 대화 라인으로 넘어가는 함수 SetNextDialog
-                        OnClickSetNextDialog?.Invoke(choice.nextID);
-                    });
+                        // 버튼을 누를 수 없게 비활성화하고, 텍스트 색상을 어둡게 처리
+                        btnComponent.interactable = false;
+                        buttonText.text = $"<color=#808080>{choice.text} (증거 부족)</color>"; 
+                    }
+                    else
+                    {
+                        // 조건이 없거나 만족했을 경우 기존처럼 리스너 등록
+                        btnComponent.onClick.AddListener(() =>
+                        {
+                            OnClickRunChoiceEffect(choice.effects);
+                            OnClickSetNextDialog?.Invoke(choice.nextID);
+                        });
+                    }
                 }
             }
         }
@@ -420,32 +486,41 @@ public class DialogueEventHandler : MonoBehaviour
         }
     }
 
-    IEnumerator FadeInUI(Image characterImage)
+    IEnumerator FadeUI(Image characterImage, float startAlpha, float targetAlpha)
     {
+        // 삭제된 이미지 접근할 수 있으므로 오브젝트 파괴 시 코루틴 종료
+        if (characterImage == null) yield break;
+
         float duration = 0.3f; // 0.3초 동안
         float currentTime = 0f;
 
         // 현재 색상 덩어리를 변수에 복사
         Color colorTarget = characterImage.color;
         
-        // 시작하기 전에 알파값을 0으로 초기화
-        colorTarget.a = 0f;
+        // 시작하기 전에 알파값을 startAlpha으로 초기화
+        colorTarget.a = startAlpha;
         characterImage.color = colorTarget; 
 
         while (currentTime < duration)
         {
             currentTime += Time.deltaTime;
+
+            // 루프 도중 클릭 시 기존 이미지를 삭제하기 때문에 루프 도중 삭제된 이미지 접근할 수 있으므로 오브젝트 파괴 시 코루틴 종료
+            if (characterImage == null) yield break;
             
             // 복사해둔 변수의 알파값을 조절
-            colorTarget.a = Mathf.Lerp(0f, 1f, currentTime / duration);
+            colorTarget.a = Mathf.Lerp(startAlpha, targetAlpha, currentTime / duration);
             
             characterImage.color = colorTarget; 
             
             yield return null; // 한 프레임 대기
         }
 
-        // 확실하게 1로 마무리
-        colorTarget.a = 1f;
-        characterImage.color = colorTarget; 
+        // 확실하게 targetAlpha로 마무리
+        if (characterImage != null)
+        {
+            colorTarget.a = targetAlpha;
+            characterImage.color = colorTarget; 
+        }
     }
 }
