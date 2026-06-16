@@ -10,9 +10,10 @@ public enum InteractionObjectType
     Nicholas,
     Ella,
     Sophia,
-    Vote,
     Day1_BloodKnife,
-    Day1_Pee
+    Day1_Pee,
+    Vote,
+    Ending
 };
 
 public class DialogueManager : Singleton<DialogueManager>
@@ -35,12 +36,12 @@ public class DialogueManager : Singleton<DialogueManager>
     // 💡 [추가] 외부에서 현재 대화가 진행 중인지 확인할 수 있는 변수
     public bool isDialoguePlaying = false;
 
-    // 테스트용
-    void Start()
-    {
-        EvidenceManager.Instance.AcquireEvidence(InteractionObjectType.Day1_BloodKnife);
-        StartCoroutine(StartDialogue(1, InteractionObjectType.James, false));
-    }
+    // // 테스트용
+    // void Start()
+    // {
+    //     EvidenceManager.Instance.AcquireEvidence(InteractionObjectType.Day1_BloodKnife);
+    //     StartCoroutine(StartDialogue(1, InteractionObjectType.James, false));
+    // }
 
     // 💡 [추가] 특정 캐릭터와 오늘 대화가 가능한지 외부에서 미리 확인할 수 있는 메서드
     public bool CanInteract(InteractionObjectType type)
