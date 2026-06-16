@@ -16,7 +16,7 @@ using System.Collections.Generic;
 public class CSVToSO_Dialogue : MonoBehaviour
 {
 
-    [MenuItem("Tools/Resources/ScriptCSV 내 CSV 파일 -> ScriptableObject 변환")]
+    [MenuItem("Tools/Resources/DialogueScriptCSV 내 CSV 파일 -> ScriptableObject 변환")]
     public static void BakeData()
     {
         BakeScriptData(); // Unit CSV DATA -> SO
@@ -28,7 +28,7 @@ public class CSVToSO_Dialogue : MonoBehaviour
 
     private static void BakeScriptData()
     {
-        string csvResourceFolderPath = "Assets/Resources/ScriptCSV";
+        string csvResourceFolderPath = "Assets/Resources/DialogueScriptCSV";
         string saveFolderPath = "Assets/Resources/BakedData/ScriptData";
 
         // 폴더 존재하지 않으면 에러 발생하므로 만들어주는 방어코드
@@ -59,7 +59,7 @@ public class CSVToSO_Dialogue : MonoBehaviour
             string fileName = Path.GetFileNameWithoutExtension(filePath);
             
             // 파일이름 토대로 파일 읽기
-            List<Dictionary<string, object>> csvData = CSV_Reader.Read_CSV($"ScriptCSV/{fileName}");
+            List<Dictionary<string, object>> csvData = CSV_Reader.Read_CSV($"DialogueScriptCSV/{fileName}");
 
             ScriptDataSO newData = ScriptableObject.CreateInstance<ScriptDataSO>();
             newData.title = GetValueStrict(csvData[0], "Title");

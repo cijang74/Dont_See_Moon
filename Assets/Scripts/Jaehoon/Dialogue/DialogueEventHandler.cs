@@ -33,20 +33,17 @@ public class DialogueEventHandler : MonoBehaviour
 
     [SerializeField] GameObject blackPanel;
     [SerializeField] GameObject dialoguePanel; //대화 UI 전체 오브젝트
+    [SerializeField] GameObject dialogueCanvas; //대화 UI 전체 오브젝트
     [SerializeField] GameObject choicePanel;
     [SerializeField] GameObject choiceButton;
 
     [SerializeField] Image backgroundImage;
-    [SerializeField] GameObject PlayerNameInputPanel;
 
     [SerializeField] CharacterPortraitPanels characterPortraitPanels;
     [SerializeField] GameObject characterPortrait;
     [SerializeField] GameObject objectArrow; // 대사 출력이 끝났을 때 깜빡거리는 오브젝트 (ArrowBlink 스크립트가 붙어있을 곳)
 
     Dictionary<string, GameObject> characterPortaitDict = new Dictionary<string, GameObject>();
-    // List<Image> chatacterPortraitImages = new List<Image>();
-
-    // [HideInInspector] public bool isEndPlayerNameInput = true;
 
     // 씬 처음 로드할 때 호출할 UI 세팅 메서드
     public void UISetup()
@@ -134,44 +131,6 @@ public class DialogueEventHandler : MonoBehaviour
 
         // 딕셔너리 등록
         characterPortaitDict.Add(speakerName, newCharacterPortrait);
-
-        // GameObject newCharacterPortrait;
-
-        // switch (speakerPosition)
-		// {
-		// 	case ENUM_PortraitPositionType.LEFT:
-		// 		newCharacterPortrait = Instantiate(characterPortrait, characterPortraitPanels.LeftCharacterPortraitPanel.transform);
-
-        //         // 해당 부분에서 newCharacterPortrait.GetComponent<Image>().sprite로 접근하여 
-        //         // 이미지를 $"Assets/5. Images/Characters/Full Illustration/{speakerName}/{speakerName}.png"파일로 교체
-
-        //         newCharacterPortrait.transform.localPosition = Vector3.zero;
-        //         newCharacterPortrait.transform.localScale = Vector3.one;
-        //         newCharacterPortrait.transform.localRotation = Quaternion.identity;
-
-        //         characterPortaitDict.Add(speakerName, newCharacterPortrait);
-		// 		break;
-			
-		// 	case ENUM_PortraitPositionType.MIDDLE:
-		// 		newCharacterPortrait = Instantiate(characterPortrait, characterPortraitPanels.MiddleCharacterPortraitPanel.transform);
-
-        //         newCharacterPortrait.transform.localPosition = Vector3.zero;
-        //         newCharacterPortrait.transform.localScale = Vector3.one;
-        //         newCharacterPortrait.transform.localRotation = Quaternion.identity;
-
-        //         characterPortaitDict.Add(speakerName, newCharacterPortrait);
-		// 		break;
-			
-		// 	case ENUM_PortraitPositionType.RIGHT:
-		// 		newCharacterPortrait = Instantiate(characterPortrait, characterPortraitPanels.RightCharacterPortraitPanel.transform);
-
-        //         newCharacterPortrait.transform.localPosition = Vector3.zero;
-        //         newCharacterPortrait.transform.localScale = Vector3.one;
-        //         newCharacterPortrait.transform.localRotation = Quaternion.identity;
-
-        //         characterPortaitDict.Add(speakerName, newCharacterPortrait);
-		// 		break;
-		// }
     }
 
     IEnumerator DeleteCharacterObjects(string speakerName)
@@ -203,17 +162,14 @@ public class DialogueEventHandler : MonoBehaviour
 		{
 			case ENUM_PortraitPositionType.LEFT:
                 targetPanel = characterPortraitPanels.LeftCharacterPortraitPanel;
-				// characterPortraitPanels.LeftCharacterPortraitPanel.color = visible ? Color.white : Color.gray;
 				break;
 			
 			case ENUM_PortraitPositionType.MIDDLE:
                 targetPanel = characterPortraitPanels.MiddleCharacterPortraitPanel;
-				// characterPortraitPanels.MiddleCharacterPortraitPanel.color = visible ? Color.white : Color.gray;
 				break;
 			
 			case ENUM_PortraitPositionType.RIGHT:
                 targetPanel = characterPortraitPanels.RightCharacterPortraitPanel;
-				// characterPortraitPanels.RightCharacterPortraitPanel.color = visible ? Color.white : Color.gray;
 				break;
 		}
 
@@ -284,30 +240,13 @@ public class DialogueEventHandler : MonoBehaviour
                 characterPortraitPanels.RightCharacterPortraitPanel.gameObject.SetActive(false);
                 
                 dialoguePanel.SetActive(false);
-                uIFade.FadeToBlack();
+                dialogueCanvas.SetActive(false);
+                // uIFade.FadeToBlack();
 
                 return true; // 끝났다고 알려줌
             }
         }
         return false;
-    }
-
-    public bool CheckPlayerNameInputEvent(List<DialogueEvent> events)
-    {
-        // 이벤트 뒤져보고
-        foreach(DialogueEvent eventData in events)
-        {
-            // // 이벤트 종류가 PlayerNameInput라면 패널 활성화
-            // if(eventData.eventType == ENUM_EventType.PlayerNameInput)
-            // {
-            //     isEndPlayerNameInput = false;
-            //     blackPanel.SetActive(true);
-            //     PlayerNameInputPanel.SetActive(true);
-
-            //     return true; // 패널 띄운 작업 끝났다고 알려줌
-            // }
-        }
-        return false; // 이벤트 없음 확인
     }
 
     // 대화 중 event를 확인하여 event를 실행시키는 메서드 (해당 메서드 내 이벤트들은 대화 타이핑이 시작하자마자 실행되는 이벤트들임.)
@@ -341,11 +280,6 @@ public class DialogueEventHandler : MonoBehaviour
                 case ENUM_EventType.BackGroundChange:
                     ChangeBackGroundImage(eventData.target);
                     break;
-
-                // case ENUM_EventType.PlayerNameInput:
-                //     blackPanel.SetActive(true);
-                //     PlayerNameInputPanel.SetActive(true);
-                //     break;
             }
         }
     }

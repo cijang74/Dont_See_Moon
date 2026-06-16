@@ -64,25 +64,11 @@ public class ScriptLine
 
     public string nextID; // 비워져 있으면 자동으로 다음 대화 출력
 
-    // public string Event1; // 해당 string이 뭔지에 따라 연출 시작
-    // public string Event2; // 해당 string이 뭔지에 따라 연출 시작
-    // public string Event3; // 해당 string이 뭔지에 따라 연출 시작
-
     public List<DialogueEvent> events = new List<DialogueEvent>();
-    // public List<string> events = new List<string>();
     public string emotion;
 
     // 아래 변수들이 비워져있지 않으면 선택 연출 시작
     public List<Choice> choices = new List<Choice>();
-
-    // public string choice1_Text;
-    // public string choice1_NextID;
-
-    // public string choice2_Text;
-    // public string choice2_NextID;
-
-    // public string choice3_Text;
-    // public string choice3_NextID;
 }
 
 public class ScriptDataSO : ScriptableObject
