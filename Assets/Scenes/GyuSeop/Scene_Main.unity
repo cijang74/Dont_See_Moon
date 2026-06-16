@@ -686,6 +686,8 @@ MonoBehaviour:
   customCloseSFX: {fileID: 0}
   customOpenSFX: {fileID: 0}
   isSmoothTransition: 0
+  isDialogueObject: 0
+  dialogueTargetName: 
 --- !u!114 &34185457
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1064,6 +1066,8 @@ MonoBehaviour:
   customCloseSFX: {fileID: 0}
   customOpenSFX: {fileID: 0}
   isSmoothTransition: 0
+  isDialogueObject: 0
+  dialogueTargetName: 
 --- !u!114 &56588289
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1210,7 +1214,13 @@ MonoBehaviour:
   onCameraEnter:
     m_PersistentCalls:
       m_Calls: []
+  onCameraEnterComplete:
+    m_PersistentCalls:
+      m_Calls: []
   onCameraExit:
+    m_PersistentCalls:
+      m_Calls: []
+  onCameraExitComplete:
     m_PersistentCalls:
       m_Calls: []
 --- !u!114 &62352218
@@ -1476,7 +1486,13 @@ MonoBehaviour:
   onCameraEnter:
     m_PersistentCalls:
       m_Calls: []
+  onCameraEnterComplete:
+    m_PersistentCalls:
+      m_Calls: []
   onCameraExit:
+    m_PersistentCalls:
+      m_Calls: []
+  onCameraExitComplete:
     m_PersistentCalls:
       m_Calls: []
 --- !u!1001 &65414910
@@ -2341,6 +2357,8 @@ MonoBehaviour:
   customCloseSFX: {fileID: 0}
   customOpenSFX: {fileID: 0}
   isSmoothTransition: 1
+  isDialogueObject: 0
+  dialogueTargetName: 
 --- !u!1001 &129642138
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3125,7 +3143,13 @@ MonoBehaviour:
   onCameraEnter:
     m_PersistentCalls:
       m_Calls: []
+  onCameraEnterComplete:
+    m_PersistentCalls:
+      m_Calls: []
   onCameraExit:
+    m_PersistentCalls:
+      m_Calls: []
+  onCameraExitComplete:
     m_PersistentCalls:
       m_Calls: []
 --- !u!114 &170217889
@@ -3396,6 +3420,8 @@ MonoBehaviour:
   customCloseSFX: {fileID: 0}
   customOpenSFX: {fileID: 0}
   isSmoothTransition: 0
+  isDialogueObject: 0
+  dialogueTargetName: 
 --- !u!114 &180002085
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4317,6 +4343,8 @@ MonoBehaviour:
   customCloseSFX: {fileID: 0}
   customOpenSFX: {fileID: 0}
   isSmoothTransition: 1
+  isDialogueObject: 0
+  dialogueTargetName: 
 --- !u!1 &218971963
 GameObject:
   m_ObjectHideFlags: 0
@@ -4879,6 +4907,8 @@ MonoBehaviour:
   customCloseSFX: {fileID: 0}
   customOpenSFX: {fileID: 0}
   isSmoothTransition: 0
+  isDialogueObject: 0
+  dialogueTargetName: 
 --- !u!114 &259443041
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5158,7 +5188,13 @@ MonoBehaviour:
   onCameraEnter:
     m_PersistentCalls:
       m_Calls: []
+  onCameraEnterComplete:
+    m_PersistentCalls:
+      m_Calls: []
   onCameraExit:
+    m_PersistentCalls:
+      m_Calls: []
+  onCameraExitComplete:
     m_PersistentCalls:
       m_Calls: []
 --- !u!114 &267601078
@@ -5376,7 +5412,13 @@ MonoBehaviour:
   onCameraEnter:
     m_PersistentCalls:
       m_Calls: []
+  onCameraEnterComplete:
+    m_PersistentCalls:
+      m_Calls: []
   onCameraExit:
+    m_PersistentCalls:
+      m_Calls: []
+  onCameraExitComplete:
     m_PersistentCalls:
       m_Calls: []
 --- !u!4 &269198069
@@ -5871,6 +5913,9 @@ MonoBehaviour:
   onCameraEnter:
     m_PersistentCalls:
       m_Calls: []
+  onCameraEnterComplete:
+    m_PersistentCalls:
+      m_Calls: []
   onCameraExit:
     m_PersistentCalls:
       m_Calls:
@@ -5886,6 +5931,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  onCameraExitComplete:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &296898959
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7728,7 +7776,13 @@ MonoBehaviour:
   onCameraEnter:
     m_PersistentCalls:
       m_Calls: []
+  onCameraEnterComplete:
+    m_PersistentCalls:
+      m_Calls: []
   onCameraExit:
+    m_PersistentCalls:
+      m_Calls: []
+  onCameraExitComplete:
     m_PersistentCalls:
       m_Calls: []
 --- !u!4 &402676336 stripped
@@ -11542,7 +11596,13 @@ MonoBehaviour:
   onCameraEnter:
     m_PersistentCalls:
       m_Calls: []
+  onCameraEnterComplete:
+    m_PersistentCalls:
+      m_Calls: []
   onCameraExit:
+    m_PersistentCalls:
+      m_Calls: []
+  onCameraExitComplete:
     m_PersistentCalls:
       m_Calls: []
 --- !u!1001 &601364571
@@ -12826,6 +12886,8 @@ MonoBehaviour:
   customCloseSFX: {fileID: 0}
   customOpenSFX: {fileID: 0}
   isSmoothTransition: 0
+  isDialogueObject: 0
+  dialogueTargetName: 
 --- !u!114 &670064991
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13015,6 +13077,8 @@ MonoBehaviour:
   customCloseSFX: {fileID: 0}
   customOpenSFX: {fileID: 0}
   isSmoothTransition: 0
+  isDialogueObject: 0
+  dialogueTargetName: 
 --- !u!1001 &683641459
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13202,7 +13266,13 @@ MonoBehaviour:
   onCameraEnter:
     m_PersistentCalls:
       m_Calls: []
+  onCameraEnterComplete:
+    m_PersistentCalls:
+      m_Calls: []
   onCameraExit:
+    m_PersistentCalls:
+      m_Calls: []
+  onCameraExitComplete:
     m_PersistentCalls:
       m_Calls: []
 --- !u!114 &691063393
@@ -13723,7 +13793,13 @@ MonoBehaviour:
   onCameraEnter:
     m_PersistentCalls:
       m_Calls: []
+  onCameraEnterComplete:
+    m_PersistentCalls:
+      m_Calls: []
   onCameraExit:
+    m_PersistentCalls:
+      m_Calls: []
+  onCameraExitComplete:
     m_PersistentCalls:
       m_Calls: []
 --- !u!1001 &710267478
@@ -14025,6 +14101,8 @@ MonoBehaviour:
   customCloseSFX: {fileID: 0}
   customOpenSFX: {fileID: 0}
   isSmoothTransition: 0
+  isDialogueObject: 0
+  dialogueTargetName: 
 --- !u!114 &725895210
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16569,7 +16647,13 @@ MonoBehaviour:
   onCameraEnter:
     m_PersistentCalls:
       m_Calls: []
+  onCameraEnterComplete:
+    m_PersistentCalls:
+      m_Calls: []
   onCameraExit:
+    m_PersistentCalls:
+      m_Calls: []
+  onCameraExitComplete:
     m_PersistentCalls:
       m_Calls: []
 --- !u!4 &855453347 stripped
@@ -17203,7 +17287,13 @@ MonoBehaviour:
   onCameraEnter:
     m_PersistentCalls:
       m_Calls: []
+  onCameraEnterComplete:
+    m_PersistentCalls:
+      m_Calls: []
   onCameraExit:
+    m_PersistentCalls:
+      m_Calls: []
+  onCameraExitComplete:
     m_PersistentCalls:
       m_Calls: []
 --- !u!114 &897471312
@@ -19736,6 +19826,8 @@ MonoBehaviour:
   customCloseSFX: {fileID: 0}
   customOpenSFX: {fileID: 0}
   isSmoothTransition: 1
+  isDialogueObject: 0
+  dialogueTargetName: 
 --- !u!1001 &1035391482
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -19829,6 +19921,8 @@ MonoBehaviour:
   customCloseSFX: {fileID: 0}
   customOpenSFX: {fileID: 0}
   isSmoothTransition: 0
+  isDialogueObject: 0
+  dialogueTargetName: 
 --- !u!114 &1035391486
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19952,7 +20046,13 @@ MonoBehaviour:
   onCameraEnter:
     m_PersistentCalls:
       m_Calls: []
+  onCameraEnterComplete:
+    m_PersistentCalls:
+      m_Calls: []
   onCameraExit:
+    m_PersistentCalls:
+      m_Calls: []
+  onCameraExitComplete:
     m_PersistentCalls:
       m_Calls: []
 --- !u!1 &1040951846
@@ -20005,7 +20105,13 @@ MonoBehaviour:
   onCameraEnter:
     m_PersistentCalls:
       m_Calls: []
+  onCameraEnterComplete:
+    m_PersistentCalls:
+      m_Calls: []
   onCameraExit:
+    m_PersistentCalls:
+      m_Calls: []
+  onCameraExitComplete:
     m_PersistentCalls:
       m_Calls: []
 --- !u!114 &1040951849
@@ -21882,6 +21988,8 @@ MonoBehaviour:
   customCloseSFX: {fileID: 0}
   customOpenSFX: {fileID: 0}
   isSmoothTransition: 0
+  isDialogueObject: 0
+  dialogueTargetName: 
 --- !u!114 &1122185468
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22264,6 +22372,8 @@ MonoBehaviour:
   customCloseSFX: {fileID: 0}
   customOpenSFX: {fileID: 0}
   isSmoothTransition: 0
+  isDialogueObject: 0
+  dialogueTargetName: 
 --- !u!114 &1137697255
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22377,7 +22487,7 @@ Transform:
   m_GameObject: {fileID: 1139071334}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
-  m_LocalPosition: {x: 0, y: 1.024, z: 0}
+  m_LocalPosition: {x: -9.377, y: 1.024, z: 0}
   m_LocalScale: {x: 0.15839507, y: 0.15839507, z: 0.1583951}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -22421,6 +22531,8 @@ MonoBehaviour:
   customCloseSFX: {fileID: 0}
   customOpenSFX: {fileID: 0}
   isSmoothTransition: 1
+  isDialogueObject: 1
+  dialogueTargetName: James
 --- !u!1 &1139905548
 GameObject:
   m_ObjectHideFlags: 0
@@ -22754,6 +22866,8 @@ MonoBehaviour:
   customCloseSFX: {fileID: 0}
   customOpenSFX: {fileID: 0}
   isSmoothTransition: 0
+  isDialogueObject: 0
+  dialogueTargetName: 
 --- !u!114 &1174630121
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23202,6 +23316,8 @@ MonoBehaviour:
   customCloseSFX: {fileID: 0}
   customOpenSFX: {fileID: 0}
   isSmoothTransition: 0
+  isDialogueObject: 0
+  dialogueTargetName: 
 --- !u!114 &1198902053
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23321,6 +23437,8 @@ MonoBehaviour:
   customCloseSFX: {fileID: 0}
   customOpenSFX: {fileID: 0}
   isSmoothTransition: 0
+  isDialogueObject: 0
+  dialogueTargetName: 
 --- !u!114 &1208897208
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23634,7 +23752,13 @@ MonoBehaviour:
   onCameraEnter:
     m_PersistentCalls:
       m_Calls: []
+  onCameraEnterComplete:
+    m_PersistentCalls:
+      m_Calls: []
   onCameraExit:
+    m_PersistentCalls:
+      m_Calls: []
+  onCameraExitComplete:
     m_PersistentCalls:
       m_Calls: []
 --- !u!1001 &1240384137
@@ -25377,6 +25501,8 @@ MonoBehaviour:
   customCloseSFX: {fileID: 0}
   customOpenSFX: {fileID: 0}
   isSmoothTransition: 0
+  isDialogueObject: 0
+  dialogueTargetName: 
 --- !u!114 &1303841982
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25904,6 +26030,8 @@ MonoBehaviour:
   customCloseSFX: {fileID: 0}
   customOpenSFX: {fileID: 0}
   isSmoothTransition: 0
+  isDialogueObject: 0
+  dialogueTargetName: 
 --- !u!114 &1310707874
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26391,7 +26519,13 @@ MonoBehaviour:
   onCameraEnter:
     m_PersistentCalls:
       m_Calls: []
+  onCameraEnterComplete:
+    m_PersistentCalls:
+      m_Calls: []
   onCameraExit:
+    m_PersistentCalls:
+      m_Calls: []
+  onCameraExitComplete:
     m_PersistentCalls:
       m_Calls: []
 --- !u!1001 &1330315596
@@ -26926,6 +27060,8 @@ MonoBehaviour:
   customCloseSFX: {fileID: 0}
   customOpenSFX: {fileID: 0}
   isSmoothTransition: 0
+  isDialogueObject: 0
+  dialogueTargetName: 
 --- !u!114 &1352480369
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27422,6 +27558,8 @@ MonoBehaviour:
   customCloseSFX: {fileID: 0}
   customOpenSFX: {fileID: 0}
   isSmoothTransition: 0
+  isDialogueObject: 0
+  dialogueTargetName: 
 --- !u!114 &1379192843
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28888,6 +29026,8 @@ MonoBehaviour:
   customCloseSFX: {fileID: 0}
   customOpenSFX: {fileID: 0}
   isSmoothTransition: 0
+  isDialogueObject: 0
+  dialogueTargetName: 
 --- !u!114 &1461400162
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29950,6 +30090,8 @@ MonoBehaviour:
   customCloseSFX: {fileID: 0}
   customOpenSFX: {fileID: 0}
   isSmoothTransition: 0
+  isDialogueObject: 0
+  dialogueTargetName: 
 --- !u!114 &1498136443
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -33197,6 +33339,8 @@ MonoBehaviour:
   customCloseSFX: {fileID: 0}
   customOpenSFX: {fileID: 0}
   isSmoothTransition: 0
+  isDialogueObject: 0
+  dialogueTargetName: 
 --- !u!114 &1666675484
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -34996,6 +35140,8 @@ MonoBehaviour:
   customCloseSFX: {fileID: 0}
   customOpenSFX: {fileID: 0}
   isSmoothTransition: 0
+  isDialogueObject: 0
+  dialogueTargetName: 
 --- !u!114 &1749229001
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -35590,7 +35736,13 @@ MonoBehaviour:
   onCameraEnter:
     m_PersistentCalls:
       m_Calls: []
+  onCameraEnterComplete:
+    m_PersistentCalls:
+      m_Calls: []
   onCameraExit:
+    m_PersistentCalls:
+      m_Calls: []
+  onCameraExitComplete:
     m_PersistentCalls:
       m_Calls: []
 --- !u!4 &1802913009 stripped
@@ -35742,7 +35894,13 @@ MonoBehaviour:
   onCameraEnter:
     m_PersistentCalls:
       m_Calls: []
+  onCameraEnterComplete:
+    m_PersistentCalls:
+      m_Calls: []
   onCameraExit:
+    m_PersistentCalls:
+      m_Calls: []
+  onCameraExitComplete:
     m_PersistentCalls:
       m_Calls: []
 --- !u!114 &1812438660
@@ -36384,6 +36542,8 @@ MonoBehaviour:
   customCloseSFX: {fileID: 0}
   customOpenSFX: {fileID: 0}
   isSmoothTransition: 0
+  isDialogueObject: 0
+  dialogueTargetName: 
 --- !u!114 &1842579567
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -36507,6 +36667,8 @@ MonoBehaviour:
   customCloseSFX: {fileID: 0}
   customOpenSFX: {fileID: 0}
   isSmoothTransition: 0
+  isDialogueObject: 0
+  dialogueTargetName: 
 --- !u!114 &1842688314
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -37381,6 +37543,8 @@ MonoBehaviour:
   customCloseSFX: {fileID: 0}
   customOpenSFX: {fileID: 0}
   isSmoothTransition: 0
+  isDialogueObject: 0
+  dialogueTargetName: 
 --- !u!114 &1876968918
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -38390,7 +38554,13 @@ MonoBehaviour:
   onCameraEnter:
     m_PersistentCalls:
       m_Calls: []
+  onCameraEnterComplete:
+    m_PersistentCalls:
+      m_Calls: []
   onCameraExit:
+    m_PersistentCalls:
+      m_Calls: []
+  onCameraExitComplete:
     m_PersistentCalls:
       m_Calls: []
 --- !u!1001 &1928814005
@@ -38879,6 +39049,8 @@ MonoBehaviour:
   customCloseSFX: {fileID: 0}
   customOpenSFX: {fileID: 0}
   isSmoothTransition: 0
+  isDialogueObject: 0
+  dialogueTargetName: 
 --- !u!1001 &1963730652
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -39832,6 +40004,8 @@ MonoBehaviour:
   customCloseSFX: {fileID: 0}
   customOpenSFX: {fileID: 0}
   isSmoothTransition: 0
+  isDialogueObject: 0
+  dialogueTargetName: 
 --- !u!114 &2024672588
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -39950,6 +40124,8 @@ MonoBehaviour:
   customCloseSFX: {fileID: 0}
   customOpenSFX: {fileID: 0}
   isSmoothTransition: 1
+  isDialogueObject: 0
+  dialogueTargetName: 
 --- !u!1001 &2031646382
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -40269,6 +40445,8 @@ MonoBehaviour:
   customCloseSFX: {fileID: 0}
   customOpenSFX: {fileID: 0}
   isSmoothTransition: 0
+  isDialogueObject: 0
+  dialogueTargetName: 
 --- !u!114 &2040356813
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -40848,7 +41026,13 @@ MonoBehaviour:
   onCameraEnter:
     m_PersistentCalls:
       m_Calls: []
+  onCameraEnterComplete:
+    m_PersistentCalls:
+      m_Calls: []
   onCameraExit:
+    m_PersistentCalls:
+      m_Calls: []
+  onCameraExitComplete:
     m_PersistentCalls:
       m_Calls: []
 --- !u!1001 &2079102394
