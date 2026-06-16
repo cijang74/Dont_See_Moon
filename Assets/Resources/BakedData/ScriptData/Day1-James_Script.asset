@@ -1,0 +1,376 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee81f89839c79ae438a59b0912e1638c, type: 3}
+  m_Name: Day1-James_Script
+  m_EditorClassIdentifier: 
+  title: 
+  dialogueLines:
+  - ID: 0
+    speakerPosition: Left
+    speakerName: "\uC544\uB9AC\uC5D8"
+    listenerName: "\uC548\uB0B4\uC6D0"
+    dialogueText: "\u2026..."
+    nextID: 
+    events: []
+    emotion: 
+    choices:
+    - text: 
+      nextID: 
+      effects: []
+    - text: 
+      nextID: 
+      effects: []
+    - text: 
+      nextID: 
+      effects: []
+  - ID: 1
+    speakerPosition: Left
+    speakerName: "\uC544\uB9AC\uC5D8"
+    listenerName: 
+    dialogueText: "\uC880 \uB2A6\uB124."
+    nextID: 
+    events: []
+    emotion: 
+    choices:
+    - text: 
+      nextID: 
+      effects: []
+    - text: 
+      nextID: 
+      effects: []
+    - text: 
+      nextID: 
+      effects: []
+  - ID: 2
+    speakerPosition: Right
+    speakerName: "\uB2E8\uC7A5"
+    listenerName: 
+    dialogueText: "(\uC548\uB0B4\uC6D0\uC774 \uBD84\uC8FC\uD558\uAC8C \uC11C\uB958
+      \uB354\uBBF8\uB97C \uB4A4\uC9C0\uACE0 \uC788\uB2E4.)"
+    nextID: 
+    events: []
+    emotion: 
+    choices:
+    - text: 
+      nextID: 
+      effects: []
+    - text: 
+      nextID: 
+      effects: []
+    - text: 
+      nextID: 
+      effects: []
+  - ID: 3
+    speakerPosition: Right
+    speakerName: "\uB2E8\uC7A5"
+    listenerName: 
+    dialogueText: "\u2026..."
+    nextID: 
+    events: []
+    emotion: 
+    choices:
+    - text: 
+      nextID: 
+      effects: []
+    - text: 
+      nextID: 
+      effects: []
+    - text: 
+      nextID: 
+      effects: []
+  - ID: 4
+    speakerPosition: Right
+    speakerName: "\uB2E8\uC7A5"
+    listenerName: 
+    dialogueText: "(\uC870\uAE08\uB9CC \uB354 \uAE30\uB2E4\uB824\uBCF4\uC790.)"
+    nextID: 
+    events: []
+    emotion: 
+    choices:
+    - text: 
+      nextID: 
+      effects: []
+    - text: 
+      nextID: 
+      effects: []
+    - text: 
+      nextID: 
+      effects: []
+  - ID: 5
+    speakerPosition: Right
+    speakerName: "\uC548\uB0B4\uC6D0"
+    listenerName: 
+    dialogueText: "\uC544, \uCC3E\uC558\uB2E4!"
+    nextID: 
+    events: []
+    emotion: 
+    choices:
+    - text: 
+      nextID: 
+      effects: []
+    - text: 
+      nextID: 
+      effects: []
+    - text: 
+      nextID: 
+      effects: []
+  - ID: 6
+    speakerPosition: Right
+    speakerName: "\uC548\uB0B4\uC6D0"
+    listenerName: 
+    dialogueText: "\uC5EC\uAE30, \uC6A9\uBCD1\uB2E8 \uC9C1\uC811 \uC9C0\uC6D0 \uC758\uB8B0\uC11C\uC785\uB2C8\uB2E4."
+    nextID: 
+    events: []
+    emotion: 
+    choices:
+    - text: 
+      nextID: 
+      effects: []
+    - text: 
+      nextID: 
+      effects: []
+    - text: 
+      nextID: 
+      effects: []
+  - ID: 7
+    speakerPosition: Right
+    speakerName: "\uC548\uB0B4\uC6D0"
+    listenerName: 
+    dialogueText: "\uB450 \uAD50\uB2E8\uC5D0\uC11C \uC18C\uADDC\uBAA8 \uC6A9\uBCD1\uB2E8\uC758
+      \uC6D0\uD65C\uD55C \uC758\uB8B0 \uC218\uAE09\uC744 \uC704\uD574 \uC81C\uACF5\uD558\uB294
+      \uC758\uB8B0 \uC11C\uBE44\uC2A4\uC8E0!"
+    nextID: 
+    events: []
+    emotion: 
+    choices:
+    - text: 
+      nextID: 
+      effects: []
+    - text: 
+      nextID: 
+      effects: []
+    - text: 
+      nextID: 
+      effects: []
+  - ID: 8
+    speakerPosition: Right
+    speakerName: "\uC548\uB0B4\uC6D0"
+    listenerName: 
+    dialogueText: "\u2026\uC8C4\uC1A1\uD569\uB2C8\uB2E4. \uC694\uC998 \uC5EC\uAE30\uC800\uAE30\uC11C
+      \uC758\uB8B0\uAC00 \uB9CE\uC774 \uB4E4\uC5B4\uC640\uC11C \uC11C\uB958 \uC815\uB9AC\uAC00
+      \uC548 \uB418\uC5B4\uC788\uB124\uC694."
+    nextID: 
+    events: []
+    emotion: 
+    choices:
+    - text: 
+      nextID: 
+      effects: []
+    - text: 
+      nextID: 
+      effects: []
+    - text: 
+      nextID: 
+      effects: []
+  - ID: 9
+    speakerPosition: Right
+    speakerName: "\uC548\uB0B4\uC6D0"
+    listenerName: 
+    dialogueText: "\uC5EC\uAE30 \uBE48\uCE78\uC5D0 \uC758\uB8B0\uBC1B\uC740 \uAD50\uB2E8\uC774\uB791
+      \uC758\uB8B0 \uCC38\uAC00 \uC778\uC6D0\uC5D0 \uB300\uD574 \uC791\uC131\uD558\uC2DC\uBA74
+      \uB429\uB2C8\uB2E4."
+    nextID: 
+    events: []
+    emotion: 
+    choices:
+    - text: 
+      nextID: 
+      effects: []
+    - text: 
+      nextID: 
+      effects: []
+    - text: 
+      nextID: 
+      effects: []
+  - ID: 10
+    speakerPosition: Right
+    speakerName: "\uB2E8\uC7A5"
+    listenerName: 
+    dialogueText: "(\uC548\uB0B4\uC6D0\uC774 \uB0B4\uBBFC \uBE48\uCE78\uACFC \uC758\uB8B0
+      \uB0B4\uC6A9\uC774 \uC801\uD78C \uC11C\uB958\uB97C \uBC1B\uB294\uB2E4.)"
+    nextID: 
+    events: []
+    emotion: 
+    choices:
+    - text: 
+      nextID: 
+      effects: []
+    - text: 
+      nextID: 
+      effects: []
+    - text: 
+      nextID: 
+      effects: []
+  - ID: 11
+    speakerPosition: Right
+    speakerName: "\uB2E8\uC7A5"
+    listenerName: 
+    dialogueText: "\uC758\uB8B0 \uB0B4\uC6A9\uC740\u2026 \uC0AC\uC774\uB378 \uC655\uAD6D\uC5D0
+      \uCD9C\uBAB0\uD55C \uBAAC\uC2A4\uD130 \uCC98\uB9AC\uB124."
+    nextID: 
+    events: []
+    emotion: 
+    choices:
+    - text: 
+      nextID: 
+      effects: []
+    - text: 
+      nextID: 
+      effects: []
+    - text: 
+      nextID: 
+      effects: []
+  - ID: 12
+    speakerPosition: Left
+    speakerName: "\uC544\uB9AC\uC5D8"
+    listenerName: 
+    dialogueText: "\uC7A0\uAE50\uB9CC, \uBAAC\uC2A4\uD130 \uCC98\uB9AC \uC758\uB8B0\uB294
+      3\uBA85\uC774 \uCD5C\uC18C \uC778\uC6D0 \uC544\uB2CC\uAC00?"
+    nextID: 
+    events: []
+    emotion: 
+    choices:
+    - text: 
+      nextID: 
+      effects: []
+    - text: 
+      nextID: 
+      effects: []
+    - text: 
+      nextID: 
+      effects: []
+  - ID: 13
+    speakerPosition: Right
+    speakerName: "\uC548\uB0B4\uC6D0"
+    listenerName: 
+    dialogueText: "\uC544, \uADF8 \uBB38\uC81C\uB294 \uAC71\uC815\uD558\uC9C0 \uC54A\uC73C\uC154\uB3C4
+      \uB429\uB2C8\uB2E4."
+    nextID: 
+    events: []
+    emotion: 
+    choices:
+    - text: 
+      nextID: 
+      effects: []
+    - text: 
+      nextID: 
+      effects: []
+    - text: 
+      nextID: 
+      effects: []
+  - ID: 14
+    speakerPosition: Right
+    speakerName: "\uC548\uB0B4\uC6D0"
+    listenerName: 
+    dialogueText: "\uC800\uD76C \uAE38\uB4DC\uC5D0\uC11C\uB294 \uBBF8\uB2EC \uC778\uC6D0
+      1\uBA85\uAE4C\uC9C0\uB294 \uAE38\uB4DC \uC18C\uC18D \uC6A9\uBCD1\uC73C\uB85C
+      \uC9C0\uC6D0\uD560 \uC218 \uC788\uAC8C \uB418\uC5B4\uC788\uAC70\uB4E0\uC694."
+    nextID: 
+    events: []
+    emotion: 
+    choices:
+    - text: 
+      nextID: 
+      effects: []
+    - text: 
+      nextID: 
+      effects: []
+    - text: 
+      nextID: 
+      effects: []
+  - ID: 15
+    speakerPosition: Left
+    speakerName: "\uC544\uB9AC\uC5D8"
+    listenerName: 
+    dialogueText: "\uD760, \uB2E4\uB978 \uC758\uB8B0\uB294 \uC5C6\uB294 \uAC70\uC57C?"
+    nextID: 
+    events: []
+    emotion: 
+    choices:
+    - text: 
+      nextID: 
+      effects: []
+    - text: 
+      nextID: 
+      effects: []
+    - text: 
+      nextID: 
+      effects: []
+  - ID: 16
+    speakerPosition: Right
+    speakerName: "\uC548\uB0B4\uC6D0"
+    listenerName: 
+    dialogueText: "\uB124\u2026 \uC608\uC804\uC5D0 \uD55C \uC624\uB354\uAC00 \uD63C\uC790\uC11C
+      \uC18C\uADDC\uBAA8 \uC758\uB8B0\uB97C \uC804\uBD80 \uC4F8\uC5B4 \uB2F4\uC544
+      \uC9C0\uC6D0\uAE08\uC744 \uBAA8\uB450 \uBC1B\uC544 \uAC04 \uC77C\uC774 \uC788\uC5B4\uC11C\uC694."
+    nextID: 
+    events: []
+    emotion: 
+    choices:
+    - text: 
+      nextID: 
+      effects: []
+    - text: 
+      nextID: 
+      effects: []
+    - text: 
+      nextID: 
+      effects: []
+  - ID: 17
+    speakerPosition: Right
+    speakerName: "\uC548\uB0B4\uC6D0"
+    listenerName: 
+    dialogueText: "\uADF8 \uB4A4\uB85C\uB294 \uAD50\uB2E8\uC5D0\uC11C 3\uBA85 \uC774\uC0C1\uC758
+      \uC758\uB8B0\uB9CC \uC9C0\uC6D0\uD558\uACE0 \uC788\uC2B5\uB2C8\uB2E4."
+    nextID: 
+    events: []
+    emotion: 
+    choices:
+    - text: "\u2026..."
+      nextID: 18
+      effects: []
+    - text: "\uBB50 \uADF8\uB7F0\u2026"
+      nextID: 18
+      effects: []
+    - text: 
+      nextID: 
+      effects: []
+  - ID: 18
+    speakerPosition: Left
+    speakerName: "\uC544\uB9AC\uC5D8"
+    listenerName: 
+    dialogueText: "\uADF8\uB7EC\uBA74\u2026 \uC5B4\uCA54 \uC218 \uC5C6\uB124."
+    nextID: 
+    events:
+    - eventType: 4
+      target: 
+    emotion: 
+    choices:
+    - text: 
+      nextID: 
+      effects: []
+    - text: 
+      nextID: 
+      effects: []
+    - text: 
+      nextID: 
+      effects: []
