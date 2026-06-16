@@ -1,8 +1,17 @@
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using System.Collections.Generic;
+using UnityEngine.Events;
 using TMPro; // TextMeshPro 사용
 using Unity.Cinemachine;
+
+[System.Serializable]
+public class DailyEventInfo
+{
+    [Tooltip("해당 날짜가 시작될 때 1회 실행할 기능들")]
+    public UnityEvent onDayStartEvent;
+}
 
 public class DayTransitionManager : MonoBehaviour
 {
@@ -37,6 +46,27 @@ public class DayTransitionManager : MonoBehaviour
     public float textFadeOutDuration = 0.8f;
     public float fadeInToSceneDuration = 1.5f;  // 최종적으로 씬이 밝아지는 시간
 
+    [Header("날짜별 자동 실행 이벤트")]
+    [Tooltip("리스트의 순서가 곧 날짜입니다. (Element 0 = 1일차, Element 1 = 2일차...)\n기본 1~7일차까지 준비되어 있으며, +버튼으로 계속 늘릴 수 있습니다.")]
+    public List<DailyEventInfo> dailyEvents = new List<DailyEventInfo> 
+    {
+        new DailyEventInfo(), new DailyEventInfo(), new DailyEventInfo(), 
+        new DailyEventInfo(), new DailyEventInfo(), new DailyEventInfo(), new DailyEventInfo()
+    };
+
+    void OnValidate()
+    {
+        // 에디터 상에서 리스트가 비어있을 경우 자동으로 7일차 슬롯 생성
+        if (dailyEvents == null || dailyEvents.Count == 0)
+        {
+            dailyEvents = new List<DailyEventInfo> 
+            {
+                new DailyEventInfo(), new DailyEventInfo(), new DailyEventInfo(), 
+                new DailyEventInfo(), new DailyEventInfo(), new DailyEventInfo(), new DailyEventInfo()
+            };
+        }
+    }
+
     void Start()
     {
         // 시작할 때 텍스트를 투명하게 초기화
@@ -46,6 +76,9 @@ public class DayTransitionManager : MonoBehaviour
             c.a = 0f;
             dayText.color = c;
         }
+
+        // 게임 시작 시(보통 1일차) 해당 날짜 이벤트 1회 자동 실행
+        TriggerEventsForDay(currentDay);
     }
 
     void Update()
@@ -125,6 +158,9 @@ public class DayTransitionManager : MonoBehaviour
         textColor.a = 1;
         dayText.color = textColor;
         
+        // ★ 날짜가 바뀌었으므로 새 날짜에 등록된 이벤트들 자동 실행!
+        TriggerEventsForDay(currentDay);
+
         yield return new WaitForSeconds(holdSecondDayTime);
 
         // 7. 글씨가 먼저 부드럽게 페이드 아웃 (검은 화면 유지)
@@ -162,5 +198,20 @@ public class DayTransitionManager : MonoBehaviour
 
         // 연출 완전 종료
         IsTransitioning = false;
+    }
+
+    /// <summary>
+    /// 지정된 날짜에 등록된 이벤트가 있다면 모두 실행합니다.
+    /// (1일차는 인덱스 0, 2일차는 인덱스 1에 해당)
+    /// </summary>
+    private void TriggerEventsForDay(int day)
+    {
+        if (dailyEvents == null) return;
+
+        int index = day - 1;
+        if (index >= 0 && index < dailyEvents.Count)
+        {
+            dailyEvents[index].onDayStartEvent?.Invoke();
+        }
     }
 }
