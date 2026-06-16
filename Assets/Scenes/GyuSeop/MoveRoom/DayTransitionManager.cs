@@ -86,8 +86,19 @@ public class DayTransitionManager : MonoBehaviour
 
     void Update()
     {
-        // 이벤트 시스템이 아직 없으므로 임시로 P키를 눌러 작동
-        if (Input.GetKeyDown(KeyCode.P) && !IsTransitioning)
+        // [임시 기능 주석 처리] 이제 P키가 아닌 특정 오브젝트를 클릭하여 날짜를 넘깁니다.
+        // if (Input.GetKeyDown(KeyCode.P) && !IsTransitioning)
+        // {
+        //     TriggerTransition();
+        // }
+    }
+
+    /// <summary>
+    /// 외부 스크립트(또는 클릭 트리거 오브젝트)에서 날짜 전환 연출을 시작할 때 호출하는 메서드입니다.
+    /// </summary>
+    public void TriggerTransition()
+    {
+        if (!IsTransitioning)
         {
             StartCoroutine(DayTransitionRoutine());
         }
