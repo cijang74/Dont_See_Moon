@@ -62,6 +62,7 @@ public class CSVToSO_Dialogue : MonoBehaviour
             List<Dictionary<string, object>> csvData = CSV_Reader.Read_CSV($"ScriptCSV/{fileName}");
 
             ScriptDataSO newData = ScriptableObject.CreateInstance<ScriptDataSO>();
+            newData.title = GetValueStrict(csvData[0], "Title");
 
             // 대사 1줄씩 데이터 준비
             foreach (var data in csvData)

@@ -14,7 +14,9 @@ public enum ENUM_EventType
     Appear_Middle,
     Appear_Right,
     Out,
-    End
+    End,
+    BackGroundChange,
+    PlayerNameInput
 }
 
 [System.Serializable]
@@ -85,5 +87,6 @@ public class ScriptLine
 
 public class ScriptDataSO : ScriptableObject
 {
+    public string title;
     public List<ScriptLine> dialogueLines = new List<ScriptLine>();
 }

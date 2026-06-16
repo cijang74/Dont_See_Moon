@@ -1,14 +1,12 @@
 using System.Collections;
 using UnityEngine;
-using TMPro;
 using UnityEngine.SceneManagement;
 
 public class DialogTest : MonoBehaviour
 {
-	[SerializeField]
-	private DialogueSystem dialogSystem01; // 첫 번째 대화 분기를 담당하는 시스템
-
-	[SerializeField] float waitRoLoadTime = 1f;
+	[SerializeField] DialogueSystem dialogSystem01; // 첫 번째 대화 분기를 담당하는 시스템
+	// [SerializeField] FoldingMenu foldingMenu;
+	[SerializeField] float waitToLoadTime = 1f;
 
 	private IEnumerator Start()
 	{
@@ -22,13 +20,13 @@ public class DialogTest : MonoBehaviour
 	private IEnumerator LoadSceneRoutine()
     {
         // 페이드아웃할 시간 1초 기다려 주고 씬 불러오도록 해주는 코루틴
-        while(waitRoLoadTime >= 0)
+        while(waitToLoadTime >= 0)
         {
-            waitRoLoadTime -= Time.deltaTime;
+            waitToLoadTime -= Time.deltaTime;
             yield return null;
         }
 
-        yield return new WaitForSeconds(waitRoLoadTime);
+        yield return new WaitForSeconds(waitToLoadTime);
 
 		// 연속 진행 활성화시 다음 에피소드 진행
 		if(CurrentSelectDataManager.Instance.storyContinuousProgress)
@@ -47,11 +45,6 @@ public class DialogTest : MonoBehaviour
 			{
 				SceneManager.LoadScene("Scene_Dialogue");
 			}
-		}
-
-		else
-		{
-        	SceneManager.LoadScene("Scene_ChapterSelect"); // 씬 불러오기
 		}
     }
 }

@@ -21,8 +21,6 @@ public class InputAndCheckPointingUI : MonoBehaviour
         EnhancedTouchSupport.Disable();
     }
 
-    
-
     public bool IsPointingUI()
     {
         // 터치스크린 입력이 있을 때

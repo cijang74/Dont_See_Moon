@@ -36,12 +36,17 @@ public class DialogueEventHandler : MonoBehaviour
     [SerializeField] GameObject choicePanel;
     [SerializeField] GameObject choiceButton;
 
+    [SerializeField] Image backgroundImage;
+    [SerializeField] GameObject PlayerNameInputPanel;
+
     [SerializeField] CharacterPortraitPanels characterPortraitPanels;
     [SerializeField] GameObject characterPortrait;
     [SerializeField] GameObject objectArrow; // 대사 출력이 끝났을 때 깜빡거리는 오브젝트 (ArrowBlink 스크립트가 붙어있을 곳)
 
     Dictionary<string, GameObject> characterPortaitDict = new Dictionary<string, GameObject>();
     // List<Image> chatacterPortraitImages = new List<Image>();
+
+    // [HideInInspector] public bool isEndPlayerNameInput = true;
 
     // 씬 처음 로드할 때 호출할 UI 세팅 메서드
     public void UISetup()
@@ -83,7 +88,7 @@ public class DialogueEventHandler : MonoBehaviour
         // 딕셔너리에 이미 해당 캐릭터가 존재하면 기존 것 삭제
         if (characterPortaitDict.ContainsKey(speakerName))
         {
-            DeleteCharacterObjects(speakerName); 
+            StartCoroutine(DeleteCharacterObjects(speakerName)); 
         }
 
         Transform parentPanel = null;
@@ -119,7 +124,7 @@ public class DialogueEventHandler : MonoBehaviour
         {
             Image characterImage = newCharacterPortrait.GetComponent<Image>();
             characterImage.sprite = loadedSprite;
-            StartCoroutine(FadeInUI(characterImage));
+            StartCoroutine(FadeUI(characterImage, 0, 1));
         }
 
         else
@@ -169,11 +174,14 @@ public class DialogueEventHandler : MonoBehaviour
 		// }
     }
 
-    void DeleteCharacterObjects(string speakerName)
+    IEnumerator DeleteCharacterObjects(string speakerName)
     {
         // 딕셔너리에 실제로 값이 존재하는것을 확인하면
         if (characterPortaitDict.TryGetValue(speakerName, out GameObject portraitObj))
         {
+            // 사라지는 코루틴 실행 뒤
+            yield return StartCoroutine(FadeUI(characterPortaitDict[speakerName].GetComponent<Image>(), 1, 0));
+
             // speakerName을 키값으로 가진 오브젝트 삭제
             Destroy(characterPortaitDict[speakerName]);
 
@@ -284,7 +292,25 @@ public class DialogueEventHandler : MonoBehaviour
         return false;
     }
 
-    // 대화 중 event를 확인하여 event를 실행시키는 메서드
+    public bool CheckPlayerNameInputEvent(List<DialogueEvent> events)
+    {
+        // 이벤트 뒤져보고
+        foreach(DialogueEvent eventData in events)
+        {
+            // // 이벤트 종류가 PlayerNameInput라면 패널 활성화
+            // if(eventData.eventType == ENUM_EventType.PlayerNameInput)
+            // {
+            //     isEndPlayerNameInput = false;
+            //     blackPanel.SetActive(true);
+            //     PlayerNameInputPanel.SetActive(true);
+
+            //     return true; // 패널 띄운 작업 끝났다고 알려줌
+            // }
+        }
+        return false; // 이벤트 없음 확인
+    }
+
+    // 대화 중 event를 확인하여 event를 실행시키는 메서드 (해당 메서드 내 이벤트들은 대화 타이핑이 시작하자마자 실행되는 이벤트들임.)
     public void CheckAndRunEvent(List<DialogueEvent> events)
     {
         foreach(DialogueEvent eventData in events)
@@ -307,7 +333,39 @@ public class DialogueEventHandler : MonoBehaviour
                     SetActiveObjects(ENUM_PortraitPositionType.RIGHT, true);
 					AppearCharacterObjects(ENUM_PortraitPositionType.RIGHT, eventData.target);
 					break;
+
+                case ENUM_EventType.Out:
+                    StartCoroutine(DeleteCharacterObjects(eventData.target));
+                    break;
+
+                case ENUM_EventType.BackGroundChange:
+                    ChangeBackGroundImage(eventData.target);
+                    break;
+
+                // case ENUM_EventType.PlayerNameInput:
+                //     blackPanel.SetActive(true);
+                //     PlayerNameInputPanel.SetActive(true);
+                //     break;
             }
+        }
+    }
+
+    void ChangeBackGroundImage(string backgroundName)
+    {
+        // 이미지 교체
+        string imagePath = $"BackGroundImages/{backgroundName}";
+        Sprite loadedSprite = Resources.Load<Sprite>(imagePath);
+
+        // 이미지 잘 찾았으면 Image 컴포넌트 접근하여 스프라이트 교체
+        if (loadedSprite != null)
+        {
+            backgroundImage.sprite = loadedSprite;
+            StartCoroutine(FadeUI(backgroundImage, 0, 1));
+        }
+
+        else
+        {
+            Debug.LogWarning($"초상화 이미지를 찾을 수 없습니다. 경로: Resources/{imagePath}");
         }
     }
 
@@ -420,32 +478,41 @@ public class DialogueEventHandler : MonoBehaviour
         }
     }
 
-    IEnumerator FadeInUI(Image characterImage)
+    IEnumerator FadeUI(Image characterImage, float startAlpha, float targetAlpha)
     {
+        // 삭제된 이미지 접근할 수 있으므로 오브젝트 파괴 시 코루틴 종료
+        if (characterImage == null) yield break;
+
         float duration = 0.3f; // 0.3초 동안
         float currentTime = 0f;
 
         // 현재 색상 덩어리를 변수에 복사
         Color colorTarget = characterImage.color;
         
-        // 시작하기 전에 알파값을 0으로 초기화
-        colorTarget.a = 0f;
+        // 시작하기 전에 알파값을 startAlpha으로 초기화
+        colorTarget.a = startAlpha;
         characterImage.color = colorTarget; 
 
         while (currentTime < duration)
         {
             currentTime += Time.deltaTime;
+
+            // 루프 도중 클릭 시 기존 이미지를 삭제하기 때문에 루프 도중 삭제된 이미지 접근할 수 있으므로 오브젝트 파괴 시 코루틴 종료
+            if (characterImage == null) yield break;
             
             // 복사해둔 변수의 알파값을 조절
-            colorTarget.a = Mathf.Lerp(0f, 1f, currentTime / duration);
+            colorTarget.a = Mathf.Lerp(startAlpha, targetAlpha, currentTime / duration);
             
             characterImage.color = colorTarget; 
             
             yield return null; // 한 프레임 대기
         }
 
-        // 확실하게 1로 마무리
-        colorTarget.a = 1f;
-        characterImage.color = colorTarget; 
+        // 확실하게 targetAlpha로 마무리
+        if (characterImage != null)
+        {
+            colorTarget.a = targetAlpha;
+            characterImage.color = colorTarget; 
+        }
     }
 }
