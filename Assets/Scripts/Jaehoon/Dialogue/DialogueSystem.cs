@@ -95,6 +95,11 @@ public class DialogueSystem : MonoBehaviour
 				// 대화 내 Choice가 존재하면 Choice 버튼 생성
 				dialogueEventHandler.CheckAndSetActiveChoiceButton(dialogueDict[currentDialogueID].choices, SetNextDialog);
 
+				if (dialogueEventHandler.CheckVoteEvent(dialogueDict[currentDialogueID].events))
+				{
+					dialogueEventHandler.ShowVoteUI(OnClickVoteNext);
+				}
+
 				return false;
 			}
 
@@ -192,6 +197,21 @@ public class DialogueSystem : MonoBehaviour
 		StartCoroutine("OnTypingText");
 	}
 
+	// 투표 버튼이 생성될 때 코드로 연결(AddListener)될 메서드
+    public void OnClickVoteNext(string votedCharacterName)
+    {
+        // 1. 추후 작성할 VoteManager에 누구에게 투표했는지 값 저장
+        // 💡 VoteManager에 누구에게 투표했는지 값 저장
+        VoteManager.Instance.SavePlayerVote(votedCharacterName);
+        Debug.Log($"[VoteSystem] 플레이어가 '{votedCharacterName}'에게 투표했습니다!");
+
+        // 2. 투표 UI 닫기
+        dialogueEventHandler.HideVoteUI();
+
+        // 3. 다음 대사로 진행 (공백 ""을 넘기면 자동으로 다음 순서 대사로 넘어감)
+        SetNextDialog("");
+    }
+
     // 텍스트를 한 글자씩 타자기처럼 출력하는 코루틴
 	IEnumerator OnTypingText()
 	{
@@ -218,6 +238,11 @@ public class DialogueSystem : MonoBehaviour
 
 		// 대화 내 Choice가 존재하면 Choice 버튼 생성
 		dialogueEventHandler.CheckAndSetActiveChoiceButton(dialogueDict[currentDialogueID].choices, SetNextDialog);
+
+		if (dialogueEventHandler.CheckVoteEvent(dialogueDict[currentDialogueID].events))
+        {
+            dialogueEventHandler.ShowVoteUI(OnClickVoteNext);
+        }
 	}
 
 	IEnumerator InOutRoutine(GameObject popUpToOpen, TMP_Text popUpToOpenText, float time)

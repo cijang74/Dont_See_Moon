@@ -16,7 +16,8 @@ public enum ENUM_EventType
     Out,
     End,
     BackGroundChange,
-    PlayerNameInput
+    PlayerNameInput,
+    Vote
 }
 
 [System.Serializable]
@@ -42,11 +43,16 @@ public class Choice
 
     public List<ChoiceEffect> effects = new List<ChoiceEffect>();
     
-    public Choice(string text, string nextID, List<ChoiceEffect> effects)
+    // 💡 [추가] 이 선택지를 활성화하기 위해 필요한 증거 타입 (기본값 None)
+    public InteractionObjectType requiredEvidence = InteractionObjectType.None;
+    
+    // 💡 [수정] 생성자에 requiredEvidence 추가
+    public Choice(string text, string nextID, List<ChoiceEffect> effects, InteractionObjectType requiredEvidence)
     {
         this.text = text;
         this.nextID = nextID;
         this.effects = effects;
+        this.requiredEvidence = requiredEvidence;
     }
 }
 

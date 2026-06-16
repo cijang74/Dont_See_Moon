@@ -45,6 +45,16 @@ public class DialogueEventHandler : MonoBehaviour
 
     Dictionary<string, GameObject> characterPortaitDict = new Dictionary<string, GameObject>();
 
+    [SerializeField] GameObject votePanel; // 투표 UI 전체 패널
+    [SerializeField] Transform voteButtonGroup; // 버튼들이 자식으로 생성될 부모 (Vertical Layout Group 등이 붙은 곳)
+    [SerializeField] GameObject voteButtonPrefab; // 인스펙터에서 넣을 버튼 프리팹
+
+    // 외부에서 현재 투표 중인지 확인할 수 있는 플래그
+    public bool isVoting = false; 
+
+    // 투표 대상 캐릭터 이름들
+    private string[] voteCandidates = { "James", "Nicholas", "Ella", "Sophia" };
+
     // 씬 처음 로드할 때 호출할 UI 세팅 메서드
     public void UISetup()
 	{
@@ -193,6 +203,63 @@ public class DialogueEventHandler : MonoBehaviour
         }
 	}
 
+    // 대화 이벤트 리스트에 Vote가 있는지 검사
+    public bool CheckVoteEvent(List<DialogueEvent> events)
+    {
+        foreach (DialogueEvent eventData in events)
+        {
+            if (eventData.eventType == ENUM_EventType.Vote)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    // 동적으로 버튼을 생성하고 띄워주는 메서드
+    public void ShowVoteUI(Action<string> onVoteButtonClicked)
+    {
+        isVoting = true;
+        blackPanel.SetActive(true); // 배경 어둡게
+        votePanel.SetActive(true);  // 투표 창 활성화
+
+        // 1. 기존에 생성되어 있던 버튼 찌꺼기들 깔끔하게 청소
+        foreach (Transform child in voteButtonGroup)
+        {
+            Destroy(child.gameObject);
+        }
+
+        // 2. 캐릭터 수만큼 투표 버튼 동적 생성
+        foreach (string candidate in voteCandidates)
+        {
+            // 부모 밑에 프리팹 인스턴싱
+            GameObject newButton = Instantiate(voteButtonPrefab, voteButtonGroup);
+            
+            // UI 스케일/위치 꼬임 방지용 초기화
+            newButton.transform.localPosition = Vector3.zero;
+            newButton.transform.localScale = Vector3.one;
+            newButton.transform.localRotation = Quaternion.identity;
+
+            // 버튼 텍스트를 캐릭터 이름으로 변경
+            newButton.GetComponentInChildren<TextMeshProUGUI>().text = candidate;
+
+            // 💡 코드로 OnClick 이벤트 연결
+            newButton.GetComponent<Button>().onClick.AddListener(() =>
+            {
+                // DialogueSystem에서 넘겨준 처리 함수 실행 (누구에게 투표했는지 문자열 전달)
+                onVoteButtonClicked?.Invoke(candidate);
+            });
+        }
+    }
+
+    // 투표가 끝났을 때 UI를 닫기 위한 메서드
+    public void HideVoteUI()
+    {
+        isVoting = false;
+        blackPanel.SetActive(false);
+        votePanel.SetActive(false);
+    }
+
     public void SetActiveArrow(bool visible)
     {
         objectArrow.SetActive(visible);
@@ -338,10 +405,8 @@ public class DialogueEventHandler : MonoBehaviour
     {
         bool isExistChoice = false;
         
-        // 최적화하려면 choices[0]만 확인하면 되고, 안정성을 높이려면 foreach로 다 돌아보는게 나음
         foreach(Choice choice in choices)
         {
-            // 선택지 배열 중 하나라도 작성되어있는것이 있으면
             if(choice.text != "")
             {
                 if(!isExistChoice)
@@ -352,26 +417,35 @@ public class DialogueEventHandler : MonoBehaviour
 
                 if(isExistChoice)
                 {
-                    // 선택 버튼 활성화
                     choicePanel.SetActive(true);
 
-                    // choicePanel의 자식으로 choiceButton 인스턴싱
+                    // 버튼 인스턴싱 및 초기화
                     GameObject newButton = Instantiate(choiceButton, choicePanel.transform);
-                    
-                    // 혹시 모를 UI 변형 방지용 초기화
-                    newButton.transform.localPosition = Vector3.zero; // 위치를 부모의 정중앙(0,0,0)으로
-                    newButton.transform.localScale = Vector3.one; // 크기를 원래 프리팹 비율(1,1,1)로
-                    newButton.transform.localRotation = Quaternion.identity; // 회전값 초기화
+                    newButton.transform.localPosition = Vector3.zero;
+                    newButton.transform.localScale = Vector3.one; 
+                    newButton.transform.localRotation = Quaternion.identity; 
 
-                    newButton.GetComponentInChildren<TextMeshProUGUI>().text = choice.text;
-                    newButton.GetComponent<Button>().onClick.AddListener(() =>
+                    TextMeshProUGUI buttonText = newButton.GetComponentInChildren<TextMeshProUGUI>();
+                    buttonText.text = choice.text;
+
+                    Button btnComponent = newButton.GetComponent<Button>();
+
+                    // 💡 [핵심 검사 로직] 요구 증거가 None이 아닌데, EvidenceManager에 그 증거가 없다면?
+                    if (choice.requiredEvidence != InteractionObjectType.None && !EvidenceManager.Instance.HasEvidence(choice.requiredEvidence))
                     {
-                        // 선택지 효과 (호감도 변수값 증감 등)
-                        OnClickRunChoiceEffect(choice.effects);
-
-                        // 콜백 함수로 받은, 다음 대화 라인으로 넘어가는 함수 SetNextDialog
-                        OnClickSetNextDialog?.Invoke(choice.nextID);
-                    });
+                        // 버튼을 누를 수 없게 비활성화하고, 텍스트 색상을 어둡게 처리
+                        btnComponent.interactable = false;
+                        buttonText.text = $"<color=#808080>{choice.text} (증거 부족)</color>"; 
+                    }
+                    else
+                    {
+                        // 조건이 없거나 만족했을 경우 기존처럼 리스너 등록
+                        btnComponent.onClick.AddListener(() =>
+                        {
+                            OnClickRunChoiceEffect(choice.effects);
+                            OnClickSetNextDialog?.Invoke(choice.nextID);
+                        });
+                    }
                 }
             }
         }

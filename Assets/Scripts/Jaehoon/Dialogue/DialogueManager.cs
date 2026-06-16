@@ -4,11 +4,13 @@ using UnityEngine;
 
 public enum InteractionObjectType
 {
+    None = 0,
 	Player,
     James,
     Nicholas,
     Ella,
-    Sophia
+    Sophia,
+    Vote,
 };
 
 public class DialogueManager : Singleton<DialogueManager>
@@ -25,15 +27,16 @@ public class DialogueManager : Singleton<DialogueManager>
     // List로 저장하고있던 SO를 Dictionary로 변환하여 사용
     public Dictionary<string, ScriptLine> dialogueDict = new Dictionary<string, ScriptLine>();
 
+    // 테스트용
     void Start()
     {
-        StartCoroutine(StartDialogue(1, InteractionObjectType.James));
+        StartCoroutine(StartDialogue(1, InteractionObjectType.James, false));
     }
 
     // 외부에서 해당 메서드 호출되면 대화 시작
-    public IEnumerator StartDialogue(int day, InteractionObjectType interactionObjectType)
+    public IEnumerator StartDialogue(int day, InteractionObjectType interactionObjectType, bool isInfected)
 	{
-		LoadScriptData(day, interactionObjectType);
+		LoadScriptData(day, interactionObjectType, isInfected);
         dialogueCanvas.SetActive(true);
         dialoguePanel.SetActive(true);
 		yield return new WaitUntil(()=>dialogSystem.UpdateDialog());
@@ -41,12 +44,13 @@ public class DialogueManager : Singleton<DialogueManager>
 		// TODO: 대화 끝나면 UI 비활성화
 	} 
 
-    public void LoadScriptData(int day, InteractionObjectType interactionObjectType)
+    public void LoadScriptData(int day, InteractionObjectType interactionObjectType, bool isInfected)
     {
         string targetDay = day.ToString();
         string targetType = interactionObjectType.ToString();
+        string targetInfected = isInfected ? "Infected" : "Normal";
 
-        string fileName = $"Day{targetDay}-{targetType}_Script"; 
+        string fileName = $"Day{targetDay}-{targetType}-{targetInfected}_Script"; 
         string resourcePath = $"BakedData/ScriptData/{fileName}"; 
 
         // 지정된 경로에서 ScriptDataSO 에셋을 동적으로 불러옴
