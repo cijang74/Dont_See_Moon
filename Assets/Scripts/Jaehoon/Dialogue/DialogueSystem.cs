@@ -41,6 +41,17 @@ public class DialogueSystem : MonoBehaviour
 	string currentSpeakerName = "";
 	string currentListenerName = "";
 
+	public void ResetDialogueState()
+    {
+        isFirst = true; // 최초 진입 플래그 리셋
+        currentDialogueID = "";
+        nextDialogueID = "0"; // 엑셀의 시작 ID가 0이라면 0으로 세팅
+        currentSpeakerName = "";
+        currentListenerName = "";
+        isTypingEffectRunning = false;
+        lastTouchTime = 0f;
+    }
+
     // 외부(예: DialogTest)에서 대화 진행 상태를 체크하기 위해 매 프레임 호출하는 메서드, 모든 대화가 종료되었으면 true, 아직 대화가 진행 중이면 false 반환.
 	public bool UpdateDialog()
 	{

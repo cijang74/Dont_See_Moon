@@ -194,6 +194,10 @@ public class DayTransitionManager : MonoBehaviour
         // 이 시점에서 화면은 완벽한 암전 상태, 사운드는 0입니다.
         // 2. 카메라 시점 변경 및 BGM 트랙 교체 (유저 눈에는 안 보임)
         // -----------------------------------------------------
+
+        // 💡 화면이 까매졌을 때 투표 결과 집계 및 처형 처리
+        VoteManager.Instance.CalculateDailyVoteResults();
+
         if (nextDayStartCamera != null) camManager.ForceSetCameraAndClearHistory(nextDayStartCamera);
         if (nextDayBGM != null) bgmManager.ChangeBGM(nextDayBGM);
 
@@ -232,6 +236,12 @@ public class DayTransitionManager : MonoBehaviour
         dayText.text = $"DAY {currentDay}";
         textColor.a = 1;
         dayText.color = textColor;
+
+        // 💡 [추가] 날짜가 바뀌었으므로 DialogueManager의 대화 기록을 초기화!
+        if (DialogueManager.Instance != null)
+        {
+            DialogueManager.Instance.ResetDailyInteractions();
+        }
         
         // ★ 날짜가 바뀌었으므로 새 날짜에 등록된 이벤트들 자동 실행!
         TriggerEventsForDay(currentDay);
