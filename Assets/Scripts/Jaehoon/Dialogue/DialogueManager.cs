@@ -40,6 +40,7 @@ public class DialogueManager : Singleton<DialogueManager>
     public IEnumerator StartDialogue(int day, InteractionObjectType interactionObjectType, bool isInfected)
 	{
 		LoadScriptData(day, interactionObjectType, isInfected);
+        dialogSystem.ResetDialogueState();
         dialogueCanvas.SetActive(true);
         dialoguePanel.SetActive(true);
 		yield return new WaitUntil(()=>dialogSystem.UpdateDialog());
