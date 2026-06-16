@@ -96,6 +96,14 @@ public class PhoneChatManager : MonoBehaviour
     public RoomRuntime GetRoom(string id)
         => rooms.TryGetValue(id, out var r) ? r : null;
 
+    // 읽지 않은 메시지가 하나라도 있으면 true (홈 화면 Message 앱 배지용)
+    public bool HasAnyUnread()
+    {
+        foreach (var r in rooms.Values)
+            if (r.hasUnread) return true;
+        return false;
+    }
+
     // 특정 방에 새 메시지가 도착했음을 알림 (Day 예약 또는 게임 이벤트에서 호출)
     public void TriggerNewMessage(string roomId, string fromNodeId = null)
     {
