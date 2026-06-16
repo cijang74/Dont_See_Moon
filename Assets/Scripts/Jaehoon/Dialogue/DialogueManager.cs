@@ -13,6 +13,7 @@ public enum InteractionObjectType
     Day1_BloodKnife,
     Day1_Pee,
     Vote,
+    Work,
     Ending
 };
 
