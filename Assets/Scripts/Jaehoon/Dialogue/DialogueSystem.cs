@@ -11,6 +11,7 @@ using TMPro;
 using System.Collections.Generic;
 using System;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class DialogueSystem : MonoBehaviour
 {
@@ -19,23 +20,16 @@ public class DialogueSystem : MonoBehaviour
 
 	[SerializeField] bool isAutoStart = true; // true일 경우, UpdateDialog가 처음 호출될 때 첫 대사가 자동 시작
 
-	[SerializeField] ScriptDataLoader scriptDataLoader;
+	[SerializeField] DialogueManager dialogueManager;
 	[SerializeField] InputAndCheckPointingUI inputAndCheckPointingUI;
 	[SerializeField] DialogueEventHandler dialogueEventHandler;
 
-	[SerializeField] GameObject ActiveContinuousProgressButton;
-	[SerializeField] GameObject DeActiveContinuousProgressButton;
-	[SerializeField] GameObject ActiveAutoProgressButton;
-	[SerializeField] GameObject DeActiveAutoProgressButton;
-	// [SerializeField] ButtonController buttonController;
+	[SerializeField] float touchCooldown = 0.2f; // 터치 딜레이 시간
+	float lastTouchTime = 0f;
 
 	Dictionary<string, ScriptLine> dialogueDict = new Dictionary<string, ScriptLine>();
 
 	bool isFirst = true; // 최초 실행시 초기화시키는 플래그
-
-	float autoProgressTime = 3.0f;
-	bool isAutoCountStart = false;
-	bool isAutoCountEnd = false;
 
 	float typingSpeed = 0.1f;
 	bool isTypingEffectRunning = false;
@@ -47,50 +41,13 @@ public class DialogueSystem : MonoBehaviour
 	string currentSpeakerName = "";
 	string currentListenerName = "";
 
-    void Start()
-	{
-		this.dialogueDict = scriptDataLoader.dialogueDict;
-
-		// 씬 로드 시 초기 UI 세팅
-		dialogueEventHandler.UISetup();
-
-		// 버튼 UI 세팅
-		if(CurrentSelectDataManager.Instance != null)
-		{
-			// 연속 진행 버튼 체크되어있었다면
-			if(CurrentSelectDataManager.Instance.storyContinuousProgress)
-			{
-				ActiveContinuousProgressButton.SetActive(false);
-				DeActiveContinuousProgressButton.SetActive(true);
-			}
-
-			if(!CurrentSelectDataManager.Instance.storyContinuousProgress)
-			{
-				ActiveContinuousProgressButton.SetActive(true);
-				DeActiveContinuousProgressButton.SetActive(false);
-			}
-
-			// 자동 진행 버튼 체크되어있었다면
-			if(CurrentSelectDataManager.Instance.storyAutoProgress)
-			{
-				ActiveAutoProgressButton.SetActive(false);
-				DeActiveAutoProgressButton.SetActive(true);
-			}
-
-			if(!CurrentSelectDataManager.Instance.storyAutoProgress)
-			{
-				ActiveAutoProgressButton.SetActive(true);
-				DeActiveAutoProgressButton.SetActive(false);
-			}
-		}
-	}
-
     // 외부(예: DialogTest)에서 대화 진행 상태를 체크하기 위해 매 프레임 호출하는 메서드, 모든 대화가 종료되었으면 true, 아직 대화가 진행 중이면 false 반환.
 	public bool UpdateDialog()
 	{
 		// 대화 시작될 때 최초 1회 초기화
 		if ( isFirst == true )
 		{
+			this.dialogueDict = dialogueManager.dialogueDict;
 			dialogueEventHandler.UISetup();
 
 			// 자동 재생 옵션이 켜져있다면 첫 번째 대사 세팅을 즉시 시작
@@ -99,23 +56,27 @@ public class DialogueSystem : MonoBehaviour
                 SetNextDialog();
             }
 			isFirst = false;
+
+			return false; // 첫 세팅을 한 프레임에서는 아래의 터치 입력 생까도록
 		}
 
 		// 터치 입력 처리
-		if (Touchscreen.current.primaryTouch.press.wasPressedThisFrame || Keyboard.current.spaceKey.wasPressedThisFrame)
+		// if (Touchscreen.current.primaryTouch.press.wasPressedThisFrame) 
+		if (Mouse.current != null && Mouse.current.leftButton.wasPressedThisFrame)
 		{
+			// 터치 쿨타임 체크
+			if (Time.time - lastTouchTime < touchCooldown)
+			{
+				return false; 
+			}
+
+			lastTouchTime = Time.time; // 쿨타임 지났으면 갱신
+
 			// 설정창이나 버튼등을 터치한것이면 씹기
 			if(inputAndCheckPointingUI.IsPointingUI())
 			{
 				return false;
 			}
-
-			// 터치했으면 자동 카운트다운 중지
-			StopCoroutine("AutoProgress");
-
-			// 카운트다운 변수 초기화
-			isAutoCountStart = false; 
-        	isAutoCountEnd = false;
 
 			// 텍스트가 한 글자씩 나오는 타이핑 효과 도중에 클릭한 경우
 			if ( isTypingEffectRunning == true )
@@ -134,10 +95,24 @@ public class DialogueSystem : MonoBehaviour
 				// 대화 내 Choice가 존재하면 Choice 버튼 생성
 				dialogueEventHandler.CheckAndSetActiveChoiceButton(dialogueDict[currentDialogueID].choices, SetNextDialog);
 
+				if (dialogueEventHandler.CheckVoteEvent(dialogueDict[currentDialogueID].events))
+				{
+					dialogueEventHandler.ShowVoteUI(OnClickVoteNext);
+				}
+
 				return false;
 			}
 
 			//=========아래부터는 타이핑 효과가 끝나고 클릭한 경우 실행됨=========
+
+			// 선택지가 있는지 체크하고 존재하면
+			bool hasChoices = dialogueEventHandler.CehckChoiceEvent(dialogueDict[currentDialogueID].choices);
+            if (hasChoices)
+            {
+				// 다음 대사로 넘어가지 않고 씹기
+                return false; 
+            }
+
 			// 대화 내 End이벤트가 존재하는지 체크, 존재하면 UI 정리
 			Debug.Log($"Current DialogueID: {currentDialogueID}");
 			bool isDialogueEnd = dialogueEventHandler.CheckEndEvent(dialogueDict[currentDialogueID].events);
@@ -150,58 +125,6 @@ public class DialogueSystem : MonoBehaviour
 
 			// 대화 끝내라는 요청을 하는 이벤트가 없었다면 다음 대화 출력
 			SetNextDialog();
-		}
-
-		else
-		{
-			// 자동 진행 옵션이 켜져있으면서, 터치 안하고 있을 경우
-			if(CurrentSelectDataManager.Instance != null)
-			{
-				if(CurrentSelectDataManager.Instance.storyAutoProgress)
-				{
-					// 카운트다운 끝났을 경우 다음 대화로 넘어가도록 하기
-					if(isAutoCountEnd)
-					{
-						isAutoCountEnd = false;
-						isAutoCountStart = false;
-
-						// 대화 내 End이벤트가 존재하는지 체크, 존재하면 UI 정리
-						Debug.Log($"Current DialogueID: {currentDialogueID}");
-						bool isDialogueEnd = dialogueEventHandler.CheckEndEvent(dialogueDict[currentDialogueID].events);
-
-						// End이벤트가 존재하면 대화도 종료
-						if(isDialogueEnd)
-						{
-							return true; // 대화 종료
-						}
-
-						// 대화 끝내라는 요청을 하는 이벤트가 없었다면 다음 대화 출력
-						SetNextDialog();
-					}
-
-					// 선택지가 있는지 확인
-					bool hasChoices = dialogueEventHandler.CehckChoiceEvent(dialogueDict[currentDialogueID].choices);
-
-					// 선택지가 없는 대화일떄만 카운트다운 작동
-					if(!hasChoices)
-					{
-						// 카운트다운 시작 안했고, 타이핑중이 아니라면
-						if(!isAutoCountStart && !isTypingEffectRunning)
-						{
-							isAutoCountStart = true;
-
-							// 자동 진행 카운트다운 3초
-							StartCoroutine("AutoProgress");
-						}
-					}
-
-				}
-			}
-
-			else
-			{
-				Debug.Log("CurrentSelectDataManager접근불가");
-			}
 		}
 		return false;
 	}
@@ -274,6 +197,21 @@ public class DialogueSystem : MonoBehaviour
 		StartCoroutine("OnTypingText");
 	}
 
+	// 투표 버튼이 생성될 때 코드로 연결(AddListener)될 메서드
+    public void OnClickVoteNext(string votedCharacterName)
+    {
+        // 1. 추후 작성할 VoteManager에 누구에게 투표했는지 값 저장
+        // 💡 VoteManager에 누구에게 투표했는지 값 저장
+        VoteManager.Instance.SavePlayerVote(votedCharacterName);
+        Debug.Log($"[VoteSystem] 플레이어가 '{votedCharacterName}'에게 투표했습니다!");
+
+        // 2. 투표 UI 닫기
+        dialogueEventHandler.HideVoteUI();
+
+        // 3. 다음 대사로 진행 (공백 ""을 넘기면 자동으로 다음 순서 대사로 넘어감)
+        SetNextDialog("");
+    }
+
     // 텍스트를 한 글자씩 타자기처럼 출력하는 코루틴
 	IEnumerator OnTypingText()
 	{
@@ -300,12 +238,78 @@ public class DialogueSystem : MonoBehaviour
 
 		// 대화 내 Choice가 존재하면 Choice 버튼 생성
 		dialogueEventHandler.CheckAndSetActiveChoiceButton(dialogueDict[currentDialogueID].choices, SetNextDialog);
+
+		if (dialogueEventHandler.CheckVoteEvent(dialogueDict[currentDialogueID].events))
+        {
+            dialogueEventHandler.ShowVoteUI(OnClickVoteNext);
+        }
 	}
 
-	IEnumerator AutoProgress()
-	{
-		Debug.Log("카운트다운 타이머 작동");
-		yield return new WaitForSeconds(autoProgressTime);
-		isAutoCountEnd = true;
-	}
+	IEnumerator InOutRoutine(GameObject popUpToOpen, TMP_Text popUpToOpenText, float time)
+    {
+        // popUpToOpen.SetActive(true);
+		yield return StartCoroutine(FadeUI(popUpToOpen, popUpToOpenText, 0, 1));
+
+        yield return new WaitForSeconds(time);
+
+        // popUpToOpen.SetActive(false);
+		yield return StartCoroutine(FadeUI(popUpToOpen, popUpToOpenText, 1, 0));
+    }
+
+	IEnumerator FadeUI(GameObject popUpToOpen, TMP_Text popUpToOpenText, float startAlpha, float targetAlpha)
+    {
+		// 목표 알파값이 1이면 오브젝트 켜주고 시작
+		if (targetAlpha >= 1f && popUpToOpen != null)
+		{
+			popUpToOpen.SetActive(true);
+		}
+
+        float duration = 0.3f; // 0.3초 동안
+        float currentTime = 0f;
+
+		Image PopUpFrameImage = popUpToOpen.GetComponent<Image>();
+
+		if (PopUpFrameImage == null || popUpToOpenText == null) yield break;
+
+        // 현재 색상 덩어리를 변수에 복사
+        Color colorTargetFrame = PopUpFrameImage.color;
+		Color colorTargetText = popUpToOpenText.color;
+        
+        // 시작하기 전에 알파값을 0으로 초기화
+        colorTargetFrame.a = startAlpha;
+		colorTargetText.a = startAlpha;
+        PopUpFrameImage.color = colorTargetFrame; 
+		popUpToOpenText.color = colorTargetText;
+
+        while (currentTime < duration)
+        {
+            currentTime += Time.deltaTime;
+
+			if (PopUpFrameImage == null || popUpToOpenText == null) yield break;
+            
+            // 복사해둔 변수의 알파값을 조절
+            colorTargetFrame.a = Mathf.Lerp(startAlpha, targetAlpha, currentTime / duration);
+            colorTargetText.a = Mathf.Lerp(startAlpha, targetAlpha, currentTime / duration);
+            
+            PopUpFrameImage.color = colorTargetFrame; 
+            popUpToOpenText.color = colorTargetText; 
+            
+            yield return null; // 한 프레임 대기
+        }
+
+        // 확실하게 1로 마무리
+        if (PopUpFrameImage != null && popUpToOpenText != null)
+        {
+            colorTargetFrame.a = targetAlpha;
+            colorTargetText.a = targetAlpha;
+            PopUpFrameImage.color = colorTargetFrame;
+			popUpToOpenText.color = colorTargetText;
+        }
+
+		// 목표 알파값이 0이면 아예 오브젝트 꺼주기
+		if (targetAlpha <= 0f && popUpToOpen != null)
+		{
+			popUpToOpen.SetActive(false);
+		}
+    }
 }

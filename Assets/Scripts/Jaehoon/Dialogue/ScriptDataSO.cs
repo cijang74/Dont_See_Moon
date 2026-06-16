@@ -14,7 +14,10 @@ public enum ENUM_EventType
     Appear_Middle,
     Appear_Right,
     Out,
-    End
+    End,
+    BackGroundChange,
+    PlayerNameInput,
+    Vote
 }
 
 [System.Serializable]
@@ -40,11 +43,16 @@ public class Choice
 
     public List<ChoiceEffect> effects = new List<ChoiceEffect>();
     
-    public Choice(string text, string nextID, List<ChoiceEffect> effects)
+    // 💡 [추가] 이 선택지를 활성화하기 위해 필요한 증거 타입 (기본값 None)
+    public InteractionObjectType requiredEvidence = InteractionObjectType.None;
+    
+    // 💡 [수정] 생성자에 requiredEvidence 추가
+    public Choice(string text, string nextID, List<ChoiceEffect> effects, InteractionObjectType requiredEvidence)
     {
         this.text = text;
         this.nextID = nextID;
         this.effects = effects;
+        this.requiredEvidence = requiredEvidence;
     }
 }
 
@@ -62,28 +70,15 @@ public class ScriptLine
 
     public string nextID; // 비워져 있으면 자동으로 다음 대화 출력
 
-    // public string Event1; // 해당 string이 뭔지에 따라 연출 시작
-    // public string Event2; // 해당 string이 뭔지에 따라 연출 시작
-    // public string Event3; // 해당 string이 뭔지에 따라 연출 시작
-
     public List<DialogueEvent> events = new List<DialogueEvent>();
-    // public List<string> events = new List<string>();
     public string emotion;
 
     // 아래 변수들이 비워져있지 않으면 선택 연출 시작
     public List<Choice> choices = new List<Choice>();
-
-    // public string choice1_Text;
-    // public string choice1_NextID;
-
-    // public string choice2_Text;
-    // public string choice2_NextID;
-
-    // public string choice3_Text;
-    // public string choice3_NextID;
 }
 
 public class ScriptDataSO : ScriptableObject
 {
+    public string title;
     public List<ScriptLine> dialogueLines = new List<ScriptLine>();
 }

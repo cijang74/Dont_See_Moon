@@ -16,7 +16,7 @@ using System.Collections.Generic;
 public class CSVToSO_Dialogue : MonoBehaviour
 {
 
-    [MenuItem("Tools/Resources/ScriptCSV 내 CSV 파일 -> ScriptableObject 변환")]
+    [MenuItem("Tools/Resources/DialogueScriptCSV 내 CSV 파일 -> ScriptableObject 변환")]
     public static void BakeData()
     {
         BakeScriptData(); // Unit CSV DATA -> SO
@@ -28,7 +28,7 @@ public class CSVToSO_Dialogue : MonoBehaviour
 
     private static void BakeScriptData()
     {
-        string csvResourceFolderPath = "Assets/Resources/ScriptCSV";
+        string csvResourceFolderPath = "Assets/Resources/DialogueScriptCSV";
         string saveFolderPath = "Assets/Resources/BakedData/ScriptData";
 
         // 폴더 존재하지 않으면 에러 발생하므로 만들어주는 방어코드
@@ -59,9 +59,10 @@ public class CSVToSO_Dialogue : MonoBehaviour
             string fileName = Path.GetFileNameWithoutExtension(filePath);
             
             // 파일이름 토대로 파일 읽기
-            List<Dictionary<string, object>> csvData = CSV_Reader.Read_CSV($"ScriptCSV/{fileName}");
+            List<Dictionary<string, object>> csvData = CSV_Reader.Read_CSV($"DialogueScriptCSV/{fileName}");
 
             ScriptDataSO newData = ScriptableObject.CreateInstance<ScriptDataSO>();
+            newData.title = GetValueStrict(csvData[0], "Title");
 
             // 대사 1줄씩 데이터 준비
             foreach (var data in csvData)
@@ -105,65 +106,53 @@ public class CSVToSO_Dialogue : MonoBehaviour
                 
                 line.emotion = GetValueStrict(data, "Emotion");
                 
-                string effectStr = GetValueStrict(data, "Choice1_Effect");
-                Choice newChoice = new Choice(GetValueStrict(data, "Choice1_Text"), GetValueStrict(data, "Choice1_NextID"),
-                ParsingData<ChoiceEffect>(effectStr, parts =>
+                // --- Choice 1 ---
+                string effectStr1 = GetValueStrict(data, "Choice1_Effect");
+                string reqEvidenceStr1 = GetValueStrict(data, "Choice1_Req");
+                Enum.TryParse(reqEvidenceStr1, out InteractionObjectType reqType1); // 파싱 실패 시 기본값(0/보통 None)
+
+                Choice newChoice1 = new Choice(GetValueStrict(data, "Choice1_Text"), GetValueStrict(data, "Choice1_NextID"),
+                ParsingData<ChoiceEffect>(effectStr1, parts =>
                 {
                     ChoiceEffect effect = new ChoiceEffect();
-
-                    if (Enum.TryParse(parts[0], out ENUM_EffectType type))
-                    {
-                        effect.effectType = type;
-                        
-                    } 
-
+                    if (Enum.TryParse(parts[0], out ENUM_EffectType type)) effect.effectType = type;
                     effect.effectTargetPath = parts[1];
-
                     int.TryParse(parts[2], out effect.effectAmount);
-
                     return effect;
-                }, 3));
-                line.choices.Add(newChoice);
+                }, 3), reqType1); // 마지막 인자로 요구 증거 넘김
+                line.choices.Add(newChoice1);
 
-                effectStr = GetValueStrict(data, "Choice2_Effect");
-                newChoice = new Choice(GetValueStrict(data, "Choice2_Text"), GetValueStrict(data, "Choice2_NextID"), 
-                ParsingData<ChoiceEffect>(effectStr, parts =>
+                // --- Choice 2 ---
+                string effectStr2 = GetValueStrict(data, "Choice2_Effect");
+                string reqEvidenceStr2 = GetValueStrict(data, "Choice2_Req");
+                Enum.TryParse(reqEvidenceStr2, out InteractionObjectType reqType2);
+
+                Choice newChoice2 = new Choice(GetValueStrict(data, "Choice2_Text"), GetValueStrict(data, "Choice2_NextID"), 
+                ParsingData<ChoiceEffect>(effectStr2, parts =>
                 {
                     ChoiceEffect effect = new ChoiceEffect();
-
-                    if (Enum.TryParse(parts[0], out ENUM_EffectType type))
-                    {
-                        effect.effectType = type;
-                        
-                    } 
-
+                    if (Enum.TryParse(parts[0], out ENUM_EffectType type)) effect.effectType = type;
                     effect.effectTargetPath = parts[1];
-
                     int.TryParse(parts[2], out effect.effectAmount);
-
                     return effect;
-                }, 3));
-                line.choices.Add(newChoice);
+                }, 3), reqType2);
+                line.choices.Add(newChoice2);
 
-                effectStr = GetValueStrict(data, "Choice3_Effect");
-                newChoice = new Choice(GetValueStrict(data, "Choice3_Text"), GetValueStrict(data, "Choice3_NextID"), 
-                ParsingData<ChoiceEffect>(effectStr, parts =>
+                // --- Choice 3 ---
+                string effectStr3 = GetValueStrict(data, "Choice3_Effect");
+                string reqEvidenceStr3 = GetValueStrict(data, "Choice3_Req");
+                Enum.TryParse(reqEvidenceStr3, out InteractionObjectType reqType3);
+
+                Choice newChoice3 = new Choice(GetValueStrict(data, "Choice3_Text"), GetValueStrict(data, "Choice3_NextID"), 
+                ParsingData<ChoiceEffect>(effectStr3, parts =>
                 {
                     ChoiceEffect effect = new ChoiceEffect();
-
-                    if (Enum.TryParse(parts[0], out ENUM_EffectType type))
-                    {
-                        effect.effectType = type;
-                        
-                    } 
-
+                    if (Enum.TryParse(parts[0], out ENUM_EffectType type)) effect.effectType = type;
                     effect.effectTargetPath = parts[1];
-
                     int.TryParse(parts[2], out effect.effectAmount);
-
                     return effect;
-                }, 3));
-                line.choices.Add(newChoice);
+                }, 3), reqType3);
+                line.choices.Add(newChoice3);
 
                 // 완성된 대사 1줄을 SO 내부의 리스트에 추가
                 newData.dialogueLines.Add(line);
