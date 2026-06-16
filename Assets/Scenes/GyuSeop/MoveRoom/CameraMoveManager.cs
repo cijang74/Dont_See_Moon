@@ -86,9 +86,9 @@ public class CameraMoveManager : MonoBehaviour
             HandleClick();
         }
 
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetMouseButtonDown(1))
         {
-            HandleEscape();
+            HandleGoBack();
         }
     }
 
@@ -110,7 +110,7 @@ public class CameraMoveManager : MonoBehaviour
         }
     }
 
-    void HandleEscape()
+    void HandleGoBack()
     {
         if (cameraHistory.Count > 0)
         {
