@@ -26,6 +26,29 @@ public class CameraNode : MonoBehaviour
     [Tooltip("대화할 캐릭터나 오브젝트의 이름을 적어주세요. (예: James)")]
     public string dialogueTargetName;
 
+    public bool CanBeClicked()
+    {
+        if (DialogueManager.Instance != null)
+        {
+            if (DialogueManager.Instance.isDialoguePlaying)
+            {
+                return false;
+            }
+
+            if (isDialogueObject && !string.IsNullOrEmpty(dialogueTargetName))
+            {
+                if (System.Enum.TryParse(dialogueTargetName, true, out InteractionObjectType targetType))
+                {
+                    if (!DialogueManager.Instance.CanInteract(targetType))
+                    {
+                        return false; // 이미 대화한 대상이면 클릭 불가
+                    }
+                }
+            }
+        }
+        return true;
+    }
+
     private void Start()
     {
         if (isDialogueObject && targetCamera != null)
