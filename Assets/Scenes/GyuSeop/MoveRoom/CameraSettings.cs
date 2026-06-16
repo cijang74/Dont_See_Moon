@@ -11,6 +11,13 @@ public class CameraSettings : MonoBehaviour
     public AudioClip bgmClip;
 
     [Header("카메라 이벤트")]
+    [Tooltip("카메라 전환이 시작될 때 호출됩니다.")]
     public UnityEvent onCameraEnter;
+    [Tooltip("카메라 전환이 완전히 끝났을 때 호출됩니다.")]
+    public UnityEvent onCameraEnterComplete;
+    
+    [Tooltip("이 카메라에서 다른 카메라로 전환이 시작될 때 호출됩니다.")]
     public UnityEvent onCameraExit;
+    [Tooltip("다른 카메라로의 전환이 완전히 끝났을 때 호출됩니다.")]
+    public UnityEvent onCameraExitComplete;
 }
