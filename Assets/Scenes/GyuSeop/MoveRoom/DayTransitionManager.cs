@@ -281,6 +281,19 @@ public class DayTransitionManager : MonoBehaviour
         fadeColor.a = 0;
         fadeImage.color = fadeColor;
 
+        // 💡 [추가] 연출이 끝나고 화면이 완전히 밝아진 직후 엔딩 검사 실행!
+        // 여기서 엔딩이 트리거되면 EndingManager가 바로 Scene을 교체해버립니다.
+        if (EndingManager.Instance != null)
+        {
+            bool isEndingTriggered = EndingManager.Instance.CheckAndTriggerEnding(currentDay);
+            
+            // 엔딩이 시작되었다면 더 이상 일반적인 조작을 막기 위해 IsTransitioning을 풀지 않고 대기
+            if (isEndingTriggered)
+            {
+                yield break; // 코루틴 즉시 종료
+            }
+        }
+
         // 연출 완전 종료
         IsTransitioning = false;
     }
