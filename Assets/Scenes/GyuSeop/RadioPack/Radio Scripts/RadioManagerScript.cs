@@ -50,7 +50,7 @@ public class RadioManagerScript : MonoBehaviour
 
     public int tempDayCount=0; //라디오 방송 관리 위한 임시 게임 진행 일자 변수
 
-    public bool updateRadio = false; //라디오 업데이트문 실행 여부
+    public bool updateRadio = true; //라디오 업데이트문 실행 여부
     
     void Awake() 
     {
@@ -78,6 +78,7 @@ public class RadioManagerScript : MonoBehaviour
     void Start()
     {
         isactivated = false;
+        updateRadio = true;
     }
 
     void Update()

@@ -86,9 +86,9 @@ public class CameraMoveManager : MonoBehaviour
             HandleClick();
         }
 
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetMouseButtonDown(1))
         {
-            HandleEscape();
+            HandleGoBack();
         }
     }
 
@@ -110,7 +110,7 @@ public class CameraMoveManager : MonoBehaviour
         }
     }
 
-    void HandleEscape()
+    void HandleGoBack()
     {
         if (cameraHistory.Count > 0)
         {
@@ -179,9 +179,18 @@ public class CameraMoveManager : MonoBehaviour
             }
         }
 
-        if (currentActiveCam != null) currentActiveCam.Priority = 5;
+        if (currentActiveCam != null) 
+        {
+            currentActiveCam.Priority = 5;
+            CameraSettings oldSettings = currentActiveCam.GetComponent<CameraSettings>();
+            if (oldSettings != null) oldSettings.onCameraExit?.Invoke();
+        }
+        
         newCam.Priority = 10;
         currentActiveCam = newCam; 
+
+        CameraSettings newSettings = newCam.GetComponent<CameraSettings>();
+        if (newSettings != null) newSettings.onCameraEnter?.Invoke();
 
         currentHierarchyLevel = targetHierarchyLevel;
 
@@ -259,11 +268,19 @@ public class CameraMoveManager : MonoBehaviour
         if (newCam == null) return;
 
         // 기존 카메라 끄기
-        if (currentActiveCam != null) currentActiveCam.Priority = 5;
+        if (currentActiveCam != null) 
+        {
+            currentActiveCam.Priority = 5;
+            CameraSettings oldSettings = currentActiveCam.GetComponent<CameraSettings>();
+            if (oldSettings != null) oldSettings.onCameraExit?.Invoke();
+        }
         
         // 새 카메라(다음 날짜의 시작 시점) 켜기
         newCam.Priority = 10;
         currentActiveCam = newCam;
+
+        CameraSettings newSettings = newCam.GetComponent<CameraSettings>();
+        if (newSettings != null) newSettings.onCameraEnter?.Invoke();
 
         // 방문 기록 및 계층 레벨 완전 초기화
         cameraHistory.Clear();

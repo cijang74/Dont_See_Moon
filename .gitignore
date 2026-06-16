@@ -70,3 +70,9 @@ crashlytics-build.properties
 # Temporary auto-generated Android Assets
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
+
+# MCP AI Agent files
+/.agent/
+/Assets/Plugins/NuGet/
+/Assets/Plugins/NuGet.meta
+/Assets/Plugins.meta
