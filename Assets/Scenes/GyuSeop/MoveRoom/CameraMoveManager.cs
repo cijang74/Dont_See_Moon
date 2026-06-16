@@ -99,7 +99,7 @@ public class CameraMoveManager : MonoBehaviour
         {
             CameraNode node = hit.transform.GetComponent<CameraNode>();
 
-            if (node != null && node.targetCamera != null && node.targetCamera != currentActiveCam)
+            if (node != null && node.CanBeClicked() && node.targetCamera != null && node.targetCamera != currentActiveCam)
             {
                 CameraSettings camSettings = node.targetCamera.GetComponent<CameraSettings>();
                 int targetTier = camSettings != null ? camSettings.hierarchyLevel : 0;
@@ -112,6 +112,8 @@ public class CameraMoveManager : MonoBehaviour
 
     void HandleGoBack()
     {
+        if (DialogueManager.Instance != null && DialogueManager.Instance.isDialoguePlaying) return;
+
         if (cameraHistory.Count > 0)
         {
             int lastIndex = cameraHistory.Count - 1;
