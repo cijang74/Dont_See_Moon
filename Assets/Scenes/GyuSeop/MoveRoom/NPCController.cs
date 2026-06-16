@@ -1,4 +1,5 @@
 using UnityEngine;
+using Unity.Cinemachine;
 
 public class NPCController : MonoBehaviour
 {
@@ -8,6 +9,16 @@ public class NPCController : MonoBehaviour
     
     [Tooltip("체크하면 Y축으로만 회전하여 캐릭터가 기울어지지 않습니다.")]
     public bool lockYAxis = true;
+
+    private CinemachineBrain mainBrain;
+
+    void Start()
+    {
+        if (Camera.main != null)
+        {
+            mainBrain = Camera.main.GetComponent<CinemachineBrain>();
+        }
+    }
 
     [Tooltip("지정된 Transform의 위치와 회전값으로 NPC를 이동시킵니다.")]
     public void MoveToPosition(Transform targetPos)
@@ -31,6 +42,17 @@ public class NPCController : MonoBehaviour
     {
         if (alwaysLookAtCamera && Camera.main != null)
         {
+            if (mainBrain == null)
+            {
+                mainBrain = Camera.main.GetComponent<CinemachineBrain>();
+            }
+
+            // 카메라가 블렌딩(이동) 중일 때는 회전하지 않음
+            if (mainBrain != null && mainBrain.IsBlending)
+            {
+                return;
+            }
+
             Vector3 directionToCamera = Camera.main.transform.position - transform.position;
 
             if (lockYAxis)
