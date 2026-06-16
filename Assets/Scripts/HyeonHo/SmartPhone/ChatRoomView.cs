@@ -175,11 +175,20 @@ public class ChatRoomView : MonoBehaviour
         if (prefab == null) return;
 
         var go = Instantiate(prefab, messageContent);
-        var t = go.GetComponentInChildren<TextMeshProUGUI>();
-        if (t != null) t.text = text;
+
+        var bubble = go.GetComponent<ChatBubble>();
+        if (bubble != null)
+        {
+            bubble.SetText(text);   // 글자 길이에 맞춰 박스 크기 자동 계산
+        }
+        else
+        {
+            var t = go.GetComponentInChildren<TextMeshProUGUI>();
+            if (t != null) t.text = text;
+        }
+
         ScrollToBottom();
     }
-
     private void ClearMessages()
     {
         if (messageContent == null) return;
@@ -196,6 +205,8 @@ public class ChatRoomView : MonoBehaviour
     {
         if (scrollRect == null) return;
         Canvas.ForceUpdateCanvases();
+        if (messageContent is RectTransform rt)
+            LayoutRebuilder.ForceRebuildLayoutImmediate(rt);
         scrollRect.verticalNormalizedPosition = 0f;
     }
 }

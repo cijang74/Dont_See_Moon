@@ -32,7 +32,7 @@ public class SmartphoneUI : MonoBehaviour
     [Header("입력 키")]
     [SerializeField] private KeyCode toggleKey = KeyCode.F;       // F: 열기/닫기 토글
     [SerializeField] private KeyCode closeKey = KeyCode.Escape;   // ESC: 닫기 전용(선택)
-    [SerializeField] private bool useCloseKey = false;             // ESC 닫기 사용 여부
+    [SerializeField] private bool useCloseKey = true;             // ESC 닫기 사용 여부
 
     private CanvasGroup canvasGroup;
     private RectTransform parentRect;
@@ -46,6 +46,10 @@ public class SmartphoneUI : MonoBehaviour
     private void Awake()
     {
         Instance = this;
+
+        // 한/영(IME)이 한글 모드일 때 F 같은 키가 조합용으로 가로채여 인식되지 않는 문제 방지.
+        // 이 게임은 직접 타이핑이 없으므로 IME 조합을 꺼도 안전.
+        Input.imeCompositionMode = IMECompositionMode.Off;
 
         if (phoneRect == null) phoneRect = GetComponent<RectTransform>();
         canvasGroup = GetComponent<CanvasGroup>();
@@ -105,20 +109,41 @@ public class SmartphoneUI : MonoBehaviour
 
     private void HandleInput()
     {
-        // F: 토글 — 숨김/내려가는 중이면 열고, 정지/올라오는 중이면 닫음
+        // F: 토글
         if (Input.GetKeyDown(toggleKey))
         {
-            if (state == PhoneState.Hidden || state == PhoneState.SlidingDown)
-                BeginOpen();
-            else
-                BeginClose();
+            TogglePhone();
         }
         // ESC: 닫기 전용 (선택)
-        else if (useCloseKey && Input.GetKeyDown(closeKey) &&
-                 (state == PhoneState.Shown || state == PhoneState.SlidingUp))
+        else if (useCloseKey && Input.GetKeyDown(closeKey))
         {
-            BeginClose();
+            ClosePhone();
         }
+    }
+
+    // ── 외부(버튼 등)에서 호출 가능한 공개 메서드 ──
+
+    // 폰 열기 (숨김/내려가는 중일 때만)
+    public void OpenPhone()
+    {
+        if (state == PhoneState.Hidden || state == PhoneState.SlidingDown)
+            BeginOpen();
+    }
+
+    // 폰 닫기 (정지/올라오는 중일 때만) — X 버튼 onClick에 연결
+    public void ClosePhone()
+    {
+        if (state == PhoneState.Shown || state == PhoneState.SlidingUp)
+            BeginClose();
+    }
+
+    // 상태에 따라 열고/닫기 — F 키가 호출
+    public void TogglePhone()
+    {
+        if (state == PhoneState.Hidden || state == PhoneState.SlidingDown)
+            BeginOpen();
+        else
+            BeginClose();
     }
 
     private void BeginOpen()

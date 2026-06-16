@@ -1,16 +1,16 @@
-RoomId,NodeId,Type,NextNodeId,Text
-mom,n1,Msg,,너 괜찮니?
-mom,n1,Msg,,대답좀 해 봐..
-mom,n1,Choice,n2,Yeah, I'm here
-mom,n1,Choice,n2,(읽씹한다)
-mom,n2,Msg,,Can you talk?
-mom,n2,Msg,,i think you are busy
-mom,n2,Choice,n3,You can count on me
-mom,n2,Choice,n4,Whats happening?
-mom,n3,Msg,,고마워. 힘들면 꼭 말하고.
-mom,n4,Msg,,별일 없어. 그냥 걱정돼서.
-dad,n1,Msg,,밥은 먹었니?
-dad,n1,Choice,d2,먹었어요
-dad,n1,Choice,d3,아직요
-dad,d2,Msg,,그래 다행이다.
-dad,d3,Msg,,꼭 챙겨 먹어라.
+RoomId|NodeId|Type|NextNodeId|Text
+mom|n1|Msg||너 괜찮니?
+mom|n1|Msg||대답좀 해 봐..
+mom|n1|Choice|n2|Yeah, I'm here
+mom|n1|Choice|n2|(읽씹한다)
+mom|n2|Msg||Can you talk?
+mom|n2|Msg||i think you are busy
+mom|n2|Choice|n3|You can count on me
+mom|n2|Choice|n4|Whats happening?
+mom|n3|Msg||고마워. 힘들면 꼭 말하고.
+mom|n4|Msg||별일 없어. 그냥 걱정돼서.
+dad|n1|Msg||밥은 먹었니?
+dad|n1|Choice|d2|먹었어요
+dad|n1|Choice|d3|아직요
+dad|d2|Msg||그래 다행이다.
+dad|d3|Msg||꼭 챙겨 먹어라.
