@@ -79,6 +79,9 @@ public class DayTransitionManager : MonoBehaviour
 
         // 게임 시작 시(보통 1일차) 해당 날짜 이벤트 1회 자동 실행
         TriggerEventsForDay(currentDay);
+
+        // 첫 시작(또는 씬 진입) 연출 실행
+        StartCoroutine(InitialStartRoutine());
     }
 
     void Update()
@@ -88,6 +91,78 @@ public class DayTransitionManager : MonoBehaviour
         {
             StartCoroutine(DayTransitionRoutine());
         }
+    }
+
+    IEnumerator InitialStartRoutine()
+    {
+        IsTransitioning = true;
+
+        // 1. 처음 화면은 완전한 검은색
+        if (fadeImage != null)
+        {
+            Color fc = fadeImage.color;
+            fc.a = 1f;
+            fadeImage.color = fc;
+        }
+
+        // 2. 현재 날짜 세팅
+        if (dayText != null)
+        {
+            dayText.text = $"DAY {currentDay}";
+        }
+
+        // 3. DAY 글씨 페이드 인
+        float elapsed = 0;
+        Color textColor = dayText.color;
+        
+        while (elapsed < textFadeInDuration)
+        {
+            elapsed += Time.deltaTime;
+            float t = elapsed / textFadeInDuration;
+            
+            textColor.a = Mathf.Lerp(0, 1, t);
+            dayText.color = textColor;
+            yield return null;
+        }
+        textColor.a = 1;
+        dayText.color = textColor;
+
+        // 4. 글씨 유지 (기존 머무르는 시간 변수 활용)
+        yield return new WaitForSeconds(holdSecondDayTime);
+
+        // 5. 글씨 페이드 아웃
+        elapsed = 0;
+        while (elapsed < textFadeOutDuration)
+        {
+            elapsed += Time.deltaTime;
+            float t = elapsed / textFadeOutDuration;
+            
+            textColor.a = Mathf.Lerp(1, 0, t);
+            dayText.color = textColor;
+            yield return null;
+        }
+        textColor.a = 0;
+        dayText.color = textColor;
+
+        // 글씨가 사라진 후 아주 잠깐의 여운
+        yield return new WaitForSeconds(0.3f); 
+
+        // 6. 검은 화면 페이드 아웃 (씬 시작)
+        elapsed = 0;
+        Color fadeColor = fadeImage.color;
+        while (elapsed < fadeInToSceneDuration)
+        {
+            elapsed += Time.deltaTime;
+            float t = elapsed / fadeInToSceneDuration;
+            
+            fadeColor.a = Mathf.Lerp(1, 0, t);
+            fadeImage.color = fadeColor;
+            yield return null;
+        }
+        fadeColor.a = 0;
+        fadeImage.color = fadeColor;
+
+        IsTransitioning = false;
     }
 
     IEnumerator DayTransitionRoutine()
