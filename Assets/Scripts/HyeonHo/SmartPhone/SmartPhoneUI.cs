@@ -1,7 +1,9 @@
 using UnityEngine;
+using TMPro; // [추가] DAY 텍스트(TMP) 출력용
 
 // 스마트폰 화면을 아래에서 올려 가운데 정지시키고, F로 토글(다시 누르면 내림)
 // + 종횡비 고정 동적 크기, + 활성 상태를 정적으로 노출해 맵 상호작용 차단에 사용
+// + [추가] DayTransitionManager.currentDay 값을 폰 화면 텍스트에 "Day N"으로 출력
 [RequireComponent(typeof(CanvasGroup))]
 public class SmartphoneUI : MonoBehaviour
 {
@@ -16,6 +18,17 @@ public class SmartphoneUI : MonoBehaviour
 
     [Header("참조")]
     [SerializeField] private RectTransform phoneRect; // 비우면 자기 자신
+
+    // ───────────── [추가] 날짜 표시 ─────────────
+    [Header("날짜 표시 (Day N)")]
+    [Tooltip("SmartPhone 안의 날짜 표시용 TMP 텍스트를 연결하세요.")]
+    [SerializeField] private TextMeshProUGUI dayText;
+    [Tooltip("{0} 자리에 일차 숫자가 들어갑니다. 예: \"Day {0}\" → Day 1")]
+    [SerializeField] private string dayFormat = "Day {0}";
+
+    private DayTransitionManager dayManager; // 날짜를 보관하는 매니저(씬에서 자동 탐색)
+    private int lastDay = int.MinValue;      // 값이 바뀔 때만 텍스트를 갱신하기 위한 캐시
+    // ────────────────────────────────────────────
 
     [Header("종횡비 (가로 : 세로)")]
     [SerializeField] private float aspectWidth = 2f;
@@ -62,6 +75,11 @@ public class SmartphoneUI : MonoBehaviour
         ApplyResponsiveLayout();
         phoneRect.anchoredPosition = hiddenPosition;
         SetInteractable(false);
+
+        // [추가] 씬에 있는 DayTransitionManager 탐색
+        dayManager = FindObjectOfType<DayTransitionManager>();
+        if (dayManager == null)
+            Debug.LogWarning("SmartphoneUI: 씬에서 DayTransitionManager를 찾지 못했습니다. Day 표시가 갱신되지 않습니다.");
     }
 
     private void OnDestroy()
@@ -105,7 +123,21 @@ public class SmartphoneUI : MonoBehaviour
 
         HandleInput();
         HandleMovement();
+        UpdateDayText(); // [추가] 날짜가 바뀌면 자동 반영
     }
+
+    // ───────────── [추가] 날짜 텍스트 갱신 ─────────────
+    private void UpdateDayText()
+    {
+        if (dayManager == null || dayText == null) return;
+
+        int day = dayManager.currentDay; // public int currentDay 직접 접근
+        if (day == lastDay) return;      // 값이 그대로면 다시 그리지 않음
+
+        lastDay = day;
+        dayText.text = string.Format(dayFormat, day);
+    }
+    // ────────────────────────────────────────────────
 
     private void HandleInput()
     {
