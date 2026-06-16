@@ -13,6 +13,7 @@ public class ChatBubble : MonoBehaviour
     [Header("크기 설정")]
     [SerializeField] private float maxWidth = 400f;
     [SerializeField] private float paddingLeft = 40f;
+    [SerializeField] private float edgeMargin = 24f;
     [SerializeField] private float paddingRight = 25f;
     [SerializeField] private float paddingTop = 18f;
     [SerializeField] private float paddingBottom = 18f;
@@ -50,7 +51,9 @@ public class ChatBubble : MonoBehaviour
         float contentWidth = (rowRect.parent is RectTransform p) ? p.rect.width : 0f;
 
         balloonRect.anchorMin = balloonRect.anchorMax = balloonRect.pivot = new Vector2(0f, 1f);
-        float bx = (align == Align.Right) ? Mathf.Max(0f, contentWidth - bubbleW) : 0f;
+        float bx = (align == Align.Right)
+            ? Mathf.Max(0f, contentWidth - bubbleW - edgeMargin)  // 오른쪽 끝에서 edgeMargin 만큼 안쪽
+            : edgeMargin;                                          // 왼쪽 끝에서 edgeMargin 만큼 안쪽
         balloonRect.anchoredPosition = new Vector2(bx, 0f);
 
         // 행 높이만 지정 (가로폭은 VLG/Content가 처리)

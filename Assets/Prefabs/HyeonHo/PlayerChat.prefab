@@ -93,8 +93,9 @@ MonoBehaviour:
   messageText: {fileID: 1615572753426185484}
   align: 1
   maxWidth: 400
-  paddingLeft: 40
-  paddingRight: 25
+  paddingLeft: 25
+  edgeMargin: 24
+  paddingRight: 60
   paddingTop: 18
   paddingBottom: 18
 --- !u!1 &3672651541167406214
