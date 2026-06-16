@@ -24,7 +24,11 @@ public enum ENUM_EventType
 public class ChoiceEffect
 {
     public ENUM_EffectType effectType; 
-    public string effectTargetPath;
+    
+    // 💡 변경: 문자열 경로 대신 의심하는 주체와 대상을 Enum으로 저장
+    public InteractionObjectType effectSubject; // 의심하는 주체 (예: James)
+    public InteractionObjectType effectTarget;  // 의심받는 대상 (예: Ella)
+    
     public int effectAmount;
 }
 

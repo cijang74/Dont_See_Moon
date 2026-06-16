@@ -306,6 +306,7 @@ MonoBehaviour:
   align: 0
   maxWidth: 400
   paddingLeft: 40
+  edgeMargin: 24
   paddingRight: 25
   paddingTop: 18
   paddingBottom: 18

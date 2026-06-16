@@ -64,6 +64,9 @@ public class ChatRoomView : MonoBehaviour
             return;
         }
 
+        // 아직 도착한 메시지가 없는 방이면 빈 화면 (재생하지 않음)
+        if (string.IsNullOrEmpty(room.currentNodeId)) return;
+
         // 현재 노드부터 재생 (세이브는 노드 시작 전 history만 담고 있으므로 중복 없음)
         playing = StartCoroutine(PlayNode(room.currentNodeId));
     }
@@ -119,11 +122,24 @@ public class ChatRoomView : MonoBehaviour
 
         for (int i = 0; i < choiceButtons.Length; i++)
         {
+            if (choiceButtons[i] == null) continue;
+
             if (i < node.choices.Count)
             {
                 int idx = i;
                 choiceButtons[i].gameObject.SetActive(true);
-                if (choiceTexts[i] != null) choiceTexts[i].text = node.choices[i].text;
+
+                // Choice Texts 슬롯이 비어 있으면 버튼 자식의 TMP를 자동으로 찾아 채움
+                var label = (choiceTexts != null && i < choiceTexts.Length && choiceTexts[i] != null)
+                    ? choiceTexts[i]
+                    : choiceButtons[i].GetComponentInChildren<TextMeshProUGUI>(true);
+
+                if (label != null)
+                    label.text = node.choices[i].text;
+                else
+                    Debug.LogWarning($"[ChatRoomView] {i}번 답변 버튼에서 TextMeshProUGUI를 찾지 못했습니다. " +
+                                     "버튼의 자식 텍스트가 일반 UI Text가 아니라 TextMeshPro인지 확인하세요.");
+
                 choiceButtons[i].onClick.RemoveAllListeners();
                 choiceButtons[i].onClick.AddListener(() => OnChoose(idx));
             }
@@ -175,20 +191,11 @@ public class ChatRoomView : MonoBehaviour
         if (prefab == null) return;
 
         var go = Instantiate(prefab, messageContent);
-
-        var bubble = go.GetComponent<ChatBubble>();
-        if (bubble != null)
-        {
-            bubble.SetText(text);   // 글자 길이에 맞춰 박스 크기 자동 계산
-        }
-        else
-        {
-            var t = go.GetComponentInChildren<TextMeshProUGUI>();
-            if (t != null) t.text = text;
-        }
-
+        var t = go.GetComponentInChildren<TextMeshProUGUI>();
+        if (t != null) t.text = text;
         ScrollToBottom();
     }
+
     private void ClearMessages()
     {
         if (messageContent == null) return;
@@ -205,8 +212,6 @@ public class ChatRoomView : MonoBehaviour
     {
         if (scrollRect == null) return;
         Canvas.ForceUpdateCanvases();
-        if (messageContent is RectTransform rt)
-            LayoutRebuilder.ForceRebuildLayoutImmediate(rt);
         scrollRect.verticalNormalizedPosition = 0f;
     }
 }

@@ -18,4 +18,68 @@ public class CameraNode : MonoBehaviour
 
     [Header("이동 방식 설정")]
     public bool isSmoothTransition = false;
+
+    [Header("대화 자동 시작 설정")]
+    [Tooltip("이 노드가 클릭 후 대화창을 띄우는 오브젝트인지 체크합니다.")]
+    public bool isDialogueObject = false;
+
+    [Tooltip("대화할 캐릭터나 오브젝트의 이름을 적어주세요. (예: James)")]
+    public string dialogueTargetName;
+
+    public bool CanBeClicked()
+    {
+        if (DialogueManager.Instance != null)
+        {
+            if (DialogueManager.Instance.isDialoguePlaying)
+            {
+                return false;
+            }
+
+            if (isDialogueObject && !string.IsNullOrEmpty(dialogueTargetName))
+            {
+                if (System.Enum.TryParse(dialogueTargetName, true, out InteractionObjectType targetType))
+                {
+                    if (!DialogueManager.Instance.CanInteract(targetType))
+                    {
+                        return false; // 이미 대화한 대상이면 클릭 불가
+                    }
+                }
+            }
+        }
+        return true;
+    }
+
+    private void Start()
+    {
+        if (isDialogueObject && targetCamera != null)
+        {
+            var settings = targetCamera.GetComponent<CameraSettings>();
+            if (settings != null)
+            {
+                settings.onCameraEnterComplete.AddListener(StartNodeDialogue);
+            }
+        }
+    }
+
+    private void StartNodeDialogue()
+    {
+        if (DialogueManager.Instance != null)
+        {
+            int currentDay = 1;
+            DayTransitionManager dayManager = Object.FindFirstObjectByType<DayTransitionManager>();
+            if (dayManager != null)
+            {
+                currentDay = dayManager.currentDay;
+            }
+
+            if (System.Enum.TryParse(dialogueTargetName, true, out InteractionObjectType targetType))
+            {
+                StartCoroutine(DialogueManager.Instance.StartDialogue(currentDay, targetType, false));
+            }
+            else
+            {
+                Debug.LogError($"[CameraNode] '{dialogueTargetName}' 이름을 InteractionObjectType Enum으로 변환할 수 없습니다. 오타가 없는지 확인해주세요.");
+            }
+        }
+    }
 }
