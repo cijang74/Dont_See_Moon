@@ -456,31 +456,23 @@ public class DialogueEventHandler : MonoBehaviour
         blackPanel.SetActive(false);
         ClearChoicePanel();
 
-        // 실제 효과 적용 (해당 코드에서는 FireStore에 저장된 값에 영향을 주도록 작성됨. DB를 사용하지 않는 프로젝트에서는 PlayerPrefs나 Singleton에 저장하면 됨.)
         foreach(ChoiceEffect effect in effects)
         {
             switch (effect.effectType)
             {
                 case ENUM_EffectType.ADD:
-                    // DB에 접근하여 effectTargetPath필드 값 수정
-                    // FireStoreAccessManager.Instance.AddDataToDB(effect.effectTargetPath, effect.effectAmount, () =>
-                    // {
-                    //     // 캐시 업데이트
-                    //     UserDataCachingManager.Instance.MakeUserDataCachingFromDB();
-                    // });
+                    // 💡 [추가] 주체의 대상에 대한 의심도 증가/감소
+                    CharacterStatusManager.Instance.AddSuspicion(effect.effectSubject, effect.effectTarget, effect.effectAmount);
+                    Debug.Log($"[효과] {effect.effectSubject}의 {effect.effectTarget}에 대한 의심도가 {effect.effectAmount}만큼 증가했습니다.");
                     break;
 
                 case ENUM_EffectType.SET:
-                    // DB에 접근하여 effectTargetPath필드 값 수정
-                    // FireStoreAccessManager.Instance.SaveDataToDB<int>(effect.effectTargetPath, effect.effectAmount, () =>
-                    // {
-                    //     // 캐시 업데이트
-                    //     UserDataCachingManager.Instance.MakeUserDataCachingFromDB();
-                    // });
+                    // 💡 [추가] 주체의 대상에 대한 의심도 특정 수치로 고정
+                    CharacterStatusManager.Instance.SetSuspicion(effect.effectSubject, effect.effectTarget, effect.effectAmount);
+                    Debug.Log($"[효과] {effect.effectSubject}의 {effect.effectTarget}에 대한 의심도가 {effect.effectAmount}로 설정되었습니다.");
                     break;
                     
                 case ENUM_EffectType.NONE:
-
                     break;
             }
         }

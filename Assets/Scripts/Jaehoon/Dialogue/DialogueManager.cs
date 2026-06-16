@@ -11,6 +11,8 @@ public enum InteractionObjectType
     Ella,
     Sophia,
     Vote,
+    Day1_BloodKnife,
+    Day1_Pee
 };
 
 public class DialogueManager : Singleton<DialogueManager>
@@ -30,6 +32,7 @@ public class DialogueManager : Singleton<DialogueManager>
     // 테스트용
     void Start()
     {
+        EvidenceManager.Instance.AcquireEvidence(InteractionObjectType.Day1_BloodKnife);
         StartCoroutine(StartDialogue(1, InteractionObjectType.James, false));
     }
 
