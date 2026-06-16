@@ -109,17 +109,23 @@ public class CSVToSO_Dialogue : MonoBehaviour
                 // --- Choice 1 ---
                 string effectStr1 = GetValueStrict(data, "Choice1_Effect");
                 string reqEvidenceStr1 = GetValueStrict(data, "Choice1_Req");
-                Enum.TryParse(reqEvidenceStr1, out InteractionObjectType reqType1); // 파싱 실패 시 기본값(0/보통 None)
+                Enum.TryParse(reqEvidenceStr1, out InteractionObjectType reqType1); 
 
                 Choice newChoice1 = new Choice(GetValueStrict(data, "Choice1_Text"), GetValueStrict(data, "Choice1_NextID"),
                 ParsingData<ChoiceEffect>(effectStr1, parts =>
                 {
                     ChoiceEffect effect = new ChoiceEffect();
                     if (Enum.TryParse(parts[0], out ENUM_EffectType type)) effect.effectType = type;
-                    effect.effectTargetPath = parts[1];
-                    int.TryParse(parts[2], out effect.effectAmount);
+                    
+                    // 💡 [수정] 조각이 4개일 때 (예: ADD:James:Ella:6)
+                    if (parts.Length == 4)
+                    {
+                        if (Enum.TryParse(parts[1], out InteractionObjectType subject)) effect.effectSubject = subject;
+                        if (Enum.TryParse(parts[2], out InteractionObjectType target)) effect.effectTarget = target;
+                        int.TryParse(parts[3], out effect.effectAmount);
+                    }
                     return effect;
-                }, 3), reqType1); // 마지막 인자로 요구 증거 넘김
+                }, 3, 4), reqType1); // <-- 마지막 파라미터를 3, 4로 허용
                 line.choices.Add(newChoice1);
 
                 // --- Choice 2 ---
@@ -132,10 +138,14 @@ public class CSVToSO_Dialogue : MonoBehaviour
                 {
                     ChoiceEffect effect = new ChoiceEffect();
                     if (Enum.TryParse(parts[0], out ENUM_EffectType type)) effect.effectType = type;
-                    effect.effectTargetPath = parts[1];
-                    int.TryParse(parts[2], out effect.effectAmount);
+                    if (parts.Length == 4)
+                    {
+                        if (Enum.TryParse(parts[1], out InteractionObjectType subject)) effect.effectSubject = subject;
+                        if (Enum.TryParse(parts[2], out InteractionObjectType target)) effect.effectTarget = target;
+                        int.TryParse(parts[3], out effect.effectAmount);
+                    }
                     return effect;
-                }, 3), reqType2);
+                }, 3, 4), reqType2);
                 line.choices.Add(newChoice2);
 
                 // --- Choice 3 ---
@@ -148,10 +158,14 @@ public class CSVToSO_Dialogue : MonoBehaviour
                 {
                     ChoiceEffect effect = new ChoiceEffect();
                     if (Enum.TryParse(parts[0], out ENUM_EffectType type)) effect.effectType = type;
-                    effect.effectTargetPath = parts[1];
-                    int.TryParse(parts[2], out effect.effectAmount);
+                    if (parts.Length == 4)
+                    {
+                        if (Enum.TryParse(parts[1], out InteractionObjectType subject)) effect.effectSubject = subject;
+                        if (Enum.TryParse(parts[2], out InteractionObjectType target)) effect.effectTarget = target;
+                        int.TryParse(parts[3], out effect.effectAmount);
+                    }
                     return effect;
-                }, 3), reqType3);
+                }, 3, 4), reqType3);
                 line.choices.Add(newChoice3);
 
                 // 완성된 대사 1줄을 SO 내부의 리스트에 추가
