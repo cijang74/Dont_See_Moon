@@ -18,6 +18,12 @@ public class NPCObjectMapping
 {
     public InteractionObjectType npcType;
     public GameObject npcObject;
+    [Tooltip("해당 NPC 사망 시 함께 비활성화할 추가 오브젝트 1")]
+    public GameObject additionalObject1;
+    [Tooltip("해당 NPC 사망 시 함께 비활성화할 추가 오브젝트 2")]
+    public GameObject additionalObject2;
+    [Tooltip("해당 NPC 사망 시 함께 비활성화할 추가 오브젝트 3")]
+    public GameObject additionalObject3;
 }
 
 public class DayTransitionManager : MonoBehaviour
@@ -90,6 +96,9 @@ public class DayTransitionManager : MonoBehaviour
 
         // 게임 시작 시(보통 1일차) 해당 날짜 이벤트 1회 자동 실행
         TriggerEventsForDay(currentDay);
+
+        // 💡 게임 시작 시점에도 죽은 NPC 관련 오브젝트들을 비활성화 처리 (데이터 불러오기 등 대비)
+        DeactivateDeadNPCObjects();
 
         // 첫 시작(또는 씬 진입) 연출 실행
         StartCoroutine(InitialStartRoutine());
@@ -220,18 +229,6 @@ public class DayTransitionManager : MonoBehaviour
         // 💡 화면이 까매졌을 때 투표 결과 집계 및 처형 처리
         VoteManager.Instance.CalculateDailyVoteResults();
 
-        // 💡 [추가] 정산 결과에 따라 죽은 NPC 오브젝트 비활성화 처리
-        if (npcList != null)
-        {
-            foreach (var npc in npcList)
-            {
-                if (npc.npcObject != null && !CharacterStatusManager.Instance.IsAlive(npc.npcType))
-                {
-                    npc.npcObject.SetActive(false);
-                }
-            }
-        }
-
         if (nextDayStartCamera != null) camManager.ForceSetCameraAndClearHistory(nextDayStartCamera);
         if (nextDayBGM != null) bgmManager.ChangeBGM(nextDayBGM);
 
@@ -281,6 +278,9 @@ public class DayTransitionManager : MonoBehaviour
         
         // ★ 날짜가 바뀌었으므로 새 날짜에 등록된 이벤트들 자동 실행!
         TriggerEventsForDay(currentDay);
+
+        // 💡 [추가] 이벤트에서 오브젝트를 켰을 수도 있으므로, 죽은 NPC 관련 오브젝트는 다시 확실히 끕니다.
+        DeactivateDeadNPCObjects();
 
         yield return new WaitForSeconds(holdSecondDayTime);
 
@@ -346,6 +346,25 @@ public class DayTransitionManager : MonoBehaviour
         if (index >= 0 && index < dailyEvents.Count)
         {
             dailyEvents[index].onDayStartEvent?.Invoke();
+        }
+    }
+
+    /// <summary>
+    /// NPC의 생존 여부를 확인하여 사망한 NPC와 관련된 모든 오브젝트를 비활성화합니다.
+    /// </summary>
+    private void DeactivateDeadNPCObjects()
+    {
+        if (npcList == null) return;
+
+        foreach (var npc in npcList)
+        {
+            if (CharacterStatusManager.Instance != null && !CharacterStatusManager.Instance.IsAlive(npc.npcType))
+            {
+                if (npc.npcObject != null) npc.npcObject.SetActive(false);
+                if (npc.additionalObject1 != null) npc.additionalObject1.SetActive(false);
+                if (npc.additionalObject2 != null) npc.additionalObject2.SetActive(false);
+                if (npc.additionalObject3 != null) npc.additionalObject3.SetActive(false);
+            }
         }
     }
 }
