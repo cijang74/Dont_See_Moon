@@ -1,0 +1,6 @@
+﻿ID,SpeakerPosition,SpeakerName,ListenerName,DialogueText,NextID,Event,Emotion,Choice1_Text,Choice1_Effect,Choice1_Req,Choice1_NextID,Choice2_Text,Choice2_Effect,Choice2_Req,Choice2_NextID,Choice3_Text,Choice3_Effect,Choice3_Req,Choice3_NextID,Title
+0,Left,제임스,,좋아. 다 모였나? 모두 오늘 맡은 업무를 무사히 끝냈더군. 고생 많았다.,1,,,,,,,,,,,,,,,
+1,Left,제임스,,그럼 저녁 회의를 시작하지. 오늘 대피소 안에서 수상한 점을 발견한 사람 있나?,,,,아무것도 없었습니다.,,,2,,,,,,,,,
+2,Left,제임스,,"특이사항이 없다면, 바로 오늘 투표를 진행해보자고.",3,Vote,,,,,,,,,,,,,,
+3,Left,제임스,,투표는 마무리되었네.,4,,,,,,,,,,,,,,,
+4,Left,제임스,,오늘 투표 결과에 따라 처리하겠네. 내일도 각자 몸조심해.,,End,,,,,,,,,,,,,,
