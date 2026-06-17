@@ -1,6 +1,6 @@
 using System;
 using System.Collections;
-using UnityEditor.Timeline.Actions;
+// using UnityEditor.Timeline.Actions;
 using UnityEngine;
 
 public class BedEvent:MonoBehaviour

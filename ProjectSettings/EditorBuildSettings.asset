@@ -9,12 +9,6 @@ EditorBuildSettings:
     path: Assets/Scenes/Jaehoon/New/Scene_Start.unity
     guid: ebe4784baa7054c4f8866c221dcee0a6
   - enabled: 1
-    path: Assets/Scenes/HyeonHo/HyeonHoScene_v2.unity
-    guid: 80bee738734bfde46aa84605f5eb4654
-  - enabled: 1
-    path: Assets/Scenes/HyeonHo/OutDoorScene.unity
-    guid: 9db51353089476044b5508a00b66b851
-  - enabled: 1
     path: Assets/Scenes/Jaehoon/New/Scene_Ending.unity
     guid: 4e0953b2cd5c0954d8609ccaca6aae80
   - enabled: 1

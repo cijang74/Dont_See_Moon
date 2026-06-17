@@ -176,7 +176,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 6b9bc22b7930ae14a89e5b51c64b3c32, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c290a342d41ce354bab6b34ba1c15332, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -599,7 +599,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uAC10\uC5FC\uC790: The Game"
+  m_text: Paranoia_Room
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 4de9ba824bdb2584e8eea7a6493d9a27, type: 2}
   m_sharedMaterial: {fileID: -6561903443198218896, guid: 4de9ba824bdb2584e8eea7a6493d9a27, type: 2}
