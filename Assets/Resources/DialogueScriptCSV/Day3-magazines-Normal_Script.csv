@@ -1,0 +1,5 @@
+﻿ID,SpeakerPosition,SpeakerName,ListenerName,DialogueText,NextID,Event,Emotion,Choice1_Text,Choice1_Effect,Choice1_Req,Choice1_NextID,Choice2_Text,Choice2_Effect,Choice2_Req,Choice2_NextID,Choice3_Text,Choice3_Effect,Choice3_Req,Choice3_NextID,Title
+0,Left,주인공,,"주방 화분 옆에 놓인 잡지 더미가 물에 흠뻑 젖어 있다.",,,,,,,,,,,,,,,,
+1,Right,소피아,,"아유, 미안해요. 늙은이가 화분에 남은 물을 좀 주려다가 손이 미끄러져서 그만 엎질렀지 뭐예요.",,,,,,,,,,,,,,,,
+2,Left,주인공,,"(잠깐, 이 잡지는 분명 어제도 똑같이 화분 옆에 젖은 채로 있었는데? 방금 엎질렀다는 건 앞뒤가 안 맞아.)",,,,,,,,,,,,,,,,
+3,Left,주인공,,"정말로 인지 능력이 떨어져서 방금 일어난 일이라고 착각하는 건지, 아니면 다른 꿍꿍이가 있는 건지… 꺼림칙하군.",,End,,,,,,,,,,,,,,

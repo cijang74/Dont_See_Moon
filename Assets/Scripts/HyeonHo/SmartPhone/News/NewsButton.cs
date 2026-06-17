@@ -26,9 +26,12 @@ public class NewsButton : MonoBehaviour
         RefreshBadge();
     }
 
+    // 등장한 뉴스만 목록에 표시하고, 읽지 않았으면 배지 표시
     public void RefreshBadge()
     {
-        if (unreadBadge != null && item != null)
-            unreadBadge.SetActive(item.hasUnread);
+        if (item == null) return;
+
+        gameObject.SetActive(item.arrived);                 // 등장 날짜 전이면 목록에서 숨김
+        if (unreadBadge != null) unreadBadge.SetActive(item.hasUnread);
     }
 }

@@ -11,10 +11,11 @@ public class NewsItem
     public List<string> body = new List<string>();    // 본문 문단들(순서대로)
 }
 
-// 뉴스 런타임 상태(배지/읽음 여부)
+// 뉴스 런타임 상태(등장/배지/읽음 여부)
 public class NewsRuntime
 {
     public NewsItem data;
+    public bool arrived;   // 등장 날짜가 되어 목록에 표시되는지
     public bool hasUnread; // 빨간 배지 표시 여부
     public bool read;      // 읽음 여부
 }

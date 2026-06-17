@@ -1,0 +1,4 @@
+﻿ID,SpeakerPosition,SpeakerName,ListenerName,DialogueText,NextID,Event,Emotion,Choice1_Text,Choice1_Effect,Choice1_Req,Choice1_NextID,Choice2_Text,Choice2_Effect,Choice2_Req,Choice2_NextID,Choice3_Text,Choice3_Effect,Choice3_Req,Choice3_NextID,Title
+0,Left,엘라,,"……안녕. 내 방엔 무슨 일이야?",,,,,,,,,,,,,,,,
+1,Left,엘라,,"남의 방에 함부로 불쑥 들어오면 곤란해. 제임스 그 사람이… 또 누굴 핑계로 삼을지 모르잖아.",,,,,,,,,,,,,,,,
+2,Left,엘라,,"테오가 어떻게 됐는지 알면서 그래? 요즘 같은 상황에선 괜한 의심을 살 짓은 안 하는 게 좋을 거야.",,End,,,,,,,,,,,,,,

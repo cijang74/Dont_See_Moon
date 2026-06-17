@@ -63,6 +63,8 @@ public class CameraNode : MonoBehaviour
 
     private void StartNodeDialogue()
     {
+        bool isInfected = false;
+
         if (DialogueManager.Instance != null)
         {
             int currentDay = 1;
@@ -74,7 +76,20 @@ public class CameraNode : MonoBehaviour
 
             if (System.Enum.TryParse(dialogueTargetName, true, out InteractionObjectType targetType))
             {
-                StartCoroutine(DialogueManager.Instance.StartDialogue(currentDay, targetType, false));
+                if(dialogueTargetName == "Vote")
+                {
+                    if(!WorkManager.Instance.isWorkToday)
+                    {
+                        isInfected = true;
+                    }
+                }
+
+                else if(dialogueTargetName == "Work")
+                {
+                    WorkManager.Instance.isWorkToday = true;
+                }
+
+                StartCoroutine(DialogueManager.Instance.StartDialogue(currentDay, targetType, isInfected));
             }
             else
             {
