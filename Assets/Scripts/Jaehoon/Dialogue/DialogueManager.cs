@@ -12,9 +12,14 @@ public enum InteractionObjectType
     Sophia,
     Vote,
     Work,
-    Day1_BloodKnife,
-    Day1_Pee,
-    Cup,
+    baseball_bat,
+    laundry_basket,
+    note_paper,
+    magazines,
+    thievery,
+    box,
+    James_object,
+    notebook,
     Ending
 };
 
