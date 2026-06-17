@@ -1,0 +1,5 @@
+﻿ID,SpeakerPosition,SpeakerName,ListenerName,DialogueText,NextID,Event,Emotion,Choice1_Text,Choice1_Effect,Choice1_Req,Choice1_NextID,Choice2_Text,Choice2_Effect,Choice2_Req,Choice2_NextID,Choice3_Text,Choice3_Effect,Choice3_Req,Choice3_NextID,Title
+0,Left,엘라,,"(흐느끼며) 흐흑… 더는… 더는 못 참겠어….",,,,,,,,,,,,,,,,
+1,Left,엘라,,"네가 여기 온 지 얼마 안 됐을 때… 감염자라고 몰려서 죽었던 그 사람 말이야….",,,,,,,,,,,,,,,,
+2,Left,엘라,,"테오는… 내 연인이었어. 우린 그저 조용히 살아남고 싶었을 뿐인데…!",,,,,,,,,,,,,,,,
+3,Left,엘라,,"제임스 그 악마가 테오를 죽인 거야! 감염자라는 핑계로 자기에 반대하는 사람을 무참하게 죽인 거라고!",,End,,,,,,,,,,,,,,

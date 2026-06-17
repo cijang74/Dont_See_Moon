@@ -1,0 +1,87 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee81f89839c79ae438a59b0912e1638c, type: 3}
+  m_Name: Day6-Sophia-Normal_Script
+  m_EditorClassIdentifier: 
+  title: 
+  dialogueLines:
+  - ID: 0
+    speakerPosition: Left
+    speakerName: "\uC18C\uD53C\uC544"
+    listenerName: 
+    dialogueText: "\uC544\uC720, \uAE5C\uC9DD\uC774\uC57C\u2026 \uB299\uC740\uC774
+      \uC2EC\uC7A5 \uB5A8\uC5B4\uC9C0\uAC8C."
+    nextID: 
+    events: []
+    emotion: 
+    choices:
+    - text: 
+      nextID: 
+      effects: []
+      requiredEvidence: 0
+    - text: 
+      nextID: 
+      effects: []
+      requiredEvidence: 0
+    - text: 
+      nextID: 
+      effects: []
+      requiredEvidence: 0
+  - ID: 1
+    speakerPosition: Left
+    speakerName: "\uC18C\uD53C\uC544"
+    listenerName: 
+    dialogueText: "\uC800\uAE30, \uC694\uC998 \uB0B4 \uBC29\uC5D0 \uB204\uAC00 \uC790\uAFB8
+      \uB4E4\uC5B4\uC624\uB294 \uAC83 \uAC19\uC9C0 \uC54A\uC544\uC694? \uB0B4\uAC00
+      \uC5C6\uC744 \uB54C\uB9C8\uB2E4 \uB204\uAD70\uAC00 \uBC29\uC744 \uB4A4\uC9C0\uB294
+      \uAC83 \uAC19\uC544\uC694."
+    nextID: 
+    events: []
+    emotion: 
+    choices:
+    - text: 
+      nextID: 
+      effects: []
+      requiredEvidence: 0
+    - text: 
+      nextID: 
+      effects: []
+      requiredEvidence: 0
+    - text: 
+      nextID: 
+      effects: []
+      requiredEvidence: 0
+  - ID: 2
+    speakerPosition: Left
+    speakerName: "\uC18C\uD53C\uC544"
+    listenerName: 
+    dialogueText: "\uBB3C\uAC74\uB3C4 \uC790\uAFB8 \uD558\uB098\uC529 \uC5C6\uC5B4\uC9C0\uACE0\u2026
+      \uB3C4\uB300\uCCB4 \uB204\uAC00 \uB299\uC740\uC774 \uBB3C\uAC74\uC744 \uD0D0\uB0B4\uB294
+      \uAC74\uC9C0\u2026 \uB108\uBB34 \uBD88\uC548\uD558\uB124\uC694."
+    nextID: 
+    events:
+    - eventType: 4
+      target: 
+    emotion: 
+    choices:
+    - text: 
+      nextID: 
+      effects: []
+      requiredEvidence: 0
+    - text: 
+      nextID: 
+      effects: []
+      requiredEvidence: 0
+    - text: 
+      nextID: 
+      effects: []
+      requiredEvidence: 0

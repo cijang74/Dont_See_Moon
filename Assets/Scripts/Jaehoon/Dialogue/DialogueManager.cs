@@ -20,6 +20,8 @@ public enum InteractionObjectType
     box,
     James_object,
     notebook,
+    picture_ella,
+    plate_sophia,
     Ending
 };
 

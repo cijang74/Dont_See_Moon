@@ -1,0 +1,5 @@
+﻿ID,SpeakerPosition,SpeakerName,ListenerName,DialogueText,NextID,Event,Emotion,Choice1_Text,Choice1_Effect,Choice1_Req,Choice1_NextID,Choice2_Text,Choice2_Effect,Choice2_Req,Choice2_NextID,Choice3_Text,Choice3_Effect,Choice3_Req,Choice3_NextID,Title
+0,Left,소피아,,…….,,,,,,,,,,,,,,,,
+1,Left,소피아,,…….,,,,,,,,,,,,,,,,
+2,Left,소피아,,"…혹시 출출하시면 주방에 한 번 가보세요.",,,,,,,,,,,,,,,,
+3,Left,소피아,,"아까 쿠키를 좀 구워뒀거든요….",,End,,,,,,,,,,,,,,

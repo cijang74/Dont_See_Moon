@@ -1,0 +1,4 @@
+﻿ID,SpeakerPosition,SpeakerName,ListenerName,DialogueText,NextID,Event,Emotion,Choice1_Text,Choice1_Effect,Choice1_Req,Choice1_NextID,Choice2_Text,Choice2_Effect,Choice2_Req,Choice2_NextID,Choice3_Text,Choice3_Effect,Choice3_Req,Choice3_NextID,Title
+0,Left,주인공,,"주방 소피아 할머니의 자리… 늘 놓여 있던 쿠키 접시는 보이지 않는다.",1,,,,,,,,,,,,,,,
+1,Left,주인공,,"대신 누군가 먹고 치우지 않은 지저분한 빈 접시만 덩그러니 놓여 있네.",2,,,,,,,,,,,,,,,
+2,Left,주인공,,"쿠키를 권하던 그 인자한 모습은 대체 어디로 간 거지? 이 더러운 접시가 소피아 할머니의 진짜 모습인 건가?",,End,,,,,,,,,,,,,,

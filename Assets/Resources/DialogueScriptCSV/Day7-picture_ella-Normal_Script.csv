@@ -1,0 +1,4 @@
+﻿ID,SpeakerPosition,SpeakerName,ListenerName,DialogueText,NextID,Event,Emotion,Choice1_Text,Choice1_Effect,Choice1_Req,Choice1_NextID,Choice2_Text,Choice2_Effect,Choice2_Req,Choice2_NextID,Choice3_Text,Choice3_Effect,Choice3_Req,Choice3_NextID,Title
+0,Left,주인공,,"주방 구석에 놓인 탁상 액자… 이건 앨범에서 본 적 없는 사진이다.",1,,,,,,,,,,,,,,,
+1,Left,주인공,,"엘라가 전혀 모르는 남성과 함께 찍혀 있네. 다정해 보이는 분위기… 설마 테오 이전에 다른 사람이 있었던 건가?",2,,,,,,,,,,,,,,,
+2,Left,주인공,,"이 사진이 왜 주방에 있지? 엘라의 과거가 내가 생각했던 것보다 훨씬 더 복잡한 건지도 모르겠어.",,End,,,,,,,,,,,,,,

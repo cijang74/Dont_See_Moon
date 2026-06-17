@@ -1,0 +1,8 @@
+﻿ID,SpeakerPosition,SpeakerName,ListenerName,DialogueText,NextID,Event,Emotion,Choice1_Text,Choice1_Effect,Choice1_Req,Choice1_NextID,Choice2_Text,Choice2_Effect,Choice2_Req,Choice2_NextID,Choice3_Text,Choice3_Effect,Choice3_Req,Choice3_NextID,Title
+0,Left,제임스,,"막내, 오늘도 업무를 빼먹었던데. 자꾸 무단으로 돌아다니는 이유가 뭔가? 수상한 짓 하지 마라.",1,,,,,,,,,,,,,,,
+1,Left,제임스,,"누군가 안에서부터 우리를 갉아먹고 있어. 다들 경계해. 자, 오늘 수상한 점을 발견한 사람 있나?",,,,"아무것도 없었습니다.",,,4,"이상한 메모지를 찾았습니다.",ADD:James:Nicholas:15|ADD:Ella:Nicholas:15|ADD:Sophia:Nicholas:15,note_paper,2,"젖은 잡지 더미를 찾았습니다.",ADD:James:Sophia:15|ADD:Nicholas:Sophia:15|ADD:Ella:Sophia:15,magazines,3,
+2,Left,제임스,,"이건... 배전실의 니콜라스가 적은 건가? 전력 계산식 치고는 아주 기괴하군. 해명이 필요하겠어.",4,,,,,,,,,,,,,,,
+3,Left,제임스,,"소피아 할머니, 물을 엎지르셨다고요? 어제부터 계속 젖어있던 잡지인데 앞뒤가 안 맞지 않습니까.",4,,,,,,,,,,,,,,,
+4,Left,제임스,,"그럼, 오늘 투표를 진행해보자고.",5,Vote,,,,,,,,,,,,,,
+5,Left,제임스,,"투표는 마무리되었네.",6,,,,,,,,,,,,,,,
+6,Left,제임스,,"결과는 기록해두지. 허튼생각 말고 방으로 돌아가.",,End,,,,,,,,,,,,,,
