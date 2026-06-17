@@ -5,8 +5,17 @@ public class RadioSoundManagerScript : MonoBehaviour
 {
     void Start()
     {
-        LoadFrequencyData();
-        SelectTodayFrequency(); //날짜 바뀌거나 재생 라디오 오디오 변경 시 호출 필요
+        EnsureInitialized();
+    }
+
+    private void EnsureInitialized()
+    {
+        if (RadioManagerScript.Instance != null && 
+            (RadioManagerScript.Instance.frequencySounds == null || RadioManagerScript.Instance.frequencySounds.Count == 0))
+        {
+            LoadFrequencyData();
+            SelectTodayFrequency(); //날짜 바뀌거나 재생 라디오 오디오 변경 시 호출 필요
+        }
     }
 
     void Update()
@@ -64,13 +73,19 @@ daychanger 돌아가면서 할 일 : 오디오 플레이되면 시간 체크해�
 
     public void SelectTodayFrequency() //조건에 따라서 재생될 라디오 오디오 종류 결정. 이건 하루가 지난 후 날짜가 바뀐 후후 돌려야 할 메서드
     {
-        foreach (var frequencySound in RadioManagerScript.Instance.playFrequencySoundsList)
+        if (RadioManagerScript.Instance.playFrequencySoundsList != null)
         {
-            frequencySound.audioSource.Pause();
-            frequencySound.audioSource.volume = 0f;
+            foreach (var frequencySound in RadioManagerScript.Instance.playFrequencySoundsList)
+            {
+                frequencySound.audioSource.Pause();
+                frequencySound.audioSource.volume = 0f;
+            }
+            RadioManagerScript.Instance.playFrequencySoundsList.Clear(); //재생되는 오디오 리스트 빈 리스트로 초기화
         }
-
-        RadioManagerScript.Instance.playFrequencySoundsList.Clear(); //재생되는 오디오 리스트 빈 리스트로 초기화
+        else
+        {
+            RadioManagerScript.Instance.playFrequencySoundsList = new List<FrequencySound>();
+        }
         
         RadioManagerScript.Instance.playFrequencySoundsList = RadioManagerScript.Instance.frequencySounds.FindAll(sound => sound.playTrigger); //재생 상태 TRUE인 모든 라디오 오디오를 재생 리스트에 추가
     /*
@@ -112,6 +127,7 @@ daychanger 돌아가면서 할 일 : 오디오 플레이되면 시간 체크해�
 
             // AudioSource 생성 및 AudioClip 할당
             GameObject soundObject = new GameObject($"AudioSource_{i}");
+            soundObject.transform.SetParent(RadioManagerScript.Instance.transform);
             sound.audioSource = soundObject.AddComponent<AudioSource>();
             sound.audioSource.clip = Resources.Load<AudioClip>(columns[2]);
             sound.audioSource.playOnAwake = false; //초기 설정 초기화
@@ -133,7 +149,8 @@ daychanger 돌아가면서 할 일 : 오디오 플레이되면 시간 체크해�
     /// </summary>
     public void SetActiveRadioSoundByIndex(int soundIndexToPlay)
     {
-        if (RadioManagerScript.Instance == null || RadioManagerScript.Instance.frequencySounds == null) return;
+        EnsureInitialized();
+        if (RadioManagerScript.Instance == null || RadioManagerScript.Instance.frequencySounds == null || RadioManagerScript.Instance.frequencySounds.Count == 0) return;
 
         for (int i = 0; i < RadioManagerScript.Instance.frequencySounds.Count; i++)
         {
@@ -149,7 +166,8 @@ daychanger 돌아가면서 할 일 : 오디오 플레이되면 시간 체크해�
     /// </summary>
     public void ClearAllRadioSounds()
     {
-        if (RadioManagerScript.Instance == null || RadioManagerScript.Instance.frequencySounds == null) return;
+        EnsureInitialized();
+        if (RadioManagerScript.Instance == null || RadioManagerScript.Instance.frequencySounds == null || RadioManagerScript.Instance.frequencySounds.Count == 0) return;
 
         for (int i = 0; i < RadioManagerScript.Instance.frequencySounds.Count; i++)
         {
@@ -168,7 +186,8 @@ daychanger 돌아가면서 할 일 : 오디오 플레이되면 시간 체크해�
     /// </summary>
     public void AddActiveRadioSoundByIndex(int soundIndexToPlay)
     {
-        if (RadioManagerScript.Instance == null || RadioManagerScript.Instance.frequencySounds == null) return;
+        EnsureInitialized();
+        if (RadioManagerScript.Instance == null || RadioManagerScript.Instance.frequencySounds == null || RadioManagerScript.Instance.frequencySounds.Count == 0) return;
         
         if (soundIndexToPlay >= 0 && soundIndexToPlay < RadioManagerScript.Instance.frequencySounds.Count)
         {
