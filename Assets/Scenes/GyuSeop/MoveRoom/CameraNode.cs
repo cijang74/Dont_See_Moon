@@ -26,8 +26,6 @@ public class CameraNode : MonoBehaviour
     [Tooltip("대화할 캐릭터나 오브젝트의 이름을 적어주세요. (예: James)")]
     public string dialogueTargetName;
 
-    public bool isTable = false;
-
     public bool CanBeClicked()
     {
         if (DialogueManager.Instance != null)
@@ -78,12 +76,17 @@ public class CameraNode : MonoBehaviour
 
             if (System.Enum.TryParse(dialogueTargetName, true, out InteractionObjectType targetType))
             {
-                if(isTable == true)
+                if(dialogueTargetName == "Vote")
                 {
                     if(!WorkManager.Instance.isWorkToday)
                     {
                         isInfected = true;
                     }
+                }
+
+                else if(dialogueTargetName == "Work")
+                {
+                    WorkManager.Instance.isWorkToday = true;
                 }
 
                 StartCoroutine(DialogueManager.Instance.StartDialogue(currentDay, targetType, isInfected));

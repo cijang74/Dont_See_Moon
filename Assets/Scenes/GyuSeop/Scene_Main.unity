@@ -2426,8 +2426,8 @@ MonoBehaviour:
   customCloseSFX: {fileID: 0}
   customOpenSFX: {fileID: 0}
   isSmoothTransition: 1
-  isDialogueObject: 0
-  dialogueTargetName: 
+  isDialogueObject: 1
+  dialogueTargetName: Ella
   isTable: 0
 --- !u!1001 &129642138
 PrefabInstance:
@@ -4414,8 +4414,8 @@ MonoBehaviour:
   customCloseSFX: {fileID: 0}
   customOpenSFX: {fileID: 0}
   isSmoothTransition: 1
-  isDialogueObject: 0
-  dialogueTargetName: 
+  isDialogueObject: 1
+  dialogueTargetName: Sophia
   isTable: 0
 --- !u!1 &218971963
 GameObject:
@@ -20675,8 +20675,8 @@ MonoBehaviour:
   customCloseSFX: {fileID: 0}
   customOpenSFX: {fileID: 0}
   isSmoothTransition: 1
-  isDialogueObject: 0
-  dialogueTargetName: 
+  isDialogueObject: 1
+  dialogueTargetName: Nicholas
   isTable: 0
 --- !u!1001 &1035391482
 PrefabInstance:
