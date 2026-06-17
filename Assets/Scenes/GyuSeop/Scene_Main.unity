@@ -8872,6 +8872,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: 2-2
       objectReference: {fileID: 0}
+    - target: {fileID: 1030975625, guid: abc00000000005376421810735002258, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1030975626, guid: abc00000000005376421810735002258, type: 3}
       propertyPath: m_LocalPosition.x
       value: -26.435104
@@ -8928,6 +8932,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1030975625, guid: abc00000000005376421810735002258, type: 3}
       insertIndex: -1
       addedObject: {fileID: 410299837}
+    - targetCorrespondingSourceObject: {fileID: 1030975625, guid: abc00000000005376421810735002258, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 410299842}
   m_SourcePrefab: {fileID: 100100000, guid: abc00000000005376421810735002258, type: 3}
 --- !u!1 &410299835 stripped
 GameObject:
@@ -8988,6 +8995,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eae2afe99e02f9f44bffd191cf1c42eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &410299842
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 410299835}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f00d4c959b010540b9dec2143f4a125, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  alwaysLookAtCamera: 0
+  lockYAxis: 0
 --- !u!1001 &411208553
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10605,6 +10626,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: 7-2
       objectReference: {fileID: 0}
+    - target: {fileID: 1030977496, guid: abc00000000003795198056135021557, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1030977497, guid: abc00000000003795198056135021557, type: 3}
       propertyPath: m_LocalPosition.x
       value: -10.27938
@@ -10661,6 +10686,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1030977496, guid: abc00000000003795198056135021557, type: 3}
       insertIndex: -1
       addedObject: {fileID: 495061637}
+    - targetCorrespondingSourceObject: {fileID: 1030977496, guid: abc00000000003795198056135021557, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 495061642}
   m_SourcePrefab: {fileID: 100100000, guid: abc00000000003795198056135021557, type: 3}
 --- !u!1 &495061635 stripped
 GameObject:
@@ -10721,6 +10749,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eae2afe99e02f9f44bffd191cf1c42eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &495061642
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 495061635}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f00d4c959b010540b9dec2143f4a125, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  alwaysLookAtCamera: 0
+  lockYAxis: 0
 --- !u!1001 &503090313
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14744,6 +14786,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: 7-1
       objectReference: {fileID: 0}
+    - target: {fileID: 1030975934, guid: abc00000000000593325588021990600, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1030975935, guid: abc00000000000593325588021990600, type: 3}
       propertyPath: m_LocalPosition.x
       value: -10.7089
@@ -14800,6 +14846,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1030975934, guid: abc00000000000593325588021990600, type: 3}
       insertIndex: -1
       addedObject: {fileID: 686132783}
+    - targetCorrespondingSourceObject: {fileID: 1030975934, guid: abc00000000000593325588021990600, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 686132788}
   m_SourcePrefab: {fileID: 100100000, guid: abc00000000000593325588021990600, type: 3}
 --- !u!1 &686132781 stripped
 GameObject:
@@ -14860,6 +14909,20 @@ MonoBehaviour:
   isSmoothTransition: 0
   isDialogueObject: 1
   dialogueTargetName: picture_ella
+--- !u!114 &686132788
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 686132781}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f00d4c959b010540b9dec2143f4a125, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  alwaysLookAtCamera: 0
+  lockYAxis: 0
 --- !u!1001 &688986995
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18776,6 +18839,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: 3-2
       objectReference: {fileID: 0}
+    - target: {fileID: 1030980125, guid: abc00000000013710608436486614374, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1030980126, guid: abc00000000013710608436486614374, type: 3}
       propertyPath: m_LocalPosition.x
       value: -8.25
@@ -18832,6 +18899,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1030980125, guid: abc00000000013710608436486614374, type: 3}
       insertIndex: -1
       addedObject: {fileID: 866997542}
+    - targetCorrespondingSourceObject: {fileID: 1030980125, guid: abc00000000013710608436486614374, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 866997547}
   m_SourcePrefab: {fileID: 100100000, guid: abc00000000013710608436486614374, type: 3}
 --- !u!1 &866997540 stripped
 GameObject:
@@ -18892,6 +18962,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eae2afe99e02f9f44bffd191cf1c42eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &866997547
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 866997540}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f00d4c959b010540b9dec2143f4a125, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  alwaysLookAtCamera: 0
+  lockYAxis: 0
 --- !u!4 &868670739 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1030974465, guid: abc00000000014683952831125757277, type: 3}
@@ -19475,7 +19559,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Priority:
     Enabled: 1
-    m_Value: 100
+    m_Value: 0
   OutputChannel: 1
   StandbyUpdate: 2
   m_StreamingVersion: 20241001
@@ -21025,6 +21109,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: 3-1
       objectReference: {fileID: 0}
+    - target: {fileID: 1030977536, guid: abc00000000017729685899599341226, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1030977537, guid: abc00000000017729685899599341226, type: 3}
       propertyPath: m_LocalPosition.x
       value: 17.8904
@@ -21081,6 +21169,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1030977536, guid: abc00000000017729685899599341226, type: 3}
       insertIndex: -1
       addedObject: {fileID: 958409272}
+    - targetCorrespondingSourceObject: {fileID: 1030977536, guid: abc00000000017729685899599341226, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 958409278}
   m_SourcePrefab: {fileID: 100100000, guid: abc00000000017729685899599341226, type: 3}
 --- !u!1 &958409271 stripped
 GameObject:
@@ -21141,6 +21232,20 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1030977537, guid: abc00000000017729685899599341226, type: 3}
   m_PrefabInstance: {fileID: 958409270}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &958409278
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 958409271}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f00d4c959b010540b9dec2143f4a125, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  alwaysLookAtCamera: 0
+  lockYAxis: 0
 --- !u!1 &964212993
 GameObject:
   m_ObjectHideFlags: 0
@@ -21263,6 +21368,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: 4-2
       objectReference: {fileID: 0}
+    - target: {fileID: 1030975098, guid: abc00000000012106635637431539363, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1030975099, guid: abc00000000012106635637431539363, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.84974
@@ -21331,6 +21440,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1030975098, guid: abc00000000012106635637431539363, type: 3}
       insertIndex: -1
       addedObject: {fileID: 973363849}
+    - targetCorrespondingSourceObject: {fileID: 1030975098, guid: abc00000000012106635637431539363, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 973363854}
   m_SourcePrefab: {fileID: 100100000, guid: abc00000000012106635637431539363, type: 3}
 --- !u!1 &973363847 stripped
 GameObject:
@@ -21391,6 +21503,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eae2afe99e02f9f44bffd191cf1c42eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &973363854
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 973363847}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f00d4c959b010540b9dec2143f4a125, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  alwaysLookAtCamera: 0
+  lockYAxis: 0
 --- !u!1001 &977319010
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -21707,6 +21833,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: 5-1
       objectReference: {fileID: 0}
+    - target: {fileID: 1030975098, guid: abc00000000012106635637431539363, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1030975099, guid: abc00000000012106635637431539363, type: 3}
       propertyPath: m_LocalPosition.x
       value: 12.573062
@@ -21770,6 +21900,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1030975098, guid: abc00000000012106635637431539363, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2093758519}
+    - targetCorrespondingSourceObject: {fileID: 1030975098, guid: abc00000000012106635637431539363, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2093758524}
   m_SourcePrefab: {fileID: 100100000, guid: abc00000000012106635637431539363, type: 3}
 --- !u!1001 &992545272
 PrefabInstance:
@@ -34018,8 +34151,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1500595856}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: -0.9897371, z: 0, w: 0.14290038}
-  m_LocalPosition: {x: -8.673, y: 1.27, z: -79.123}
+  m_LocalRotation: {x: 0, y: 0.9931033, z: 0, w: 0.11724258}
+  m_LocalPosition: {x: -16.603, y: 1.27, z: 7.522}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -34170,6 +34303,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: 5-2
       objectReference: {fileID: 0}
+    - target: {fileID: 1030974918, guid: abc00000000011124777017148793818, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1030974919, guid: abc00000000011124777017148793818, type: 3}
       propertyPath: m_LocalPosition.x
       value: -33.18
@@ -34226,6 +34363,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1030974918, guid: abc00000000011124777017148793818, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1508731553}
+    - targetCorrespondingSourceObject: {fileID: 1030974918, guid: abc00000000011124777017148793818, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1508731559}
   m_SourcePrefab: {fileID: 100100000, guid: abc00000000011124777017148793818, type: 3}
 --- !u!1 &1508731552 stripped
 GameObject:
@@ -34286,6 +34426,20 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1030974919, guid: abc00000000011124777017148793818, type: 3}
   m_PrefabInstance: {fileID: 1508731551}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1508731559
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1508731552}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f00d4c959b010540b9dec2143f4a125, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  alwaysLookAtCamera: 0
+  lockYAxis: 0
 --- !u!1 &1511028157 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1030974811, guid: abc00000000002102194570356099522, type: 3}
@@ -35564,7 +35718,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1030977996, guid: abc00000000012153871188094487794, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1030977997, guid: abc00000000012153871188094487794, type: 3}
       propertyPath: m_LocalPosition.x
@@ -35625,6 +35779,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1030977996, guid: abc00000000012153871188094487794, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1586876879}
+    - targetCorrespondingSourceObject: {fileID: 1030977996, guid: abc00000000012153871188094487794, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1586876884}
   m_SourcePrefab: {fileID: 100100000, guid: abc00000000012153871188094487794, type: 3}
 --- !u!1 &1586876877 stripped
 GameObject:
@@ -35685,6 +35842,20 @@ MonoBehaviour:
   isSmoothTransition: 0
   isDialogueObject: 1
   dialogueTargetName: baseball_bat
+--- !u!114 &1586876884
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1586876877}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f00d4c959b010540b9dec2143f4a125, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  alwaysLookAtCamera: 0
+  lockYAxis: 0
 --- !u!1001 &1587168794
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -41734,6 +41905,30 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+        - m_Target: {fileID: 1586876884}
+          m_TargetAssemblyTypeName: NPCController, Assembly-CSharp
+          m_MethodName: SetActiveState
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 1
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+        - m_Target: {fileID: 410299842}
+          m_TargetAssemblyTypeName: NPCController, Assembly-CSharp
+          m_MethodName: SetActiveState
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 1
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
   - onDayStartEvent:
       m_PersistentCalls:
         m_Calls:
@@ -41792,6 +41987,54 @@ MonoBehaviour:
           m_Arguments:
             m_ObjectArgument: {fileID: 45849351}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Transform, UnityEngine
+            m_IntArgument: 2
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 958409278}
+          m_TargetAssemblyTypeName: NPCController, Assembly-CSharp
+          m_MethodName: SetActiveState
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 2
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+        - m_Target: {fileID: 866997547}
+          m_TargetAssemblyTypeName: NPCController, Assembly-CSharp
+          m_MethodName: SetActiveState
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 2
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+        - m_Target: {fileID: 1586876884}
+          m_TargetAssemblyTypeName: NPCController, Assembly-CSharp
+          m_MethodName: SetActiveState
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 2
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 410299842}
+          m_TargetAssemblyTypeName: NPCController, Assembly-CSharp
+          m_MethodName: SetActiveState
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 2
             m_FloatArgument: 0
             m_StringArgument: 
@@ -41860,6 +42103,54 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+        - m_Target: {fileID: 1904122005}
+          m_TargetAssemblyTypeName: NPCController, Assembly-CSharp
+          m_MethodName: SetActiveState
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 3
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+        - m_Target: {fileID: 973363854}
+          m_TargetAssemblyTypeName: NPCController, Assembly-CSharp
+          m_MethodName: SetActiveState
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 3
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+        - m_Target: {fileID: 958409278}
+          m_TargetAssemblyTypeName: NPCController, Assembly-CSharp
+          m_MethodName: SetActiveState
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 3
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 866997547}
+          m_TargetAssemblyTypeName: NPCController, Assembly-CSharp
+          m_MethodName: SetActiveState
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 3
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
   - onDayStartEvent:
       m_PersistentCalls:
         m_Calls:
@@ -41918,6 +42209,54 @@ MonoBehaviour:
           m_Arguments:
             m_ObjectArgument: {fileID: 1599911983}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Transform, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 2093758524}
+          m_TargetAssemblyTypeName: NPCController, Assembly-CSharp
+          m_MethodName: SetActiveState
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+        - m_Target: {fileID: 1508731559}
+          m_TargetAssemblyTypeName: NPCController, Assembly-CSharp
+          m_MethodName: SetActiveState
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+        - m_Target: {fileID: 1904122005}
+          m_TargetAssemblyTypeName: NPCController, Assembly-CSharp
+          m_MethodName: SetActiveState
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 973363854}
+          m_TargetAssemblyTypeName: NPCController, Assembly-CSharp
+          m_MethodName: SetActiveState
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
@@ -41986,6 +42325,30 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+        - m_Target: {fileID: 2093758524}
+          m_TargetAssemblyTypeName: NPCController, Assembly-CSharp
+          m_MethodName: SetActiveState
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 1508731559}
+          m_TargetAssemblyTypeName: NPCController, Assembly-CSharp
+          m_MethodName: SetActiveState
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
   - onDayStartEvent:
       m_PersistentCalls:
         m_Calls:
@@ -42048,6 +42411,30 @@ MonoBehaviour:
             m_FloatArgument: 0
             m_StringArgument: 
             m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 686132788}
+          m_TargetAssemblyTypeName: NPCController, Assembly-CSharp
+          m_MethodName: SetActiveState
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 4
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+        - m_Target: {fileID: 495061642}
+          m_TargetAssemblyTypeName: NPCController, Assembly-CSharp
+          m_MethodName: SetActiveState
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 4
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
           m_CallState: 2
 --- !u!4 &1870982533
 Transform:
@@ -42983,6 +43370,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: 4-1
       objectReference: {fileID: 0}
+    - target: {fileID: 1030975098, guid: abc00000000012106635637431539363, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1030975099, guid: abc00000000012106635637431539363, type: 3}
       propertyPath: m_LocalPosition.x
       value: -26.079
@@ -43039,6 +43430,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1030975098, guid: abc00000000012106635637431539363, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1904121999}
+    - targetCorrespondingSourceObject: {fileID: 1030975098, guid: abc00000000012106635637431539363, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1904122005}
   m_SourcePrefab: {fileID: 100100000, guid: abc00000000012106635637431539363, type: 3}
 --- !u!1 &1904121998 stripped
 GameObject:
@@ -43099,6 +43493,20 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1030975099, guid: abc00000000012106635637431539363, type: 3}
   m_PrefabInstance: {fileID: 1904121997}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1904122005
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1904121998}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f00d4c959b010540b9dec2143f4a125, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  alwaysLookAtCamera: 0
+  lockYAxis: 0
 --- !u!1 &1910287336
 GameObject:
   m_ObjectHideFlags: 0
@@ -46638,6 +47046,20 @@ MonoBehaviour:
   isSmoothTransition: 0
   isDialogueObject: 1
   dialogueTargetName: James_object
+--- !u!114 &2093758524
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2093758516}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f00d4c959b010540b9dec2143f4a125, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  alwaysLookAtCamera: 0
+  lockYAxis: 0
 --- !u!4 &2098208747 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1030976035, guid: abc00000000000762919710037042294, type: 3}
