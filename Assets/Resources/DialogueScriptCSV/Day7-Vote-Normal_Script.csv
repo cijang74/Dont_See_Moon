@@ -1,0 +1,8 @@
+﻿ID,SpeakerPosition,SpeakerName,ListenerName,DialogueText,NextID,Event,Emotion,Choice1_Text,Choice1_Effect,Choice1_Req,Choice1_NextID,Choice2_Text,Choice2_Effect,Choice2_Req,Choice2_NextID,Choice3_Text,Choice3_Effect,Choice3_Req,Choice3_NextID,Title
+0,Left,제임스,,"드디어 마지막 날이군. 막내, 그동안 수고했다. 네가 무엇을 보았든, 이제 결론을 낼 시간이다.",1,,,,,,,,,,,,,,,
+1,Left,제임스,,"이 대피소를 위협하는 감염자가 누구인지, 마지막으로 증거를 제시해라. 아무것도 없나?",,,,"아무것도 없었습니다.",,,4,"탁상 액자를 발견했습니다.",ADD:James:Ella:15|ADD:Nicholas:Ella:15|ADD:Sophia:Ella:15,picture_ella,2,"더러운 접시를 발견했습니다.",ADD:James:Sophia:15|ADD:Nicholas:Sophia:15|ADD:Ella:Sophia:15,plate_sophia,3,
+2,Left,제임스,,"엘라, 이 액자는 대체 뭐지? 너의 과거에 대해 말하지 않은 게 있었군. 아주 수상해.",4,,,,,,,,,,,,,,,
+3,Left,제임스,,"소피아 할머니, 쿠키 대신 이런 더러운 흔적만 남기다니... 당신이 감염자였나?",4,,,,,,,,,,,,,,,
+4,Left,제임스,,"이제 모두 투표할 시간이다. 결과를 받아들여라.",5,Vote,,,,,,,,,,,,,,
+5,Left,제임스,,"투표는 마무리되었네.",6,,,,,,,,,,,,,,,
+6,Left,제임스,,"이것이 우리의 운명이겠지. 다들 해산해.",,End,,,,,,,,,,,,,,

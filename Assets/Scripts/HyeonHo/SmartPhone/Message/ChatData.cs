@@ -27,6 +27,8 @@ public class ChatRoom
     public string roomId;
     public string displayName; // 목록 표시 이름 (엄마, 아빠 ...)
     public string startNodeId; // (선택) 참고용 시작 노드. 실제 발송은 Day 예약으로 동작
+    public InteractionObjectType characterType; // RoomId로 매핑된 상대 캐릭터 (생존 판정용)
+    public bool hasCharacter;                    // 캐릭터가 매핑되었는지
     public Dictionary<string, ChatNode> nodes = new Dictionary<string, ChatNode>();
 
     public ChatNode GetNode(string id)
@@ -83,6 +85,15 @@ public static class ChatCsvLoader
                 displayName = row[1].Trim(),
                 startNodeId = row[2].Trim()
             };
+
+            // RoomId가 캐릭터 이름(InteractionObjectType 멤버명)과 일치하면 생존 판정 대상으로 매핑
+            if (System.Enum.TryParse<InteractionObjectType>(room.roomId, true, out var ct) &&
+                System.Array.IndexOf(CharacterStatusManager.ValidCharacters, ct) >= 0)
+            {
+                room.characterType = ct;
+                room.hasCharacter = true;
+            }
+
             rooms[room.roomId] = room;
         }
 
