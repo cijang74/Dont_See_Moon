@@ -7,6 +7,8 @@ public class EndingManager : Singleton<EndingManager>
     // 💡 [추가] 엔딩 조건이 달성되었는지 검사하고 엔딩을 실행하는 메서드
     public bool CheckAndTriggerEnding(int currentDay)
     {
+        Debug.Log("currentDay: " + currentDay);
+        
         // 1. 플레이어가 사망한 상태라면 -> 배드 엔딩
         if (!CharacterStatusManager.Instance.IsAlive(InteractionObjectType.Player))
         {
@@ -26,7 +28,7 @@ public class EndingManager : Singleton<EndingManager>
                 StartNormalEnding();
             }
 
-            if(!isSophiaAlive)
+            if(isSophiaAlive)
             {
                 StartAllKillEnding();
             }

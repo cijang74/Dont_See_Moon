@@ -21,7 +21,9 @@ MonoBehaviour:
     dialogueText: "\uACB0\uAD6D, \uB300\uD53C\uC18C\uB97C \uB9F4\uB3CC\uB358 \uB054\uCC0D\uD55C
       \uAD34\uBB3C\uC758 \uC815\uCCB4\uB294 \uC18C\uD53C\uC544 \uD560\uBA38\uB2C8\uC600\uB2E4."
     nextID: 1
-    events: []
+    events:
+    - eventType: 5
+      target: NormalEnding
     emotion: 
     choices:
     - text: 

@@ -22,7 +22,9 @@ MonoBehaviour:
       \uB05D\uB0B4 \uB204\uAC00 \uAC10\uC5FC\uC790\uC778\uC9C0 \uCC3E\uC544\uB0B4\uC9C0
       \uBABB\uD588\uB2E4."
     nextID: 1
-    events: []
+    events:
+    - eventType: 5
+      target: AllKillEnding
     emotion: 
     choices:
     - text: 
