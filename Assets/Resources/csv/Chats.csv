@@ -31,7 +31,7 @@ james|jd5|Choice||jd5_b|흔적을 지운다고요?
 james|jd5_a|Msg|||그래. 자네만 믿겠네.
 james|jd5_b|Msg|||그래. 그러니 지금까지 본 걸 잘 기억해 두게.
 james|jd5_b|Msg|||시간이 별로 없어.
-sophia|sd2|Msg|2||안녕, 잘 지내고 있죠?
+sophia|sd2|Msg|2||안녕하세요, 잘 지내고 있죠?
 sophia|sd2|Msg|||아 참, 어젯밤에 창문이 열려 있길래 내가 다시 닫아뒀어요.
 sophia|sd2|Choice||sd2_a|그렇군요.
 sophia|sd2|Choice||sd2_b|창문이요? 대피소 안에 창문이 있었나요?
@@ -46,23 +46,23 @@ sophia|sd5|Choice||sd5_b|소피아 씨는 누가 의심돼요?
 sophia|sd5_a|Msg|||너무 늦지 않았으면 좋겠어요.
 sophia|sd5_b|Msg|||글쎄요... 난 그냥, 다들 조심했으면 할 뿐이에요.
 sophia|sd5_b|Msg|||괜히 이런 말 했나 보네. 잊어버려요.
-ella|ed2|Msg|2||...저기요.
-ella|ed2|Msg|||새벽에 어디선가 쿵쿵거리는 둔탁한 소리를 들었어요.
-ella|ed2|Msg|||오래된 파이프 소리일 수도 있지만... 혹시 모르니까요.
-ella|ed2|Msg|||밤에는 다들 방 안에만 있었으면 좋겠어요.
+ella|ed2|Msg|2||...저기,
+ella|ed2|Msg|||새벽에 어디선가 쿵쿵거리는 둔탁한 소리를 들었어.
+ella|ed2|Msg|||오래된 파이프 소리일 수도 있지만... 혹시 모르니까.
+ella|ed2|Msg|||밤에는 방 안에만 있는 편이 좋을 거야.
 ella|ed2|Choice||ed2_a|알려줘서 고마워요.
 ella|ed2|Choice||ed2_b|무슨 소리였는데요?
-ella|ed2_a|Msg|||...네. 조심해요.
-ella|ed2_b|Msg|||그냥... 뭔가를 두드리는 것 같은 소리였어요.
-ella|ed2_b|Msg|||생각하기도 싫네요. 그만 얘기할게요.
-ella|ed3|Msg|3||제임스 말이에요.
-ella|ed3|Msg|||항상 자기 방 문을 잠가두고 아무도 못 들어오게 하잖아요.
-ella|ed3|Msg|||혹시 그 안에 식량이나... 혼자 살아남을 궁리를 숨겨둔 건 아닐까요?
+ella|ed2_a|Msg|||...그래. 조심해.
+ella|ed2_b|Msg|||그냥... 뭔가를 두드리는 것 같은 소리였어.
+ella|ed2_b|Msg|||생각하기도 싫네. 그만 얘기할게.
+ella|ed3|Msg|3||제임스 말이야.
+ella|ed3|Msg|||항상 자기 방 문을 잠가두고 아무도 못 들어오게 하잖아.
+ella|ed3|Msg|||혹시 그 안에 식량이나... 혼자 살아남을 궁리를 숨겨둔 건 아닐까?
 ella|ed3|Choice||ed3_a|그럴 수도 있겠네요.
 ella|ed3|Choice||ed3_b|괜히 의심하는 거 아니에요?
-ella|ed3_a|Msg|||...그쵸? 저만 그렇게 느끼는 게 아니었네요.
-ella|ed3_b|Msg|||...그럴지도 모르죠.
-ella|ed3_b|Msg|||그냥, 요즘은 누구도 못 믿겠어서요.
+ella|ed3_a|Msg|||...그쵸? 나만 그렇게 느끼는 게 아니었네.
+ella|ed3_b|Msg|||...그럴지도 모르지.
+ella|ed3_b|Msg|||그냥, 요즘은 누구도 못 믿겠어서.
 nicholas|nd3|Msg|3||야, 너도 들었어? 어제 주방에 있던 야구 배트 말이야.
 nicholas|nd3|Msg|||누가 새벽에 그걸로 뭘 휘둘렀는지 자국이 잔뜩이더라고.
 nicholas|nd3|Msg|||게다가 내 공구함도 누가 멋대로 건드렸어. 진짜 짜증 나 죽겠네.
@@ -87,13 +87,13 @@ nicholas|nd6|Choice||nd6_b|왜 그렇게 불안해해요?
 nicholas|nd6_a|Msg|||...그래. 그래야지. 그래야 하는데.
 nicholas|nd6_b|Msg|||누군가 아직 우리 사이에 섞여 있다는 거잖아. 그게 누군지도 모르고.
 nicholas|nd6_b|Msg|||아무튼, 너도 오늘 밤은 조심해.
-ella|ed6|Msg|6||저, 오늘은 그냥 제 방에만 있을게요.
-ella|ed6|Msg|||찾지 말아 주세요. 아무하고도 마주치고 싶지 않아서요.
+ella|ed6|Msg|6||나, 오늘은 그냥 내 방에만 있으려고.
+ella|ed6|Msg|||찾지 말아 줘. ...아무하고도 마주치고 싶지 않아서.
 ella|ed6|Choice||ed6_a|알겠어요. 푹 쉬어요.
 ella|ed6|Choice||ed6_b|무슨 일 있어요?
-ella|ed6_a|Msg|||...고마워요.
-ella|ed6_b|Msg|||아니요. 그냥... 사람들 눈초리가 무서워서요.
-ella|ed6_b|Msg|||다들 절 보는 눈이 달라졌잖아요.
+ella|ed6_a|Msg|||...고마워.
+ella|ed6_b|Msg|||아니. 그냥... 사람들 눈초리가 무서워서.
+ella|ed6_b|Msg|||다들 날 보는 눈이 달라졌잖아.
 james|jd7|Msg|7||어제는 아무 흔적도 발견되지 않았네.
 james|jd7|Msg|||어쩌면... 사실은 감염자 같은 건 처음부터 없었던 게 아닐까.
 james|jd7|Msg|||우리끼리 괜한 의심으로 서로를 몰아세운 거였을 수도 있지.
