@@ -1,0 +1,6 @@
+﻿ID,SpeakerPosition,SpeakerName,ListenerName,DialogueText,NextID,Event,Emotion,Choice1_Text,Choice1_Effect,Choice1_Req,Choice1_NextID,Choice2_Text,Choice2_Effect,Choice2_Req,Choice2_NextID,Choice3_Text,Choice3_Effect,Choice3_Req,Choice3_NextID,Title
+0,Left,주인공,,"결국, 대피소를 맴돌던 끔찍한 괴물의 정체는 소피아 할머니였다.",1,BackGroundChange:NormalEnding,,,,,,,,,,,,,,
+1,Left,주인공,,"겉으로는 우리를 다독이며 인자한 미소를 지었지만, 속으로는 우리를 파멸시킬 준비를 하고 있었지.",2,,,,,,,,,,,,,,,
+2,Left,주인공,,"그녀가 처형되면서 감염의 위협은 사라졌고, 우리는 다시 한번 살아남았다.",3,,,,,,,,,,,,,,,
+3,Left,주인공,,하지만… 남은 사람들 사이에 깊게 파인 불신과 상처는 영원히 지워지지 않겠지.,4,,,,,,,,,,,,,,,
+4,Left,주인공,,나는 이곳에서 계속 버틸 수 있을까? 여동생을 찾는 건… 정말 이대로 포기해야 하는 걸까.,,End,,,,,,,,,,,,,,

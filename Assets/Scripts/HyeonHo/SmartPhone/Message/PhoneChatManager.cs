@@ -14,10 +14,13 @@ public class PhoneChatManager : MonoBehaviour
     [Tooltip("currentDay를 읽어올 DayTransitionManager를 연결하세요.")]
     [SerializeField] private DayTransitionManager dayManager;
 
-    // 외부에서 주입: roomId → 발신자 생존 여부(true=생존). null이면 항상 생존으로 간주.
-    // ★ 사망 판단 소스가 정해지면 이 델리게이트에 연결하면 됩니다. 예:
-    //   PhoneChatManager.Instance.IsContactAlive = id => CharacterManager.IsAlive(id);
+    // (선택) 생존 판정을 직접 덮어쓰고 싶을 때만 사용.
+    // null이면 Rooms.csv의 Character 매핑 + CharacterStatusManager.IsAlive 로 자동 판정.
     public System.Func<string, bool> IsContactAlive;
+
+    [Header("알림음 (새 메시지 도착 시)")]
+    [SerializeField] private AudioSource sfxSource;     // 비우면 자동으로 추가됨
+    [SerializeField] private AudioClip newMessageSound; // 진동/알림음 클립
 
     public event System.Action OnRoomsChanged;
 
@@ -26,10 +29,17 @@ public class PhoneChatManager : MonoBehaviour
     private const string SaveKey = "PhoneChatSave";
     private int processedDay;   // 발송 처리까지 끝난 날짜 (세이브됨)
     private int lastCheckedDay; // Update에서 날짜 변화 감지용 (런타임)
+    private bool firstDayProcessed; // 로드 직후 첫 확인엔 알림음 생략
 
     private void Awake()
     {
         Instance = this;
+
+        // 알림음용 AudioSource 준비 (인스펙터에 안 넣으면 자동 추가)
+        if (sfxSource == null) sfxSource = GetComponent<AudioSource>();
+        if (sfxSource == null) sfxSource = gameObject.AddComponent<AudioSource>();
+        sfxSource.playOnAwake = false;
+
         Load();
         LoadProgress(); // 세이브가 있으면 덮어씀
     }
@@ -69,6 +79,8 @@ public class PhoneChatManager : MonoBehaviour
     // 현재 날짜까지 예약된 메시지를 발송 (이미 지난 날은 건너뜀, 사망자는 발송 안 함)
     private void ProcessDay(int currentDay)
     {
+        bool delivered = false;
+
         foreach (var r in rooms.Values)
         {
             foreach (var node in r.data.nodes.Values)
@@ -77,10 +89,11 @@ public class PhoneChatManager : MonoBehaviour
                 if (node.triggerDay <= processedDay) continue; // 이미 처리한 날
                 if (node.triggerDay > currentDay) continue;    // 아직 안 된 날
 
-                // 발신자가 사망 상태면 발송하지 않음
-                if (IsContactAlive != null && !IsContactAlive(r.data.roomId)) continue;
+                // 발신자(상대 캐릭터)가 사망 상태면 발송하지 않음
+                if (!IsSenderAlive(r.data)) continue;
 
                 TriggerNewMessage(r.data.roomId, node.nodeId);
+                delivered = true;
             }
         }
 
@@ -89,6 +102,13 @@ public class PhoneChatManager : MonoBehaviour
             processedDay = currentDay;
             SaveProgress();
         }
+
+        // 날짜가 바뀌어 새 메시지가 실제로 도착했을 때만 알림음
+        // (게임 시작/로드 직후 현재 날짜까지 따라잡는 첫 확인에는 울리지 않음)
+        if (delivered && firstDayProcessed)
+            PlayNotifySound();
+
+        firstDayProcessed = true;
     }
 
     public IEnumerable<RoomRuntime> GetRooms() => rooms.Values;
@@ -102,6 +122,27 @@ public class PhoneChatManager : MonoBehaviour
         foreach (var r in rooms.Values)
             if (r.hasUnread) return true;
         return false;
+    }
+
+    // 새 메시지 도착 알림음 재생 (게임 이벤트로 메시지를 보낼 때도 직접 호출 가능)
+    public void PlayNotifySound()
+    {
+        if (newMessageSound != null && sfxSource != null)
+            sfxSource.PlayOneShot(newMessageSound);
+    }
+
+    // 방의 상대 캐릭터가 생존해 있는지 (사망 시 메시지 발송 안 함)
+    private bool IsSenderAlive(ChatRoom room)
+    {
+        // 직접 주입한 판정이 있으면 우선 사용
+        if (IsContactAlive != null) return IsContactAlive(room.roomId);
+
+        // 캐릭터가 매핑된 방이면 CharacterStatusManager로 생존 확인
+        if (room.hasCharacter && CharacterStatusManager.Instance != null)
+            return CharacterStatusManager.Instance.IsAlive(room.characterType);
+
+        // 매핑이 없거나 매니저가 없으면 생존으로 간주(항상 발송)
+        return true;
     }
 
     // 특정 방에 새 메시지가 도착했음을 알림 (Day 예약 또는 게임 이벤트에서 호출)
@@ -218,6 +259,7 @@ public class PhoneChatManager : MonoBehaviour
         PlayerPrefs.DeleteKey(SaveKey);
         processedDay = 0;
         lastCheckedDay = 0; // 다음 Update에서 현재 날짜까지 예약 메시지를 다시 발송
+        firstDayProcessed = false; // 리셋 후 재발송은 알림음 없이 조용히
 
         // RoomRuntime 객체는 그대로 두고 내용만 비움 (버튼/뷰의 참조가 유지되도록)
         foreach (var r in rooms.Values)

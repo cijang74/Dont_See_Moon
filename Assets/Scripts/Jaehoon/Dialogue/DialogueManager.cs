@@ -10,9 +10,18 @@ public enum InteractionObjectType
     Nicholas,
     Ella,
     Sophia,
-    Day1_BloodKnife,
-    Day1_Pee,
     Vote,
+    Work,
+    baseball_bat,
+    laundry_basket,
+    note_paper,
+    magazines,
+    thievery,
+    box,
+    James_object,
+    notebook,
+    picture_ella,
+    plate_sophia,
     Ending
 };
 

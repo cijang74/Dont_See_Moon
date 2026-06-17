@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8778003062442130}
   - component: {fileID: 6186498866071178487}
+  - component: {fileID: 4137300190491219290}
   m_Layer: 0
   m_Name: Chat Manager
   m_TagString: Untagged
@@ -25,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2728410564950455834}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -46,4 +47,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   roomsCsv: {fileID: 4900000, guid: 0b033e1c07687d641b0c3c337ff83b4a, type: 3}
   chatsCsv: {fileID: 4900000, guid: 76a0add193bfbc04c882f8c3bb5aa905, type: 3}
-  startAllUnread: 1
+  dayManager: {fileID: 0}
+--- !u!114 &4137300190491219290
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2728410564950455834}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5bec56da6c1409145bae00d46cbe198a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  newsRoomCsv: {fileID: 4900000, guid: 905d24f0028d09a488d8e535d9abfa75, type: 3}
+  newsChatsCsv: {fileID: 4900000, guid: a08975c7f72797f48a980615c001c4cf, type: 3}
+  dayManager: {fileID: 0}

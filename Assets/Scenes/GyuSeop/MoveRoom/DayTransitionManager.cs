@@ -13,6 +13,13 @@ public class DailyEventInfo
     public UnityEvent onDayStartEvent;
 }
 
+[System.Serializable]
+public class NPCObjectMapping
+{
+    public InteractionObjectType npcType;
+    public GameObject npcObject;
+}
+
 public class DayTransitionManager : MonoBehaviour
 {
     // 외부 스크립트(CameraMoveManager)에서 연출 중인지 확인할 수 있는 전역 변수
@@ -53,6 +60,10 @@ public class DayTransitionManager : MonoBehaviour
         new DailyEventInfo(), new DailyEventInfo(), new DailyEventInfo(), 
         new DailyEventInfo(), new DailyEventInfo(), new DailyEventInfo(), new DailyEventInfo()
     };
+
+    [Header("NPC 오브젝트 관리")]
+    [Tooltip("각 NPC 타입과 씬에 배치된 실제 게임 오브젝트를 연결해주세요.")]
+    public List<NPCObjectMapping> npcList = new List<NPCObjectMapping>();
 
     void OnValidate()
     {
@@ -209,6 +220,18 @@ public class DayTransitionManager : MonoBehaviour
         // 💡 화면이 까매졌을 때 투표 결과 집계 및 처형 처리
         VoteManager.Instance.CalculateDailyVoteResults();
 
+        // 💡 [추가] 정산 결과에 따라 죽은 NPC 오브젝트 비활성화 처리
+        if (npcList != null)
+        {
+            foreach (var npc in npcList)
+            {
+                if (npc.npcObject != null && !CharacterStatusManager.Instance.IsAlive(npc.npcType))
+                {
+                    npc.npcObject.SetActive(false);
+                }
+            }
+        }
+
         if (nextDayStartCamera != null) camManager.ForceSetCameraAndClearHistory(nextDayStartCamera);
         if (nextDayBGM != null) bgmManager.ChangeBGM(nextDayBGM);
 
@@ -253,6 +276,8 @@ public class DayTransitionManager : MonoBehaviour
         {
             DialogueManager.Instance.ResetDailyInteractions();
         }
+
+        WorkManager.Instance.isWorkToday = false;
         
         // ★ 날짜가 바뀌었으므로 새 날짜에 등록된 이벤트들 자동 실행!
         TriggerEventsForDay(currentDay);
@@ -291,6 +316,19 @@ public class DayTransitionManager : MonoBehaviour
 
         fadeColor.a = 0;
         fadeImage.color = fadeColor;
+
+        // 💡 [추가] 연출이 끝나고 화면이 완전히 밝아진 직후 엔딩 검사 실행!
+        // 여기서 엔딩이 트리거되면 EndingManager가 바로 Scene을 교체해버립니다.
+        if (EndingManager.Instance != null)
+        {
+            bool isEndingTriggered = EndingManager.Instance.CheckAndTriggerEnding(currentDay);
+            
+            // 엔딩이 시작되었다면 더 이상 일반적인 조작을 막기 위해 IsTransitioning을 풀지 않고 대기
+            if (isEndingTriggered)
+            {
+                yield break; // 코루틴 즉시 종료
+            }
+        }
 
         // 연출 완전 종료
         IsTransitioning = false;

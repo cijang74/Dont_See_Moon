@@ -38,6 +38,12 @@ public class NPCController : MonoBehaviour
         }
     }
 
+    [Tooltip("현재 NPC 오브젝트를 활성화 또는 비활성화합니다.")]
+    public void SetActiveState(bool isActive)
+    {
+        gameObject.SetActive(isActive);
+    }
+
     void Update()
     {
         if (alwaysLookAtCamera && Camera.main != null)

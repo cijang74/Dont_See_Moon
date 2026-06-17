@@ -52,17 +52,22 @@ public class NewsManager : MonoBehaviour
         }
     }
 
-    // 현재 날짜까지 예약된 뉴스를 등장시킴
+    // 현재 날짜까지 등장할 뉴스를 표시하고, 새로 등장한 것만 배지 처리
     private void ProcessDay(int currentDay)
     {
         foreach (var it in items.Values)
         {
-            if (it.data.triggerDay <= 0) continue;
-            if (it.data.triggerDay <= processedDay) continue;
-            if (it.data.triggerDay > currentDay) continue;
+            if (it.data.triggerDay <= 0) continue;          // 날짜 미지정 뉴스는 등장하지 않음
+            if (it.data.triggerDay > currentDay) continue;  // 아직 등장일이 안 됨
 
-            it.hasUnread = true;
-            it.read = false;
+            it.arrived = true; // 목록에 표시
+
+            // 이번에 새로 등장한 뉴스만 읽지 않음 배지
+            if (it.data.triggerDay > processedDay)
+            {
+                it.hasUnread = true;
+                it.read = false;
+            }
         }
 
         if (currentDay > processedDay)
@@ -98,7 +103,7 @@ public class NewsManager : MonoBehaviour
     // ─────────────── 저장/복원 ───────────────
 
     [System.Serializable]
-    private class ItemSave { public string newsId; public bool hasUnread; public bool read; }
+    private class ItemSave { public string newsId; public bool arrived; public bool hasUnread; public bool read; }
 
     [System.Serializable]
     private class SaveData
@@ -111,7 +116,7 @@ public class NewsManager : MonoBehaviour
     {
         var data = new SaveData { processedDay = processedDay };
         foreach (var it in items.Values)
-            data.items.Add(new ItemSave { newsId = it.data.newsId, hasUnread = it.hasUnread, read = it.read });
+            data.items.Add(new ItemSave { newsId = it.data.newsId, arrived = it.arrived, hasUnread = it.hasUnread, read = it.read });
 
         PlayerPrefs.SetString(SaveKey, JsonUtility.ToJson(data));
         PlayerPrefs.Save();
@@ -130,6 +135,7 @@ public class NewsManager : MonoBehaviour
         foreach (var s in data.items)
         {
             if (!items.TryGetValue(s.newsId, out var it)) continue;
+            it.arrived = s.arrived;
             it.hasUnread = s.hasUnread;
             it.read = s.read;
         }
@@ -144,6 +150,7 @@ public class NewsManager : MonoBehaviour
 
         foreach (var it in items.Values)
         {
+            it.arrived = false;
             it.hasUnread = false;
             it.read = false;
         }

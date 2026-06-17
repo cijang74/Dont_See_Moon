@@ -1,0 +1,5 @@
+﻿ID,SpeakerPosition,SpeakerName,ListenerName,DialogueText,NextID,Event,Emotion,Choice1_Text,Choice1_Effect,Choice1_Req,Choice1_NextID,Choice2_Text,Choice2_Effect,Choice2_Req,Choice2_NextID,Choice3_Text,Choice3_Effect,Choice3_Req,Choice3_NextID,Title
+0,Left,주인공,,"대피소 출입구 앞에 누군가의 물건들이 잔뜩 쌓여 있다. 제임스의 개인 물건들인 것 같은데…",,,,,,,,,,,,,,,,
+1,Left,주인공,,"자세히 보니 대부분 쓸모없는 잡동사니들뿐이야. 밖으로 내다 버리기 위해 무작정 쌓아둔 모습이다.",,,,,,,,,,,,,,,,
+2,Left,주인공,,"이 위험한 시국에 왜 갑자기 물건들을 버리려는 거지? 그것도 이렇게 무의미한 쓰레기들을…",,,,,,,,,,,,,,,,
+3,Left,주인공,,"평소 철저하게 대피소를 관리하던 제임스답지 않은 행동이야. 무언가를 숨기려 하거나, 제정신이 아닐지도 모른다는 의심이 든다.",,End,,,,,,,,,,,,,,

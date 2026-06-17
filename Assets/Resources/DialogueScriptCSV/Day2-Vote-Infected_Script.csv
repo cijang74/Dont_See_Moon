@@ -1,0 +1,8 @@
+﻿ID,SpeakerPosition,SpeakerName,ListenerName,DialogueText,NextID,Event,Emotion,Choice1_Text,Choice1_Effect,Choice1_Req,Choice1_NextID,Choice2_Text,Choice2_Effect,Choice2_Req,Choice2_NextID,Choice3_Text,Choice3_Effect,Choice3_Req,Choice3_NextID,Title
+0,Left,제임스,,"다들 모였군. 막내, 오늘 네 업무를 제대로 안 했더군. 의심받기 딱 좋은 행동인 건 알고 있나?",1,,,,,,,,,,,,,,,
+1,Left,제임스,,"이딴 식으로 굴면 널 투표장에 올릴 수밖에 없어. …아무튼, 오늘 수상한 흔적을 찾은 사람 있나?",,,,아무것도 없었습니다.,ADD:James:Player:15|ADD:Ella:Player:15|ADD:Sophia:Player:15|ADD:Nicholas:Player15,,4,야구 배트를 발견했습니다.,ADD:James:Ella:15|ADD:Nicholas:Ella:15|ADD:Sophia:Ella:15,baseball_bat,2,빨래 바구니를 발견했습니다.,,laundry_basket,3,
+2,Left,제임스,,"이 배트... 엘라, 네가 밤에 몽유병이라도 앓고 있는 건가? 아주 의심스러운 흔적이군.",4,,,,,,,,,,,,,,,
+3,Left,제임스,,"...내 짐 바구니가 왜? 내 서류가 거기 들어있었다고? 흥, 나를 의심할 셈이냐?",4,,,,,,,,,,,,,,,
+4,Left,제임스,,"더 이상 할 말이 없다면, 오늘 투표를 진행해보자고.",5,Vote,,,,,,,,,,,,,,
+5,Left,제임스,,투표는 마무리되었네.,6,,,,,,,,,,,,,,,
+6,Left,제임스,,오늘 투표 결과에 따라 처리하겠네. 딴생각 말고 방으로 돌아가.,,End,,,,,,,,,,,,,,

@@ -1,0 +1,5 @@
+﻿ID,SpeakerPosition,SpeakerName,ListenerName,DialogueText,NextID,Event,Emotion,Choice1_Text,Choice1_Effect,Choice1_Req,Choice1_NextID,Choice2_Text,Choice2_Effect,Choice2_Req,Choice2_NextID,Choice3_Text,Choice3_Effect,Choice3_Req,Choice3_NextID,Title
+0,Left,소피아,,"……왔군요. 오늘은 발소리가 유독 거슬리네요.",,,,,,,,,,,,,,,,
+1,Left,소피아,,"평소 같으면 농담이라도 건넸겠지만… 지금은 그럴 때가 아니란 걸 알잖아요. 공기가 변했어요.",,,,,,,,,,,,,,,,
+2,Left,소피아,,"점점 감염자의 잠복기가 끝나가는 게 느껴진답니다. 곧 누군가 본색을 드러내겠죠.",,,,,,,,,,,,,,,,
+3,Left,소피아,,"이제부턴 누구도 믿지 말고, 스스로 살길이라도 챙겨야 할 거예요. 명심하세요.",,End,,,,,,,,,,,,,,

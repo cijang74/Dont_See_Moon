@@ -1,0 +1,5 @@
+﻿ID,SpeakerPosition,SpeakerName,ListenerName,DialogueText,NextID,Event,Emotion,Choice1_Text,Choice1_Effect,Choice1_Req,Choice1_NextID,Choice2_Text,Choice2_Effect,Choice2_Req,Choice2_NextID,Choice3_Text,Choice3_Effect,Choice3_Req,Choice3_NextID,Title
+0,Left,엘라,,…….,,,,,,,,,,,,,,,,
+1,Left,엘라,,"…말 걸지 마. 그냥… 가만히 숨죽여 있는 거니까.",,,,,,,,,,,,,,,,
+2,Left,엘라,,"혼자 방에 있으면… 누군가 문을 부수고 들어올 것 같단 말이야. 테오를 데려갔던 것처럼.",,,,,,,,,,,,,,,,
+3,Left,엘라,,"차라리 이렇게 다들 돌아다니는 탁 트인 곳에 있는 게… 훨씬 덜 위험하고 의심도 덜 받을 거야. 내버려 둬.",,End,,,,,,,,,,,,,,

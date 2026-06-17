@@ -1,0 +1,111 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee81f89839c79ae438a59b0912e1638c, type: 3}
+  m_Name: Day4-thievery-Normal_Script
+  m_EditorClassIdentifier: 
+  title: 
+  dialogueLines:
+  - ID: 0
+    speakerPosition: Left
+    speakerName: "\uC8FC\uC778\uACF5"
+    listenerName: 
+    dialogueText: "\uB2C8\uCF5C\uB77C\uC2A4 \uC606\uC5D0 \uBC29\uAE08 \uC804 \uADF8\uAC00
+      \uCC59\uAE30\uB824\uB358 \uBB3C\uAC74\uB4E4\uC774 \uB193\uC5EC \uC788\uB2E4.
+      \uCC59\uACA8\uB450\uBA74 \uC800\uB141 \uD22C\uD45C \uB54C \uC99D\uAC70\uB85C
+      \uC4F8 \uC218 \uC788\uACA0\uC5B4."
+    nextID: 
+    events: []
+    emotion: 
+    choices:
+    - text: 
+      nextID: 
+      effects: []
+      requiredEvidence: 0
+    - text: 
+      nextID: 
+      effects: []
+      requiredEvidence: 0
+    - text: 
+      nextID: 
+      effects: []
+      requiredEvidence: 0
+  - ID: 1
+    speakerPosition: Right
+    speakerName: "\uB2C8\uCF5C\uB77C\uC2A4"
+    listenerName: 
+    dialogueText: "\uC7A0\uAE50! \uADF8, \uADF8 \uBB3C\uAC74\uC740 \uB124\uAC00 \uAC00\uC838\uAC00\uB3C4
+      \uC88B\uC544. \uC560\uCD08\uC5D0 \uB098\uD55C\uD14C \uC5C6\uC5C8\uB358 \uAC78\uB85C
+      \uCE60 \uD14C\uB2C8\uAE4C."
+    nextID: 
+    events: []
+    emotion: 
+    choices:
+    - text: 
+      nextID: 
+      effects: []
+      requiredEvidence: 0
+    - text: 
+      nextID: 
+      effects: []
+      requiredEvidence: 0
+    - text: 
+      nextID: 
+      effects: []
+      requiredEvidence: 0
+  - ID: 2
+    speakerPosition: Right
+    speakerName: "\uB2C8\uCF5C\uB77C\uC2A4"
+    listenerName: 
+    dialogueText: "\uB300\uC2E0 \uC81C\uBC1C, \uC624\uB298 \uC77C\uC740 \uD55C \uBC88\uB9CC
+      \uBAA8\uB978 \uCC44 \uD574\uB2EC\uB77C\uACE0. \uC57D\uC18D\uD55C \uAC70\uB2E4?"
+    nextID: 
+    events: []
+    emotion: 
+    choices:
+    - text: 
+      nextID: 
+      effects: []
+      requiredEvidence: 0
+    - text: 
+      nextID: 
+      effects: []
+      requiredEvidence: 0
+    - text: 
+      nextID: 
+      effects: []
+      requiredEvidence: 0
+  - ID: 3
+    speakerPosition: Left
+    speakerName: "\uC8FC\uC778\uACF5"
+    listenerName: 
+    dialogueText: "(\uC790\uC2E0\uC758 \uACC4\uD68D\uC774 \uB4E4\uD1B5\uB0A0\uAE4C
+      \uBD10 \uC774\uB807\uAC8C\uAE4C\uC9C0 \uB2E4\uAE09\uD558\uAC8C \uAC70\uB798\uB97C
+      \uC2DC\uB3C4\uD558\uB2E4\uB2C8, \uB2C8\uCF5C\uB77C\uC2A4\uAC00 \uAC08\uC218\uB85D
+      \uC758\uC2EC\uC2A4\uB7EC\uC6CC\uC9C4\uB2E4.)"
+    nextID: 
+    events:
+    - eventType: 4
+      target: 
+    emotion: 
+    choices:
+    - text: 
+      nextID: 
+      effects: []
+      requiredEvidence: 0
+    - text: 
+      nextID: 
+      effects: []
+      requiredEvidence: 0
+    - text: 
+      nextID: 
+      effects: []
+      requiredEvidence: 0

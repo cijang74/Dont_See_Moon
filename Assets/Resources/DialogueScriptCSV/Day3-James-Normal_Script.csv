@@ -1,0 +1,5 @@
+﻿ID,SpeakerPosition,SpeakerName,ListenerName,DialogueText,NextID,Event,Emotion,Choice1_Text,Choice1_Effect,Choice1_Req,Choice1_NextID,Choice2_Text,Choice2_Effect,Choice2_Req,Choice2_NextID,Choice3_Text,Choice3_Effect,Choice3_Req,Choice3_NextID,Title
+0,Left,제임스,,"어딜 그렇게 기웃거리는 거지? 네 방은 이쪽이 아닐 텐데.",,,,,,,,,,,,,,,,
+1,Left,제임스,,"이 복도 끝에 있는 방은 내 방이다. 어차피 굳게 잠겨 있어서 들어가지도 못하겠지만.",,,,,,,,,,,,,,,,
+2,Left,제임스,,"그 안에는 대피소 운영에 필요한 매뉴얼과 그동안의 투표 결과표가 보관되어 있어.",,,,,,,,,,,,,,,,
+3,Left,제임스,,"누구든 함부로 내 방에 접근하는 자는 대피소를 위협하는 반역자로 간주하겠다. 명심해.",,End,,,,,,,,,,,,,,
