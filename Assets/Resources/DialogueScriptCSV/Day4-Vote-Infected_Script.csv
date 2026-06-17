@@ -1,0 +1,8 @@
+﻿ID,SpeakerPosition,SpeakerName,ListenerName,DialogueText,NextID,Event,Emotion,Choice1_Text,Choice1_Effect,Choice1_Req,Choice1_NextID,Choice2_Text,Choice2_Effect,Choice2_Req,Choice2_NextID,Choice3_Text,Choice3_Effect,Choice3_Req,Choice3_NextID,Title
+0,Left,제임스,,"막내, 오늘 또 업무를 내팽개쳤더군. 이 대피소가 그렇게 만만해 보이나? 네놈의 속셈이 뭔지 궁금해지는군.",1,,,,,,,,,,,,,,,
+1,Left,제임스,,"네가 뒤에서 허튼짓을 한 게 아니라면 증명해 봐. 오늘 누군가의 수상한 흔적을 찾은 사람 있나?",,,,"아무것도 없었습니다.",,,4,"누군가 훔친 물건입니다.",ADD:James:Nicholas:15|ADD:Ella:Nicholas:15|ADD:Sophia:Nicholas:15,thievery,2,"기괴하게 망가진 상자입니다.",ADD:James:Sophia:15|ADD:Nicholas:Sophia:15|ADD:Ella:Sophia:15,box,3,
+2,Left,제임스,,"니콜라스... 창고 물건을 빼돌린 게 너였나? 네놈이 뒤에서 허튼수작을 부리고 있었군.",4,,,,,,,,,,,,,,,
+3,Left,제임스,,"이 상자는 소피아 할머니 방에 있던 거잖아. 멀쩡한 식량들을 짓이겨놓다니... 제정신이 아니군.",4,,,,,,,,,,,,,,,
+4,Left,제임스,,"시간 끌 거 없다. 바로 투표를 진행하지.",5,Vote,,,,,,,,,,,,,,
+5,Left,제임스,,"투표는 마무리되었네.",6,,,,,,,,,,,,,,,
+6,Left,제임스,,"내 눈을 피할 수 있을 거라 생각하지 마라. 다들 방으로 가.",,End,,,,,,,,,,,,,,

@@ -87,6 +87,8 @@ public class CameraNode : MonoBehaviour
                 else if(dialogueTargetName == "Work")
                 {
                     WorkManager.Instance.isWorkToday = true;
+                    StartCoroutine(DialogueManager.Instance.StartDialogue(1, targetType, isInfected));
+                    return;
                 }
 
                 StartCoroutine(DialogueManager.Instance.StartDialogue(currentDay, targetType, isInfected));

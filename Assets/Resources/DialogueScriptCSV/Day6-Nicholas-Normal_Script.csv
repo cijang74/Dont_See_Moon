@@ -1,0 +1,4 @@
+﻿ID,SpeakerPosition,SpeakerName,ListenerName,DialogueText,NextID,Event,Emotion,Choice1_Text,Choice1_Effect,Choice1_Req,Choice1_NextID,Choice2_Text,Choice2_Effect,Choice2_Req,Choice2_NextID,Choice3_Text,Choice3_Effect,Choice3_Req,Choice3_NextID,Title
+0,Left,니콜라스,,"아, 너구나. 어제 내가 대피소 내 전력 설비를 싹 다 손봤어.",,,,,,,,,,,,,,,,
+1,Left,니콜라스,,"당분간 전기가 끊기거나 문제가 생길 일은 없겠지만… 솔직히 말해서 이대로라면 다 헛수고가 될 것 같아.",,,,,,,,,,,,,,,,
+2,Left,니콜라스,,"발전기가 멀쩡하게 돌아가면 뭐해. 이 안에서 서로 헐뜯다가 다 같이 말라 죽게 생겼는데 말이야.",,End,,,,,,,,,,,,,,
