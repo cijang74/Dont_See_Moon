@@ -1,0 +1,87 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee81f89839c79ae438a59b0912e1638c, type: 3}
+  m_Name: Day6-Nicholas-Normal_Script
+  m_EditorClassIdentifier: 
+  title: 
+  dialogueLines:
+  - ID: 0
+    speakerPosition: Left
+    speakerName: "\uB2C8\uCF5C\uB77C\uC2A4"
+    listenerName: 
+    dialogueText: "\uC544, \uB108\uAD6C\uB098. \uC5B4\uC81C \uB0B4\uAC00 \uB300\uD53C\uC18C
+      \uB0B4 \uC804\uB825 \uC124\uBE44\uB97C \uC2F9 \uB2E4 \uC190\uBD24\uC5B4."
+    nextID: 
+    events: []
+    emotion: 
+    choices:
+    - text: 
+      nextID: 
+      effects: []
+      requiredEvidence: 0
+    - text: 
+      nextID: 
+      effects: []
+      requiredEvidence: 0
+    - text: 
+      nextID: 
+      effects: []
+      requiredEvidence: 0
+  - ID: 1
+    speakerPosition: Left
+    speakerName: "\uB2C8\uCF5C\uB77C\uC2A4"
+    listenerName: 
+    dialogueText: "\uB2F9\uBD84\uAC04 \uC804\uAE30\uAC00 \uB04A\uAE30\uAC70\uB098
+      \uBB38\uC81C\uAC00 \uC0DD\uAE38 \uC77C\uC740 \uC5C6\uACA0\uC9C0\uB9CC\u2026
+      \uC194\uC9C1\uD788 \uB9D0\uD574\uC11C \uC774\uB300\uB85C\uB77C\uBA74 \uB2E4
+      \uD5DB\uC218\uACE0\uAC00 \uB420 \uAC83 \uAC19\uC544."
+    nextID: 
+    events: []
+    emotion: 
+    choices:
+    - text: 
+      nextID: 
+      effects: []
+      requiredEvidence: 0
+    - text: 
+      nextID: 
+      effects: []
+      requiredEvidence: 0
+    - text: 
+      nextID: 
+      effects: []
+      requiredEvidence: 0
+  - ID: 2
+    speakerPosition: Left
+    speakerName: "\uB2C8\uCF5C\uB77C\uC2A4"
+    listenerName: 
+    dialogueText: "\uBC1C\uC804\uAE30\uAC00 \uBA40\uCA61\uD558\uAC8C \uB3CC\uC544\uAC00\uBA74
+      \uBB50\uD574. \uC774 \uC548\uC5D0\uC11C \uC11C\uB85C \uD5D0\uB72F\uB2E4\uAC00
+      \uB2E4 \uAC19\uC774 \uB9D0\uB77C \uC8FD\uAC8C \uC0DD\uACBC\uB294\uB370 \uB9D0\uC774\uC57C."
+    nextID: 
+    events:
+    - eventType: 4
+      target: 
+    emotion: 
+    choices:
+    - text: 
+      nextID: 
+      effects: []
+      requiredEvidence: 0
+    - text: 
+      nextID: 
+      effects: []
+      requiredEvidence: 0
+    - text: 
+      nextID: 
+      effects: []
+      requiredEvidence: 0

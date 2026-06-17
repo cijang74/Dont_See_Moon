@@ -1,0 +1,8 @@
+﻿ID,SpeakerPosition,SpeakerName,ListenerName,DialogueText,NextID,Event,Emotion,Choice1_Text,Choice1_Effect,Choice1_Req,Choice1_NextID,Choice2_Text,Choice2_Effect,Choice2_Req,Choice2_NextID,Choice3_Text,Choice3_Effect,Choice3_Req,Choice3_NextID,Title
+0,Left,제임스,,막내! 너 오늘까지도 업무를 안 했더군. 감염자가 아니더라도 넌 대피소의 암적인 존재다.,1,,,,,,,,,,,,,,,
+1,Left,제임스,,네가 의심받기 싫다면 쓸모 있는 정보를 내놔. 오늘 누군가의 수상한 흔적을 찾은 사람 있나?,,,,아무것도 없었습니다.,,,4,입구에 쌓인 짐을 봤습니다.,,James_object,2,기괴한 관찰 수첩입니다.,ADD:James:Ella:15|ADD:Nicholas:Ella:15|ADD:Sophia:Ella:15,notebook,3,
+2,Left,제임스,,...그건 내 개인 물건들이다. 쓸모없는 것들을 좀 버리려 했을 뿐이야. 그걸 의심의 증거라고 들이미는 거냐?,4,,,,,,,,,,,,,,,
+3,Left,제임스,,이 수첩은 엘라의 것이군. 우리 모두의 일거수일투족을 이렇게 징그럽게 기록해두다니... 감염자의 강박 증세다.,4,,,,,,,,,,,,,,,
+4,Left,제임스,,더 들어볼 것도 없겠군. 투표를 시작한다.,5,Vote,,,,,,,,,,,,,,
+5,Left,제임스,,투표는 마무리되었네.,6,,,,,,,,,,,,,,,
+6,Left,제임스,,서서히 괴물의 목이 조여지는 게 느껴지는군. 다들 방으로 가라.,,End,,,,,,,,,,,,,,

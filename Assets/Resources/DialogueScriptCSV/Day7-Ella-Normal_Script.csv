@@ -1,0 +1,4 @@
+﻿ID,SpeakerPosition,SpeakerName,ListenerName,DialogueText,NextID,Event,Emotion,Choice1_Text,Choice1_Effect,Choice1_Req,Choice1_NextID,Choice2_Text,Choice2_Effect,Choice2_Req,Choice2_NextID,Choice3_Text,Choice3_Effect,Choice3_Req,Choice3_NextID,Title
+0,Left,엘라,,…….,,,,,,,,,,,,,,,,
+1,Left,엘라,,"있잖아… 난 사실, 이 안에서 계속 살든 죽든 이젠 별로 상관없어.",,,,,,,,,,,,,,,,
+2,Left,엘라,,"테오가 없는 세상에서 발버둥 쳐봐야 무슨 소용이겠어. 그냥… 다 끝났으면 좋겠어.",,End,,,,,,,,,,,,,,
