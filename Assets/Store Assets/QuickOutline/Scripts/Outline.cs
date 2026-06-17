@@ -1,4 +1,4 @@
-﻿//
+//
 //  Outline.cs
 //  QuickOutline
 //
@@ -82,6 +82,7 @@ public class Outline : MonoBehaviour {
   
   // ★ [추가점] 스마트폰 UI 상태 변화를 감지하기 위한 변수
   private bool wasUIActive;
+  private bool wasDialoguePlaying;
 
   void Awake() {
 
@@ -133,9 +134,12 @@ public class Outline : MonoBehaviour {
   }
 
   void Update() {
-    // ★ [추가점] 스마트폰 UI 상태가 이전 프레임과 달라졌는지 체크하여 업데이트 트리거
-    if (SmartphoneUI.IsActive != wasUIActive) {
+    bool isDialoguePlaying = DialogueManager.Instance != null && DialogueManager.Instance.isDialoguePlaying;
+
+    // ★ [추가점] 스마트폰 UI 및 대화 상태가 이전 프레임과 달라졌는지 체크하여 업데이트 트리거
+    if (SmartphoneUI.IsActive != wasUIActive || isDialoguePlaying != wasDialoguePlaying) {
       wasUIActive = SmartphoneUI.IsActive;
+      wasDialoguePlaying = isDialoguePlaying;
       needsUpdate = true;
     }
 
@@ -280,9 +284,12 @@ public class Outline : MonoBehaviour {
 
   void UpdateMaterialProperties() {
 
-    // ★ [수정됨] 스마트폰 UI가 켜져있으면 투명(Color.clear)하게, 굵기를 0으로 덮어씌웁니다.
-    Color currentOutlineColor = SmartphoneUI.IsActive ? Color.clear : outlineColor;
-    float currentOutlineWidth = SmartphoneUI.IsActive ? 0f : outlineWidth;
+    bool isDialoguePlaying = DialogueManager.Instance != null && DialogueManager.Instance.isDialoguePlaying;
+    bool shouldHideOutline = SmartphoneUI.IsActive || isDialoguePlaying;
+
+    // ★ [수정됨] 스마트폰 UI가 켜져있거나 대화 중이면 투명(Color.clear)하게, 굵기를 0으로 덮어씌웁니다.
+    Color currentOutlineColor = shouldHideOutline ? Color.clear : outlineColor;
+    float currentOutlineWidth = shouldHideOutline ? 0f : outlineWidth;
 
     // Apply properties according to mode
     outlineFillMaterial.SetColor("_OutlineColor", currentOutlineColor);

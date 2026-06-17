@@ -99,7 +99,7 @@ public class CameraMoveManager : MonoBehaviour
         {
             CameraNode node = hit.transform.GetComponent<CameraNode>();
 
-            if (node != null && node.targetCamera != null && node.targetCamera != currentActiveCam)
+            if (node != null && node.CanBeClicked() && node.targetCamera != null && node.targetCamera != currentActiveCam)
             {
                 CameraSettings camSettings = node.targetCamera.GetComponent<CameraSettings>();
                 int targetTier = camSettings != null ? camSettings.hierarchyLevel : 0;
@@ -112,6 +112,8 @@ public class CameraMoveManager : MonoBehaviour
 
     void HandleGoBack()
     {
+        if (DialogueManager.Instance != null && DialogueManager.Instance.isDialoguePlaying) return;
+
         if (cameraHistory.Count > 0)
         {
             int lastIndex = cameraHistory.Count - 1;
@@ -179,10 +181,11 @@ public class CameraMoveManager : MonoBehaviour
             }
         }
 
+        CameraSettings oldSettings = null;
         if (currentActiveCam != null) 
         {
             currentActiveCam.Priority = 5;
-            CameraSettings oldSettings = currentActiveCam.GetComponent<CameraSettings>();
+            oldSettings = currentActiveCam.GetComponent<CameraSettings>();
             if (oldSettings != null) oldSettings.onCameraExit?.Invoke();
         }
         
@@ -204,6 +207,9 @@ public class CameraMoveManager : MonoBehaviour
                 AudioClip clipToPlay = closeSFX != null ? closeSFX : defaultCloseSFX;
                 if (clipToPlay != null) sfxSource.PlayOneShot(clipToPlay);
             }
+            
+            if (oldSettings != null) oldSettings.onCameraExitComplete?.Invoke();
+            if (newSettings != null) newSettings.onCameraEnterComplete?.Invoke();
         }
         else
         {
@@ -216,6 +222,9 @@ public class CameraMoveManager : MonoBehaviour
             }
 
             yield return StartCoroutine(Fade(1, 0, fadeInDuration));
+            
+            if (oldSettings != null) oldSettings.onCameraExitComplete?.Invoke();
+            if (newSettings != null) newSettings.onCameraEnterComplete?.Invoke();
         }
 
         isTransitioning = false;
@@ -267,11 +276,12 @@ public class CameraMoveManager : MonoBehaviour
     {
         if (newCam == null) return;
 
+        CameraSettings oldSettings = null;
         // 기존 카메라 끄기
         if (currentActiveCam != null) 
         {
             currentActiveCam.Priority = 5;
-            CameraSettings oldSettings = currentActiveCam.GetComponent<CameraSettings>();
+            oldSettings = currentActiveCam.GetComponent<CameraSettings>();
             if (oldSettings != null) oldSettings.onCameraExit?.Invoke();
         }
         
@@ -281,6 +291,9 @@ public class CameraMoveManager : MonoBehaviour
 
         CameraSettings newSettings = newCam.GetComponent<CameraSettings>();
         if (newSettings != null) newSettings.onCameraEnter?.Invoke();
+
+        if (oldSettings != null) oldSettings.onCameraExitComplete?.Invoke();
+        if (newSettings != null) newSettings.onCameraEnterComplete?.Invoke();
 
         // 방문 기록 및 계층 레벨 완전 초기화
         cameraHistory.Clear();

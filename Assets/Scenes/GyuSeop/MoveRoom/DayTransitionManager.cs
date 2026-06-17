@@ -86,8 +86,19 @@ public class DayTransitionManager : MonoBehaviour
 
     void Update()
     {
-        // 이벤트 시스템이 아직 없으므로 임시로 P키를 눌러 작동
-        if (Input.GetKeyDown(KeyCode.P) && !IsTransitioning)
+        // [임시 기능 주석 처리] 이제 P키가 아닌 특정 오브젝트를 클릭하여 날짜를 넘깁니다.
+        // if (Input.GetKeyDown(KeyCode.P) && !IsTransitioning)
+        // {
+        //     TriggerTransition();
+        // }
+    }
+
+    /// <summary>
+    /// 외부 스크립트(또는 클릭 트리거 오브젝트)에서 날짜 전환 연출을 시작할 때 호출하는 메서드입니다.
+    /// </summary>
+    public void TriggerTransition()
+    {
+        if (!IsTransitioning)
         {
             StartCoroutine(DayTransitionRoutine());
         }
@@ -194,6 +205,10 @@ public class DayTransitionManager : MonoBehaviour
         // 이 시점에서 화면은 완벽한 암전 상태, 사운드는 0입니다.
         // 2. 카메라 시점 변경 및 BGM 트랙 교체 (유저 눈에는 안 보임)
         // -----------------------------------------------------
+
+        // 💡 화면이 까매졌을 때 투표 결과 집계 및 처형 처리
+        VoteManager.Instance.CalculateDailyVoteResults();
+
         if (nextDayStartCamera != null) camManager.ForceSetCameraAndClearHistory(nextDayStartCamera);
         if (nextDayBGM != null) bgmManager.ChangeBGM(nextDayBGM);
 
@@ -232,6 +247,12 @@ public class DayTransitionManager : MonoBehaviour
         dayText.text = $"DAY {currentDay}";
         textColor.a = 1;
         dayText.color = textColor;
+
+        // 💡 [추가] 날짜가 바뀌었으므로 DialogueManager의 대화 기록을 초기화!
+        if (DialogueManager.Instance != null)
+        {
+            DialogueManager.Instance.ResetDailyInteractions();
+        }
         
         // ★ 날짜가 바뀌었으므로 새 날짜에 등록된 이벤트들 자동 실행!
         TriggerEventsForDay(currentDay);
@@ -270,6 +291,19 @@ public class DayTransitionManager : MonoBehaviour
 
         fadeColor.a = 0;
         fadeImage.color = fadeColor;
+
+        // 💡 [추가] 연출이 끝나고 화면이 완전히 밝아진 직후 엔딩 검사 실행!
+        // 여기서 엔딩이 트리거되면 EndingManager가 바로 Scene을 교체해버립니다.
+        if (EndingManager.Instance != null)
+        {
+            bool isEndingTriggered = EndingManager.Instance.CheckAndTriggerEnding(currentDay);
+            
+            // 엔딩이 시작되었다면 더 이상 일반적인 조작을 막기 위해 IsTransitioning을 풀지 않고 대기
+            if (isEndingTriggered)
+            {
+                yield break; // 코루틴 즉시 종료
+            }
+        }
 
         // 연출 완전 종료
         IsTransitioning = false;
