@@ -1,6 +1,6 @@
 ﻿ID,SpeakerPosition,SpeakerName,ListenerName,DialogueText,NextID,Event,Emotion,Choice1_Text,Choice1_Effect,Choice1_Req,Choice1_NextID,Choice2_Text,Choice2_Effect,Choice2_Req,Choice2_NextID,Choice3_Text,Choice3_Effect,Choice3_Req,Choice3_NextID,Title
-0,Left,주인공,,"사람들의 시선이 일제히 나를 향했다. 공포와 광기로 얼룩진, 차가운 눈빛들.",1,,,,,,,,,,,,,,,
+0,Left,주인공,,"사람들의 시선이 일제히 나를 향했다. 공포와 광기로 얼룩진, 차가운 눈빛들.",1,BackGroundChange:BadEnding,,,,,,,,,,,,,,
 1,Left,주인공,,"변명할 틈도 없었다. 제임스는 테오에게 그랬던 것처럼, 의심의 화살을 내게 돌렸다.",2,,,,,,,,,,,,,,,
 2,Left,주인공,,"아니라고 억울하다고 소리쳐봤지만, 이미 이성을 잃고 희생양을 원하던 사람들에게 내 목소리는 닿지 않았다.",3,,,,,,,,,,,,,,,
-3,Left,주인공,,"차가운 바닥에 쓰러지며 서서히 시야가 흐려진다.",4,,,,,,,,,,,,,,,
+3,Left,주인공,,차가운 바닥에 쓰러지며 서서히 시야가 흐려진다.,4,,,,,,,,,,,,,,,
 4,Left,주인공,,"미안해… 끝까지 살아남아서 널 찾으러 가겠다는 약속, 지키지 못하게 됐어….",,End,,,,,,,,,,,,,,
