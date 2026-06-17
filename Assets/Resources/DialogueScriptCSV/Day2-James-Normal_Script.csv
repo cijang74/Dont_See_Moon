@@ -1,0 +1,5 @@
+﻿ID,SpeakerPosition,SpeakerName,ListenerName,DialogueText,NextID,Event,Emotion,Choice1_Text,Choice1_Effect,Choice1_Req,Choice1_NextID,Choice2_Text,Choice2_Effect,Choice2_Req,Choice2_NextID,Choice3_Text,Choice3_Effect,Choice3_Req,Choice3_NextID,Title
+0,Left,제임스,,"왔나. 하아… 두통이 가시질 않는군.",,,,,,,,,,,,,,,,
+1,Left,제임스,,"어제 창고 정리를 하다가 서류를 하나 잃어버려서 한참을 찾았지 뭔가.",,,,,,,,,,,,,,,,
+2,Left,제임스,,"테오 녀석 일도 그렇고, 요즘 신경 쓸 일이 너무 많아서 스트레스가 이만저만이 아니야.",,,,,,,,,,,,,,,,
+3,Left,제임스,,"이 대피소가 유지되는 건 다 내 덕분인데 말이지. 너도 허튼생각 말고 네 할 일이나 똑바로 해.",,End,,,,,,,,,,,,,,

@@ -1,0 +1,5 @@
+﻿ID,SpeakerPosition,SpeakerName,ListenerName,DialogueText,NextID,Event,Emotion,Choice1_Text,Choice1_Effect,Choice1_Req,Choice1_NextID,Choice2_Text,Choice2_Effect,Choice2_Req,Choice2_NextID,Choice3_Text,Choice3_Effect,Choice3_Req,Choice3_NextID,Title
+0,Left,엘라,,"앗…! 아, 안녕… 깜짝 놀랐잖아.",,,,,,,,,,,,,,,,
+1,Left,엘라,,"난, 난 그냥 마실 것 좀 가지러 온 거야… 다른 꿍꿍이가 있어서 주방에 온 게 아니라고. 정말이야.",,,,,,,,,,,,,,,,
+2,Left,엘라,,"테오가 죽기 전엔 내가 여길 담당했었지만… 알잖아. 이젠 아니니까.",,,,,,,,,,,,,,,,
+3,Left,엘라,,"금방 나갈 거야. 그러니까… 제임스한테 내가 여기 있었다고 함부로 말하고 다니지 마.",,End,,,,,,,,,,,,,,

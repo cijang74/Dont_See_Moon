@@ -1,0 +1,5 @@
+﻿ID,SpeakerPosition,SpeakerName,ListenerName,DialogueText,NextID,Event,Emotion,Choice1_Text,Choice1_Effect,Choice1_Req,Choice1_NextID,Choice2_Text,Choice2_Effect,Choice2_Req,Choice2_NextID,Choice3_Text,Choice3_Effect,Choice3_Req,Choice3_NextID,Title
+0,Left,엘라,,"여긴 어쩐 일이야? 난 그냥… 복도에 그 사람이 서 있는 게 숨 막혀서 잠깐 들어온 거야.",,,,,,,,,,,,,,,,
+1,Left,엘라,,"제임스 말이야. 자기가 무슨 대단한 구원자라도 되는 줄 아나 본데, 웃기지도 않아.",,,,,,,,,,,,,,,,
+2,Left,엘라,,"그냥 힘으로 찍어 누르고, 자기 마음에 안 들면 다 감염자 핑계로 없애버리는 폭군일 뿐이야.",,,,,,,,,,,,,,,,
+3,Left,엘라,,"너도 조심해. 언제 그 사람의 화살이 널 향할지 모르니까. 테오처럼… 억울하게 당할 수도 있어.",,End,,,,,,,,,,,,,,

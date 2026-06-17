@@ -1,9 +1,4 @@
 ﻿ID,SpeakerPosition,SpeakerName,ListenerName,DialogueText,NextID,Event,Emotion,Choice1_Text,Choice1_Effect,Choice1_Req,Choice1_NextID,Choice2_Text,Choice2_Effect,Choice2_Req,Choice2_NextID,Choice3_Text,Choice3_Effect,Choice3_Req,Choice3_NextID,Title
-0,Left,제임스,,좋아. 다 모였나?,,,,,,,,,,,,,,,,
-1,,,,오늘 근무간 수상한점은 있었나?,,,,아무것도 없었습니다.,,,4,이상한걸 발견했습니다.,ADD:James:Ella:1|ADD:Sophia:Ella:1|ADD:Nicholas:Ella:1,Day1_BloodKnife,2,이걸 발견했습니다.,ADD:James:Sophia:1|ADD:Ella:Sophia:1|ADD:Nicholas:Sophia:1,Day1_Pee,3,
-2,,,,음 이건..? 감염자의 증거군. 고생했네.,4,,,,,,,,,,,,,,,
-3,,,,"음 이건..? 무슨 증거인지는 모르겠지만, 고생했네.",4,,,,,,,,,,,,,,,
-4,,,,"그럼, 오늘 투표를 진행해보자고.",,Vote,,,,,,,,,,,,,,
-5,,,,투표는 마무리되었네.,,,,,,,,,,,,,,,,
-6,,,,오늘 투표 결과에 따라 감염자를 처리하겠네.,,,,,,,,,,,,,,,,
-7,,,,좋은 밤 되게나.,,End,,,,,,,,,,,,,,
+0,Left,제임스,,"새로 맡은 업무는 할 만한가? 동생 찾는 건 포기하고 합류한 만큼, 네 몫은 확실히 해줘야 해.",,,,,,,,,,,,,,,,
+1,Left,제임스,,"그나저나, 창고 재고 조사를 하고 있는데 수량이 조금씩 안 맞는군. 쥐새끼라도 있는 건지…",,,,,,,,,,,,,,,,
+2,Left,제임스,,"테오 일로 다들 예민한 상태다. 오늘 밤 투표가 있으니 허튼짓하지 말고 일이나 마저 해.",,End,,,,,,,,,,,,,,

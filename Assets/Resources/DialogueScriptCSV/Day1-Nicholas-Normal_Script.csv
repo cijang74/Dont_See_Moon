@@ -1,0 +1,4 @@
+﻿ID,SpeakerPosition,SpeakerName,ListenerName,DialogueText,NextID,Event,Emotion,Choice1_Text,Choice1_Effect,Choice1_Req,Choice1_NextID,Choice2_Text,Choice2_Effect,Choice2_Req,Choice2_NextID,Choice3_Text,Choice3_Effect,Choice3_Req,Choice3_NextID,Title
+0,Left,니콜라스,,"오, 안녕! 배전실에만 박혀 있다가 답답해서 좀 나왔어. 네 일은 잘 돼가?",,,,,,,,,,,,,,,,
+1,Left,니콜라스,,"방금 거실에서 소피아 할머니랑 얘기하다 왔는데, 할 말이 궁해지니까 꼭 주방 가서 쿠키나 먹으라고 하시더라니까.",,,,,,,,,,,,,,,,
+2,Left,니콜라스,,"제임스 그 양반이 우릴 통제하는 꼴이 답답하긴 해도, 뭐 일단 쿠키는 맛있잖아? 쉴 땐 쉬라고.",,End,,,,,,,,,,,,,,

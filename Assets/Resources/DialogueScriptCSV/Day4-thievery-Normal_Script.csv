@@ -1,0 +1,5 @@
+﻿ID,SpeakerPosition,SpeakerName,ListenerName,DialogueText,NextID,Event,Emotion,Choice1_Text,Choice1_Effect,Choice1_Req,Choice1_NextID,Choice2_Text,Choice2_Effect,Choice2_Req,Choice2_NextID,Choice3_Text,Choice3_Effect,Choice3_Req,Choice3_NextID,Title
+0,Left,주인공,,"니콜라스 옆에 방금 전 그가 챙기려던 물건들이 놓여 있다. 챙겨두면 저녁 투표 때 증거로 쓸 수 있겠어.",,,,,,,,,,,,,,,,
+1,Right,니콜라스,,"잠깐! 그, 그 물건은 네가 가져가도 좋아. 애초에 나한테 없었던 걸로 칠 테니까.",,,,,,,,,,,,,,,,
+2,Right,니콜라스,,"대신 제발, 오늘 일은 한 번만 모른 채 해달라고. 약속한 거다?",,,,,,,,,,,,,,,,
+3,Left,주인공,,"(자신의 계획이 들통날까 봐 이렇게까지 다급하게 거래를 시도하다니, 니콜라스가 갈수록 의심스러워진다.)",,End,,,,,,,,,,,,,,

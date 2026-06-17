@@ -1,0 +1,5 @@
+﻿ID,SpeakerPosition,SpeakerName,ListenerName,DialogueText,NextID,Event,Emotion,Choice1_Text,Choice1_Effect,Choice1_Req,Choice1_NextID,Choice2_Text,Choice2_Effect,Choice2_Req,Choice2_NextID,Choice3_Text,Choice3_Effect,Choice3_Req,Choice3_NextID,Title
+0,Left,주인공,,"주방 벽의 포스터가 찢겨 있고, 그 아래에 야구 배트가 굴러다니고 있다.",,,,,,,,,,,,,,,,
+1,Left,주인공,,"벽에 난 자국들… 누군가 새벽에 배트를 마구 휘두른 흔적이야. 밤에 들리던 소리가 이건가? 몽유병 증상일지도 몰라.",,,,,,,,,,,,,,,,
+2,Right,엘라,,"힉…! 그, 그거 건드리지 마! 난 아무 소리도 못 들었고, 아무것도 못 봤단 말이야!",,,,,,,,,,,,,,,,
+3,Left,주인공,,"(옆에 있던 엘라가 배트를 보자마자 사색이 되어 소리친다. 뭔가 숨기고 있는 게 분명해.)",,End,,,,,,,,,,,,,,
