@@ -42550,12 +42550,24 @@ MonoBehaviour:
   npcList:
   - npcType: 2
     npcObject: {fileID: 1015778882}
+    additionalObject1: {fileID: 410299835}
+    additionalObject2: {fileID: 2093758516}
+    additionalObject3: {fileID: 0}
   - npcType: 3
     npcObject: {fileID: 927094487}
+    additionalObject1: {fileID: 958409271}
+    additionalObject2: {fileID: 1904121998}
+    additionalObject3: {fileID: 0}
   - npcType: 4
     npcObject: {fileID: 2092085862}
+    additionalObject1: {fileID: 1586876877}
+    additionalObject2: {fileID: 1508731552}
+    additionalObject3: {fileID: 686132781}
   - npcType: 5
     npcObject: {fileID: 535765996}
+    additionalObject1: {fileID: 866997540}
+    additionalObject2: {fileID: 973363847}
+    additionalObject3: {fileID: 495061635}
 --- !u!4 &1870982533
 Transform:
   m_ObjectHideFlags: 0
