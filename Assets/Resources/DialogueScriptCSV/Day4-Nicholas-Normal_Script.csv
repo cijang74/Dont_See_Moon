@@ -1,0 +1,5 @@
+﻿ID,SpeakerPosition,SpeakerName,ListenerName,DialogueText,NextID,Event,Emotion,Choice1_Text,Choice1_Effect,Choice1_Req,Choice1_NextID,Choice2_Text,Choice2_Effect,Choice2_Req,Choice2_NextID,Choice3_Text,Choice3_Effect,Choice3_Req,Choice3_NextID,Title
+0,Left,니콜라스,,"헉…! 아, 깜짝이야! 인기척 좀 내고 다니라니까!",,,,,,,,,,,,,,,,
+1,Left,니콜라스,,"이, 이건 그냥… 재고가 얼마나 남았는지 확인해 보려던 참이었어. 절대 훔치려던 게 아니라고!",,,,,,,,,,,,,,,,
+2,Left,니콜라스,,"좋아, 솔직하게 말하지. 오늘 일 눈감아주면, 앞으로 저녁 투표 때 널 찍는 일은 절대 없을 거야. 약속할게.",,,,,,,,,,,,,,,,
+3,Left,니콜라스,,"그러니까 넌 여기서 아무것도 못 본 거다? 제임스 귀에 들어가면 넌 투표권을 잃는 셈이라고.",,End,,,,,,,,,,,,,,

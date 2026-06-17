@@ -1,0 +1,5 @@
+﻿ID,SpeakerPosition,SpeakerName,ListenerName,DialogueText,NextID,Event,Emotion,Choice1_Text,Choice1_Effect,Choice1_Req,Choice1_NextID,Choice2_Text,Choice2_Effect,Choice2_Req,Choice2_NextID,Choice3_Text,Choice3_Effect,Choice3_Req,Choice3_NextID,Title
+0,Left,니콜라스,,"깜짝이야…! 아, 너구나. 인기척 좀 내고 다니라고.",,,,,,,,,,,,,,,,
+1,Left,니콜라스,,"(황급히 무언가 적고 있던 종이를 주머니에 쑤셔 넣는다)",,,,,,,,,,,,,,,,
+2,Left,니콜라스,,"아, 이거? 별거 아니야. 대피소 내 전력 사용량을 다시 계산해 보고 있었을 뿐이라고.",,,,,,,,,,,,,,,,
+3,Left,니콜라스,,"발전기를 효율적으로 돌리려면 꼼꼼한 계산이 필수니까. 뭐, 넌 이해 못 하겠지만 말이야.",,End,,,,,,,,,,,,,,

@@ -1,0 +1,5 @@
+﻿ID,SpeakerPosition,SpeakerName,ListenerName,DialogueText,NextID,Event,Emotion,Choice1_Text,Choice1_Effect,Choice1_Req,Choice1_NextID,Choice2_Text,Choice2_Effect,Choice2_Req,Choice2_NextID,Choice3_Text,Choice3_Effect,Choice3_Req,Choice3_NextID,Title
+0,Left,주인공,,"소피아 할머니의 방 구석에서 낡은 상자를 하나 발견했다.",,,,,,,,,,,,,,,,
+1,Left,주인공,,"조심스럽게 열어보니 대피소의 공용 물품과 식량들이 잔뜩 숨겨져 있다. 그런데…",,,,,,,,,,,,,,,,
+2,Left,주인공,,"내용물들이 하나같이 심하게 짓눌리고 오염되어서, 도저히 정상적으로 쓸 수 없는 상태야.",,,,,,,,,,,,,,,,
+3,Left,주인공,,"멀쩡한 식량들을 훔쳐 와서 이렇게 망가뜨려 놓다니… 단순한 노욕이 아니라 뭔가 섬뜩하고 기괴한 이유가 있는 게 분명해.",,End,,,,,,,,,,,,,,

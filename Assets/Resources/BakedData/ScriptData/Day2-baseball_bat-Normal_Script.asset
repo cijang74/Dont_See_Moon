@@ -1,0 +1,111 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee81f89839c79ae438a59b0912e1638c, type: 3}
+  m_Name: Day2-baseball_bat-Normal_Script
+  m_EditorClassIdentifier: 
+  title: 
+  dialogueLines:
+  - ID: 0
+    speakerPosition: Left
+    speakerName: "\uC8FC\uC778\uACF5"
+    listenerName: 
+    dialogueText: "\uC8FC\uBC29 \uBCBD\uC758 \uD3EC\uC2A4\uD130\uAC00 \uCC22\uACA8
+      \uC788\uACE0, \uADF8 \uC544\uB798\uC5D0 \uC57C\uAD6C \uBC30\uD2B8\uAC00 \uAD74\uB7EC\uB2E4\uB2C8\uACE0
+      \uC788\uB2E4."
+    nextID: 
+    events: []
+    emotion: 
+    choices:
+    - text: 
+      nextID: 
+      effects: []
+      requiredEvidence: 0
+    - text: 
+      nextID: 
+      effects: []
+      requiredEvidence: 0
+    - text: 
+      nextID: 
+      effects: []
+      requiredEvidence: 0
+  - ID: 1
+    speakerPosition: Left
+    speakerName: "\uC8FC\uC778\uACF5"
+    listenerName: 
+    dialogueText: "\uBCBD\uC5D0 \uB09C \uC790\uAD6D\uB4E4\u2026 \uB204\uAD70\uAC00
+      \uC0C8\uBCBD\uC5D0 \uBC30\uD2B8\uB97C \uB9C8\uAD6C \uD718\uB450\uB978 \uD754\uC801\uC774\uC57C.
+      \uBC24\uC5D0 \uB4E4\uB9AC\uB358 \uC18C\uB9AC\uAC00 \uC774\uAC74\uAC00? \uBABD\uC720\uBCD1
+      \uC99D\uC0C1\uC77C\uC9C0\uB3C4 \uBAB0\uB77C."
+    nextID: 
+    events: []
+    emotion: 
+    choices:
+    - text: 
+      nextID: 
+      effects: []
+      requiredEvidence: 0
+    - text: 
+      nextID: 
+      effects: []
+      requiredEvidence: 0
+    - text: 
+      nextID: 
+      effects: []
+      requiredEvidence: 0
+  - ID: 2
+    speakerPosition: Right
+    speakerName: "\uC5D8\uB77C"
+    listenerName: 
+    dialogueText: "\uD789\u2026! \uADF8, \uADF8\uAC70 \uAC74\uB4DC\uB9AC\uC9C0 \uB9C8!
+      \uB09C \uC544\uBB34 \uC18C\uB9AC\uB3C4 \uBABB \uB4E4\uC5C8\uACE0, \uC544\uBB34\uAC83\uB3C4
+      \uBABB \uBD24\uB2E8 \uB9D0\uC774\uC57C!"
+    nextID: 
+    events: []
+    emotion: 
+    choices:
+    - text: 
+      nextID: 
+      effects: []
+      requiredEvidence: 0
+    - text: 
+      nextID: 
+      effects: []
+      requiredEvidence: 0
+    - text: 
+      nextID: 
+      effects: []
+      requiredEvidence: 0
+  - ID: 3
+    speakerPosition: Left
+    speakerName: "\uC8FC\uC778\uACF5"
+    listenerName: 
+    dialogueText: "(\uC606\uC5D0 \uC788\uB358 \uC5D8\uB77C\uAC00 \uBC30\uD2B8\uB97C
+      \uBCF4\uC790\uB9C8\uC790 \uC0AC\uC0C9\uC774 \uB418\uC5B4 \uC18C\uB9AC\uCE5C\uB2E4.
+      \uBB54\uAC00 \uC228\uAE30\uACE0 \uC788\uB294 \uAC8C \uBD84\uBA85\uD574.)"
+    nextID: 
+    events:
+    - eventType: 4
+      target: 
+    emotion: 
+    choices:
+    - text: 
+      nextID: 
+      effects: []
+      requiredEvidence: 0
+    - text: 
+      nextID: 
+      effects: []
+      requiredEvidence: 0
+    - text: 
+      nextID: 
+      effects: []
+      requiredEvidence: 0

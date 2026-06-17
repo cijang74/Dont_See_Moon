@@ -1,0 +1,5 @@
+﻿ID,SpeakerPosition,SpeakerName,ListenerName,DialogueText,NextID,Event,Emotion,Choice1_Text,Choice1_Effect,Choice1_Req,Choice1_NextID,Choice2_Text,Choice2_Effect,Choice2_Req,Choice2_NextID,Choice3_Text,Choice3_Effect,Choice3_Req,Choice3_NextID,Title
+0,Left,소피아,,"어머, 벌써 시간이 이렇게 됐나. 이 화분에 잎이 말라가는 걸 보고 있었지 뭐예요.",,,,,,,,,,,,,,,,
+1,Left,소피아,,"물이 부족해서 그런 건지, 아니면 이 대피소 공기가 탁해서 그런 건지… 참 안타깝죠?",,,,,,,,,,,,,,,,
+2,Left,소피아,,"어차피 시들어갈 운명이라면, 물 대신 남는 커피나 음료수를 부어주는 건 어떨까 싶어서요.",,,,,,,,,,,,,,,,
+3,Left,소피아,,"호호, 농담이에요. 기왕 죽을 거면 달콤하게 가는 것도 나쁘지 않겠다는 늙은이의 실없는 소리랍니다.",,End,,,,,,,,,,,,,,

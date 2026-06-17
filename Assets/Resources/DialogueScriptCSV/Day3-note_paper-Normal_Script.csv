@@ -1,0 +1,4 @@
+﻿ID,SpeakerPosition,SpeakerName,ListenerName,DialogueText,NextID,Event,Emotion,Choice1_Text,Choice1_Effect,Choice1_Req,Choice1_NextID,Choice2_Text,Choice2_Effect,Choice2_Req,Choice2_NextID,Choice3_Text,Choice3_Effect,Choice3_Req,Choice3_NextID,Title
+0,Left,주인공,,"거실 바닥에 의미를 알 수 없는 도형과 숫자가 잔뜩 적힌 메모지가 떨어져 있다.",,,,,,,,,,,,,,,,
+1,Left,주인공,,"아까 니콜라스가 여기서 무언가를 황급히 숨기면서, 전력량을 계산 중이라고 얼버무렸었지.",,,,,,,,,,,,,,,,
+2,Left,주인공,,"아무리 봐도 단순한 전력 계산식으로는 보이지 않아. 무언가 은밀한 계획을 세우고 있는 게 분명해.",,End,,,,,,,,,,,,,,

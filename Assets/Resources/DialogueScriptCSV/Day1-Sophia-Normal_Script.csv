@@ -1,0 +1,4 @@
+﻿ID,SpeakerPosition,SpeakerName,ListenerName,DialogueText,NextID,Event,Emotion,Choice1_Text,Choice1_Effect,Choice1_Req,Choice1_NextID,Choice2_Text,Choice2_Effect,Choice2_Req,Choice2_NextID,Choice3_Text,Choice3_Effect,Choice3_Req,Choice3_NextID,Title
+0,Left,소피아,,"아이고, 우리 막내 오셨네. 동생 일은 안타깝지만… 여긴 제임스가 결단력 있게 지켜주고 있으니 안심해요.",,,,,,,,,,,,,,,,
+1,Left,소피아,,"저쪽 주방에 쿠키를 좀 구워뒀으니 출출하면 가서 먹고 기운 내요. 니콜라스도 맛있게 먹더라고요.",,,,,,,,,,,,,,,,
+2,Left,소피아,,"난 거실에 가만히 앉아만 있어도 여기서 누가 뭘 하는지 다 보인답니다. 엉뚱한 생각 말고 일과나 잘 마쳐요.",,End,,,,,,,,,,,,,,
