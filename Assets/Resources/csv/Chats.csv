@@ -1,16 +1,113 @@
 RoomId|NodeId|Type|Day|NextNodeId|Text
-mom|n1|Msg|1||너 괜찮니?
-mom|n1|Msg|||대답좀 해 봐..
-mom|n1|Choice||n2|Yeah, I'm here
-mom|n1|Choice||n2|(읽씹한다)
-mom|n2|Msg|||Can you talk?
-mom|n2|Msg|||i think you are busy
-mom|n2|Choice||n3|You can count on me
-mom|n2|Choice||n4|Whats happening?
-mom|n3|Msg|||고마워. 힘들면 꼭 말하고.
-mom|n4|Msg|||별일 없어. 그냥 걱정돼서.
-dad|n1|Msg|2||밥은 먹었니?
-dad|n1|Choice||d2|먹었어요
-dad|n1|Choice||d3|아직요
-dad|d2|Msg|||그래 다행이다.
-dad|d3|Msg|||꼭 챙겨 먹어라.
+james|jd1|Msg|1||새로 합류한 걸 환영하네. 난 이 대피소를 맡고 있는 제임스일세.
+james|jd1|Msg|||정신없이 들어오느라 인사도 제대로 못 했군.
+james|jd1|Msg|||얼마 전 우리 대피소 안에서 감염자 흔적이 발견된 일이 있었네. 다행히 빠르게 처리했지.
+james|jd1|Msg|||그 일로 엘라의 근무지를 옮기면서, 인원 전체의 업무 분장을 새로 짰네.
+james|jd1|Msg|||자네 업무표랑 전체 일정표를 함께 보내니 꼭 확인하게.
+james|jd1|Msg|||자네 근무 구역은 생활 구역 안쪽에 따로 마련해 뒀네. 매일 정해진 일과를 빠뜨리지 말게.
+james|jd1|Msg|||그리고 매일 저녁엔 거실에 모여 감염 의심자 투표를 진행하네. 빠지지 말게.
+james|jd1|Choice||jd1_ok|알겠습니다. 잘 부탁드립니다.
+james|jd1|Choice||jd1_q|감염자는 이미 잡힌 거 아닌가요?
+james|jd1_ok|Msg|||그래. 잘 적응하길 바라네.
+james|jd1_q|Msg|||...그렇게 믿고 싶지.
+james|jd1_q|Msg|||하지만 그 뒤로도 새로운 흔적이 발견됐네. 아직 누군가 남아 있다는 뜻이지.
+james|jd1_q|Msg|||그러니 더더욱 서로를 잘 살펴야 하네.
+james|jd1_q|Choice||jd1_ok2|조심하겠습니다.
+james|jd1_ok2|Msg|||그래. 무슨 일 있으면 바로 알리게.
+james|jd4|Msg|4||밤사이 누가 내 방 문손잡이를 열려고 한 흔적이 있네.
+james|jd4|Msg|||분명히 잠가뒀는데 말이야. 누군지 몰라도 가만두지 않을 거야.
+james|jd4|Msg|||자네, 어젯밤에 뭔가 본 거 없나?
+james|jd4|Choice||jd4_a|아무것도 못 봤습니다.
+james|jd4|Choice||jd4_b|방에 뭐 중요한 거라도 있나요?
+james|jd4_a|Msg|||...그래. 봤으면 바로 말해주게.
+james|jd4_b|Msg|||대피소 운영에 필요한 자료들일세. 자네가 신경 쓸 건 아니야.
+james|jd4_b|Msg|||어쨌든 다들 조심하라고 전하게.
+james|jd5|Msg|5||이제 감염자의 잠복기도 후반에 접어든 것 같네.
+james|jd5|Msg|||솔직히 말하면, 나도 불안하네.
+james|jd5|Msg|||잠복기가 끝나가면 감염자는 자기가 남긴 흔적을 하나씩 지우기 시작한다더군.
+james|jd5|Msg|||단서가 사라지기 전에, 누가 감염자인지 가려내야 하네.
+james|jd5|Choice||jd5_a|더 늦기 전에 찾아내죠.
+james|jd5|Choice||jd5_b|흔적을 지운다고요?
+james|jd5_a|Msg|||그래. 자네만 믿겠네.
+james|jd5_b|Msg|||그래. 그러니 지금까지 본 걸 잘 기억해 두게.
+james|jd5_b|Msg|||시간이 별로 없어.
+sophia|sd2|Msg|2||안녕, 잘 지내고 있죠?
+sophia|sd2|Msg|||아 참, 어젯밤에 창문이 열려 있길래 내가 다시 닫아뒀어요.
+sophia|sd2|Choice||sd2_a|그렇군요.
+sophia|sd2|Choice||sd2_b|창문이요? 대피소 안에 창문이 있었나요?
+sophia|sd2_a|Msg|||별일 아니에요. 그냥 알려주려고요.
+sophia|sd2_b|Msg|||어머, 창문이 아니라... 문이라고 말하려던 거였어요. 내가 요즘 정신이 없네.
+sophia|sd2_b|Msg|||호호, 신경 쓰지 말아요.
+sophia|sd5|Msg|5||저기, 혹시 누가 감염자인지 정했어요?
+sophia|sd5|Msg|||이러다 우리 모두 위험해질 것 같아서요.
+sophia|sd5|Msg|||빨리 잡아야 하지 않겠어요?
+sophia|sd5|Choice||sd5_a|아직 확실하지 않아요.
+sophia|sd5|Choice||sd5_b|소피아 씨는 누가 의심돼요?
+sophia|sd5_a|Msg|||너무 늦지 않았으면 좋겠어요.
+sophia|sd5_b|Msg|||글쎄요... 난 그냥, 다들 조심했으면 할 뿐이에요.
+sophia|sd5_b|Msg|||괜히 이런 말 했나 보네. 잊어버려요.
+ella|ed2|Msg|2||...저기요.
+ella|ed2|Msg|||새벽에 어디선가 쿵쿵거리는 둔탁한 소리를 들었어요.
+ella|ed2|Msg|||오래된 파이프 소리일 수도 있지만... 혹시 모르니까요.
+ella|ed2|Msg|||밤에는 다들 방 안에만 있었으면 좋겠어요.
+ella|ed2|Choice||ed2_a|알려줘서 고마워요.
+ella|ed2|Choice||ed2_b|무슨 소리였는데요?
+ella|ed2_a|Msg|||...네. 조심해요.
+ella|ed2_b|Msg|||그냥... 뭔가를 두드리는 것 같은 소리였어요.
+ella|ed2_b|Msg|||생각하기도 싫네요. 그만 얘기할게요.
+ella|ed3|Msg|3||제임스 말이에요.
+ella|ed3|Msg|||항상 자기 방 문을 잠가두고 아무도 못 들어오게 하잖아요.
+ella|ed3|Msg|||혹시 그 안에 식량이나... 혼자 살아남을 궁리를 숨겨둔 건 아닐까요?
+ella|ed3|Choice||ed3_a|그럴 수도 있겠네요.
+ella|ed3|Choice||ed3_b|괜히 의심하는 거 아니에요?
+ella|ed3_a|Msg|||...그쵸? 저만 그렇게 느끼는 게 아니었네요.
+ella|ed3_b|Msg|||...그럴지도 모르죠.
+ella|ed3_b|Msg|||그냥, 요즘은 누구도 못 믿겠어서요.
+nicholas|nd3|Msg|3||야, 너도 들었어? 어제 주방에 있던 야구 배트 말이야.
+nicholas|nd3|Msg|||누가 새벽에 그걸로 뭘 휘둘렀는지 자국이 잔뜩이더라고.
+nicholas|nd3|Msg|||게다가 내 공구함도 누가 멋대로 건드렸어. 진짜 짜증 나 죽겠네.
+nicholas|nd3|Choice||nd3_a|누가 그랬을까요?
+nicholas|nd3|Choice||nd3_b|공구함엔 뭐가 있는데요?
+nicholas|nd3_a|Msg|||그걸 알면 내가 가만 안 있지. 너도 뭐 보면 나한테 말해줘.
+nicholas|nd3_b|Msg|||뭐 별거 없어. 근데 남이 내 물건 만지는 게 기분 나쁘잖아.
+nicholas|nd3_b|Msg|||아무튼 조심해서 나쁠 거 없어.
+nicholas|nd4|Msg|4||야, 이거 진짜 심각한데.
+nicholas|nd4|Msg|||누가 또 몰래 배전함을 건드린 것 같아.
+nicholas|nd4|Msg|||의심 가는 사람이 있긴 한데... 아직 확실하진 않아.
+nicholas|nd4|Choice||nd4_a|누가 의심되는데요?
+nicholas|nd4|Choice||nd4_b|배전함이 위험한가요?
+nicholas|nd4_a|Msg|||아직은 말 못 해. 확실해지면 그때 얘기할게.
+nicholas|nd4_b|Msg|||잘못 만지면 대피소 전체가 정전될 수도 있어.
+nicholas|nd4_b|Msg|||그러니까 아무나 들어오게 두면 안 된다고.
+nicholas|nd6|Msg|6||야... 내일이면 잠복기 마지막 날이래.
+nicholas|nd6|Msg|||솔직히 무서워 죽겠어. 진짜로.
+nicholas|nd6|Msg|||만약 우리 중에 아직 감염자가 있으면, 내일 다 끝장나는 거 아니야?
+nicholas|nd6|Choice||nd6_a|괜찮을 거예요.
+nicholas|nd6|Choice||nd6_b|왜 그렇게 불안해해요?
+nicholas|nd6_a|Msg|||...그래. 그래야지. 그래야 하는데.
+nicholas|nd6_b|Msg|||누군가 아직 우리 사이에 섞여 있다는 거잖아. 그게 누군지도 모르고.
+nicholas|nd6_b|Msg|||아무튼, 너도 오늘 밤은 조심해.
+ella|ed6|Msg|6||저, 오늘은 그냥 제 방에만 있을게요.
+ella|ed6|Msg|||찾지 말아 주세요. 아무하고도 마주치고 싶지 않아서요.
+ella|ed6|Choice||ed6_a|알겠어요. 푹 쉬어요.
+ella|ed6|Choice||ed6_b|무슨 일 있어요?
+ella|ed6_a|Msg|||...고마워요.
+ella|ed6_b|Msg|||아니요. 그냥... 사람들 눈초리가 무서워서요.
+ella|ed6_b|Msg|||다들 절 보는 눈이 달라졌잖아요.
+james|jd7|Msg|7||어제는 아무 흔적도 발견되지 않았네.
+james|jd7|Msg|||어쩌면... 사실은 감염자 같은 건 처음부터 없었던 게 아닐까.
+james|jd7|Msg|||우리끼리 괜한 의심으로 서로를 몰아세운 거였을 수도 있지.
+james|jd7|Choice||jd7_a|그럴 수도 있겠네요.
+james|jd7|Choice||jd7_b|방심하긴 일러요.
+james|jd7_a|Msg|||...그래. 그랬으면 좋겠군.
+james|jd7_b|Msg|||...자네 말이 맞네. 끝까지 긴장을 놓아선 안 되지.
+james|jd7_b|Msg|||오늘 밤 투표, 신중하게 하게.
+sophia|sd7|Msg|7||잘 들어요. 오늘은 정말 중요한 날이에요.
+sophia|sd7|Msg|||처음 감염자였던 테오, 기억하죠? 그 사람과 제일 가까웠던 게 엘라였어요.
+sophia|sd7|Msg|||감염은 가까운 사람한테서 옮는 법이에요.
+sophia|sd7|Msg|||그러니 오늘 밤엔 꼭 엘라한테 투표해요. 알겠죠?
+sophia|sd7|Choice||sd7_a|알겠어요.
+sophia|sd7|Choice||sd7_b|그건 너무 성급한데요.
+sophia|sd7_a|Msg|||잘 생각했어요. 그게 우리 모두를 위한 길이에요.
+sophia|sd7_b|Msg|||...왜요? 달리 의심 가는 사람이라도 있어요?
+sophia|sd7_b|Msg|||난 그저, 더 늦기 전에 끝내고 싶을 뿐이에요.

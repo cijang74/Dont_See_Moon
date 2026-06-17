@@ -5851,6 +5851,10 @@ PrefabInstance:
       propertyPath: m_SizeDelta.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5414893455698166131, guid: 4504755e406aeb440a046a07d7591a6d, type: 3}
+      propertyPath: typingTime
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 6524875622458289199, guid: 4504755e406aeb440a046a07d7591a6d, type: 3}
       propertyPath: m_Name
       value: SmartPhone
