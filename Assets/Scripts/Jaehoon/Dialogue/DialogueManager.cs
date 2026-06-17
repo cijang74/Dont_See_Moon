@@ -10,10 +10,11 @@ public enum InteractionObjectType
     Nicholas,
     Ella,
     Sophia,
-    Day1_BloodKnife,
-    Day1_Pee,
     Vote,
     Work,
+    Day1_BloodKnife,
+    Day1_Pee,
+    Cup,
     Ending
 };
 
