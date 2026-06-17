@@ -1,6 +1,6 @@
 ﻿ID,SpeakerPosition,SpeakerName,ListenerName,DialogueText,NextID,Event,Emotion,Choice1_Text,Choice1_Effect,Choice1_Req,Choice1_NextID,Choice2_Text,Choice2_Effect,Choice2_Req,Choice2_NextID,Choice3_Text,Choice3_Effect,Choice3_Req,Choice3_NextID,Title
-0,Left,주인공,,"시간이 다 되었다. 우리는 끝내 누가 감염자인지 찾아내지 못했다.",1,,,,,,,,,,,,,,,
+0,Left,주인공,,시간이 다 되었다. 우리는 끝내 누가 감염자인지 찾아내지 못했다.,1,BackGroundChange:AllKillEnding,,,,,,,,,,,,,,
 1,Left,주인공,,"대피소 내부는 이미 끔찍하게 부패한 생체 조직과 전파된 포자로 뒤덮였고, 사람들의 비명마저 잦아들었다.",2,,,,,,,,,,,,,,,
-2,Left,주인공,,"이곳은 더 이상 안전한 대피소가 아니다. 그저 굳게 닫힌 거대한 무덤일 뿐.",3,,,,,,,,,,,,,,,
+2,Left,주인공,,이곳은 더 이상 안전한 대피소가 아니다. 그저 굳게 닫힌 거대한 무덤일 뿐.,3,,,,,,,,,,,,,,,
 3,Left,주인공,,"나는 무거운 이중 문을 열고, 홀로 지옥 같은 밖으로 발걸음을 옮겼다.",4,,,,,,,,,,,,,,,
 4,Left,주인공,,"다시는 이곳에 돌아오지 않을 것이다. 잃어버린 동생을 찾기 위해, 아니면 나 역시 저 밖에서 죽음을 맞이하기 위해.",,End,,,,,,,,,,,,,,
