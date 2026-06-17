@@ -719,6 +719,7 @@ MonoBehaviour:
   isSmoothTransition: 0
   isDialogueObject: 0
   dialogueTargetName: 
+  isTable: 0
 --- !u!114 &34185457
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1130,6 +1131,7 @@ MonoBehaviour:
   isSmoothTransition: 0
   isDialogueObject: 0
   dialogueTargetName: 
+  isTable: 0
 --- !u!114 &56588289
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2426,6 +2428,7 @@ MonoBehaviour:
   isSmoothTransition: 1
   isDialogueObject: 0
   dialogueTargetName: 
+  isTable: 0
 --- !u!1001 &129642138
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3489,6 +3492,7 @@ MonoBehaviour:
   isSmoothTransition: 0
   isDialogueObject: 0
   dialogueTargetName: 
+  isTable: 0
 --- !u!114 &180002085
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4412,6 +4416,7 @@ MonoBehaviour:
   isSmoothTransition: 1
   isDialogueObject: 0
   dialogueTargetName: 
+  isTable: 0
 --- !u!1 &218971963
 GameObject:
   m_ObjectHideFlags: 0
@@ -4976,6 +4981,7 @@ MonoBehaviour:
   isSmoothTransition: 0
   isDialogueObject: 0
   dialogueTargetName: 
+  isTable: 0
 --- !u!114 &259443041
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13199,6 +13205,7 @@ MonoBehaviour:
   isSmoothTransition: 0
   isDialogueObject: 0
   dialogueTargetName: 
+  isTable: 0
 --- !u!114 &670064991
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13390,6 +13397,7 @@ MonoBehaviour:
   isSmoothTransition: 0
   isDialogueObject: 0
   dialogueTargetName: 
+  isTable: 0
 --- !u!1001 &683641459
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14414,6 +14422,7 @@ MonoBehaviour:
   isSmoothTransition: 0
   isDialogueObject: 0
   dialogueTargetName: 
+  isTable: 0
 --- !u!114 &725895210
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20267,6 +20276,7 @@ MonoBehaviour:
   isSmoothTransition: 1
   isDialogueObject: 0
   dialogueTargetName: 
+  isTable: 0
 --- !u!1001 &1035391482
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -20362,6 +20372,7 @@ MonoBehaviour:
   isSmoothTransition: 0
   isDialogueObject: 0
   dialogueTargetName: 
+  isTable: 0
 --- !u!114 &1035391486
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22557,6 +22568,7 @@ MonoBehaviour:
   isSmoothTransition: 0
   isDialogueObject: 0
   dialogueTargetName: 
+  isTable: 0
 --- !u!114 &1122185468
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22941,6 +22953,7 @@ MonoBehaviour:
   isSmoothTransition: 0
   isDialogueObject: 0
   dialogueTargetName: 
+  isTable: 0
 --- !u!114 &1137697255
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23100,6 +23113,7 @@ MonoBehaviour:
   isSmoothTransition: 1
   isDialogueObject: 1
   dialogueTargetName: James
+  isTable: 0
 --- !u!1 &1139905548
 GameObject:
   m_ObjectHideFlags: 0
@@ -23435,6 +23449,7 @@ MonoBehaviour:
   isSmoothTransition: 0
   isDialogueObject: 0
   dialogueTargetName: 
+  isTable: 0
 --- !u!114 &1174630121
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23885,6 +23900,7 @@ MonoBehaviour:
   isSmoothTransition: 0
   isDialogueObject: 0
   dialogueTargetName: 
+  isTable: 0
 --- !u!114 &1198902053
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24067,6 +24083,7 @@ MonoBehaviour:
   isSmoothTransition: 0
   isDialogueObject: 0
   dialogueTargetName: 
+  isTable: 0
 --- !u!114 &1208897208
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26301,6 +26318,7 @@ MonoBehaviour:
   isSmoothTransition: 0
   isDialogueObject: 0
   dialogueTargetName: 
+  isTable: 0
 --- !u!114 &1303841982
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26830,6 +26848,7 @@ MonoBehaviour:
   isSmoothTransition: 0
   isDialogueObject: 0
   dialogueTargetName: 
+  isTable: 0
 --- !u!114 &1310707874
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27860,6 +27879,7 @@ MonoBehaviour:
   isSmoothTransition: 0
   isDialogueObject: 0
   dialogueTargetName: 
+  isTable: 0
 --- !u!114 &1352480369
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28358,6 +28378,7 @@ MonoBehaviour:
   isSmoothTransition: 0
   isDialogueObject: 0
   dialogueTargetName: 
+  isTable: 0
 --- !u!114 &1379192843
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29857,6 +29878,7 @@ MonoBehaviour:
   isSmoothTransition: 0
   isDialogueObject: 0
   dialogueTargetName: 
+  isTable: 0
 --- !u!114 &1461400162
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30921,6 +30943,7 @@ MonoBehaviour:
   isSmoothTransition: 0
   isDialogueObject: 0
   dialogueTargetName: 
+  isTable: 0
 --- !u!114 &1498136443
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -31230,8 +31253,9 @@ MonoBehaviour:
   customCloseSFX: {fileID: 0}
   customOpenSFX: {fileID: 0}
   isSmoothTransition: 0
-  isDialogueObject: 0
-  dialogueTargetName: 
+  isDialogueObject: 1
+  dialogueTargetName: Vote
+  isTable: 1
 --- !u!1001 &1512589470
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -34233,6 +34257,7 @@ MonoBehaviour:
   isSmoothTransition: 0
   isDialogueObject: 0
   dialogueTargetName: 
+  isTable: 0
 --- !u!114 &1666675484
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -36065,6 +36090,7 @@ MonoBehaviour:
   isSmoothTransition: 0
   isDialogueObject: 0
   dialogueTargetName: 
+  isTable: 0
 --- !u!114 &1749229001
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -37535,6 +37561,7 @@ MonoBehaviour:
   isSmoothTransition: 0
   isDialogueObject: 0
   dialogueTargetName: 
+  isTable: 0
 --- !u!114 &1842579567
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -37660,6 +37687,7 @@ MonoBehaviour:
   isSmoothTransition: 0
   isDialogueObject: 0
   dialogueTargetName: 
+  isTable: 0
 --- !u!114 &1842688314
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -37712,8 +37740,9 @@ MonoBehaviour:
   customCloseSFX: {fileID: 0}
   customOpenSFX: {fileID: 0}
   isSmoothTransition: 0
-  isDialogueObject: 0
-  dialogueTargetName: 
+  isDialogueObject: 1
+  dialogueTargetName: Cup
+  isTable: 0
 --- !u!114 &1848147546
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -38614,6 +38643,7 @@ MonoBehaviour:
   isSmoothTransition: 0
   isDialogueObject: 0
   dialogueTargetName: 
+  isTable: 0
 --- !u!114 &1876968918
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -40120,6 +40150,7 @@ MonoBehaviour:
   isSmoothTransition: 0
   isDialogueObject: 0
   dialogueTargetName: 
+  isTable: 0
 --- !u!1001 &1963730652
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -41141,6 +41172,7 @@ MonoBehaviour:
   isSmoothTransition: 0
   isDialogueObject: 0
   dialogueTargetName: 
+  isTable: 0
 --- !u!114 &2024672588
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -41261,6 +41293,7 @@ MonoBehaviour:
   isSmoothTransition: 1
   isDialogueObject: 0
   dialogueTargetName: 
+  isTable: 0
 --- !u!1 &2031609624
 GameObject:
   m_ObjectHideFlags: 0
@@ -41613,6 +41646,7 @@ MonoBehaviour:
   isSmoothTransition: 0
   isDialogueObject: 0
   dialogueTargetName: 
+  isTable: 0
 --- !u!114 &2040356813
 MonoBehaviour:
   m_ObjectHideFlags: 0

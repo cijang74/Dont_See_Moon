@@ -253,6 +253,8 @@ public class DayTransitionManager : MonoBehaviour
         {
             DialogueManager.Instance.ResetDailyInteractions();
         }
+
+        WorkManager.Instance.isWorkToday = false;
         
         // ★ 날짜가 바뀌었으므로 새 날짜에 등록된 이벤트들 자동 실행!
         TriggerEventsForDay(currentDay);
