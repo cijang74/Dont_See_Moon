@@ -22,7 +22,9 @@ MonoBehaviour:
       \uB098\uB97C \uD5A5\uD588\uB2E4. \uACF5\uD3EC\uC640 \uAD11\uAE30\uB85C \uC5BC\uB8E9\uC9C4,
       \uCC28\uAC00\uC6B4 \uB208\uBE5B\uB4E4."
     nextID: 1
-    events: []
+    events:
+    - eventType: 5
+      target: BadEnding
     emotion: 
     choices:
     - text: 
