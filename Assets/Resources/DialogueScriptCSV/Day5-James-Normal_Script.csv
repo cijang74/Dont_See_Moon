@@ -1,0 +1,5 @@
+﻿ID,SpeakerPosition,SpeakerName,ListenerName,DialogueText,NextID,Event,Emotion,Choice1_Text,Choice1_Effect,Choice1_Req,Choice1_NextID,Choice2_Text,Choice2_Effect,Choice2_Req,Choice2_NextID,Choice3_Text,Choice3_Effect,Choice3_Req,Choice3_NextID,Title
+0,Left,제임스,,"주방 공기가 차갑군. 다들 내 눈치를 보거나, 서로를 피하고 있어.",,,,,,,,,,,,,,,,
+1,Left,제임스,,"점점 사람들이 서로를 경계하며 날을 세우는 모습이 아주 노골적으로 보이는군.",,,,,,,,,,,,,,,,
+2,Left,제임스,,"이건 매우 좋지 않은 상황이다. 외부의 적보다 내부의 불신이 대피소를 먼저 무너뜨릴 테니까.",,,,,,,,,,,,,,,,
+3,Left,제임스,,"누군가 선을 넘기 전에 내가 다시 한번 확실하게 기강을 잡아야 할지도 모르겠어.",,End,,,,,,,,,,,,,,

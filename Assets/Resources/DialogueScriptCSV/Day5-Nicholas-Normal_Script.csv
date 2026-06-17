@@ -1,0 +1,5 @@
+﻿ID,SpeakerPosition,SpeakerName,ListenerName,DialogueText,NextID,Event,Emotion,Choice1_Text,Choice1_Effect,Choice1_Req,Choice1_NextID,Choice2_Text,Choice2_Effect,Choice2_Req,Choice2_NextID,Choice3_Text,Choice3_Effect,Choice3_Req,Choice3_NextID,Title
+0,Left,니콜라스,,"왔어? 오늘은 발전기 돌아가는 소리가 유독 크게 들리네.",,,,,,,,,,,,,,,,
+1,Left,니콜라스,,"저기, 넌 어떻게 생각해? 밖에서 생존하는 게… 이 답답한 대피소에서 속 모를 사람들과 지내는 것보다 낫지 않을까?",,,,,,,,,,,,,,,,
+2,Left,니콜라스,,"적어도 밖에서는 누가 괴물이고 누가 사람인지, 눈에 빤히 보일 테니까 말이야.",,,,,,,,,,,,,,,,
+3,Left,니콜라스,,"…아니야, 신경 쓰지 마. 그냥 해본 혼잣말이었어.",,End,,,,,,,,,,,,,,

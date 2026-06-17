@@ -1,0 +1,5 @@
+﻿ID,SpeakerPosition,SpeakerName,ListenerName,DialogueText,NextID,Event,Emotion,Choice1_Text,Choice1_Effect,Choice1_Req,Choice1_NextID,Choice2_Text,Choice2_Effect,Choice2_Req,Choice2_NextID,Choice3_Text,Choice3_Effect,Choice3_Req,Choice3_NextID,Title
+0,Left,니콜라스,,"여긴 어쩐 일이야? 배전실은 내 구역인데. 뭐, 심심하면 들어와도 좋아.",,,,,,,,,,,,,,,,
+1,Left,니콜라스,,"내 기술력 알지? 나만 한 정비사가 있으니 이 대피소가 돌아가는 거라고. 사실 내 능력과 물자만 있으면 밖에서도 끄떡없지.",,,,,,,,,,,,,,,,
+2,Left,니콜라스,,"아, 소피아 할머니 말이야? 대피소에 오기 전부터 옆집 살던 이웃이었어. 내가 챙겨서 여기까지 모시고 온 거지.",,,,,,,,,,,,,,,,
+3,Left,니콜라스,,"아무튼 난 바쁘니까 이만 가봐. 나중에 '진짜 생존'에 대해 얘기할 기회가 있을지도 모르지.",,End,,,,,,,,,,,,,,

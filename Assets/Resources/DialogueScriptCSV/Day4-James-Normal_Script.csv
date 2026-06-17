@@ -1,0 +1,5 @@
+﻿ID,SpeakerPosition,SpeakerName,ListenerName,DialogueText,NextID,Event,Emotion,Choice1_Text,Choice1_Effect,Choice1_Req,Choice1_NextID,Choice2_Text,Choice2_Effect,Choice2_Req,Choice2_NextID,Choice3_Text,Choice3_Effect,Choice3_Req,Choice3_NextID,Title
+0,Left,제임스,,"여긴 전력 상태를 확인하러 온 거다. 네가 올 줄은 몰랐군.",,,,,,,,,,,,,,,,
+1,Left,제임스,,"요즘 자꾸 대피소 안팎으로 이상한 낌새가 느껴져. 누군가 고의로 우릴 위험에 빠뜨리려는 것 같단 말이지.",,,,,,,,,,,,,,,,
+2,Left,제임스,,"잠복기인 감염자 때문인지, 아니면 다른 불순한 의도를 가진 쥐새끼가 있는 건지….",,,,,,,,,,,,,,,,
+3,Left,제임스,,"어느 쪽이든 내 눈에 띄면 테오 때처럼 확실하게 밟아줄 거다. 너도 항상 주변을 경계해.",,End,,,,,,,,,,,,,,

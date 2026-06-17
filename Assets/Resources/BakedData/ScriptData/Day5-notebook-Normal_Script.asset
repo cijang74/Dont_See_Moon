@@ -1,0 +1,112 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee81f89839c79ae438a59b0912e1638c, type: 3}
+  m_Name: Day5-notebook-Normal_Script
+  m_EditorClassIdentifier: 
+  title: 
+  dialogueLines:
+  - ID: 0
+    speakerPosition: Left
+    speakerName: "\uC8FC\uC778\uACF5"
+    listenerName: 
+    dialogueText: "\uC5D8\uB77C\uC758 \uBC29\uC5D0\uC11C \uB0A1\uC740 \uC218\uCCA9\uC744
+      \uD558\uB098 \uBC1C\uACAC\uD588\uB2E4. \uC548\uC5D0\uB294 \uAE00\uC528\uAC00
+      \uBE7C\uACE1\uD558\uAC8C \uC801\uD600 \uC788\uB2E4."
+    nextID: 
+    events: []
+    emotion: 
+    choices:
+    - text: 
+      nextID: 
+      effects: []
+      requiredEvidence: 0
+    - text: 
+      nextID: 
+      effects: []
+      requiredEvidence: 0
+    - text: 
+      nextID: 
+      effects: []
+      requiredEvidence: 0
+  - ID: 1
+    speakerPosition: Left
+    speakerName: "\uC8FC\uC778\uACF5"
+    listenerName: 
+    dialogueText: "\uB300\uD53C\uC18C\uC758 \uC138\uBD80\uC801\uC778 \uAD6C\uC870\uBD80\uD130
+      \uAC70\uC8FC\uD558\uB294 \uC0AC\uB78C\uB4E4\uC758 \uC544\uC8FC \uC0AC\uC18C\uD55C
+      \uD589\uB3D9 \uD328\uD134\uAE4C\uC9C0\u2026 \uC18C\uB984 \uB3CB\uC744 \uC815\uB3C4\uB85C
+      \uC9C0\uB098\uCE58\uAC8C \uC790\uC138\uD55C \uAD00\uCC30 \uAE30\uB85D\uC774\uC57C."
+    nextID: 
+    events: []
+    emotion: 
+    choices:
+    - text: 
+      nextID: 
+      effects: []
+      requiredEvidence: 0
+    - text: 
+      nextID: 
+      effects: []
+      requiredEvidence: 0
+    - text: 
+      nextID: 
+      effects: []
+      requiredEvidence: 0
+  - ID: 2
+    speakerPosition: Left
+    speakerName: "\uC8FC\uC778\uACF5"
+    listenerName: 
+    dialogueText: "\uD14C\uC624\uB97C \uC783\uC740 \uCDA9\uACA9 \uB54C\uBB38\uC5D0
+      \uC0DD\uAE34 \uADF9\uB3C4\uC758 \uAC15\uBC15\uC99D\uC77C\uAE4C? \uC544\uB2C8\uBA74\u2026"
+    nextID: 
+    events: []
+    emotion: 
+    choices:
+    - text: 
+      nextID: 
+      effects: []
+      requiredEvidence: 0
+    - text: 
+      nextID: 
+      effects: []
+      requiredEvidence: 0
+    - text: 
+      nextID: 
+      effects: []
+      requiredEvidence: 0
+  - ID: 3
+    speakerPosition: Left
+    speakerName: "\uC8FC\uC778\uACF5"
+    listenerName: 
+    dialogueText: "\uAE09\uACA9\uD55C \uC778\uC9C0 \uB2A5\uB825 \uC800\uD558\uAC00
+      \uC640\uC11C \uC8FC\uBCC0 \uC0C1\uD669\uC744 \uAE30\uACC4\uC801\uC73C\uB85C
+      \uBAA8\uBC29\uD558\uACE0 \uAE30\uB85D\uD558\uB294 \uAC78\uC9C0\uB3C4 \uBAB0\uB77C.
+      \uC5B4\uB290 \uCABD\uC774\uB4E0 \uC815\uC0C1\uC801\uC778 \uC0C1\uD0DC\uAC00
+      \uC544\uB2C8\uC57C."
+    nextID: 
+    events:
+    - eventType: 4
+      target: 
+    emotion: 
+    choices:
+    - text: 
+      nextID: 
+      effects: []
+      requiredEvidence: 0
+    - text: 
+      nextID: 
+      effects: []
+      requiredEvidence: 0
+    - text: 
+      nextID: 
+      effects: []
+      requiredEvidence: 0

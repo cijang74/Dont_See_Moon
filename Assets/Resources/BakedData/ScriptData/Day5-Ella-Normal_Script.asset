@@ -10,17 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ee81f89839c79ae438a59b0912e1638c, type: 3}
-  m_Name: Day1-James-Normal_Script
+  m_Name: Day5-Ella-Normal_Script
   m_EditorClassIdentifier: 
   title: 
   dialogueLines:
   - ID: 0
     speakerPosition: Left
-    speakerName: "\uC81C\uC784\uC2A4"
+    speakerName: "\uC5D8\uB77C"
     listenerName: 
-    dialogueText: "\uC0C8\uB85C \uB9E1\uC740 \uC5C5\uBB34\uB294 \uD560 \uB9CC\uD55C\uAC00?
-      \uB3D9\uC0DD \uCC3E\uB294 \uAC74 \uD3EC\uAE30\uD558\uACE0 \uD569\uB958\uD55C
-      \uB9CC\uD07C, \uB124 \uBAAB\uC740 \uD655\uC2E4\uD788 \uD574\uC918\uC57C \uD574."
+    dialogueText: "(\uD750\uB290\uB07C\uBA70) \uD750\uD751\u2026 \uB354\uB294\u2026
+      \uB354\uB294 \uBABB \uCC38\uACA0\uC5B4\u2026."
     nextID: 
     events: []
     emotion: 
@@ -39,11 +38,11 @@ MonoBehaviour:
       requiredEvidence: 0
   - ID: 1
     speakerPosition: Left
-    speakerName: "\uC81C\uC784\uC2A4"
+    speakerName: "\uC5D8\uB77C"
     listenerName: 
-    dialogueText: "\uADF8\uB098\uC800\uB098, \uCC3D\uACE0 \uC7AC\uACE0 \uC870\uC0AC\uB97C
-      \uD558\uACE0 \uC788\uB294\uB370 \uC218\uB7C9\uC774 \uC870\uAE08\uC529 \uC548
-      \uB9DE\uB294\uAD70. \uC950\uC0C8\uB07C\uB77C\uB3C4 \uC788\uB294 \uAC74\uC9C0\u2026"
+    dialogueText: "\uB124\uAC00 \uC5EC\uAE30 \uC628 \uC9C0 \uC5BC\uB9C8 \uC548 \uB410\uC744
+      \uB54C\u2026 \uAC10\uC5FC\uC790\uB77C\uACE0 \uBAB0\uB824\uC11C \uC8FD\uC5C8\uB358
+      \uADF8 \uC0AC\uB78C \uB9D0\uC774\uC57C\u2026."
     nextID: 
     events: []
     emotion: 
@@ -62,11 +61,35 @@ MonoBehaviour:
       requiredEvidence: 0
   - ID: 2
     speakerPosition: Left
-    speakerName: "\uC81C\uC784\uC2A4"
+    speakerName: "\uC5D8\uB77C"
     listenerName: 
-    dialogueText: "\uD14C\uC624 \uC77C\uB85C \uB2E4\uB4E4 \uC608\uBBFC\uD55C \uC0C1\uD0DC\uB2E4.
-      \uC624\uB298 \uBC24 \uD22C\uD45C\uAC00 \uC788\uC73C\uB2C8 \uD5C8\uD2BC\uC9D3\uD558\uC9C0
-      \uB9D0\uACE0 \uC77C\uC774\uB098 \uB9C8\uC800 \uD574."
+    dialogueText: "\uD14C\uC624\uB294\u2026 \uB0B4 \uC5F0\uC778\uC774\uC5C8\uC5B4.
+      \uC6B0\uB9B0 \uADF8\uC800 \uC870\uC6A9\uD788 \uC0B4\uC544\uB0A8\uACE0 \uC2F6\uC5C8\uC744
+      \uBFD0\uC778\uB370\u2026!"
+    nextID: 
+    events: []
+    emotion: 
+    choices:
+    - text: 
+      nextID: 
+      effects: []
+      requiredEvidence: 0
+    - text: 
+      nextID: 
+      effects: []
+      requiredEvidence: 0
+    - text: 
+      nextID: 
+      effects: []
+      requiredEvidence: 0
+  - ID: 3
+    speakerPosition: Left
+    speakerName: "\uC5D8\uB77C"
+    listenerName: 
+    dialogueText: "\uC81C\uC784\uC2A4 \uADF8 \uC545\uB9C8\uAC00 \uD14C\uC624\uB97C
+      \uC8FD\uC778 \uAC70\uC57C! \uAC10\uC5FC\uC790\uB77C\uB294 \uD551\uACC4\uB85C
+      \uC790\uAE30\uC5D0 \uBC18\uB300\uD558\uB294 \uC0AC\uB78C\uC744 \uBB34\uCC38\uD558\uAC8C
+      \uC8FD\uC778 \uAC70\uB77C\uACE0!"
     nextID: 
     events:
     - eventType: 4
