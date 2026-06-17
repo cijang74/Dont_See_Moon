@@ -636,6 +636,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Doorway_Door
       objectReference: {fileID: 0}
+    - target: {fileID: 1030974698, guid: abc00000000002207643421380915773, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1030974699, guid: abc00000000002207643421380915773, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -674,6 +678,22 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1030974699, guid: abc00000000002207643421380915773, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030974702, guid: abc00000000002207643421380915773, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030974706, guid: abc00000000002207643421380915773, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030974710, guid: abc00000000002207643421380915773, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030974714, guid: abc00000000002207643421380915773, type: 3}
+      propertyPath: m_StaticEditorFlags
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -1047,6 +1067,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Doorway_Door
       objectReference: {fileID: 0}
+    - target: {fileID: 1030974698, guid: abc00000000002207643421380915773, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1030974699, guid: abc00000000002207643421380915773, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1085,6 +1109,22 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1030974699, guid: abc00000000002207643421380915773, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030974702, guid: abc00000000002207643421380915773, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030974706, guid: abc00000000002207643421380915773, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030974710, guid: abc00000000002207643421380915773, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030974714, guid: abc00000000002207643421380915773, type: 3}
+      propertyPath: m_StaticEditorFlags
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -2205,6 +2245,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Chest
       objectReference: {fileID: 0}
+    - target: {fileID: 1030975058, guid: abc00000000006673521027459579752, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1030975059, guid: abc00000000006673521027459579752, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.9615
@@ -2255,6 +2299,22 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1030975059, guid: abc00000000006673521027459579752, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030975062, guid: abc00000000006673521027459579752, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030975066, guid: abc00000000006673521027459579752, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030975070, guid: abc00000000006673521027459579752, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030975074, guid: abc00000000006673521027459579752, type: 3}
+      propertyPath: m_StaticEditorFlags
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -3747,6 +3807,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Doorway_Door
       objectReference: {fileID: 0}
+    - target: {fileID: 1030974698, guid: abc00000000002207643421380915773, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1030974699, guid: abc00000000002207643421380915773, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -3785,6 +3849,22 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1030974699, guid: abc00000000002207643421380915773, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030974702, guid: abc00000000002207643421380915773, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030974706, guid: abc00000000002207643421380915773, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030974710, guid: abc00000000002207643421380915773, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030974714, guid: abc00000000002207643421380915773, type: 3}
+      propertyPath: m_StaticEditorFlags
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -4281,6 +4361,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_CardboardBox_01
       objectReference: {fileID: 0}
+    - target: {fileID: 1030975118, guid: abc00000000013044831137575789690, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1030975119, guid: abc00000000013044831137575789690, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.26205173
@@ -4323,6 +4407,22 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1030975121, guid: abc00000000013044831137575789690, type: 3}
       propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030975122, guid: abc00000000013044831137575789690, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030975126, guid: abc00000000013044831137575789690, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030975130, guid: abc00000000013044831137575789690, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030975134, guid: abc00000000013044831137575789690, type: 3}
+      propertyPath: m_StaticEditorFlags
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -5361,6 +5461,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Doorway_Door
       objectReference: {fileID: 0}
+    - target: {fileID: 1030974698, guid: abc00000000002207643421380915773, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1030974699, guid: abc00000000002207643421380915773, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -5399,6 +5503,22 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1030974699, guid: abc00000000002207643421380915773, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030974702, guid: abc00000000002207643421380915773, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030974706, guid: abc00000000002207643421380915773, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030974710, guid: abc00000000002207643421380915773, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030974714, guid: abc00000000002207643421380915773, type: 3}
+      propertyPath: m_StaticEditorFlags
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -5820,6 +5940,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Bed_Sheet
       objectReference: {fileID: 0}
+    - target: {fileID: 1030976034, guid: abc00000000000762919710037042294, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1030976035, guid: abc00000000000762919710037042294, type: 3}
       propertyPath: m_LocalPosition.x
       value: -2.4335594
@@ -5863,6 +5987,22 @@ PrefabInstance:
     - target: {fileID: 1030976037, guid: abc00000000000762919710037042294, type: 3}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030976038, guid: abc00000000000762919710037042294, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030976042, guid: abc00000000000762919710037042294, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030976046, guid: abc00000000000762919710037042294, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030976050, guid: abc00000000000762919710037042294, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -8483,6 +8623,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Doorway_Door
       objectReference: {fileID: 0}
+    - target: {fileID: 1030974698, guid: abc00000000002207643421380915773, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1030974699, guid: abc00000000002207643421380915773, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -8521,6 +8665,22 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1030974699, guid: abc00000000002207643421380915773, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030974702, guid: abc00000000002207643421380915773, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030974706, guid: abc00000000002207643421380915773, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030974710, guid: abc00000000002207643421380915773, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030974714, guid: abc00000000002207643421380915773, type: 3}
+      propertyPath: m_StaticEditorFlags
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -8876,6 +9036,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1030975625, guid: abc00000000005376421810735002258, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1030975626, guid: abc00000000005376421810735002258, type: 3}
       propertyPath: m_LocalPosition.x
       value: -26.435104
@@ -8914,6 +9078,22 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1030975626, guid: abc00000000005376421810735002258, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030975629, guid: abc00000000005376421810735002258, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030975633, guid: abc00000000005376421810735002258, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030975637, guid: abc00000000005376421810735002258, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030975641, guid: abc00000000005376421810735002258, type: 3}
+      propertyPath: m_StaticEditorFlags
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -10630,6 +10810,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1030977496, guid: abc00000000003795198056135021557, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1030977497, guid: abc00000000003795198056135021557, type: 3}
       propertyPath: m_LocalPosition.x
       value: -10.27938
@@ -10668,6 +10852,22 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1030977497, guid: abc00000000003795198056135021557, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030977500, guid: abc00000000003795198056135021557, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030977504, guid: abc00000000003795198056135021557, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030977508, guid: abc00000000003795198056135021557, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030977512, guid: abc00000000003795198056135021557, type: 3}
+      propertyPath: m_StaticEditorFlags
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -12688,6 +12888,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Doorway_Door
       objectReference: {fileID: 0}
+    - target: {fileID: 1030974698, guid: abc00000000002207643421380915773, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1030974699, guid: abc00000000002207643421380915773, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -12726,6 +12930,22 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1030974699, guid: abc00000000002207643421380915773, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030974702, guid: abc00000000002207643421380915773, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030974706, guid: abc00000000002207643421380915773, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030974710, guid: abc00000000002207643421380915773, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030974714, guid: abc00000000002207643421380915773, type: 3}
+      propertyPath: m_StaticEditorFlags
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -14424,6 +14644,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Doorway_Door
       objectReference: {fileID: 0}
+    - target: {fileID: 1030974698, guid: abc00000000002207643421380915773, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1030974699, guid: abc00000000002207643421380915773, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -14462,6 +14686,22 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1030974699, guid: abc00000000002207643421380915773, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030974702, guid: abc00000000002207643421380915773, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030974706, guid: abc00000000002207643421380915773, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030974710, guid: abc00000000002207643421380915773, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030974714, guid: abc00000000002207643421380915773, type: 3}
+      propertyPath: m_StaticEditorFlags
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -14877,6 +15117,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1030975934, guid: abc00000000000593325588021990600, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1030975935, guid: abc00000000000593325588021990600, type: 3}
       propertyPath: m_LocalPosition.x
       value: -10.7089
@@ -14915,6 +15159,22 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1030975935, guid: abc00000000000593325588021990600, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030975938, guid: abc00000000000593325588021990600, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030975942, guid: abc00000000000593325588021990600, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030975946, guid: abc00000000000593325588021990600, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030975950, guid: abc00000000000593325588021990600, type: 3}
+      propertyPath: m_StaticEditorFlags
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -18487,6 +18747,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Doorway_Door
       objectReference: {fileID: 0}
+    - target: {fileID: 1030974698, guid: abc00000000002207643421380915773, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1030974699, guid: abc00000000002207643421380915773, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -18525,6 +18789,22 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1030974699, guid: abc00000000002207643421380915773, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030974702, guid: abc00000000002207643421380915773, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030974706, guid: abc00000000002207643421380915773, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030974710, guid: abc00000000002207643421380915773, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030974714, guid: abc00000000002207643421380915773, type: 3}
+      propertyPath: m_StaticEditorFlags
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -18930,6 +19210,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1030980125, guid: abc00000000013710608436486614374, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1030980126, guid: abc00000000013710608436486614374, type: 3}
       propertyPath: m_LocalPosition.x
       value: -8.25
@@ -18968,6 +19252,22 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1030980126, guid: abc00000000013710608436486614374, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030980129, guid: abc00000000013710608436486614374, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030980133, guid: abc00000000013710608436486614374, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030980137, guid: abc00000000013710608436486614374, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030980141, guid: abc00000000013710608436486614374, type: 3}
+      propertyPath: m_StaticEditorFlags
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -21200,6 +21500,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1030977536, guid: abc00000000017729685899599341226, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1030977537, guid: abc00000000017729685899599341226, type: 3}
       propertyPath: m_LocalPosition.x
       value: 17.8904
@@ -21239,6 +21543,22 @@ PrefabInstance:
     - target: {fileID: 1030977537, guid: abc00000000017729685899599341226, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030977540, guid: abc00000000017729685899599341226, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030977544, guid: abc00000000017729685899599341226, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030977548, guid: abc00000000017729685899599341226, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030977552, guid: abc00000000017729685899599341226, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -21459,6 +21779,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1030975098, guid: abc00000000012106635637431539363, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1030975099, guid: abc00000000012106635637431539363, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.84974
@@ -21509,6 +21833,22 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1030975099, guid: abc00000000012106635637431539363, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030975102, guid: abc00000000012106635637431539363, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030975106, guid: abc00000000012106635637431539363, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030975110, guid: abc00000000012106635637431539363, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030975114, guid: abc00000000012106635637431539363, type: 3}
+      propertyPath: m_StaticEditorFlags
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -21854,6 +22194,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Doorway_Door
       objectReference: {fileID: 0}
+    - target: {fileID: 1030974698, guid: abc00000000002207643421380915773, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1030974699, guid: abc00000000002207643421380915773, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -21894,6 +22238,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1030974702, guid: abc00000000002207643421380915773, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030974706, guid: abc00000000002207643421380915773, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030974710, guid: abc00000000002207643421380915773, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030974714, guid: abc00000000002207643421380915773, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -21922,6 +22282,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1030975098, guid: abc00000000012106635637431539363, type: 3}
       propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030975098, guid: abc00000000012106635637431539363, type: 3}
+      propertyPath: m_StaticEditorFlags
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1030975099, guid: abc00000000012106635637431539363, type: 3}
@@ -21968,6 +22332,22 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1030975102, guid: abc00000000012106635637431539363, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030975106, guid: abc00000000012106635637431539363, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030975110, guid: abc00000000012106635637431539363, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030975114, guid: abc00000000012106635637431539363, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -22002,6 +22382,10 @@ PrefabInstance:
     - target: {fileID: 1030974698, guid: abc00000000002207643421380915773, type: 3}
       propertyPath: m_Name
       value: SM_Doorway_Door
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030974698, guid: abc00000000002207643421380915773, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1030974699, guid: abc00000000002207643421380915773, type: 3}
       propertyPath: m_LocalPosition.x
@@ -22041,6 +22425,22 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1030974699, guid: abc00000000002207643421380915773, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030974702, guid: abc00000000002207643421380915773, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030974706, guid: abc00000000002207643421380915773, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030974710, guid: abc00000000002207643421380915773, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030974714, guid: abc00000000002207643421380915773, type: 3}
+      propertyPath: m_StaticEditorFlags
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -22744,6 +23144,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Doorway_Door
       objectReference: {fileID: 0}
+    - target: {fileID: 1030974698, guid: abc00000000002207643421380915773, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1030974699, guid: abc00000000002207643421380915773, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -22782,6 +23186,22 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1030974699, guid: abc00000000002207643421380915773, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030974702, guid: abc00000000002207643421380915773, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030974706, guid: abc00000000002207643421380915773, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030974710, guid: abc00000000002207643421380915773, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030974714, guid: abc00000000002207643421380915773, type: 3}
+      propertyPath: m_StaticEditorFlags
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -25041,6 +25461,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Doorway_Door
       objectReference: {fileID: 0}
+    - target: {fileID: 1030974698, guid: abc00000000002207643421380915773, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1030974699, guid: abc00000000002207643421380915773, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -25079,6 +25503,22 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1030974699, guid: abc00000000002207643421380915773, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030974702, guid: abc00000000002207643421380915773, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030974706, guid: abc00000000002207643421380915773, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030974710, guid: abc00000000002207643421380915773, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030974714, guid: abc00000000002207643421380915773, type: 3}
+      propertyPath: m_StaticEditorFlags
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -26028,6 +26468,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Doorway_Door
       objectReference: {fileID: 0}
+    - target: {fileID: 1030974698, guid: abc00000000002207643421380915773, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1030974699, guid: abc00000000002207643421380915773, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -26066,6 +26510,22 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1030974699, guid: abc00000000002207643421380915773, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030974702, guid: abc00000000002207643421380915773, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030974706, guid: abc00000000002207643421380915773, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030974710, guid: abc00000000002207643421380915773, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030974714, guid: abc00000000002207643421380915773, type: 3}
+      propertyPath: m_StaticEditorFlags
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -27553,7 +28013,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1258822920
 RectTransform:
   m_ObjectHideFlags: 0
@@ -29148,6 +29608,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Doorway_Door
       objectReference: {fileID: 0}
+    - target: {fileID: 1030974698, guid: abc00000000002207643421380915773, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1030974699, guid: abc00000000002207643421380915773, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -29186,6 +29650,22 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1030974699, guid: abc00000000002207643421380915773, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030974702, guid: abc00000000002207643421380915773, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030974706, guid: abc00000000002207643421380915773, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030974710, guid: abc00000000002207643421380915773, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030974714, guid: abc00000000002207643421380915773, type: 3}
+      propertyPath: m_StaticEditorFlags
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -29677,6 +30157,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Doorway_Door
       objectReference: {fileID: 0}
+    - target: {fileID: 1030974698, guid: abc00000000002207643421380915773, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1030974699, guid: abc00000000002207643421380915773, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -29715,6 +30199,22 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1030974699, guid: abc00000000002207643421380915773, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030974702, guid: abc00000000002207643421380915773, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030974706, guid: abc00000000002207643421380915773, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030974710, guid: abc00000000002207643421380915773, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030974714, guid: abc00000000002207643421380915773, type: 3}
+      propertyPath: m_StaticEditorFlags
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -30809,6 +31309,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Doorway_Door
       objectReference: {fileID: 0}
+    - target: {fileID: 1030974698, guid: abc00000000002207643421380915773, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1030974699, guid: abc00000000002207643421380915773, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -30847,6 +31351,22 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1030974699, guid: abc00000000002207643421380915773, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030974702, guid: abc00000000002207643421380915773, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030974706, guid: abc00000000002207643421380915773, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030974710, guid: abc00000000002207643421380915773, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030974714, guid: abc00000000002207643421380915773, type: 3}
+      propertyPath: m_StaticEditorFlags
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -31819,6 +32339,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Poster_10
       objectReference: {fileID: 0}
+    - target: {fileID: 1030978902, guid: abc00000000006898370177377490710, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1030978903, guid: abc00000000006898370177377490710, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.035723455
@@ -31861,6 +32385,22 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1030978905, guid: abc00000000006898370177377490710, type: 3}
       propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030978906, guid: abc00000000006898370177377490710, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030978910, guid: abc00000000006898370177377490710, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030978914, guid: abc00000000006898370177377490710, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030978918, guid: abc00000000006898370177377490710, type: 3}
+      propertyPath: m_StaticEditorFlags
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -32974,6 +33514,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Doorway_Door
       objectReference: {fileID: 0}
+    - target: {fileID: 1030974698, guid: abc00000000002207643421380915773, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1030974699, guid: abc00000000002207643421380915773, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -33012,6 +33556,22 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1030974699, guid: abc00000000002207643421380915773, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030974702, guid: abc00000000002207643421380915773, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030974706, guid: abc00000000002207643421380915773, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030974710, guid: abc00000000002207643421380915773, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030974714, guid: abc00000000002207643421380915773, type: 3}
+      propertyPath: m_StaticEditorFlags
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -34394,6 +34954,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1030974918, guid: abc00000000011124777017148793818, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1030974919, guid: abc00000000011124777017148793818, type: 3}
       propertyPath: m_LocalPosition.x
       value: -33.18
@@ -34433,6 +34997,22 @@ PrefabInstance:
     - target: {fileID: 1030974919, guid: abc00000000011124777017148793818, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 180
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030974922, guid: abc00000000011124777017148793818, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030974926, guid: abc00000000011124777017148793818, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030974930, guid: abc00000000011124777017148793818, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030974934, guid: abc00000000011124777017148793818, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -35383,6 +35963,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Doorway_Door
       objectReference: {fileID: 0}
+    - target: {fileID: 1030974698, guid: abc00000000002207643421380915773, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1030974699, guid: abc00000000002207643421380915773, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -35421,6 +36005,22 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1030974699, guid: abc00000000002207643421380915773, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030974702, guid: abc00000000002207643421380915773, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030974706, guid: abc00000000002207643421380915773, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030974710, guid: abc00000000002207643421380915773, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030974714, guid: abc00000000002207643421380915773, type: 3}
+      propertyPath: m_StaticEditorFlags
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -35807,6 +36407,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1030977996, guid: abc00000000012153871188094487794, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1030977997, guid: abc00000000012153871188094487794, type: 3}
       propertyPath: m_LocalPosition.x
       value: -8.419
@@ -35846,6 +36450,22 @@ PrefabInstance:
     - target: {fileID: 1030977997, guid: abc00000000012153871188094487794, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: -89.756
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030978000, guid: abc00000000012153871188094487794, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030978004, guid: abc00000000012153871188094487794, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030978008, guid: abc00000000012153871188094487794, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030978012, guid: abc00000000012153871188094487794, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -36016,6 +36636,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Doorway_Door
       objectReference: {fileID: 0}
+    - target: {fileID: 1030974698, guid: abc00000000002207643421380915773, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1030974699, guid: abc00000000002207643421380915773, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -36056,6 +36680,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1030974702, guid: abc00000000002207643421380915773, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030974706, guid: abc00000000002207643421380915773, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030974710, guid: abc00000000002207643421380915773, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030974714, guid: abc00000000002207643421380915773, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -36081,6 +36721,10 @@ PrefabInstance:
     - target: {fileID: 1030974811, guid: abc00000000002102194570356099522, type: 3}
       propertyPath: m_Name
       value: SM_Desk
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030974811, guid: abc00000000002102194570356099522, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1030974812, guid: abc00000000002102194570356099522, type: 3}
       propertyPath: m_LocalScale.y
@@ -36129,6 +36773,10 @@ PrefabInstance:
     - target: {fileID: 1030974813, guid: abc00000000002102194570356099522, type: 3}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030974814, guid: abc00000000002102194570356099522, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1030974816, guid: abc00000000002102194570356099522, type: 3}
       propertyPath: m_CastShadows
@@ -36680,6 +37328,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Doorway_Door
       objectReference: {fileID: 0}
+    - target: {fileID: 1030974698, guid: abc00000000002207643421380915773, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1030974699, guid: abc00000000002207643421380915773, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -36718,6 +37370,22 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1030974699, guid: abc00000000002207643421380915773, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030974702, guid: abc00000000002207643421380915773, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030974706, guid: abc00000000002207643421380915773, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030974710, guid: abc00000000002207643421380915773, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030974714, guid: abc00000000002207643421380915773, type: 3}
+      propertyPath: m_StaticEditorFlags
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -37856,6 +38524,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Doorway_Door
       objectReference: {fileID: 0}
+    - target: {fileID: 1030974698, guid: abc00000000002207643421380915773, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1030974699, guid: abc00000000002207643421380915773, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -37899,6 +38571,22 @@ PrefabInstance:
     - target: {fileID: 1030974701, guid: abc00000000002207643421380915773, type: 3}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030974702, guid: abc00000000002207643421380915773, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030974706, guid: abc00000000002207643421380915773, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030974710, guid: abc00000000002207643421380915773, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030974714, guid: abc00000000002207643421380915773, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -38669,6 +39357,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Doorway_Door
       objectReference: {fileID: 0}
+    - target: {fileID: 1030974698, guid: abc00000000002207643421380915773, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1030974699, guid: abc00000000002207643421380915773, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -38711,6 +39403,22 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1030974701, guid: abc00000000002207643421380915773, type: 3}
       propertyPath: m_Convex
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030974702, guid: abc00000000002207643421380915773, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030974706, guid: abc00000000002207643421380915773, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030974710, guid: abc00000000002207643421380915773, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030974714, guid: abc00000000002207643421380915773, type: 3}
+      propertyPath: m_StaticEditorFlags
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -39692,6 +40400,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Doorway_Door
       objectReference: {fileID: 0}
+    - target: {fileID: 1030974698, guid: abc00000000002207643421380915773, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1030974699, guid: abc00000000002207643421380915773, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -39730,6 +40442,22 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1030974699, guid: abc00000000002207643421380915773, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030974702, guid: abc00000000002207643421380915773, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030974706, guid: abc00000000002207643421380915773, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030974710, guid: abc00000000002207643421380915773, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030974714, guid: abc00000000002207643421380915773, type: 3}
+      propertyPath: m_StaticEditorFlags
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -41291,6 +42019,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Doorway_Door
       objectReference: {fileID: 0}
+    - target: {fileID: 1030974698, guid: abc00000000002207643421380915773, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1030974699, guid: abc00000000002207643421380915773, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -41329,6 +42061,22 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1030974699, guid: abc00000000002207643421380915773, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030974702, guid: abc00000000002207643421380915773, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030974706, guid: abc00000000002207643421380915773, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030974710, guid: abc00000000002207643421380915773, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030974714, guid: abc00000000002207643421380915773, type: 3}
+      propertyPath: m_StaticEditorFlags
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -42788,6 +43536,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Doorway_Door
       objectReference: {fileID: 0}
+    - target: {fileID: 1030974698, guid: abc00000000002207643421380915773, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1030974699, guid: abc00000000002207643421380915773, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -42826,6 +43578,22 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1030974699, guid: abc00000000002207643421380915773, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030974702, guid: abc00000000002207643421380915773, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030974706, guid: abc00000000002207643421380915773, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030974710, guid: abc00000000002207643421380915773, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030974714, guid: abc00000000002207643421380915773, type: 3}
+      propertyPath: m_StaticEditorFlags
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -43506,6 +44274,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1030975098, guid: abc00000000012106635637431539363, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1030975099, guid: abc00000000012106635637431539363, type: 3}
       propertyPath: m_LocalPosition.x
       value: -26.079
@@ -43544,6 +44316,22 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1030975099, guid: abc00000000012106635637431539363, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030975102, guid: abc00000000012106635637431539363, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030975106, guid: abc00000000012106635637431539363, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030975110, guid: abc00000000012106635637431539363, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030975114, guid: abc00000000012106635637431539363, type: 3}
+      propertyPath: m_StaticEditorFlags
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -46101,6 +46889,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Doorway_Door
       objectReference: {fileID: 0}
+    - target: {fileID: 1030974698, guid: abc00000000002207643421380915773, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1030974699, guid: abc00000000002207643421380915773, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -46139,6 +46931,22 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1030974699, guid: abc00000000002207643421380915773, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030974702, guid: abc00000000002207643421380915773, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030974706, guid: abc00000000002207643421380915773, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030974710, guid: abc00000000002207643421380915773, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030974714, guid: abc00000000002207643421380915773, type: 3}
+      propertyPath: m_StaticEditorFlags
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
