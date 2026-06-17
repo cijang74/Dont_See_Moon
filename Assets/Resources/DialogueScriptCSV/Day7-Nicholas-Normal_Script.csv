@@ -1,0 +1,4 @@
+﻿ID,SpeakerPosition,SpeakerName,ListenerName,DialogueText,NextID,Event,Emotion,Choice1_Text,Choice1_Effect,Choice1_Req,Choice1_NextID,Choice2_Text,Choice2_Effect,Choice2_Req,Choice2_NextID,Choice3_Text,Choice3_Effect,Choice3_Req,Choice3_NextID,Title
+0,Left,니콜라스,,"(주변을 살피며 조용히) 마침 잘 왔어. 너한테만 몰래 말해두는 건데…",,,,,,,,,,,,,,,,
+1,Left,니콜라스,,"난 오늘 밤에 여길 떠날 계획이야. 이 미쳐 돌아가는 곳에 더는 못 있겠어.",,,,,,,,,,,,,,,,
+2,Left,니콜라스,,"넌 꽤 괜찮은 녀석이었어. 부디 밖에서든 안에서든 살아남길 바랄게. 그럼 안녕이다.",,End,,,,,,,,,,,,,,

@@ -1,0 +1,6 @@
+﻿ID,SpeakerPosition,SpeakerName,ListenerName,DialogueText,NextID,Event,Emotion,Choice1_Text,Choice1_Effect,Choice1_Req,Choice1_NextID,Choice2_Text,Choice2_Effect,Choice2_Req,Choice2_NextID,Choice3_Text,Choice3_Effect,Choice3_Req,Choice3_NextID,Title
+0,Left,제임스,,"다 모였군. 막내, 오늘 네 구역 업무를 빼먹었던데. 지금 이 대피소 상황이 장난 같나?",1,,,,,,,,,,,,,,,
+1,Left,제임스,,"네 몫을 안 하면 남들이 위험해진다는 걸 명심해. …아무튼, 오늘 수상한 점을 발견한 사람 있나?",,,,아무것도 없었습니다.,,,2,,,,,,,,,
+2,Left,제임스,,"당장 할 말이 없다면, 바로 오늘 투표를 진행해보자고.",3,Vote,,,,,,,,,,,,,,
+3,Left,제임스,,투표는 마무리되었네.,4,,,,,,,,,,,,,,,
+4,Left,제임스,,오늘 투표 결과에 따라 처리하겠네. 다들 딴생각 말고 방으로 돌아가.,,End,,,,,,,,,,,,,,

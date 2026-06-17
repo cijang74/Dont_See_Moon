@@ -1,0 +1,4 @@
+﻿ID,SpeakerPosition,SpeakerName,ListenerName,DialogueText,NextID,Event,Emotion,Choice1_Text,Choice1_Effect,Choice1_Req,Choice1_NextID,Choice2_Text,Choice2_Effect,Choice2_Req,Choice2_NextID,Choice3_Text,Choice3_Effect,Choice3_Req,Choice3_NextID,Title
+0,Left,소피아,,"아유, 깜짝이야… 늙은이 심장 떨어지게.",,,,,,,,,,,,,,,,
+1,Left,소피아,,"저기, 요즘 내 방에 누가 자꾸 들어오는 것 같지 않아요? 내가 없을 때마다 누군가 방을 뒤지는 것 같아요.",,,,,,,,,,,,,,,,
+2,Left,소피아,,"물건도 자꾸 하나씩 없어지고… 도대체 누가 늙은이 물건을 탐내는 건지… 너무 불안하네요.",,End,,,,,,,,,,,,,,

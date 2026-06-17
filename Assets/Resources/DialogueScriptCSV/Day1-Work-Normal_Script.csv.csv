@@ -1,0 +1,4 @@
+﻿ID,SpeakerPosition,SpeakerName,ListenerName,DialogueText,NextID,Event,Emotion,Choice1_Text,Choice1_Effect,Choice1_Req,Choice1_NextID,Choice2_Text,Choice2_Effect,Choice2_Req,Choice2_NextID,Choice3_Text,Choice3_Effect,Choice3_Req,Choice3_NextID,Title
+0,Left,주인공,,"오늘 할당된 업무를 시작하자.",1,,,,,,,,,,,,,,,
+1,Left,주인공,,"몸은 고되지만 대피소에서 쫓겨나지 않으려면 내 몫을 확실히 해둬야 해.",2,,,,,,,,,,,,,,,
+2,Left,주인공,,"괜한 의심을 사지 않도록, 묵묵히 작업만 진행하자.",,End,,,,,,,,,,,,,,

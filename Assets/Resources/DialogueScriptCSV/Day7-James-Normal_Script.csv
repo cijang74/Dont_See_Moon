@@ -1,0 +1,4 @@
+﻿ID,SpeakerPosition,SpeakerName,ListenerName,DialogueText,NextID,Event,Emotion,Choice1_Text,Choice1_Effect,Choice1_Req,Choice1_NextID,Choice2_Text,Choice2_Effect,Choice2_Req,Choice2_NextID,Choice3_Text,Choice3_Effect,Choice3_Req,Choice3_NextID,Title
+0,Left,제임스,,"아침에 너한테 보낸 문자는… 너무 신경 쓰지 마라. 그냥 한 번 해본 소리니까.",,,,,,,,,,,,,,,,
+1,Left,제임스,,"(목소리를 낮추며) 오늘 밤 투표는 누구의 눈치도 보지 말고, 네가 생각한 대로 소신껏 해라.",,,,,,,,,,,,,,,,
+2,Left,제임스,,"이 지긋지긋한 대피소의 운명이 오늘 밤 너와 나의 선택에 달렸을지도 모르니 말이야.",,End,,,,,,,,,,,,,,

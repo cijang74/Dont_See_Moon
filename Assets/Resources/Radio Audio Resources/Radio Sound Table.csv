@@ -1,4 +1,6 @@
 ﻿targetFrequency,frequencyRange,audioSourcePath,playTrigger,playedEnoughTime
-91,1,Radio Audio Resources/Radio Sound 1,FALSE,5
-94,2,Radio Audio Resources/Radio Sound 2,FALSE,5
-100,3,Radio Audio Resources/Radio Sound 3,FALSE,5
+91,2,Radio Audio Resources/radio chennal/1 and 5 day radio,FALSE,5
+94,2,Radio Audio Resources/radio chennal/2 day radio,FALSE,5
+100,2,Radio Audio Resources/radio chennal/3 day radio,FALSE,5
+102,2,Radio Audio Resources/radio chennal/4 day radio,FALSE,5
+92,2,Radio Audio Resources/radio chennal/Radio Sound 1,FALSE,5
