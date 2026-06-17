@@ -26,6 +26,15 @@ public class CameraNode : MonoBehaviour
     [Tooltip("대화할 캐릭터나 오브젝트의 이름을 적어주세요. (예: James)")]
     public string dialogueTargetName;
 
+    // 투표권이 있고 투표 대상이 될 수 있는 실제 캐릭터 목록
+    private InteractionObjectType[] validCharacters = {
+        InteractionObjectType.Player,
+        InteractionObjectType.James,
+        InteractionObjectType.Nicholas,
+        InteractionObjectType.Ella,
+        InteractionObjectType.Sophia
+    };
+
     public bool CanBeClicked()
     {
         if (DialogueManager.Instance != null)
@@ -89,6 +98,16 @@ public class CameraNode : MonoBehaviour
                     WorkManager.Instance.isWorkToday = true;
                     StartCoroutine(DialogueManager.Instance.StartDialogue(1, targetType, isInfected));
                     return;
+                }
+
+                else 
+                {
+                    bool isCharacter = System.Array.Exists(validCharacters, element => element == targetType);
+                    
+                    if (!isCharacter)
+                    {
+                        EvidenceManager.Instance.AcquireEvidence(targetType);
+                    }
                 }
 
                 StartCoroutine(DialogueManager.Instance.StartDialogue(currentDay, targetType, isInfected));
