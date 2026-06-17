@@ -234,6 +234,15 @@ public class DialogueEventHandler : MonoBehaviour
         {
             // 부모 밑에 프리팹 인스턴싱
             GameObject newButton = Instantiate(voteButtonPrefab, voteButtonGroup);
+
+            if (System.Enum.TryParse(candidate, true, out InteractionObjectType targetType))
+            {
+                if(!CharacterStatusManager.Instance.IsAlive(targetType))
+                {
+                    newButton.GetComponent<Button>().interactable = false;
+                    newButton.GetComponentInChildren<TextMeshProUGUI>().color = Color.gray;
+                }
+            }
             
             // UI 스케일/위치 꼬임 방지용 초기화
             newButton.transform.localPosition = Vector3.zero;
