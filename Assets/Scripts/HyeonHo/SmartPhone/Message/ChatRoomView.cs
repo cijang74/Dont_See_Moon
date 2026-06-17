@@ -191,8 +191,19 @@ public class ChatRoomView : MonoBehaviour
         if (prefab == null) return;
 
         var go = Instantiate(prefab, messageContent);
-        var t = go.GetComponentInChildren<TextMeshProUGUI>();
-        if (t != null) t.text = text;
+
+        // ChatBubble이 있으면 그쪽이 크기/정렬을 자동 조정 (TMP에 직접 쓰지 않음)
+        var bubble = go.GetComponent<ChatBubble>();
+        if (bubble != null)
+        {
+            bubble.SetText(text);
+        }
+        else
+        {
+            var t = go.GetComponentInChildren<TextMeshProUGUI>();
+            if (t != null) t.text = text;
+        }
+
         ScrollToBottom();
     }
 
