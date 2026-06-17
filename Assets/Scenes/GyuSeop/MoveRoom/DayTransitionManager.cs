@@ -13,6 +13,13 @@ public class DailyEventInfo
     public UnityEvent onDayStartEvent;
 }
 
+[System.Serializable]
+public class NPCObjectMapping
+{
+    public InteractionObjectType npcType;
+    public GameObject npcObject;
+}
+
 public class DayTransitionManager : MonoBehaviour
 {
     // 외부 스크립트(CameraMoveManager)에서 연출 중인지 확인할 수 있는 전역 변수
@@ -53,6 +60,10 @@ public class DayTransitionManager : MonoBehaviour
         new DailyEventInfo(), new DailyEventInfo(), new DailyEventInfo(), 
         new DailyEventInfo(), new DailyEventInfo(), new DailyEventInfo(), new DailyEventInfo()
     };
+
+    [Header("NPC 오브젝트 관리")]
+    [Tooltip("각 NPC 타입과 씬에 배치된 실제 게임 오브젝트를 연결해주세요.")]
+    public List<NPCObjectMapping> npcList = new List<NPCObjectMapping>();
 
     void OnValidate()
     {
@@ -208,6 +219,18 @@ public class DayTransitionManager : MonoBehaviour
 
         // 💡 화면이 까매졌을 때 투표 결과 집계 및 처형 처리
         VoteManager.Instance.CalculateDailyVoteResults();
+
+        // 💡 [추가] 정산 결과에 따라 죽은 NPC 오브젝트 비활성화 처리
+        if (npcList != null)
+        {
+            foreach (var npc in npcList)
+            {
+                if (npc.npcObject != null && !CharacterStatusManager.Instance.IsAlive(npc.npcType))
+                {
+                    npc.npcObject.SetActive(false);
+                }
+            }
+        }
 
         if (nextDayStartCamera != null) camManager.ForceSetCameraAndClearHistory(nextDayStartCamera);
         if (nextDayBGM != null) bgmManager.ChangeBGM(nextDayBGM);
